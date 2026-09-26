@@ -4,7 +4,8 @@ import { createClient } from "next-sanity";
 /* Sanity configuration (env-driven, graceful when not configured yet) */
 /* ------------------------------------------------------------------ */
 
-export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "";
+export const projectId =
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "j1m80m30";
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
 export const apiVersion =
   process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2025-10-01";
