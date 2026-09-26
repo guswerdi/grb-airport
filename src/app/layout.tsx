@@ -22,7 +22,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://greatbaliairporttransfer.com"),
+  metadataBase: new URL("https://www.greatbaliairporttransfer.com"),
   title: {
     default: "Bali Airport Transfer (DPS) | VIP Private Chauffeur & Fixed Rates",
     template: "%s | Great Bali Airport Transfer",
@@ -52,13 +52,13 @@ export const metadata: Metadata = {
     address: true,
   },
   alternates: {
-    canonical: "https://greatbaliairporttransfer.com",
+    canonical: "https://www.greatbaliairporttransfer.com",
   },
   openGraph: {
     title: "Bali Airport Transfer (DPS) | Private VIP Chauffeur & Fixed Rates",
     description:
       "Arrive stress-free in Bali. Personalized arrival hall greeting, flight delay tracking, and fixed transparent fares to Ubud, Seminyak, Canggu, Uluwatu, and Nusa Dua.",
-    url: "https://greatbaliairporttransfer.com",
+    url: "https://www.greatbaliairporttransfer.com",
     siteName: "Great Bali Airport Transfer",
     locale: "en_US",
     type: "website",

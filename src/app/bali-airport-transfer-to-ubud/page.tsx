@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     "how to get from bali airport to ubud",
   ],
   alternates: {
-    canonical: "https://greatbaliairporttransfer.com/bali-airport-transfer-to-ubud",
+    canonical: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-ubud",
   },
   openGraph: {
     title: "Bali Airport Transfer to Ubud (DPS) | Private Chauffeur & Fixed Rates",
     description:
       "Arrive stress-free in Ubud. Personal chauffeur greeting at DPS arrival hall, free flight tracking, toll & parking included.",
-    url: "https://greatbaliairporttransfer.com/bali-airport-transfer-to-ubud",
+    url: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-ubud",
     images: ["/images/dest-ubud.jpg"],
   },
 };

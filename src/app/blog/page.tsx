@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Essential Bali airport arrival advice, transparent DPS taxi cost breakdowns, and local chauffeur insights for a stress-free holiday start.",
   alternates: {
-    canonical: "https://greatbaliairporttransfer.com/blog",
+    canonical: "https://www.greatbaliairporttransfer.com/blog",
   },
 };
 

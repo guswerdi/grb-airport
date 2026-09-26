@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     "bali mandara tollway airport taxi",
   ],
   alternates: {
-    canonical: "https://greatbaliairporttransfer.com/bali-airport-transfer-to-nusa-dua",
+    canonical: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-nusa-dua",
   },
   openGraph: {
     title: "Bali Airport Transfer to Nusa Dua (DPS) | Chauffeur & Fixed Rates",
     description:
       "Arrive at Nusa Dua 5-star beachfront resorts via Bali Mandara ocean tollway. Mulia, Kempinski, St. Regis, Sofitel.",
-    url: "https://greatbaliairporttransfer.com/bali-airport-transfer-to-nusa-dua",
+    url: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-nusa-dua",
     images: ["/images/dest-uluwatu.jpg"],
   },
 };

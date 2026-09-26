@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     "bali airport transfer surfboard",
   ],
   alternates: {
-    canonical: "https://greatbaliairporttransfer.com/bali-airport-transfer-to-canggu",
+    canonical: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-canggu",
   },
   openGraph: {
     title: "Bali Airport Transfer to Canggu (DPS) | Private Driver & Fixed Rates",
     description:
       "Direct private transfer to Canggu, Berawa, and Echo Beach. Surfboard friendly vans and bypass routing.",
-    url: "https://greatbaliairporttransfer.com/bali-airport-transfer-to-canggu",
+    url: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-canggu",
     images: ["/images/dest-seminyak.jpg"],
   },
 };

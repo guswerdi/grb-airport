@@ -110,13 +110,13 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://greatbaliairporttransfer.com/",
+        "item": "https://www.greatbaliairporttransfer.com/",
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": `DPS to ${destination.name.split("(")[0].trim()}`,
-        "item": `https://greatbaliairporttransfer.com/${destination.slug}`,
+        "item": `https://www.greatbaliairporttransfer.com/${destination.slug}`,
       },
     ],
   };
@@ -129,7 +129,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
     description: `Fixed-price private airport transfer from I Gusti Ngurah Rai International Airport (DPS) to ${destination.name}. Meet & greet with name sign, free flight tracking, toll and parking included.`,
     provider: {
       "@type": "TaxiService",
-      "@id": "https://greatbaliairporttransfer.com/#organization",
+      "@id": "https://www.greatbaliairporttransfer.com/#organization",
       name: "Great Bali Airport Transfer",
     },
     areaServed: {
@@ -143,7 +143,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
         price: destination.rates.standard,
         priceCurrency: "IDR",
         availability: "https://schema.org/InStock",
-        url: `https://greatbaliairporttransfer.com/${destination.slug}`,
+        url: `https://www.greatbaliairporttransfer.com/${destination.slug}`,
       },
       {
         "@type": "Offer",
@@ -151,7 +151,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
         price: destination.rates.comfort,
         priceCurrency: "IDR",
         availability: "https://schema.org/InStock",
-        url: `https://greatbaliairporttransfer.com/${destination.slug}`,
+        url: `https://www.greatbaliairporttransfer.com/${destination.slug}`,
       },
       {
         "@type": "Offer",
@@ -159,7 +159,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
         price: destination.rates.van,
         priceCurrency: "IDR",
         availability: "https://schema.org/InStock",
-        url: `https://greatbaliairporttransfer.com/${destination.slug}`,
+        url: `https://www.greatbaliairporttransfer.com/${destination.slug}`,
       },
     ],
   };

@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     "best way to get from bali airport to seminyak",
   ],
   alternates: {
-    canonical: "https://greatbaliairporttransfer.com/bali-airport-transfer-to-seminyak",
+    canonical: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-seminyak",
   },
   openGraph: {
     title: "Bali Airport Transfer to Seminyak (DPS) | VIP Chauffeur & Fixed Rates",
     description:
       "Direct private transfer to Seminyak beach clubs & luxury villas. Skip taxi haggling at DPS airport.",
-    url: "https://greatbaliairporttransfer.com/bali-airport-transfer-to-seminyak",
+    url: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-seminyak",
     images: ["/images/dest-seminyak.jpg"],
   },
 };

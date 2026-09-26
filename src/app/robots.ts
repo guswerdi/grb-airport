@@ -25,7 +25,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://greatbaliairporttransfer.com/sitemap.xml",
-    host: "https://greatbaliairporttransfer.com",
+    sitemap: "https://www.greatbaliairporttransfer.com/sitemap.xml",
+    host: "https://www.greatbaliairporttransfer.com",
   };
 }

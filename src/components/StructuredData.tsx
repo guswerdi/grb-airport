@@ -4,12 +4,12 @@ import { BALI_FAQS } from "@/data/faqs";
 export const StructuredData: React.FC = () => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "TaxiService",
+    "@type": ["LocalBusiness", "TaxiService"],
     name: "Great Bali Airport Transfer - VIP Chauffeurs & Fixed Rates",
-    image: "https://greatbaliairporttransfer.com/images/hero-alphard.jpg",
-    logo: "https://greatbaliairporttransfer.com/logo-mark.svg",
-    "@id": "https://greatbaliairporttransfer.com/#organization",
-    url: "https://greatbaliairporttransfer.com",
+    image: "https://www.greatbaliairporttransfer.com/images/hero-alphard.jpg",
+    logo: "https://www.greatbaliairporttransfer.com/logo-mark.svg",
+    "@id": "https://www.greatbaliairporttransfer.com/#organization",
+    url: "https://www.greatbaliairporttransfer.com",
     sameAs: [
       "https://wa.me/6285190920033",
       "mailto:bookings@greatbaliairporttransfer.com",
@@ -68,14 +68,14 @@ export const StructuredData: React.FC = () => {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://greatbaliairporttransfer.com/#website",
+    "@id": "https://www.greatbaliairporttransfer.com/#website",
     name: "Great Bali Airport Transfer",
     alternateName: "greatbaliairporttransfer.com",
-    url: "https://greatbaliairporttransfer.com",
+    url: "https://www.greatbaliairporttransfer.com",
     inLanguage: "en",
     publisher: {
-      "@type": "TaxiService",
-      "@id": "https://greatbaliairporttransfer.com/#organization",
+      "@type": ["Organization", "LocalBusiness", "TaxiService"],
+      "@id": "https://www.greatbaliairporttransfer.com/#organization",
     },
   };
 

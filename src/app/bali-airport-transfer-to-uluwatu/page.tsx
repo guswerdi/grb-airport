@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     "how to get to uluwatu from bali airport",
   ],
   alternates: {
-    canonical: "https://greatbaliairporttransfer.com/bali-airport-transfer-to-uluwatu",
+    canonical: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-uluwatu",
   },
   openGraph: {
     title: "Bali Airport Transfer to Uluwatu (DPS) | VIP Chauffeur & Fixed Rates",
     description:
       "Arrive at Bali's southern clifftop luxury haven in pristine style. Bulgari, Alila Villas, Six Senses, and Bingin beach transfers.",
-    url: "https://greatbaliairporttransfer.com/bali-airport-transfer-to-uluwatu",
+    url: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-uluwatu",
     images: ["/images/dest-uluwatu.jpg"],
   },
 };
