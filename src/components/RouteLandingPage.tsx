@@ -54,18 +54,11 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
       fleet: FLEET_DETAILS[1],
     },
     {
-      id: "luxury",
-      name: "VIP Alphard",
-      sub: "Alphard (1-4 Pax)",
-      rateKey: "luxury" as const,
-      fleet: FLEET_DETAILS[2],
-    },
-    {
       id: "van",
       name: "Big Van",
       sub: "HiAce (1-12 Pax)",
       rateKey: "van" as const,
-      fleet: FLEET_DETAILS[3],
+      fleet: FLEET_DETAILS[2],
     },
   ];
 
@@ -156,14 +149,6 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
         "@type": "Offer",
         name: "Comfort Car (Toyota Innova Zenix, 1-5 pax)",
         price: destination.rates.comfort,
-        priceCurrency: "IDR",
-        availability: "https://schema.org/InStock",
-        url: `https://greatbaliairporttransfer.com/${destination.slug}`,
-      },
-      {
-        "@type": "Offer",
-        name: "VIP Alphard (1-4 pax)",
-        price: destination.rates.luxury,
         priceCurrency: "IDR",
         availability: "https://schema.org/InStock",
         url: `https://greatbaliairporttransfer.com/${destination.slug}`,

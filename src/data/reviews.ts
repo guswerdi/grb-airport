@@ -45,11 +45,11 @@ export const BALI_REVIEWS: Review[] = [
     country: "California, USA",
     countryFlag: "🇺🇸",
     route: "DPS Airport → Uluwatu (Bulgari Resort)",
-    vehicle: "Toyota Alphard Executive VIP",
+    vehicle: "Toyota Innova Zenix Executive Comfort",
     rating: 5,
     date: "March 2026",
     title: "Genuine 5-Star VIP Chauffeur Service in Bali",
-    comment: "We booked the Alphard VIP transfer for our honeymoon. The car was immaculate luxury—reclining captain leather seats, refreshing cold towels, and chilled sparkling water. Our driver Made was impeccably dressed and drove with extreme care. Felt like royalty.",
+    comment: "We booked the Innova Zenix VIP transfer for our honeymoon. The car was immaculate luxury—reclining captain leather seats, refreshing cold towels, and chilled sparkling water. Our driver Made was impeccably dressed and drove with extreme care. Felt like royalty.",
     verified: true,
   },
   {

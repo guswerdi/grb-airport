@@ -92,7 +92,7 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
           <div className="flex md:hidden items-center justify-between px-3.5 py-2 bg-slate-50 border-b border-slate-200 text-[11px] text-slate-500 font-medium">
             <span>👉 Swipe horizontally for all car options</span>
             <span className="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-              4 Fleet Options
+              3 Fleet Options
             </span>
           </div>
 
@@ -122,12 +122,6 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                   </th>
 
                   <th className="py-3.5 px-3.5 text-right min-w-[130px] whitespace-nowrap align-bottom">
-                    <span className="text-slate-900 font-bold block">VIP Alphard</span>
-                    <span className="font-normal text-[11px] text-slate-500 block">
-                      Alphard (1–4 Pax)
-                    </span>
-                  </th>
-                  <th className="py-3.5 px-3.5 text-right min-w-[130px] whitespace-nowrap align-bottom">
                     <span className="text-slate-900 font-bold block">Big Van</span>
                     <span className="font-normal text-[11px] text-slate-500 block">
                       HiAce (12 Pax)
@@ -142,7 +136,7 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
               <tbody className="divide-y divide-slate-100 text-slate-700">
                 {filteredDestinations.length === 0 ? (
                   <tr>
-                    <td colSpan={7} className="py-8 text-center text-slate-500">
+                    <td colSpan={6} className="py-8 text-center text-slate-500">
                       No routes found matching "{searchTerm}". Please try another Bali area.
                     </td>
                   </tr>

@@ -27,7 +27,7 @@ export interface Destination {
   rates: {
     standard: number; // IDR (Veloz/Avanza)
     comfort: number;  // IDR (Innova Zenix)
-    luxury: number;   // IDR (Alphard VIP)
+    luxury: number;   // IDR (legacy VIP tier, not shown in UI)
     van: number;      // IDR (HiAce Premio 12 Pax)
   };
 }
@@ -392,25 +392,6 @@ export const FLEET_DETAILS = [
       "Friendly Experienced Driver",
     ],
     popular: true,
-  },
-  {
-    id: "luxury",
-    name: "VIP Alphard",
-    shortLabel: "VIP Alphard (1-4 Pax)",
-    model: "Toyota Alphard",
-    tagline: "Executive business-class ride for VIP arrivals",
-    passengers: 4,
-    luggage: 4,
-    image: "/images/hero-alphard.jpg",
-    features: [
-      "Executive Captain Seats & Panoramic Roof",
-      "Premium Interior with Climate Control",
-      "Onboard Wi-Fi & Charging Ports",
-      "Complimentary Cold Towels & Bottled Water",
-      "Airport Meet & Greet Included",
-      "Tollway & Parking Included",
-    ],
-    popular: false,
   },
   {
     id: "van",

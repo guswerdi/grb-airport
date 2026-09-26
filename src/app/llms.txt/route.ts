@@ -14,7 +14,7 @@ export async function GET() {
 
   const fareRows = BALI_DESTINATIONS.map((dest) => {
     const name = dest.name.replace(/\s*\([^)]*\)\s*/g, "").trim();
-    return `| ${name} | ${idr(dest.rates.standard)} | ${idr(dest.rates.comfort)} | ${idr(dest.rates.luxury)} | ${idr(dest.rates.van)} | ${dest.distanceKm} km | ${dest.durationMinutes} |`;
+    return `| ${name} | ${idr(dest.rates.standard)} | ${idr(dest.rates.comfort)} | ${idr(dest.rates.van)} | ${dest.distanceKm} km | ${dest.durationMinutes} |`;
   });
 
   const routeLinks = BALI_DESTINATIONS.map(
@@ -40,13 +40,13 @@ export async function GET() {
 ## What we offer
 
 - Pre-booked private airport transfers (arrival & departure) at DPS with 100% fixed, all-inclusive fares (toll, parking, flight tracking, meet & greet with name sign included).
-- Fleet: Standard Car (Toyota Avanza, 1-4 pax), Comfort Car (Toyota Innova Zenix, 1-5 pax), VIP Alphard (1-4 pax), Big Van (Toyota HiAce Premio, 1-12 pax, surfboard friendly).
+- Fleet: Standard Car (Toyota Avanza, 1-4 pax), Comfort Car (Toyota Innova Zenix, 1-5 pax), Big Van (Toyota HiAce Premio, 1-12 pax, surfboard friendly).
 - Free 90-minute flight delay tracking, English-speaking drivers, baby seats available.
 - Payments: Cash (IDR), Visa/Mastercard, USD, AUD, EUR, Wise.
 
 ## Fixed fares from DPS (IDR, all-inclusive, per vehicle)
 
-| Destination | Standard (Avanza) | Comfort (Innova) | VIP Alphard | HiAce Van | Distance | Duration |
+| Destination | Standard (Avanza) | Comfort (Innova) | HiAce Van | Distance | Duration |
 |---|---|---|---|---|---|---|
 ${fareRows.join("\n")}
 

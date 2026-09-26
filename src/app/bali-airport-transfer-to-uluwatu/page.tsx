@@ -31,7 +31,7 @@ export default function UluwatuRoutePage() {
   const tips = [
     "Uluwatu is approximately 22 km south of Ngurah Rai Airport. Travel time is usually 45 to 65 minutes.",
     "Roads in the Bukit peninsula can be steep and winding; our drivers are experienced local chauffeurs with smooth, defensive driving standards.",
-    "Staying at a 5-star clifftop resort like Bulgari, Alila Villas, Six Senses, or Jumeirah? Our Toyota Alphard VIP transfer is the premier choice for luxury arrivals.",
+    "Staying at a 5-star clifftop resort like Bulgari, Alila Villas, Six Senses, or Jumeirah? Our Toyota Innova Zenix comfort transfer is the premier choice for a smooth, stylish arrival.",
   ];
 
   const faqs = [
