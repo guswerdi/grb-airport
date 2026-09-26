@@ -54,11 +54,18 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
       fleet: FLEET_DETAILS[1],
     },
     {
+      id: "luxury",
+      name: "VIP Alphard",
+      sub: "Alphard (1-4 Pax)",
+      rateKey: "luxury" as const,
+      fleet: FLEET_DETAILS[2],
+    },
+    {
       id: "van",
       name: "Big Van",
       sub: "HiAce (1-12 Pax)",
       rateKey: "van" as const,
-      fleet: FLEET_DETAILS[2],
+      fleet: FLEET_DETAILS[3],
     },
   ];
 

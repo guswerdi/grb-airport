@@ -122,6 +122,12 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                   </th>
 
                   <th className="py-3.5 px-3.5 text-right min-w-[130px] whitespace-nowrap align-bottom">
+                    <span className="text-slate-900 font-bold block">VIP Alphard</span>
+                    <span className="font-normal text-[11px] text-slate-500 block">
+                      Alphard (1–4 Pax)
+                    </span>
+                  </th>
+                  <th className="py-3.5 px-3.5 text-right min-w-[130px] whitespace-nowrap align-bottom">
                     <span className="text-slate-900 font-bold block">Big Van</span>
                     <span className="font-normal text-[11px] text-slate-500 block">
                       HiAce (12 Pax)
