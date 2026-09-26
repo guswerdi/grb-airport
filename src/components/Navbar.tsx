@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Plane, Phone, ShieldCheck, Menu, X, DollarSign, ChevronDown } from "lucide-react";
 import { EXCHANGE_RATES } from "@/data/destinations";
+import { Logo } from "@/components/Logo";
 
 interface NavbarProps {
   currentCurrency?: string;
@@ -81,23 +82,8 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="h-16 sm:h-18 flex items-center justify-between gap-4">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 shrink-0 group">
-              <div className="w-9 h-9 rounded-xl bg-emerald-600 flex items-center justify-center text-white shadow-xs group-hover:bg-emerald-700 transition-colors">
-                <Plane className="w-4 h-4 -rotate-45" />
-              </div>
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1.5 leading-none">
-                  <span className="text-lg font-bold tracking-tight text-slate-900">
-                    Bali<span className="text-emerald-700">Transfer</span>
-                  </span>
-                  <span className="text-[10px] bg-emerald-50 text-emerald-700 font-semibold border border-emerald-200 px-1.5 py-0.5 rounded leading-none">
-                    DIRECT
-                  </span>
-                </div>
-                <span className="text-[10px] tracking-wider uppercase text-slate-400 font-medium mt-1">
-                  DPS Airport Chauffeur
-                </span>
-              </div>
+            <Link href="/" className="shrink-0 group">
+              <Logo />
             </Link>
 
             {/* Desktop Navigation Links - Single line, never wraps */}

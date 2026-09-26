@@ -7,7 +7,7 @@ export const StructuredData: React.FC = () => {
     "@type": "TaxiService",
     name: "Great Bali Airport Transfer - VIP Chauffeurs & Fixed Rates",
     image: "https://greatbaliairporttransfer.com/images/hero-alphard.jpg",
-    logo: "https://greatbaliairporttransfer.com/images/hero-alphard.jpg",
+    logo: "https://greatbaliairporttransfer.com/logo-mark.svg",
     "@id": "https://greatbaliairporttransfer.com/#organization",
     url: "https://greatbaliairporttransfer.com",
     sameAs: [

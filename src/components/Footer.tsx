@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Plane, Phone, Mail, MapPin, ShieldCheck } from "lucide-react";
+import { Logo } from "@/components/Logo";
 
 export const Footer: React.FC = () => {
   return (
@@ -10,16 +11,8 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-xl bg-emerald-600 flex items-center justify-center">
-                <Plane className="w-4 h-4 text-white -rotate-45" />
-              </div>
-              <span className="text-lg font-bold text-white tracking-tight">
-                Bali<span className="text-emerald-400">Transfer</span>
-                <span className="text-[10px] bg-emerald-950/80 text-emerald-400 border border-emerald-700/50 px-1.5 py-0.5 rounded font-mono uppercase ml-1.5">
-                  DIRECT
-                </span>
-              </span>
+            <Link href="/" className="inline-flex">
+              <Logo variant="light" size={34} />
             </Link>
 
             <p className="text-slate-400 leading-relaxed text-xs max-w-sm">
