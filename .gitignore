@@ -42,3 +42,10 @@ next-env.d.ts
 
 # local dev server log
 .server.log
+
+# local env files
+.env
+.env*.local
+
+# keep the example env template
+!.env.example

@@ -1,8 +1,10 @@
 import { MetadataRoute } from "next";
 import { BALI_DESTINATIONS } from "@/data/destinations";
-import { BALI_BLOG_POSTS } from "@/data/blogs";
+import { fetchSanityPostSlugs } from "@/lib/sanity/client";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const revalidate = 3600;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://greatbaliairporttransfer.com";
 
   const dedicatedSlugs = [
@@ -22,9 +24,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  const blogRoutes = BALI_BLOG_POSTS.map((post) => ({
+  const sanityPosts = await fetchSanityPostSlugs();
+
+  const blogRoutes = sanityPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(),
+    lastModified: post.publishedAt ? new Date(post.publishedAt) : new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
