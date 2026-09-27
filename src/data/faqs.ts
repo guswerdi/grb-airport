@@ -55,4 +55,34 @@ export const BALI_FAQS: FAQItem[] = [
     question: "Do your drivers speak fluent English?",
     answer: "Yes, all our chauffeurs are licensed Balinese tourism drivers who speak good conversational English. They are knowledgeable, courteous, non-smoking, and happy to share local Bali insights and recommendations for your stay.",
   },
+  {
+    category: "Pricing & Payment",
+    question: "Do I need to pay a deposit or pay in advance?",
+    answer: "No deposit is required. Simply book via WhatsApp or our on-site form, and pay in cash (IDR, USD, AUD, or EUR) to your chauffeur upon arrival at your hotel. If you prefer to settle everything before you fly, secure online payment by Visa, Mastercard, PayPal, or Wise transfer is also available.",
+  },
+  {
+    category: "Vehicles & Luggage",
+    question: "Which car should I choose for my group?",
+    answer: "For 1-4 passengers with standard luggage, our Standard Car (Toyota Avanza) is the best value. For extra legroom and captain-style comfort, choose the Comfort Car (Toyota Innova Zenix) for up to 5 passengers. Groups of 6-12, surfers with boardbags, golfers, or families with lots of luggage should take the Big Van (Toyota HiAce Premio).",
+  },
+  {
+    category: "Vehicles & Luggage",
+    question: "Are your cars air-conditioned, non-smoking, and clean?",
+    answer: "Yes. Every vehicle in our fleet is 100% non-smoking, deep-cleaned before every journey, and equipped with ice-cold air conditioning, USB phone chargers, and complimentary chilled bottled water.",
+  },
+  {
+    category: "Flight Delays",
+    question: "How long will my driver wait if immigration or VoA takes very long?",
+    answer: "Your chauffeur waits with a complimentary 90-minute grace period after your aircraft lands, which comfortably covers visa on arrival (e-VoA) and baggage claim. Because we track your flight live, we know exactly when you touch down — and if queues are exceptionally long, just message your driver on WhatsApp and we will keep coordinating until you exit.",
+  },
+  {
+    category: "Flight Delays",
+    question: "What happens if my flight is diverted or cancelled?",
+    answer: "Just message us on WhatsApp as soon as you know. We will reschedule your transfer to your new arrival at no penalty, subject to vehicle availability. If you cancel outright, our standard free-cancellation policy (up to 12 hours before pickup) applies.",
+  },
+  {
+    category: "Flight Delays",
+    question: "Do I need to tell you if I already know my flight will depart late?",
+    answer: "It helps but is not required. If your airline notifies you of a schedule change before departure, simply forward your new flight number via WhatsApp so we can reassign your chauffeur to the updated landing time. Either way, our live flight tracking picks up the delay automatically.",
+  },
 ];
