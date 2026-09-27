@@ -1,30 +1,20 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { RouteLandingPage } from "@/components/RouteLandingPage";
-import { BALI_DESTINATIONS } from "@/data/destinations";
-import { notFound } from "next/navigation";
+import type { Destination } from "@/data/destinations";
 
-type PageProps = {
-  params: Promise<{ slug: string }>;
+const BASE = "https://www.greatbaliairporttransfer.com";
+
+/** Region-based scenic photo for OG image & page hero. */
+const REGION_IMAGES: Record<Destination["region"], string> = {
+  "South Bali": "/images/dest-seminyak.jpg",
+  "Central Bali": "/images/dest-ubud.jpg",
+  "Uluwatu & Bukit": "/images/dest-uluwatu.jpg",
+  "North & East Bali": "/images/dest-ubud.jpg",
+  "West Bali": "/images/dest-ubud.jpg",
 };
 
-export async function generateStaticParams() {
-  const existingSlugs = [
-    "bali-airport-transfer-to-canggu",
-    "bali-airport-transfer-to-nusa-dua",
-    "bali-airport-transfer-to-seminyak",
-    "bali-airport-transfer-to-ubud",
-    "bali-airport-transfer-to-uluwatu",
-  ];
-  return BALI_DESTINATIONS.filter((dest) => !existingSlugs.includes(dest.slug)).map((dest) => ({
-    slug: dest.slug,
-  }));
-}
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const dest = BALI_DESTINATIONS.find((d) => d.slug === slug);
-  if (!dest) return {};
-
+/** Shared metadata for all hardcoded route landing pages. */
+export function routeMetadata(dest: Destination): Metadata {
   return {
     title: `Bali Airport Transfer to ${dest.name} (DPS) | Fixed Price from IDR ${(dest.rates.standard / 1000).toLocaleString("id-ID")}k`,
     description: `Fast private transfer from Bali Airport to ${dest.name}. Fixed fare from IDR ${dest.rates.standard.toLocaleString("id-ID")}. Meet & greet at DPS arrivals, pristine AC cars.`,
@@ -34,30 +24,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `denpasar airport to ${dest.name.toLowerCase()} transfer`,
     ],
     alternates: {
-      canonical: `https://greatbaliairporttransfer.com/${dest.slug}`,
+      canonical: `${BASE}/${dest.slug}`,
     },
     openGraph: {
       title: `Bali Airport Transfer to ${dest.name} (DPS) | Chauffeur & Fixed Rates`,
       description: dest.description,
-      url: `https://greatbaliairporttransfer.com/${dest.slug}`,
-      images: ["/images/hero-alphard.jpg"],
+      url: `${BASE}/${dest.slug}`,
+      images: [REGION_IMAGES[dest.region]],
     },
   };
 }
 
-export default async function GenericRoutePage({ params }: PageProps) {
-  const { slug } = await params;
-  const destination = BALI_DESTINATIONS.find((d) => d.slug === slug);
-  
-  if (!destination) {
-    notFound();
-  }
-
+/** Shared page body for all hardcoded route landing pages. */
+export function GenericRouteContent({ destination }: { destination: Destination }) {
   const tips = [
     `${destination.name} is approximately ${destination.distanceKm} km from DPS Airport. The drive typically takes ${destination.durationMinutes}.`,
     destination.trafficTip,
     "Our professional chauffeurs track your flight in real-time, so we will be waiting for you even if your flight is delayed.",
-    "The electronic toll fee (if applicable) and airport parking are 100% included in our fixed rate."
+    "The electronic toll fee (if applicable) and airport parking are 100% included in our fixed rate.",
   ];
 
   const faqs = [
@@ -71,14 +55,15 @@ export default async function GenericRoutePage({ params }: PageProps) {
     },
     {
       question: `Can we book a return transfer from ${destination.name} back to Bali Airport?`,
-      answer: "Yes! You can book round-trip transfers or arrange your departure pickup at any time directly with your chauffeur or on WhatsApp.",
+      answer:
+        "Yes! You can book round-trip transfers or arrange your departure pickup at any time directly with your chauffeur or on WhatsApp.",
     },
   ];
 
   return (
     <RouteLandingPage
       destination={destination}
-      heroImage="/images/hero-alphard.jpg"
+      heroImage={REGION_IMAGES[destination.region]}
       routeOverview={destination.description}
       travelTips={tips}
       faqs={faqs}

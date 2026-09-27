@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/hero-alphard.jpg",
+        url: "/images/innova-zenix.jpg",
         width: 1200,
         height: 630,
         alt: "Bali Airport Transfer Chauffeur at Ngurah Rai DPS Airport",
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     title: "Bali Airport Transfer (DPS) | VIP Chauffeur & Fixed Rates",
     description:
       "Pre-book your Bali airport pickup. English-speaking driver with name board, free flight tracking, toll & parking included.",
-    images: ["/images/hero-alphard.jpg"],
+    images: ["/images/innova-zenix.jpg"],
   },
   robots: {
     index: true,

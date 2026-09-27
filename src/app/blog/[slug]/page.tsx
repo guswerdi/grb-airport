@@ -50,12 +50,12 @@ export async function generateMetadata({
     title: `${post.title} | Great Bali Airport Transfer`,
     description: post.excerpt,
     alternates: {
-      canonical: `https://greatbaliairporttransfer.com/blog/${post.slug}`,
+      canonical: `https://www.greatbaliairporttransfer.com/blog/${post.slug}`,
     },
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://greatbaliairporttransfer.com/blog/${post.slug}`,
+      url: `https://www.greatbaliairporttransfer.com/blog/${post.slug}`,
       type: "article",
       ...(post.mainImage?.url ? { images: [{ url: post.mainImage.url }] } : {}),
     },
@@ -85,7 +85,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    image: heroImage ?? "https://greatbaliairporttransfer.com/images/hero-alphard.jpg",
+    image: heroImage ?? "https://www.greatbaliairporttransfer.com/images/innova-zenix.jpg",
     author: {
       "@type": "Person",
       name: authorName,
@@ -96,7 +96,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       name: "Great Bali Airport Transfer",
       logo: {
         "@type": "ImageObject",
-        url: "https://greatbaliairporttransfer.com/images/hero-alphard.jpg",
+        url: "https://www.greatbaliairporttransfer.com/images/innova-zenix.jpg",
       },
     },
     datePublished: publishedIso,

@@ -19,8 +19,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Background Image that covers the full section */}
       <div className="absolute inset-0 z-0 w-full h-full">
         <Image
-          src="/images/hero-alphard.jpg"
-          alt="Luxury Bali Airport Transfer Chauffeur at Ngurah Rai International Airport DPS"
+          src="/images/innova-zenix.jpg"
+          alt="Private Bali Airport Transfer Chauffeur at Ngurah Rai International Airport DPS"
           fill
           priority
           className="object-cover object-center opacity-30 brightness-95"
