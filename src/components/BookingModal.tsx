@@ -60,7 +60,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         (bookingData.hotelName ? `Pickup Location: ${bookingData.hotelName}\n` : "") +
         (bookingData.flightNumber ? `Planned Route / Stops: ${bookingData.flightNumber}\n` : "") +
         (specialNotes ? `Notes: ${specialNotes}\n` : "") +
-        (bookingData.babySeatNeeded ? `Baby Seat: Yes, needed\n` : "") +
+        (bookingData.babySeatNeeded ? `Baby Seat: Yes, needed (IDR 50k/seat)\n` : "") +
         `\nCould you please share the rate quote and availability? Thank you!`;
 
       return `https://wa.me/6285190920033?text=${encodeURIComponent(text)}`;
@@ -83,7 +83,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       (bookingData.hotelName ? `${isDeparture ? "Pickup Hotel" : "Drop-off Hotel"}: ${bookingData.hotelName}\n` : "") +
       `Payment: ${paymentMethod === "cash" ? "Cash on Arrival" : "Online Link"}\n` +
       (specialNotes ? `Notes: ${specialNotes}\n` : "") +
-      (bookingData.babySeatNeeded ? `Baby Seat: Yes, needed\n` : "") +
+      (bookingData.babySeatNeeded ? `Baby Seat: Yes, needed (IDR 50k/seat)\n` : "") +
       `\nPlease confirm availability. Thank you!`;
 
     return `https://wa.me/6285190920033?text=${encodeURIComponent(text)}`;

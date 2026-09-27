@@ -33,7 +33,7 @@ export const BALI_FAQS: FAQItem[] = [
   {
     category: "Vehicles & Luggage",
     question: "Can we request a baby car seat or child booster?",
-    answer: "Yes! Safety is our top priority. We offer sanitized European-standard baby car seats (0-2 years) and booster seats (3-7 years) upon request during booking. Just check the baby seat option in the booking form.",
+    answer: "Yes! Safety is our top priority. We offer sanitized European-standard baby car seats (0-2 years) and booster seats (3-7 years) for IDR 50,000 per seat per trip, upon request during booking.",
   },
   {
     category: "Arrival & Pickup",

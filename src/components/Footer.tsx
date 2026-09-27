@@ -118,7 +118,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a href="/#fleet" className="hover:text-white transition-colors">
-                  Complimentary Baby Car Seats
+                  Baby Car Seats (IDR 50k/seat)
                 </a>
               </li>
             </ul>

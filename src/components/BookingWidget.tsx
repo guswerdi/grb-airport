@@ -96,7 +96,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
         (hotelName ? `Pickup Location: ${hotelName}\n` : "") +
         (flightNumber ? `Planned Route / Stops: ${flightNumber}\n` : "") +
         `Passengers: ${passengers} pax, ${luggage} bags\n` +
-        (babySeatNeeded ? `Baby Seat: Yes, needed\n` : "") +
+        (babySeatNeeded ? `Baby Seat: Yes, needed (IDR 50k/seat)\n` : "") +
         `\nCould you please share the rate quote and availability? Thank you!`;
 
       return `https://wa.me/6285190920033?text=${encodeURIComponent(text)}`;
@@ -117,7 +117,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
       (flightNumber ? `Flight: ${flightNumber}\n` : "") +
       (hotelName ? `${isArrival ? "Drop-off Hotel" : "Pickup Hotel"}: ${hotelName}\n` : "") +
       `Passengers: ${passengers} pax, ${luggage} bags\n` +
-      (babySeatNeeded ? `Baby Seat: Yes, needed\n` : "") +
+      (babySeatNeeded ? `Baby Seat: Yes, needed (IDR 50k/seat)\n` : "") +
       `\nPlease confirm availability. Thank you!`;
 
     return `https://wa.me/6285190920033?text=${encodeURIComponent(text)}`;

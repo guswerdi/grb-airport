@@ -388,7 +388,7 @@ export const FLEET_DETAILS = [
       "Onboard Wi-Fi",
       "Phone Charging Ports",
       "Free Chilled Bottled Water",
-      "Child / Baby Seat on Request",
+      "Child / Baby Seat on Request (IDR 50k/seat)",
       "Friendly Experienced Driver",
     ],
     popular: true,
