@@ -169,7 +169,7 @@ export const Footer: React.FC = () => {
       <div className="bg-slate-950 border-t border-slate-800/80 py-4 px-4 text-center">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-500 text-[11px]">
           <div>
-            © {new Date().getFullYear()} BaliTransfer.com (PT Bali Transport Wisata). All rights reserved.
+            © {new Date().getFullYear()} Great Bali Airport Transfer. All rights reserved.
           </div>
           <div className="flex items-center gap-4">
             <a href="#faqs" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
