@@ -348,7 +348,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
 
             {/* 3. Date & Time */}
             <div className="space-y-1">
-              <label className="text-[11px] font-semibold text-slate-700 flex items-center justify-between">
+              <div className="text-[11px] font-semibold text-slate-700 flex items-center justify-between">
                 <span className="flex items-center gap-1">
                   {transferType === "arrival" ? (
                     <>
@@ -367,38 +367,46 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                 {transferType === "departure" && (
                   <span className="text-[10px] text-sky-700 font-normal">3h before flight</span>
                 )}
-              </label>
+              </div>
               <div className="grid grid-cols-2 gap-1.5">
-                <input
-                  id="pickup-date"
-                  type="date"
-                  aria-label="Pickup date"
-                  value={pickupDate}
-                  onChange={(e) => setPickupDate(e.target.value)}
-                  className={`bg-slate-50 border border-slate-300 text-slate-900 rounded-lg px-2 py-2 text-xs focus:outline-none cursor-pointer ${
-                    transferType === "departure"
-                      ? "focus:border-sky-600 focus:bg-white"
-                      : transferType === "daytour"
-                      ? "focus:border-amber-600 focus:bg-white"
-                      : "focus:border-emerald-600 focus:bg-white"
-                  }`}
-                  required
-                />
-                <input
-                  id="pickup-time"
-                  type="time"
-                  aria-label="Pickup time"
-                  value={pickupTime}
-                  onChange={(e) => setPickupTime(e.target.value)}
-                  className={`bg-slate-50 border border-slate-300 text-slate-900 rounded-lg px-2 py-2 text-xs focus:outline-none cursor-pointer ${
-                    transferType === "departure"
-                      ? "focus:border-sky-600 focus:bg-white"
-                      : transferType === "daytour"
-                      ? "focus:border-amber-600 focus:bg-white"
-                      : "focus:border-emerald-600 focus:bg-white"
-                  }`}
-                  required
-                />
+                <div className="min-w-0">
+                  <label htmlFor="pickup-date" className="sr-only">
+                    Pickup date
+                  </label>
+                  <input
+                    id="pickup-date"
+                    type="date"
+                    value={pickupDate}
+                    onChange={(e) => setPickupDate(e.target.value)}
+                    className={`w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-lg px-2 py-2 text-xs focus:outline-none cursor-pointer ${
+                      transferType === "departure"
+                        ? "focus:border-sky-600 focus:bg-white"
+                        : transferType === "daytour"
+                        ? "focus:border-amber-600 focus:bg-white"
+                        : "focus:border-emerald-600 focus:bg-white"
+                    }`}
+                    required
+                  />
+                </div>
+                <div className="min-w-0">
+                  <label htmlFor="pickup-time" className="sr-only">
+                    Pickup time
+                  </label>
+                  <input
+                    id="pickup-time"
+                    type="time"
+                    value={pickupTime}
+                    onChange={(e) => setPickupTime(e.target.value)}
+                    className={`w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-lg px-2 py-2 text-xs focus:outline-none cursor-pointer ${
+                      transferType === "departure"
+                        ? "focus:border-sky-600 focus:bg-white"
+                        : transferType === "daytour"
+                        ? "focus:border-amber-600 focus:bg-white"
+                        : "focus:border-emerald-600 focus:bg-white"
+                    }`}
+                    required
+                  />
+                </div>
               </div>
             </div>
 

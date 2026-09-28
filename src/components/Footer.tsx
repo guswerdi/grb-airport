@@ -47,9 +47,9 @@ export const Footer: React.FC = () => {
 
           {/* Popular Airport Routes */}
           <div>
-            <h4 className="text-white font-bold uppercase tracking-wider text-xs mb-3.5">
+            <p className="text-white font-bold uppercase tracking-wider text-xs mb-3.5">
               Top Airport Routes
-            </h4>
+            </p>
             <ul className="space-y-2">
               <li>
                 <Link href="/bali-airport-transfer-to-ubud" className="hover:text-white transition-colors">
@@ -91,9 +91,9 @@ export const Footer: React.FC = () => {
 
           {/* Fleet Categories */}
           <div>
-            <h4 className="text-white font-bold uppercase tracking-wider text-xs mb-3.5">
+            <p className="text-white font-bold uppercase tracking-wider text-xs mb-3.5">
               Our Vehicle Fleet
-            </h4>
+            </p>
             <ul className="space-y-2">
               <li>
                 <a href="/#fleet" className="hover:text-white transition-colors">
@@ -126,9 +126,9 @@ export const Footer: React.FC = () => {
 
           {/* Guarantees & Payment */}
           <div>
-            <h4 className="text-white font-bold uppercase tracking-wider text-xs mb-3.5">
+            <p className="text-white font-bold uppercase tracking-wider text-xs mb-3.5">
               Traveler Guarantees
-            </h4>
+            </p>
             <ul className="space-y-2">
               <li className="flex items-center gap-1.5 text-slate-300">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />

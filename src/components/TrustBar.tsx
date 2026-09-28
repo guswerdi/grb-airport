@@ -19,9 +19,9 @@ export const TrustBar: React.FC = () => {
               <Plane className="w-5 h-5 text-emerald-700" />
             </div>
             <div>
-              <h4 className="text-slate-900 font-bold text-sm">
+              <p className="text-slate-900 font-bold text-sm">
                 Flight Tracking & Free Waiting
-              </h4>
+              </p>
               <p className="text-slate-500 text-xs mt-0.5">
                 Chauffeur tracks your flight live. 90 mins complimentary wait.
               </p>
@@ -34,9 +34,9 @@ export const TrustBar: React.FC = () => {
               <Award className="w-5 h-5 text-slate-700" />
             </div>
             <div>
-              <h4 className="text-slate-900 font-bold text-sm">
+              <p className="text-slate-900 font-bold text-sm">
                 100% Fixed Fares
-              </h4>
+              </p>
               <p className="text-slate-500 text-xs mt-0.5">
                 No meter surprises. Mandara toll, airport parking & fuel included.
               </p>
@@ -49,9 +49,9 @@ export const TrustBar: React.FC = () => {
               <HeartHandshake className="w-5 h-5 text-emerald-700" />
             </div>
             <div>
-              <h4 className="text-slate-900 font-bold text-sm">
+              <p className="text-slate-900 font-bold text-sm">
                 Personalized Meet & Greet
-              </h4>
+              </p>
               <p className="text-slate-500 text-xs mt-0.5">
                 Driver holds your name sign at arrivals hall. English-speaking.
               </p>
@@ -64,9 +64,9 @@ export const TrustBar: React.FC = () => {
               <CreditCard className="w-5 h-5 text-slate-700" />
             </div>
             <div>
-              <h4 className="text-slate-900 font-bold text-sm">
+              <p className="text-slate-900 font-bold text-sm">
                 Pay on Arrival or Online
-              </h4>
+              </p>
               <p className="text-slate-500 text-xs mt-0.5">
                 Pay driver cash (IDR/AUD/USD) or pay online with card or Wise.
               </p>
