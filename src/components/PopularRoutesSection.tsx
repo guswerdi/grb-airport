@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { Clock, MapPin, ArrowRight } from "lucide-react";
-import { formatPrice } from "@/data/destinations";
+import { BALI_DESTINATIONS, formatPrice } from "@/data/destinations";
 
 interface PopularRoutesSectionProps {
   currentCurrency: string;
@@ -20,9 +20,6 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
       slug: "bali-airport-transfer-to-seminyak",
       title: "DPS Airport to Seminyak",
       tag: "Beach Clubs & Villas",
-      distance: "12 km",
-      time: "30 - 45 min",
-      priceIdr: 250000,
       image: "/images/dest-seminyak.jpg",
       highlight: "Ku De Ta, Potato Head, W Bali, Petitenget, Oberoi",
       description: "Direct transfer to Bali's stylish beachfront district. Arrive refreshed and ready for beachside sunset cocktails.",
@@ -32,9 +29,6 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
       slug: "bali-airport-transfer-to-canggu",
       title: "DPS Airport to Canggu",
       tag: "Surfing & Cafes",
-      distance: "19 km",
-      time: "45 - 75 min",
-      priceIdr: 325000,
       image: "/images/dest-seminyak.jpg",
       highlight: "Berawa Beach, Batu Bolong, Echo Beach, Atlas Beach Fest, Finns",
       description: "Fast transit avoiding notorious shortcut bottlenecks with our experienced local drivers and optimized routing.",
@@ -44,9 +38,6 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
       slug: "bali-airport-transfer-to-uluwatu",
       title: "DPS Airport to Uluwatu",
       tag: "Clifftop Resorts & Surf",
-      distance: "22 km",
-      time: "45 - 65 min",
-      priceIdr: 325000,
       image: "/images/dest-uluwatu.jpg",
       highlight: "Bulgari Resort, Alila Uluwatu, Six Senses, Bingin, Padang Padang",
       description: "Climb to the southern peninsula cliffs. Breathtaking ocean panoramas, legendary surf breaks, and clifftop villas.",
@@ -56,14 +47,23 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
       slug: "bali-airport-transfer-to-ubud",
       title: "DPS Airport to Ubud",
       tag: "Cultural & Wellness",
-      distance: "38 km",
-      time: "60 - 90 min",
-      priceIdr: 400000,
       image: "/images/dest-ubud.jpg",
       highlight: "Four Seasons Sayan, Mandapa Ritz-Carlton, Viceroy, Monkey Forest",
       description: "Scenic private transfer to central Ubud. Enjoy a peaceful drive through Balinese artisan villages and rainforest valleys.",
     },
-  ];
+  ].map((route) => {
+    const dest = BALI_DESTINATIONS.find((d) => d.id === route.id)!;
+    return {
+      ...route,
+      distance: `${dest.distanceKm} km`,
+      time: dest.durationMinutes,
+      tiers: [
+        { label: "Standard", priceIdr: dest.rates.standard },
+        { label: "Comfort", priceIdr: dest.rates.comfort },
+        { label: "Big Van", priceIdr: dest.rates.van },
+      ],
+    };
+  });
 
   return (
     <section id="popular-routes" className="py-16 sm:py-24 bg-slate-50 px-4 sm:px-6 lg:px-8 border-t border-slate-200">
@@ -138,14 +138,19 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] text-slate-400 uppercase tracking-wider block">
-                      Fixed From
-                    </span>
-                    <span className="text-base font-extrabold text-slate-900">
-                      {formatPrice(route.priceIdr, currentCurrency)}
-                    </span>
+                <div className="pt-3 border-t border-slate-100">
+                  <span className="text-[10px] text-slate-400 uppercase tracking-wider block mb-2">
+                    Fixed fares
+                  </span>
+                  <div className="space-y-1.5 mb-3">
+                    {route.tiers.map((tier) => (
+                      <div key={tier.label} className="flex items-center justify-between text-xs">
+                        <span className="text-slate-500">{tier.label}</span>
+                        <span className="font-extrabold text-slate-900">
+                          {formatPrice(tier.priceIdr, currentCurrency)}
+                        </span>
+                      </div>
+                    ))}
                   </div>
 
                   <button
@@ -153,7 +158,7 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
                       onSelectRouteQuick(route.id);
                       document.getElementById("booking-widget")?.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors cursor-pointer"
+                    className="w-full px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors cursor-pointer"
                   >
                     Select
                   </button>
