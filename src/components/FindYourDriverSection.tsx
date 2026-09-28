@@ -31,14 +31,14 @@ const meetingSteps = [
   {
     num: "01",
     icon: Footprints,
-    title: "Walk out to the greeting hall",
-    text: "After immigration, baggage claim, and customs, follow the green exit signs into the public arrivals greeting hall. Do not stop for freelance taxi touts — keep walking to the driver meeting line.",
+    title: "Walk out to Circle K at the exit gate",
+    text: "After immigration, baggage claim, and customs, follow the green exit signs out of the terminal. Head straight to the Circle K minimart right at the exit gate — that is our meeting point. Do not stop for freelance taxi touts along the way.",
   },
   {
     num: "02",
     icon: UserCheck,
     title: "Look for your name sign",
-    text: "Your chauffeur stands at the front of the greeting line holding a clear name board with YOUR name and the Great Bali Airport Transfer logo. He will also be watching for you.",
+    text: "Your chauffeur waits in front of Circle K holding a clear name board with YOUR name and the Great Bali Airport Transfer logo. He will also be watching for you.",
   },
   {
     num: "03",
@@ -53,7 +53,7 @@ const howToSchema = {
   "@type": "HowTo",
   name: "How to Find Your Driver at Bali Ngurah Rai Airport (DPS)",
   description:
-    "Step-by-step instructions for meeting your Great Bali Airport Transfer chauffeur at DPS arrivals: receive driver details on WhatsApp, walk to the greeting hall, spot your name sign, and confirm the car plate.",
+    "Step-by-step instructions for meeting your Great Bali Airport Transfer chauffeur at DPS arrivals: receive driver details on WhatsApp, walk to Circle K at the exit gate, spot your name sign, and confirm the car plate.",
   step: [
     {
       "@type": "HowToStep",
@@ -64,14 +64,14 @@ const howToSchema = {
     {
       "@type": "HowToStep",
       position: 2,
-      name: "Walk out to the arrivals greeting hall",
-      text: "After immigration, baggage claim, and customs, follow the green exit signs into the public arrivals greeting hall.",
+      name: "Walk out to Circle K at the exit gate",
+      text: "After immigration, baggage claim, and customs, follow the green exit signs out of the terminal to the Circle K minimart right at the exit gate.",
     },
     {
       "@type": "HowToStep",
       position: 3,
       name: "Look for your name sign",
-      text: "Your chauffeur stands at the front of the greeting line holding a name board with your name and the company logo.",
+      text: "Your chauffeur waits in front of Circle K holding a name board with your name and the company logo.",
     },
     {
       "@type": "HowToStep",
@@ -102,8 +102,8 @@ export const FindYourDriverSection: React.FC = () => {
             How to Find Your Driver at DPS Airport
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-400">
-            No wandering, no guessing, no taxi touts. Follow these 3 steps and
-            you&apos;ll be in your car within minutes of exiting customs.
+            No wandering, no guessing, no taxi touts. Head to Circle K at the
+            exit gate and you&apos;ll be in your car within minutes.
           </p>
         </div>
 

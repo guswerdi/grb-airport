@@ -8,7 +8,7 @@ export const BALI_FAQS: FAQItem[] = [
   {
     category: "Arrival & Pickup",
     question: "Where do I meet my driver at Bali Ngurah Rai Airport (DPS)?",
-    answer: "After clearing immigration, customs, and the duty-free walkway, exit into the main Arrival Hall. Look for the designated driver meeting zone near the Information Desk. Your personal chauffeur will be waiting right at the front holding a prominent digital tablet or name sign clearly displaying your name. We also send you a photo and live WhatsApp contact of your driver 2 hours before your flight lands.",
+    answer: "After clearing immigration, customs, and the duty-free walkway, exit the terminal and head straight to the Circle K minimart right at the exit gate — that is our meeting point. Your personal chauffeur will be waiting in front of Circle K holding a prominent name sign clearly displaying your name. We also send you a photo and live WhatsApp contact of your driver 2 hours before your flight lands.",
   },
   {
     category: "Flight Delays",

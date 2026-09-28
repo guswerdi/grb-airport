@@ -21,7 +21,7 @@ export const ArrivalGuide: React.FC = () => {
       num: "03",
       title: "Spot Your Name on Chauffeur's Sign",
       description:
-        "As you enter the main arrival greeting hall, look directly at the driver greeting line. Your driver will hold a clear sign or tablet displaying your name.",
+        "As you exit the terminal, head straight to the Circle K minimart right at the exit gate — that is our meeting point. Your driver will hold a clear sign or tablet displaying your name.",
       tip: "We send you your driver's WhatsApp contact, photo, and vehicle plate 2 hours before landing.",
     },
     {
@@ -87,7 +87,7 @@ export const ArrivalGuide: React.FC = () => {
               Helpful Tip: Ignore Freelance Taxi Touts at the Exit Gate
             </h4>
             <p className="text-amber-900 text-xs sm:text-sm leading-relaxed">
-              When walking through the exit doors of DPS arrivals, multiple unofficial drivers will ask <em>"Transport? Taxi?"</em>. They often charge 2x to 3x higher fares or claim that pre-booked drivers aren't coming. Simply keep walking straight toward the driver meeting line where your chauffeur is holding your name sign.
+              When walking through the exit doors of DPS arrivals, multiple unofficial drivers will ask <em>&quot;Transport? Taxi?&quot;</em>. They often charge 2x to 3x higher fares or claim that pre-booked drivers aren&apos;t coming. Simply keep walking straight to the Circle K minimart at the exit gate where your chauffeur is holding your name sign.
             </p>
           </div>
           <a
