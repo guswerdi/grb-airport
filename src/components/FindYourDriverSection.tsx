@@ -2,7 +2,6 @@ import React from "react";
 import {
   Smartphone,
   UserCheck,
-  CarFront,
   MessageCircle,
   Phone,
   ShieldCheck,
@@ -42,7 +41,7 @@ const meetingSteps = [
   },
   {
     num: "03",
-    icon: CarFront,
+    icon: UserCheck,
     title: "Confirm car & plate",
     text: "Match the car model and plate number from your WhatsApp message. Your driver helps with luggage and escorts you to the pick-up bay — usually a 2-3 minute walk.",
   },
@@ -157,50 +156,29 @@ export const FindYourDriverSection: React.FC = () => {
           </div>
 
 
-          {/* Right: driver card mockup + emergency contact */}
+          {/* Right: what you receive + contact */}
           <div className="lg:col-span-2">
-            <div className="bg-slate-50 text-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-xl lg:sticky lg:top-24">
-              <div className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-4">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                Example driver assignment
-              </div>
+            <div className="bg-slate-50 rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-xl lg:sticky lg:top-24">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-700 mb-4">
+                What you receive
+              </h3>
 
-              {/* Driver identity */}
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-14 h-14 rounded-full bg-emerald-600 text-white flex items-center justify-center text-lg font-extrabold shrink-0">
-                  M
-                </div>
-                <div>
-                  <p className="font-bold text-slate-900 leading-tight">
-                    Made Wirawan
-                  </p>
-                  <p className="text-xs text-slate-500">
-                    Licensed chauffeur • English speaking
-                  </p>
-                  <div className="flex items-center gap-1 mt-1 text-[11px] text-emerald-700 font-semibold">
-                    <ShieldCheck className="w-3.5 h-3.5" /> Verified driver
-                  </div>
-                </div>
-              </div>
-
-              {/* Car details */}
-              <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 mb-4 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-slate-900 flex items-center justify-center shrink-0">
-                  <CarFront className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-slate-900">
-                    Toyota Innova Zenix
-                  </p>
-                  <p className="text-xs text-slate-500 font-mono tracking-wide">
-                    DK 1845 UY • White
-                  </p>
-                </div>
-              </div>
+              <ul className="space-y-3 mb-5">
+                {[
+                  "Driver name & photo",
+                  "Driver WhatsApp number",
+                  "Car model & plate number",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-2.5 text-sm text-slate-700">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                    <span className="font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
 
               <p className="text-[11px] text-slate-500 mb-4 leading-relaxed">
-                Your real assignment looks exactly like this — sent to your
-                WhatsApp 2 hours before landing.
+                Sent to your WhatsApp 2 hours before landing — screenshot it
+                so you can match the plate even without data.
               </p>
 
               {/* Contact buttons */}
