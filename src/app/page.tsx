@@ -8,6 +8,7 @@ import { PopularRoutesSection } from "@/components/PopularRoutesSection";
 import { FareCalculatorTable } from "@/components/FareCalculatorTable";
 import { FleetSection } from "@/components/FleetSection";
 import { ArrivalGuide } from "@/components/ArrivalGuide";
+import { FindYourDriverSection } from "@/components/FindYourDriverSection";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { FaqSection } from "@/components/FaqSection";
 import { Footer } from "@/components/Footer";
@@ -140,6 +141,9 @@ export default function HomePage() {
 
       {/* Denpasar Airport Arrival Guide */}
       <ArrivalGuide />
+
+      {/* How to Find Your Driver at DPS */}
+      <FindYourDriverSection />
 
       {/* Traveler Reviews & Ratings */}
       <ReviewsSection />

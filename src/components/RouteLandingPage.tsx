@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { FindYourDriverSection } from "@/components/FindYourDriverSection";
 import { BookingWidget } from "@/components/BookingWidget";
 import { BookingModal } from "@/components/BookingModal";
 import { Destination, FLEET_DETAILS, formatPrice } from "@/data/destinations";
@@ -434,6 +435,9 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
           </aside>
         </div>
       </main>
+
+      {/* How to Find Your Driver at DPS */}
+      <FindYourDriverSection />
 
       <Footer />
 
