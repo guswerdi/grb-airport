@@ -27,18 +27,27 @@ interface BookingWidgetProps {
   currentCurrency: string;
   onOpenBookingModal: (bookingData: any) => void;
   preSelectedDestinationId?: string;
+  selectedVehicleId?: string;
+  onVehicleChange?: (vehicleId: string) => void;
 }
 
 export const BookingWidget: React.FC<BookingWidgetProps> = ({
   currentCurrency,
   onOpenBookingModal,
   preSelectedDestinationId,
+  selectedVehicleId: controlledVehicleId,
+  onVehicleChange,
 }) => {
   const [transferType, setTransferType] = useState<"arrival" | "departure" | "daytour">("arrival");
   const [selectedDestinationId, setSelectedDestinationId] = useState<string>(
     preSelectedDestinationId || "ubud"
   );
-  const [selectedVehicleId, setSelectedVehicleId] = useState<string>("comfort");
+  const [selectedVehicleIdInternal, setSelectedVehicleIdInternal] =
+    useState<string>("comfort");
+  // Controlled when parent passes selectedVehicleId + onVehicleChange
+  // (vehicle choice shared with Popular Routes cards), otherwise internal.
+  const selectedVehicleId = controlledVehicleId ?? selectedVehicleIdInternal;
+  const setSelectedVehicleId = onVehicleChange ?? setSelectedVehicleIdInternal;
   const [pickupDate, setPickupDate] = useState<string>("");
   const [pickupTime, setPickupTime] = useState<string>("12:00");
   const [flightNumber, setFlightNumber] = useState<string>("");

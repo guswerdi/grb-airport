@@ -8,11 +8,15 @@ import { BALI_DESTINATIONS, formatPrice } from "@/data/destinations";
 interface PopularRoutesSectionProps {
   currentCurrency: string;
   onSelectRouteQuick: (destId: string) => void;
+  selectedVehicleId?: string;
+  onVehicleChange?: (vehicleId: string) => void;
 }
 
 export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
   currentCurrency,
   onSelectRouteQuick,
+  selectedVehicleId = "standard",
+  onVehicleChange,
 }) => {
   const topRoutes = [
     {
@@ -58,9 +62,9 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
       distance: `${dest.distanceKm} km`,
       time: dest.durationMinutes,
       tiers: [
-        { label: "Standard", priceIdr: dest.rates.standard },
-        { label: "Comfort", priceIdr: dest.rates.comfort },
-        { label: "Big Van", priceIdr: dest.rates.van },
+        { id: "standard", label: "Standard", priceIdr: dest.rates.standard },
+        { id: "comfort", label: "Comfort", priceIdr: dest.rates.comfort },
+        { id: "van", label: "Big Van", priceIdr: dest.rates.van },
       ],
     };
   });
@@ -140,17 +144,38 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
 
                 <div className="pt-3 border-t border-slate-100">
                   <span className="text-[10px] text-slate-400 uppercase tracking-wider block mb-2">
-                    Fixed fares
+                    Fixed fares — tap to choose car
                   </span>
                   <div className="space-y-1.5 mb-3">
-                    {route.tiers.map((tier) => (
-                      <div key={tier.label} className="flex items-center justify-between text-xs">
-                        <span className="text-slate-500">{tier.label}</span>
-                        <span className="font-extrabold text-slate-900">
-                          {formatPrice(tier.priceIdr, currentCurrency)}
-                        </span>
-                      </div>
-                    ))}
+                    {route.tiers.map((tier) => {
+                      const isActive = tier.id === selectedVehicleId;
+                      return (
+                        <button
+                          key={tier.id}
+                          type="button"
+                          onClick={() => onVehicleChange?.(tier.id)}
+                          className={`w-full flex items-center justify-between text-xs px-2.5 py-1.5 rounded-lg border transition-colors cursor-pointer ${
+                            isActive
+                              ? "bg-emerald-50 border-emerald-300"
+                              : "bg-white border-slate-200 hover:border-slate-300"
+                          }`}
+                        >
+                          <span className={`flex items-center gap-1.5 ${isActive ? "text-emerald-900 font-semibold" : "text-slate-500"}`}>
+                            <span
+                              className={`w-3.5 h-3.5 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                                isActive ? "border-emerald-600" : "border-slate-300"
+                              }`}
+                            >
+                              {isActive && <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 block" />}
+                            </span>
+                            {tier.label}
+                          </span>
+                          <span className={`font-extrabold ${isActive ? "text-emerald-900" : "text-slate-900"}`}>
+                            {formatPrice(tier.priceIdr, currentCurrency)}
+                          </span>
+                        </button>
+                      );
+                    })}
                   </div>
 
                   <button

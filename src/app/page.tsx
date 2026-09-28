@@ -20,6 +20,8 @@ export default function HomePage() {
   const [currency, setCurrency] = useState<string>("USD");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalBookingData, setModalBookingData] = useState<any>(null);
+  // Single shared vehicle choice: booking widget <-> popular route cards
+  const [sharedVehicleId, setSharedVehicleId] = useState<string>("comfort");
 
   // Handle route selection from table or popular route cards
   const handleSelectRoute = (dest: Destination, vehicleType: string = "comfort") => {
@@ -116,6 +118,8 @@ export default function HomePage() {
       <HeroSection
         currentCurrency={currency}
         onOpenBookingModal={handleOpenBookingModal}
+        selectedVehicleId={sharedVehicleId}
+        onVehicleChange={setSharedVehicleId}
       />
 
       {/* Trust & Guarantee Banner */}
@@ -125,6 +129,8 @@ export default function HomePage() {
       <PopularRoutesSection
         currentCurrency={currency}
         onSelectRouteQuick={handleSelectRouteQuick}
+        selectedVehicleId={sharedVehicleId}
+        onVehicleChange={setSharedVehicleId}
       />
 
       {/* Fixed Rates Matrix Table */}

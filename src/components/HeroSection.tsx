@@ -8,11 +8,15 @@ import { BookingWidget } from "./BookingWidget";
 interface HeroSectionProps {
   currentCurrency: string;
   onOpenBookingModal: (bookingData: any) => void;
+  selectedVehicleId?: string;
+  onVehicleChange?: (vehicleId: string) => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   currentCurrency,
   onOpenBookingModal,
+  selectedVehicleId,
+  onVehicleChange,
 }) => {
   return (
     <section className="relative w-full bg-slate-900 text-white overflow-hidden">
@@ -76,6 +80,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <BookingWidget
           currentCurrency={currentCurrency}
           onOpenBookingModal={onOpenBookingModal}
+          selectedVehicleId={selectedVehicleId}
+          onVehicleChange={onVehicleChange}
         />
       </div>
     </section>
