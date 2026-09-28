@@ -77,8 +77,11 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
           <div className="relative w-full md:w-72">
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
             <input
+              id="rates-search"
+              aria-label="Search area or resort"
               type="text"
               placeholder="Search area or resort (e.g. Ubud, W Bali)..."
+
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl pl-10 pr-4 py-2 text-xs sm:text-sm focus:outline-none focus:border-emerald-600 focus:bg-white focus:ring-2 focus:ring-emerald-600/10 placeholder:text-slate-400"

@@ -18,13 +18,14 @@ export async function GET() {
   });
 
   const routeLinks = BALI_DESTINATIONS.map(
-    (dest) => `- ${BASE_URL}/${dest.slug} — Bali airport transfer to ${dest.name.replace(/\s*\([^)]*\)\s*/g, "").trim()}`
+    (dest) =>
+      `- [Bali airport transfer to ${dest.name.replace(/\s*\([^)]*\)\s*/g, "").trim()}](${BASE_URL}/${dest.slug})`
   ).join("\n");
 
   const blogSection =
     posts.length > 0
       ? `\n## Blog articles\n\n${posts
-          .map((p) => `- ${BASE_URL}/blog/${p.slug} — ${p.title}${p.excerpt ? `: ${p.excerpt}` : ""}`)
+          .map((p) => `- [${p.title}](${BASE_URL}/blog/${p.slug})${p.excerpt ? ` — ${p.excerpt}` : ""}`)
           .join("\n")}\n`
       : "";
 
@@ -33,6 +34,7 @@ export async function GET() {
 > Fixed-price private airport transfers and VIP chauffeur service from I Gusti Ngurah Rai International Airport (DPS), Bali, Indonesia. Operated by PT Bali Transport Wisata.
 
 - URL: ${BASE_URL}
+- [Live fare calculator and booking form](${BASE_URL}/#booking-widget)
 - WhatsApp (24h): +62 851-9092-0033
 - Email: bookings@greatbaliairporttransfer.com
 - Address: Ngurah Rai International Airport (DPS) Arrival Terminal Pick-Up Area, Tuban, Kuta, Badung, Bali 80361, Indonesia

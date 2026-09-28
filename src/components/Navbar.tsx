@@ -105,6 +105,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <div className="relative flex items-center bg-slate-50 hover:bg-slate-100 rounded-lg border border-slate-200 h-9 px-2 text-xs transition-colors">
                 <DollarSign className="w-3.5 h-3.5 text-slate-500 mr-0.5" />
                 <select
+                  id="currency-select-desktop"
                   value={currentCurrency}
                   onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
                   className="bg-transparent text-slate-800 font-semibold focus:outline-none cursor-pointer pr-4 appearance-none"
@@ -149,6 +150,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="flex items-center gap-2 lg:hidden">
               <div className="relative flex items-center bg-slate-100 rounded-lg px-2 py-1 text-xs border border-slate-200">
                 <select
+                  id="currency-select-mobile"
                   value={currentCurrency}
                   onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
                   className="bg-transparent text-slate-800 font-semibold focus:outline-none"

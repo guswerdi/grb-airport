@@ -260,7 +260,10 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {/* 1. Destination / Origin Area */}
             <div className="space-y-1">
-              <label className="text-[11px] font-semibold text-slate-700 flex items-center justify-between">
+              <label
+                htmlFor="destination-select"
+                className="text-[11px] font-semibold text-slate-700 flex items-center justify-between"
+              >
                 <span className="flex items-center gap-1">
                   {transferType === "arrival" ? (
                     <>
@@ -302,10 +305,14 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
 
             {/* 2. Car Type */}
             <div className="space-y-1">
-              <label className="text-[11px] font-semibold text-slate-700 flex items-center gap-1">
+              <label
+                htmlFor="car-type-select"
+                className="text-[11px] font-semibold text-slate-700 flex items-center gap-1"
+              >
                 <Car className="w-3 h-3 text-emerald-600" /> Car Type
               </label>
               <select
+                id="car-type-select"
                 value={selectedVehicleId}
                 onChange={(e) => setSelectedVehicleId(e.target.value)}
                 className={`w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-lg px-2.5 py-2 text-xs focus:outline-none font-medium cursor-pointer ${
@@ -363,7 +370,9 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
               </label>
               <div className="grid grid-cols-2 gap-1.5">
                 <input
+                  id="pickup-date"
                   type="date"
+                  aria-label="Pickup date"
                   value={pickupDate}
                   onChange={(e) => setPickupDate(e.target.value)}
                   className={`bg-slate-50 border border-slate-300 text-slate-900 rounded-lg px-2 py-2 text-xs focus:outline-none cursor-pointer ${
@@ -376,7 +385,9 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                   required
                 />
                 <input
+                  id="pickup-time"
                   type="time"
+                  aria-label="Pickup time"
                   value={pickupTime}
                   onChange={(e) => setPickupTime(e.target.value)}
                   className={`bg-slate-50 border border-slate-300 text-slate-900 rounded-lg px-2 py-2 text-xs focus:outline-none cursor-pointer ${
@@ -395,13 +406,17 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
             <div className="space-y-1">
               {transferType === "arrival" ? (
                 <>
-                  <label className="text-[11px] font-semibold text-slate-700 flex items-center justify-between">
+                  <label
+                    htmlFor="arrival-flight-no"
+                    className="text-[11px] font-semibold text-slate-700 flex items-center justify-between"
+                  >
                     <span className="flex items-center gap-1">
                       <Plane className="w-3 h-3 text-emerald-600" /> Arrival Flight No.
                     </span>
                     <span className="text-[10px] text-emerald-700 font-normal">Live Delay Tracking</span>
                   </label>
                   <input
+                    id="arrival-flight-no"
                     type="text"
                     value={flightNumber}
                     onChange={(e) => setFlightNumber(e.target.value)}
@@ -411,13 +426,17 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                 </>
               ) : transferType === "departure" ? (
                 <>
-                  <label className="text-[11px] font-semibold text-slate-700 flex items-center justify-between">
+                  <label
+                    htmlFor="pickup-hotel"
+                    className="text-[11px] font-semibold text-slate-700 flex items-center justify-between"
+                  >
                     <span className="flex items-center gap-1">
                       <Building2 className="w-3 h-3 text-sky-600" /> Pickup Hotel / Villa
                     </span>
                     <span className="text-[10px] text-sky-700 font-normal">Lobby Pickup</span>
                   </label>
                   <input
+                    id="pickup-hotel"
                     type="text"
                     value={hotelName}
                     onChange={(e) => setHotelName(e.target.value)}
@@ -427,13 +446,17 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                 </>
               ) : (
                 <>
-                  <label className="text-[11px] font-semibold text-slate-700 flex items-center justify-between">
+                  <label
+                    htmlFor="tour-wishlist"
+                    className="text-[11px] font-semibold text-slate-700 flex items-center justify-between"
+                  >
                     <span className="flex items-center gap-1">
                       <Sparkles className="w-3 h-3 text-amber-600" /> Tour Wishlist
                     </span>
                     <span className="text-[10px] text-amber-800 font-normal">Customizable</span>
                   </label>
                   <input
+                    id="tour-wishlist"
                     type="text"
                     value={flightNumber}
                     onChange={(e) => setFlightNumber(e.target.value)}
@@ -450,13 +473,17 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
             {transferType === "arrival" ? (
               <>
                 <div className="space-y-1">
-                  <label className="text-[11px] font-semibold text-slate-700 flex items-center justify-between">
+                  <label
+                    htmlFor="dropoff-hotel"
+                    className="text-[11px] font-semibold text-slate-700 flex items-center justify-between"
+                  >
                     <span className="flex items-center gap-1">
                       <Building2 className="w-3 h-3 text-emerald-600" /> Drop-off Hotel / Resort / Villa Name
                     </span>
                     <span className="text-[10px] text-slate-400 font-normal">Optional</span>
                   </label>
                   <input
+                    id="dropoff-hotel"
                     type="text"
                     value={hotelName}
                     onChange={(e) => setHotelName(e.target.value)}
@@ -474,13 +501,17 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
             ) : transferType === "departure" ? (
               <>
                 <div className="space-y-1">
-                  <label className="text-[11px] font-semibold text-slate-700 flex items-center justify-between">
+                  <label
+                    htmlFor="departure-flight-no"
+                    className="text-[11px] font-semibold text-slate-700 flex items-center justify-between"
+                  >
                     <span className="flex items-center gap-1">
                       <Plane className="w-3 h-3 text-sky-600" /> Departure Flight No. & Terminal
                     </span>
                     <span className="text-[10px] text-sky-700 font-normal">International or Domestic</span>
                   </label>
                   <input
+                    id="departure-flight-no"
                     type="text"
                     value={flightNumber}
                     onChange={(e) => setFlightNumber(e.target.value)}
@@ -498,13 +529,17 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
             ) : (
               <>
                 <div className="space-y-1">
-                  <label className="text-[11px] font-semibold text-slate-700 flex items-center justify-between">
+                  <label
+                    htmlFor="tour-pickup-hotel"
+                    className="text-[11px] font-semibold text-slate-700 flex items-center justify-between"
+                  >
                     <span className="flex items-center gap-1">
                       <Building2 className="w-3 h-3 text-amber-600" /> Morning Pickup Hotel / Villa Address
                     </span>
                     <span className="text-[10px] text-amber-800 font-normal">Lobby or Villa</span>
                   </label>
                   <input
+                    id="tour-pickup-hotel"
                     type="text"
                     value={hotelName}
                     onChange={(e) => setHotelName(e.target.value)}

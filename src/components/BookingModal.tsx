@@ -213,12 +213,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             <div className="space-y-2.5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 <div>
-                  <label className="text-[11px] font-semibold text-slate-700 block mb-1">
+                  <label
+                    htmlFor="booking-guest-name"
+                    className="text-[11px] font-semibold text-slate-700 block mb-1"
+                  >
                     {bookingData.transferType === "arrival"
                       ? "Name for Driver Board *"
                       : "Guest Name *"}
                   </label>
                   <input
+                    id="booking-guest-name"
                     type="text"
                     required
                     value={guestName}
@@ -229,10 +233,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-semibold text-slate-700 block mb-1">
+                  <label
+                    htmlFor="booking-guest-phone"
+                    className="text-[11px] font-semibold text-slate-700 block mb-1"
+                  >
                     WhatsApp Number *
                   </label>
                   <input
+                    id="booking-guest-phone"
                     type="tel"
                     required
                     value={guestPhone}
@@ -245,10 +253,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 <div>
-                  <label className="text-[11px] font-semibold text-slate-700 block mb-1">
+                  <label
+                    htmlFor="booking-guest-email"
+                    className="text-[11px] font-semibold text-slate-700 block mb-1"
+                  >
                     Email Address (optional)
                   </label>
                   <input
+                    id="booking-guest-email"
                     type="email"
                     value={guestEmail}
                     onChange={(e) => setGuestEmail(e.target.value)}
@@ -258,10 +270,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-semibold text-slate-700 block mb-1">
+                  <label
+                    htmlFor="booking-special-notes"
+                    className="text-[11px] font-semibold text-slate-700 block mb-1"
+                  >
                     Special Notes / Stops (optional)
                   </label>
                   <input
+                    id="booking-special-notes"
                     type="text"
                     value={specialNotes}
                     onChange={(e) => setSpecialNotes(e.target.value)}
