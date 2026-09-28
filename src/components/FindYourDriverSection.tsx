@@ -86,7 +86,7 @@ export const FindYourDriverSection: React.FC = () => {
   return (
     <section
       id="find-your-driver"
-      className="py-16 sm:py-24 bg-slate-950 px-4 sm:px-6 lg:px-8 text-white overflow-hidden"
+      className="py-16 sm:py-24 bg-white px-4 sm:px-6 lg:px-8 border-t border-slate-200"
     >
       <script
         type="application/ld+json"
@@ -95,13 +95,13 @@ export const FindYourDriverSection: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-semibold mb-2">
-            <MapPin className="w-3.5 h-3.5" /> Meet Your Chauffeur
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold mb-2">
+            <MapPin className="w-3.5 h-3.5 text-emerald-600" /> Meet Your Chauffeur
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
             How to Find Your Driver at DPS Airport
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-slate-400">
+          <p className="mt-2 text-sm sm:text-base text-slate-600">
             No wandering, no guessing, no taxi touts. Head to Circle K at the
             exit gate and you&apos;ll be in your car within minutes.
           </p>
@@ -111,19 +111,19 @@ export const FindYourDriverSection: React.FC = () => {
           {/* Left: before landing + steps */}
           <div className="lg:col-span-3 space-y-4">
             {/* Before you land */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 sm:p-6">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-300 mb-4">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-700 mb-4">
                 Before you land
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {beforeLanding.map((item) => (
                   <div key={item.title} className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center shrink-0">
-                      <item.icon className="w-5 h-5 text-emerald-300" />
+                    <div className="w-9 h-9 rounded-xl bg-emerald-100 border border-emerald-200 flex items-center justify-center shrink-0">
+                      <item.icon className="w-5 h-5 text-emerald-700" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold mb-1">{item.title}</h4>
-                      <p className="text-xs text-slate-400 leading-relaxed">
+                      <h4 className="text-sm font-bold text-slate-900 mb-1">{item.title}</h4>
+                      <p className="text-xs text-slate-600 leading-relaxed">
                         {item.text}
                       </p>
                     </div>
@@ -137,17 +137,17 @@ export const FindYourDriverSection: React.FC = () => {
               {meetingSteps.map((step) => (
                 <div
                   key={step.num}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-5 sm:p-6 flex items-start gap-4"
+                  className="bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 flex items-start gap-4"
                 >
-                  <span className="text-2xl font-extrabold text-emerald-400 font-mono shrink-0">
+                  <span className="text-2xl font-extrabold text-emerald-600 font-mono shrink-0">
                     {step.num}
                   </span>
                   <div>
-                    <h3 className="text-base font-bold mb-1 flex items-center gap-2">
-                      <step.icon className="w-4 h-4 text-emerald-300" />
+                    <h3 className="text-base font-bold text-slate-900 mb-1 flex items-center gap-2">
+                      <step.icon className="w-4 h-4 text-emerald-600" />
                       {step.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                       {step.text}
                     </p>
                   </div>
@@ -159,7 +159,7 @@ export const FindYourDriverSection: React.FC = () => {
 
           {/* Right: driver card mockup + emergency contact */}
           <div className="lg:col-span-2">
-            <div className="bg-white text-slate-900 rounded-2xl p-5 sm:p-6 shadow-2xl lg:sticky lg:top-24">
+            <div className="bg-slate-50 text-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-xl lg:sticky lg:top-24">
               <div className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-4">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                 Example driver assignment
@@ -229,15 +229,15 @@ export const FindYourDriverSection: React.FC = () => {
         </div>
 
         {/* Can't find us strip */}
-        <div className="bg-emerald-500/10 rounded-2xl p-5 sm:p-6 border border-emerald-500/20 flex flex-col md:flex-row items-center gap-5">
-          <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center shrink-0">
-            <ShieldCheck className="w-6 h-6 text-emerald-300" />
+        <div className="bg-emerald-50 rounded-2xl p-5 sm:p-6 border border-emerald-200 flex flex-col md:flex-row items-center gap-5">
+          <div className="w-12 h-12 rounded-xl bg-emerald-100 border border-emerald-200 flex items-center justify-center shrink-0">
+            <ShieldCheck className="w-6 h-6 text-emerald-700" />
           </div>
           <div className="flex-1 text-center md:text-left">
-            <h4 className="text-white font-bold text-sm sm:text-base mb-1">
+            <h4 className="text-slate-900 font-bold text-sm sm:text-base mb-1">
               Can&apos;t spot your driver? Stay inside — we come to you.
             </h4>
-            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
               Stay in the arrivals hall (never follow touts to the parking
               building). Message us on WhatsApp with your location and what
               you&apos;re wearing — your chauffeur will walk over to you
@@ -250,7 +250,7 @@ export const FindYourDriverSection: React.FC = () => {
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full md:w-auto text-center whitespace-nowrap px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition-colors shrink-0 cursor-pointer"
+            className="w-full md:w-auto text-center whitespace-nowrap px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors shrink-0 cursor-pointer shadow-xs"
           >
             I Need Help Finding My Driver
           </a>
