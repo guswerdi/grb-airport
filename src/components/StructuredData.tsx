@@ -12,7 +12,7 @@ export const StructuredData: React.FC = () => {
     url: "https://www.greatbaliairporttransfer.com",
     sameAs: [
       "https://wa.me/6285190920033",
-      "mailto:bookings@greatbaliairporttransfer.com",
+      "mailto:booking.grb@gmail.com",
     ],
     telephone: "+6285190920033",
     priceRange: "IDR 250,000 - 1,500,000",
