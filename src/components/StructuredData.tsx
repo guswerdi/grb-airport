@@ -70,7 +70,11 @@ export const StructuredData: React.FC = () => {
     "@type": "WebSite",
     "@id": "https://www.greatbaliairporttransfer.com/#website",
     name: "Great Bali Airport Transfer",
-    alternateName: "greatbaliairporttransfer.com",
+    // NOTE: no `alternateName` carrying the bare domain. Google's site-name docs
+    // sanction the lowercase domain in `alternateName` as a *fallback* that it
+    // will "strongly consider using if your preferred name isn't selected" -
+    // and for a while the SERP showed exactly that (the raw domain) instead of
+    // this brand name. Hand Google the brand only.
     url: "https://www.greatbaliairporttransfer.com",
     inLanguage: "en",
     publisher: {

@@ -29,7 +29,6 @@ Allow: /
 ${botRules}
 
 Sitemap: ${SITE}/sitemap.xml
-Host: ${SITE}
 `;
 
   return new NextResponse(body, {
