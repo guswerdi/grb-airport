@@ -27,6 +27,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           alt="Private Bali Airport Transfer Chauffeur at Ngurah Rai International Airport DPS"
           fill
           priority
+          fetchPriority="high"
           className="object-cover object-center opacity-30 brightness-95"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/85 to-slate-900/65" />

@@ -180,6 +180,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 alt={post.mainImage?.alt || post.title}
                 fill
                 priority
+                fetchPriority="high"
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 896px"
               />

@@ -208,6 +208,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
             alt={`Bali Airport Transfer to ${destination.name}`}
             fill
             priority
+            fetchPriority="high"
             className="object-cover opacity-25"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-900/60" />
