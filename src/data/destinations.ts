@@ -16,7 +16,14 @@ export interface VehicleOption {
 
 export interface Destination {
   id: string;
+  /** Long, keyword-rich label used for on-page H1 copy. */
   name: string;
+  /**
+   * Short label used ONLY in <title> / meta tags. Kept separate from `name`
+   * because the long form (e.g. "Nusa Dua Atas / Hills (Kampial, Sawangan, ...)")
+   * pushes meta titles past the ~60 character limit Google displays.
+   */
+  metaName: string;
   region: "South Bali" | "Central Bali" | "Uluwatu & Bukit" | "North & East Bali" | "West Bali";
   distanceKm: number;
   durationMinutes: string;
@@ -37,6 +44,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "kuta-legian",
     name: "Kuta & Legian Beach",
+    metaName: "Kuta & Legian",
     region: "South Bali",
     distanceKm: 6,
     durationMinutes: "15 - 25 mins",
@@ -54,6 +62,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "jimbaran",
     name: "Jimbaran Bay & Kedonganan",
+    metaName: "Jimbaran",
     region: "South Bali",
     distanceKm: 7,
     durationMinutes: "15 - 25 mins",
@@ -71,6 +80,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "seminyak",
     name: "Seminyak & Petitenget",
+    metaName: "Seminyak",
     region: "South Bali",
     distanceKm: 12,
     durationMinutes: "30 - 45 mins",
@@ -88,6 +98,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "nusa-dua",
     name: "Nusa Dua (ITDC Enclave & Mengiat Beach)",
+    metaName: "Nusa Dua",
     region: "South Bali",
     distanceKm: 14,
     durationMinutes: "20 - 30 mins",
@@ -107,6 +118,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "kerobokan",
     name: "Kerobokan & Umalas",
+    metaName: "Kerobokan",
     region: "South Bali",
     distanceKm: 15,
     durationMinutes: "35 - 50 mins",
@@ -124,6 +136,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "sanur",
     name: "Sanur & Fast Boat Harbor (Nusa Penida / Lembongan)",
+    metaName: "Sanur",
     region: "South Bali",
     distanceKm: 16,
     durationMinutes: "25 - 35 mins",
@@ -141,6 +154,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "nusa-dua-atas",
     name: "Nusa Dua Atas / Hills (Kampial, Sawangan, Mumbul, Bualu, Kutuh)",
+    metaName: "Nusa Dua Hills",
     region: "South Bali",
     distanceKm: 16,
     durationMinutes: "25 - 35 mins",
@@ -158,6 +172,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "benoa",
     name: "Tanjung Benoa & Pratama Beach (Water Sports)",
+    metaName: "Tanjung Benoa",
     region: "South Bali",
     distanceKm: 15,
     durationMinutes: "20 - 30 mins",
@@ -177,6 +192,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "canggu",
     name: "Canggu (Berawa, Batu Bolong, Echo Beach & Pererenan)",
+    metaName: "Canggu",
     region: "South Bali",
     distanceKm: 19,
     durationMinutes: "45 - 75 mins",
@@ -194,6 +210,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "uluwatu",
     name: "Uluwatu, Pecatu, Balangan, Bingin & Padang Padang",
+    metaName: "Uluwatu",
     region: "Uluwatu & Bukit",
     distanceKm: 22,
     durationMinutes: "45 - 65 mins",
@@ -213,6 +230,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "ubud",
     name: "Ubud Center (Monkey Forest, Sayan, Pengosekan)",
+    metaName: "Ubud",
     region: "Central Bali",
     distanceKm: 38,
     durationMinutes: "60 - 90 mins",
@@ -230,6 +248,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "tanah-lot-tabanan",
     name: "Tanah Lot, Tabanan & Mengwi",
+    metaName: "Tanah Lot",
     region: "Central Bali",
     distanceKm: 32,
     durationMinutes: "50 - 75 mins",
@@ -247,6 +266,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "klungkung",
     name: "Klungkung & Kusamba Port",
+    metaName: "Klungkung",
     region: "North & East Bali",
     distanceKm: 44,
     durationMinutes: "55 - 75 mins",
@@ -266,6 +286,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "tegallalang-payangan",
     name: "Tegallalang, Payangan & Tampaksiring",
+    metaName: "Tegallalang",
     region: "Central Bali",
     distanceKm: 52,
     durationMinutes: "80 - 110 mins",
@@ -285,6 +306,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "sidemen-candidasa",
     name: "Padangbai Harbor, Candidasa, Manggis & Karangasem",
+    metaName: "Padangbai",
     region: "North & East Bali",
     distanceKm: 65,
     durationMinutes: "90 - 120 mins",
@@ -302,6 +324,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "munduk",
     name: "Munduk Highlands & Bedugul (Lake Beratan)",
+    metaName: "Munduk",
     region: "North & East Bali",
     distanceKm: 78,
     durationMinutes: "2.5 - 3 hrs",
@@ -321,6 +344,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "lovina-munduk",
     name: "Lovina Beach & Singaraja (North Bali Coast)",
+    metaName: "Lovina",
     region: "North & East Bali",
     distanceKm: 88,
     durationMinutes: "2.5 - 3.5 hrs",
@@ -338,6 +362,7 @@ export const BALI_DESTINATIONS: Destination[] = [
   {
     id: "amed-tulamben",
     name: "Tulamben & Amed (Diving & Snorkeling Coast)",
+    metaName: "Amed & Tulamben",
     region: "North & East Bali",
     distanceKm: 98,
     durationMinutes: "2.5 - 3.5 hrs",

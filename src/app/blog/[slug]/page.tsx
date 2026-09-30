@@ -47,7 +47,10 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${post.title} | Great Bali Airport Transfer`,
+    // No manual brand suffix here - the root layout used to append one too,
+    // which rendered the brand twice. `metaTitle` lets the CMS keep a long,
+    // descriptive H1 while <title> stays inside Google's ~60 char limit.
+    title: post.metaTitle || post.title,
     description: post.excerpt,
     alternates: {
       canonical: `https://www.greatbaliairporttransfer.com/blog/${post.slug}`,

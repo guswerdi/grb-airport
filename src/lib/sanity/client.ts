@@ -40,6 +40,8 @@ export interface SanityImageRef {
 export interface SanityPost {
   _id: string;
   title: string;
+  /** Optional <title> override so meta titles stay under ~60 chars. */
+  metaTitle?: string;
   slug: string;
   excerpt?: string;
   category?: string;
@@ -68,6 +70,7 @@ export interface SanityPostStub {
 const POST_PROJECTION = `{
   _id,
   title,
+  metaTitle,
   "slug": slug.current,
   excerpt,
   category,

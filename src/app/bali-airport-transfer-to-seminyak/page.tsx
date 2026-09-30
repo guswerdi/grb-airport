@@ -1,9 +1,13 @@
 import { Metadata } from "next";
 import { RouteLandingPage } from "@/components/RouteLandingPage";
+import { routeTitle } from "@/components/RoutePageFactory";
 import { BALI_DESTINATIONS } from "@/data/destinations";
 
+/** Hoisted so the metadata export builds its title from the same record. */
+const seminyakDest = BALI_DESTINATIONS.find((d) => d.id === "seminyak")!;
+
 export const metadata: Metadata = {
-  title: "Bali Airport Transfer to Seminyak (DPS) | Fixed Price from IDR 250k",
+  title: routeTitle(seminyakDest),
   description:
     "Private Bali airport transfer from DPS Ngurah Rai to Seminyak & Petitenget. Fixed fare from IDR 250,000 ($16 USD). Chauffeur greeting with name board, toll included, no taxi queues.",
   keywords: [
@@ -26,8 +30,6 @@ export const metadata: Metadata = {
 };
 
 export default function SeminyakRoutePage() {
-  const seminyakDest = BALI_DESTINATIONS.find((d) => d.id === "seminyak")!;
-
   const tips = [
     "Seminyak is located just 12 km north of DPS Airport. The drive typically takes 30 to 45 minutes.",
     "During sunset rush hour (5 PM - 7:30 PM), Sunset Road and Jl. Kayu Aya (Eat Street) experience heavy traffic. Our drivers know quiet backstreets to reach your villa quicker.",

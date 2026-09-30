@@ -41,6 +41,17 @@ export const postType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "metaTitle",
+      title: "SEO Meta Title",
+      type: "string",
+      description:
+        "Overrides the <title> tag in search results. Keep it under 60 characters so Google does not truncate it. Leave empty to fall back to the Title above.",
+      validation: (rule) =>
+        rule
+          .max(60)
+          .warning("Google truncates titles longer than ~60 characters."),
+    }),
+    defineField({
       name: "slug",
       title: "Slug",
       type: "slug",

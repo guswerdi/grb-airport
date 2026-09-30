@@ -1,9 +1,13 @@
 import { Metadata } from "next";
 import { RouteLandingPage } from "@/components/RouteLandingPage";
+import { routeTitle } from "@/components/RoutePageFactory";
 import { BALI_DESTINATIONS } from "@/data/destinations";
 
+/** Hoisted so the metadata export builds its title from the same record. */
+const nusaDuaDest = BALI_DESTINATIONS.find((d) => d.id === "nusa-dua")!;
+
 export const metadata: Metadata = {
-  title: "Bali Airport Transfer to Nusa Dua (DPS) | Fixed Price from IDR 250k",
+  title: routeTitle(nusaDuaDest),
   description:
     "Fast private transfer from Bali Airport to Nusa Dua & Tanjung Benoa via Mandara Tollway. Fixed fare from IDR 250,000 ($16 USD). Meet & greet at DPS arrivals, pristine AC cars, toll included.",
   keywords: [
@@ -26,8 +30,6 @@ export const metadata: Metadata = {
 };
 
 export default function NusaDuaRoutePage() {
-  const nusaDuaDest = BALI_DESTINATIONS.find((d) => d.id === "nusa-dua")!;
-
   const tips = [
     "Nusa Dua is just 14 km from DPS Airport. Thanks to the Bali Mandara Ocean Tollway, the drive takes only 20 to 30 minutes.",
     "The electronic toll fee for the ocean bypass is 100% included in our fixed rate. You do not need Indonesian toll cards or cash for tolls.",

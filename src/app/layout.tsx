@@ -23,10 +23,14 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.greatbaliairporttransfer.com"),
-  title: {
-    default: "Bali Airport Transfer (DPS) | VIP Private Chauffeur & Fixed Rates",
-    template: "%s | Great Bali Airport Transfer",
-  },
+  // Plain string title (no `template`).
+  //
+  // The previous `template: "%s | Great Bali Airport Transfer"` was appended to
+  // every child route that already wrote its own full title. That doubled the
+  // brand on the blog article and pushed all 18 route titles to 93-152 chars,
+  // so Google truncated the keyword/price out of every snippet. Route pages now
+  // opt out with `title.absolute`; a plain string here keeps the homepage short.
+  title: "Bali Airport Transfer DPS | Fixed Price from IDR 250K",
   description:
     "Pre-book reliable Bali airport transfers at Denpasar Ngurah Rai (DPS). 100% fixed transparent fares from IDR 250k. Free flight tracking, personalized meet & greet with name sign, toll included, pristine AC fleet.",
   keywords: [

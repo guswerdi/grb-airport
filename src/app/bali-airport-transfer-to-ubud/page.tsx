@@ -1,9 +1,13 @@
 import { Metadata } from "next";
 import { RouteLandingPage } from "@/components/RouteLandingPage";
+import { routeTitle } from "@/components/RoutePageFactory";
 import { BALI_DESTINATIONS } from "@/data/destinations";
 
+/** Hoisted so the metadata export builds its title from the same record. */
+const ubudDest = BALI_DESTINATIONS.find((d) => d.id === "ubud")!;
+
 export const metadata: Metadata = {
-  title: "Bali Airport Transfer to Ubud (DPS) | Fixed Price from IDR 400k",
+  title: routeTitle(ubudDest),
   description:
     "Pre-book your private Bali airport transfer from DPS Ngurah Rai to Ubud. Fixed transparent rates from IDR 400,000 ($25 USD). Meet & greet with name board, toll included, pristine AC cars.",
   keywords: [
@@ -26,8 +30,6 @@ export const metadata: Metadata = {
 };
 
 export default function UbudRoutePage() {
-  const ubudDest = BALI_DESTINATIONS.find((d) => d.id === "ubud")!;
-
   const tips = [
     "The typical drive from Denpasar Airport to Ubud takes 60 to 90 minutes depending on departure time.",
     "Our drivers take the Ida Bagus Mantra Bypass or Tollway to avoid the congested Batubulan town center.",

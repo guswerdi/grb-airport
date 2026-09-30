@@ -13,10 +13,32 @@ const REGION_IMAGES: Record<Destination["region"], string> = {
   "West Bali": "/images/dest-ubud.jpg",
 };
 
+/** "250000" -> "250K", matching the compact form used across the meta titles. */
+function rateLabel(idr: number): string {
+  return `${(idr / 1000).toLocaleString("id-ID")}K`;
+}
+
+/**
+ * Meta title for a route page.
+ *
+ * Uses `absolute` so the brand template from the root layout is NOT appended.
+ * Before this, `%s | Great Bali Airport Transfer` was suffixed onto titles that
+ * already ended in a price, pushing every route title to 93-152 characters -
+ * well past the ~60 characters Google renders, so the price was always cut off.
+ * `dest.metaName` (not `dest.name`) keeps the destination label short.
+ */
+export function routeTitle(dest: Destination): Metadata["title"] {
+  return {
+    absolute: `Bali Airport Transfer to ${dest.metaName} | Fixed IDR ${rateLabel(
+      dest.rates.standard
+    )}`,
+  };
+}
+
 /** Shared metadata for all hardcoded route landing pages. */
 export function routeMetadata(dest: Destination): Metadata {
   return {
-    title: `Bali Airport Transfer to ${dest.name} (DPS) | Fixed Price from IDR ${(dest.rates.standard / 1000).toLocaleString("id-ID")}k`,
+    title: routeTitle(dest),
     description: `Fast private transfer from Bali Airport to ${dest.name}. Fixed fare from IDR ${dest.rates.standard.toLocaleString("id-ID")}. Meet & greet at DPS arrivals, pristine AC cars.`,
     keywords: [
       `bali airport transfer to ${dest.name.toLowerCase()}`,

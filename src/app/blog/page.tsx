@@ -9,7 +9,7 @@ import {
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Bali Airport Transfer Guides & Tips",
+  title: "Bali Airport Transfer Guide & Tips 2026 | DPS Arrival",
   description:
     "Essential Bali airport arrival advice, transparent DPS taxi cost breakdowns, and local chauffeur insights for a stress-free holiday start.",
   alternates: {

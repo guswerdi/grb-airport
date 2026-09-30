@@ -1,9 +1,13 @@
 import { Metadata } from "next";
 import { RouteLandingPage } from "@/components/RouteLandingPage";
+import { routeTitle } from "@/components/RoutePageFactory";
 import { BALI_DESTINATIONS } from "@/data/destinations";
 
+/** Hoisted so the metadata export builds its title from the same record. */
+const uluwatuDest = BALI_DESTINATIONS.find((d) => d.id === "uluwatu")!;
+
 export const metadata: Metadata = {
-  title: "Bali Airport Transfer to Uluwatu (DPS) | Fixed Price from IDR 325k",
+  title: routeTitle(uluwatuDest),
   description:
     "Private airport transfer from Bali DPS Ngurah Rai to Uluwatu, Bingin, Padang Padang & Pecatu. Fixed fare from IDR 325,000 ($20 USD). Clifftop resort drop-offs, VIP fleet, toll included.",
   keywords: [
@@ -26,8 +30,6 @@ export const metadata: Metadata = {
 };
 
 export default function UluwatuRoutePage() {
-  const uluwatuDest = BALI_DESTINATIONS.find((d) => d.id === "uluwatu")!;
-
   const tips = [
     "Uluwatu is approximately 22 km south of Ngurah Rai Airport. Travel time is usually 45 to 65 minutes.",
     "Roads in the Bukit peninsula can be steep and winding; our drivers are experienced local chauffeurs with smooth, defensive driving standards.",

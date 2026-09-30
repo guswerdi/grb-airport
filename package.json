@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "favicons": "node scripts/generate-favicons.mjs"
+    "favicons": "node scripts/generate-favicons.mjs",
+    "draft:airport-guide": "node scripts/draft-bali-airport-transfer-guide.mjs",
+    "audit:meta": "node scripts/audit-meta-titles.mjs"
   },
   "dependencies": {
     "@sanity/image-url": "^2.1.1",
