@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { RouteLandingPage } from "@/components/RouteLandingPage";
-import { routeTitle } from "@/components/RoutePageFactory";
+import { routeDescription, routeTitle } from "@/components/RoutePageFactory";
 import { BALI_DESTINATIONS } from "@/data/destinations";
 
 /** Hoisted so the metadata export builds its title from the same record. */
@@ -8,8 +8,7 @@ const cangguDest = BALI_DESTINATIONS.find((d) => d.id === "canggu")!;
 
 export const metadata: Metadata = {
   title: routeTitle(cangguDest),
-  description:
-    "Pre-book private airport transfer from Bali DPS Ngurah Rai to Canggu, Berawa, Batu Bolong & Pererenan. Fixed price from IDR 325,000 ($20 USD). Surfboard friendly, AC, flight tracking.",
+  description: routeDescription(cangguDest),
   keywords: [
     "bali airport transfer to canggu",
     "bali airport to canggu taxi cost",

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { RouteLandingPage } from "@/components/RouteLandingPage";
-import { routeTitle } from "@/components/RoutePageFactory";
+import { routeDescription, routeTitle } from "@/components/RoutePageFactory";
 import { BALI_DESTINATIONS } from "@/data/destinations";
 
 /** Hoisted so the metadata export builds its title from the same record. */
@@ -8,8 +8,7 @@ const nusaDuaDest = BALI_DESTINATIONS.find((d) => d.id === "nusa-dua")!;
 
 export const metadata: Metadata = {
   title: routeTitle(nusaDuaDest),
-  description:
-    "Fast private transfer from Bali Airport to Nusa Dua & Tanjung Benoa via Mandara Tollway. Fixed fare from IDR 250,000 ($16 USD). Meet & greet at DPS arrivals, pristine AC cars, toll included.",
+  description: routeDescription(nusaDuaDest),
   keywords: [
     "bali airport transfer to nusa dua",
     "bali airport to nusa dua taxi cost",

@@ -28,7 +28,15 @@ export interface Destination {
   distanceKm: number;
   durationMinutes: string;
   slug: string;
+  /** Short marketing blurb: on-page route overview + Open Graph. */
   description: string;
+  /**
+   * Unique, hand-written meta description for this route, used for Google's
+   * snippet. `{price}` is expanded at build time with the destination's live
+   * Standard-car fare (see `fillPrice`), so a snippet can never quote a stale
+   * price. Keep it under ~155 characters so nothing is truncated.
+   */
+  metaDescription: string;
   popularHotels: string[];
   trafficTip: string;
   rates: {
@@ -50,6 +58,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "15 - 25 mins",
     slug: "bali-airport-transfer-to-kuta",
     description: "Bali's iconic surf beaches, Beachwalk shopping mall, vibrant street markets, and family resorts.",
+    metaDescription: "Kuta & Legian surf beaches are 15 minutes from DPS. Flat {price} for 1-4 pax, name-sign meet & greet, toll included.",
     popularHotels: ["Sheraton Bali Kuta", "Hard Rock Hotel Bali", "The Stones Legian", "Padma Resort Legian", "Pullman Legian", "Discovery Kartika Plaza"],
     trafficTip: "Drivers navigate narrow one-way beach roads seamlessly to drop you right at your hotel lobby.",
     rates: {
@@ -68,6 +77,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "15 - 25 mins",
     slug: "bali-airport-transfer-to-jimbaran",
     description: "Renowned beachfront seafood barbecue shacks on the sand, tranquil sunset bays, and secluded clifftop luxury.",
+    metaDescription: "The closest luxury beach to DPS: 15 min to Jimbaran seafood BBQ shacks and AYANA. All-in {price}, luggage help included.",
     popularHotels: ["AYANA Resort & Rock Bar", "Four Seasons Jimbaran", "InterContinental Bali Resort", "Mövenpick Resort Jimbaran", "RIMBA by AYANA"],
     trafficTip: "Closest luxury resort destination from DPS Airport. Quick and smooth 15-minute drive.",
     rates: {
@@ -86,6 +96,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "30 - 45 mins",
     slug: "bali-airport-transfer-to-seminyak",
     description: "Cosmopolitan hub with world-class beach clubs (Ku De Ta, Potato Head), designer boutiques, and sunset dining.",
+    metaDescription: "Skip the taxi queue to Seminyak and Petitenget beach clubs. Private car from {price}, chauffeur waits with your name sign.",
     popularHotels: ["W Bali Seminyak", "The Legian", "Alila Seminyak", "Hotel Indigo", "Potato Head Suites", "The Oberoi"],
     trafficTip: "Sunset beachgoers cause slow traffic on Jl. Kayu Aya (Eat Street) from 5 PM onwards. Drivers navigate back lanes seamlessly.",
     rates: {
@@ -104,6 +115,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "20 - 30 mins",
     slug: "bali-airport-transfer-to-nusa-dua",
     description: "Gated 5-star beachfront enclave with manicured golf courses, calm swimming beaches, and family water sports.",
+    metaDescription: "Nusa Dua ITDC resorts via the Mandara ocean tollway, 25 min from DPS. Book {price} for 1-4 pax, toll and parking included.",
     popularHotels: ["The Mulia", "Grand Hyatt Bali", "Melia Bali", "St. Regis Bali (Beachfront)", "Sofitel Nusa Dua", "Merusaka Nusa Dua"],
     trafficTip: "Extremely fast and smooth transfer via the scenic Bali Mandara Ocean Tollway (toll fee included with our service).",
     rates: {
@@ -124,6 +136,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "35 - 50 mins",
     slug: "bali-airport-transfer-to-kerobokan",
     description: "Charming expat and villa neighborhood nestled between stylish Seminyak and vibrant Canggu.",
+    metaDescription: "Kerobokan and Umalas villa stays, 40 min from DPS between Seminyak and Canggu. Door-to-door private transfer from {price}.",
     popularHotels: ["Berry Amour Romantic Villas", "The Dusun", "Villa Komea", "Umalas Hotel & Residence"],
     trafficTip: "Drivers utilize shortcut routes to bypass sunset traffic along Jl. Kerobokan.",
     rates: {
@@ -142,6 +155,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "25 - 35 mins",
     slug: "bali-airport-transfer-to-sanur",
     description: "Relaxed coastal resort town with serene sunrise beachfront boardwalks and the primary harbor to Nusa Penida.",
+    metaDescription: "Catch the Nusa Penida and Gili fast boats from Sanur harbor, 35 min from DPS. From {price}, early morning pickups available.",
     popularHotels: ["Andaz Bali", "Hyatt Regency Bali", "Maya Sanur", "InterContinental Bali Sanur", "Puri Santrian"],
     trafficTip: "Smooth transit via the Ngurah Rai Bypass road. Morning fast boat departures run 7 AM - 9 AM.",
     rates: {
@@ -159,7 +173,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     distanceKm: 16,
     durationMinutes: "25 - 35 mins",
     slug: "bali-airport-transfer-to-nusa-dua-atas",
-    description: "Kawasan perbukitan dan tebing Nusa Dua: Kampial (Poltekpar), tebing Sawangan (The Apurva Kempinski, Ritz-Carlton cliff, Hilton), Taman Mumbul, Bualu Atas, dan Kutuh (Pandawa).",
+    metaDescription: "Cliff-top Nusa Dua Hills villas in Sawangan, Kampial and Kutuh, 35 min from DPS. {price} all-in, tollway included.",
+    description: "Hillside and clifftop Nusa Dua: Kampial, the Sawangan cliff strip (Apurva Kempinski, Ritz-Carlton, Hilton), Taman Mumbul, Bualu and Kutuh (Pandawa Beach).",
     popularHotels: ["The Apurva Kempinski Bali", "The Ritz-Carlton Bali (Cliff)", "Hilton Bali Resort", "Samabe Bali Suites & Villas", "Amaroossa Suite", "Vinila Villas"],
     trafficTip: "Includes ocean tollway and direct access up through Jl. Siligita or Jl. Dharmawangsa to elevated villas and cliff resorts.",
     rates: {
@@ -178,6 +193,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "20 - 30 mins",
     slug: "bali-airport-transfer-to-tanjung-benoa",
     description: "Bali's world-famous water sports peninsula (jet ski, parasailing, diving) and calm ocean beachfront resorts.",
+    metaDescription: "Tanjung Benoa water sports and Pratama Beach resorts, 30 min from DPS via the ocean tollway. Private car from {price}.",
     popularHotels: ["Conrad Bali", "Grand Mirage Resort", "Holiday Inn Resort Benoa", "Novotel Bali Benoa", "Hotel Nikko Bali Benoa"],
     trafficTip: "Fast highway access across the Bali Mandara Ocean Tollway straight onto Jl. Pratama.",
     rates: {
@@ -198,6 +214,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "45 - 75 mins",
     slug: "bali-airport-transfer-to-canggu",
     description: "Trending surfer, digital nomad, and nightlife hotspot with chic cafes, beach clubs (Finns, Atlas), and ocean villas.",
+    metaDescription: "Surfboard-friendly transfers to Canggu, Berawa and Batu Bolong, 60 min from DPS. Flat {price}, with free flight delay tracking.",
     popularHotels: ["COMO Uma Canggu", "Hotel Tugu Bali", "The Slow", "ASTON Canggu", "Secana Beachtown"],
     trafficTip: "The Canggu shortcut and Jl. Pantai Berawa get congested during late afternoons. We utilize optimized alternate routes.",
     rates: {
@@ -216,6 +233,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "45 - 65 mins",
     slug: "bali-airport-transfer-to-uluwatu",
     description: "Clifftop majesty overlooking world-class surf breaks, sunset temples, and ultra-luxury clifftop resorts.",
+    metaDescription: "Drop-off at Uluwatu, Bingin and Padang Padang clifftop villas, 65 min from DPS. Flat {price}, luggage and board handling.",
     popularHotels: ["Bulgari Resort Bali", "Alila Villas Uluwatu", "Six Senses Uluwatu", "Anantara Uluwatu", "Jumeirah Bali", "Radisson Blu Uluwatu"],
     trafficTip: "Hilly roads and temple sunset traffic near Uluwatu Temple around 5:30 PM - 7 PM for the Kecak Fire Dance.",
     rates: {
@@ -236,6 +254,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "60 - 90 mins",
     slug: "bali-airport-transfer-to-ubud",
     description: "Bali's cultural, yoga, and wellness sanctuary surrounded by lush rainforests and artistic heritage.",
+    metaDescription: "Door-to-door Ubud villa transfers through Sayan and Monkey Forest, 90 min from DPS. Fixed {price}, toll and parking included.",
     popularHotels: ["Four Seasons Sayan", "Mandapa Ritz-Carlton", "Kamandalu", "Viceroy Bali", "Alila Ubud", "Bisma Eight"],
     trafficTip: "Afternoon arrivals (3 PM - 7 PM) can experience moderate traffic through Batubulan; our drivers choose the bypass tollway to avoid bottlenecks.",
     rates: {
@@ -254,6 +273,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "50 - 75 mins",
     slug: "bali-airport-transfer-to-tanah-lot",
     description: "Home to Bali's iconic sea temple at Tanah Lot, royal Mengwi Taman Ayun temple, and peaceful western rice plains.",
+    metaDescription: "Tanah Lot sea temple and Tabanan resort transfers, 75 min from DPS. {price} all-in, flight tracking and free 90-min waiting.",
     popularHotels: ["Pan Pacific Bali / Nirwana", "Natya Hotel Tanah Lot", "De Moksha Eco Friendly Boutique Resort"],
     trafficTip: "Sunset visitors flock to Tanah Lot temple between 4:30 PM and 6:30 PM.",
     rates: {
@@ -272,6 +292,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "55 - 75 mins",
     slug: "bali-airport-transfer-to-klungkung",
     description: "Historic royal capital of Bali and traditional salt-farming coast, gateway to Nusa Penida fast boats from Kusamba.",
+    metaDescription: "Klungkung and Kusamba Port transfers via the east coast bypass, 75 min from DPS. Private car from {price}, live flight tracking.",
     popularHotels: ["Wyndham Tamansari Jivva Resort", "Mara River Safari Lodge"],
     trafficTip: "Smooth drive via the Prof. Dr. Ida Bagus Mantra East Coast Bypass highway.",
     rates: {
@@ -292,6 +313,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "80 - 110 mins",
     slug: "bali-airport-transfer-to-tegallalang",
     description: "Spectacular UNESCO Tegallalang rice terraces, Tirta Empul holy water springs, and luxury rainforest retreats in Payangan.",
+    metaDescription: "Tegallalang rice terraces and Payangan jungle retreats, 110 min from DPS. {price} for 1-4 pax, luggage assistance included.",
     popularHotels: ["Padma Resort Ubud (Payangan)", "Hanging Gardens of Bali", "Capella Ubud", "Komaneka at Tanggayuda"],
     trafficTip: "Scenic northern mountain foothills road with cooling breezes and rainforest vistas.",
     rates: {
@@ -312,6 +334,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "90 - 120 mins",
     slug: "bali-airport-transfer-to-padangbai",
     description: "Gili Islands ferry port at Padangbai, serene Candidasa beachfront, Alila Manggis, and authentic East Bali royal palaces.",
+    metaDescription: "Catch your Gili Islands ferry at Padangbai, or Candidasa beach hotels, 2 hrs from DPS. From {price}, door-to-door drop-off.",
     popularHotels: ["Alila Manggis", "Candi Beach Resort & Spa", "Wapa di Ume Sidemen", "Samanvaya Luxury Resort"],
     trafficTip: "Bypass highway gives a smooth ride all the way past Kusamba towards Padangbai and Candidasa.",
     rates: {
@@ -330,6 +353,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "2.5 - 3 hrs",
     slug: "bali-airport-transfer-to-munduk",
     description: "Cool mountain highlands, misty waterfalls, coffee estates, and iconic Ulun Danu Beratan water temple.",
+    metaDescription: "Munduk highlands, Bedugul and Ulun Danu Beratan temple, 3 hrs from DPS. {price} with a mountain-experienced chauffeur.",
     popularHotels: ["Munduk Moding Plantation", "Sanak Retreat Bali", "Munduk Cabins", "Handara Golf & Resort"],
     trafficTip: "Winding scenic mountain ascent through Bedugul; our chauffeurs are experienced with mountain terrain.",
     rates: {
@@ -350,6 +374,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "2.5 - 3.5 hrs",
     slug: "bali-airport-transfer-to-lovina",
     description: "Tranquil northern Bali coastline famous for sunrise dolphin watching boat tours, calm seas, and historical Singaraja city.",
+    metaDescription: "Lovina dolphin tours and Singaraja hotels, 3.5 hrs from DPS. Fixed {price} for the whole car, comfy AC ride with a rest stop.",
     popularHotels: ["The Damai Lovina", "Padmasari Resort", "Puri Bagus Lovina"],
     trafficTip: "Mountain pass traverse. Free refreshment stop upon request at zero extra charge.",
     rates: {
@@ -368,6 +393,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "2.5 - 3.5 hrs",
     slug: "bali-airport-transfer-to-amed",
     description: "World-renowned diving mecca with the USAT Liberty shipwreck in Tulamben and picturesque sunrise fishing bays of Amed.",
+    metaDescription: "Dive trips to the USAT Liberty wreck in Tulamben and Amed bays, 3.5 hrs from DPS. Gear-friendly car from {price}.",
     popularHotels: ["Mimpi Resort Tulamben", "The Griya Villas and Spa", "Mathis Lodge Amed", "Blue Earth Village"],
     trafficTip: "Long-distance coastal drive. Rest stops with clean restrooms available anytime.",
     rates: {
@@ -454,4 +480,18 @@ export function formatPrice(amountIdr: number, currency: string = "IDR"): string
   }
   const converted = Math.round(amountIdr * info.rate);
   return `${info.symbol}${converted.toLocaleString()}`;
+}
+
+/**
+ * Expand the `{price}` token used in `Destination.metaDescription`.
+ *
+ * Produces `"IDR 400,000 ($25 USD)"`. Thousands are separated with commas
+ * because `formatPrice`'s Indonesian style (`"IDR 400.000"`) reads as a decimal
+ * to a non-Indonesian audience. The USD figure comes from `EXCHANGE_RATES` - the
+ * same table the on-page currency switcher uses - so the snippet Google shows
+ * and the price on the page can never disagree.
+ */
+export function fillPrice(template: string, standardIdr: number): string {
+  const idr = `IDR ${standardIdr.toLocaleString("en-US")}`;
+  return template.replace("{price}", `${idr} (${formatPrice(standardIdr, "USD")} USD)`);
 }

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { RouteLandingPage } from "@/components/RouteLandingPage";
-import { routeTitle } from "@/components/RoutePageFactory";
+import { routeDescription, routeTitle } from "@/components/RoutePageFactory";
 import { BALI_DESTINATIONS } from "@/data/destinations";
 
 /** Hoisted so the metadata export builds its title from the same record. */
@@ -8,8 +8,7 @@ const uluwatuDest = BALI_DESTINATIONS.find((d) => d.id === "uluwatu")!;
 
 export const metadata: Metadata = {
   title: routeTitle(uluwatuDest),
-  description:
-    "Private airport transfer from Bali DPS Ngurah Rai to Uluwatu, Bingin, Padang Padang & Pecatu. Fixed fare from IDR 325,000 ($20 USD). Clifftop resort drop-offs, VIP fleet, toll included.",
+  description: routeDescription(uluwatuDest),
   keywords: [
     "bali airport transfer to uluwatu",
     "bali airport to uluwatu taxi cost",

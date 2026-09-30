@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   // opt out with `title.absolute`; a plain string here keeps the homepage short.
   title: "Bali Airport Transfer DPS | Fixed Price from IDR 250K",
   description:
-    "Pre-book reliable Bali airport transfers at Denpasar Ngurah Rai (DPS). 100% fixed transparent fares from IDR 250k. Free flight tracking, personalized meet & greet with name sign, toll included, pristine AC fleet.",
+    "Pre-book a private Bali airport transfer from Denpasar Ngurah Rai (DPS). Fixed fares from IDR 250,000 ($16 USD), name-sign meet & greet, flight tracking.",
   keywords: [
     "bali airport transfer",
     "bali airport taxi",

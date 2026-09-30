@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { RouteLandingPage } from "@/components/RouteLandingPage";
-import { routeTitle } from "@/components/RoutePageFactory";
+import { routeDescription, routeTitle } from "@/components/RoutePageFactory";
 import { BALI_DESTINATIONS } from "@/data/destinations";
 
 /** Hoisted so the metadata export builds its title from the same record. */
@@ -8,8 +8,7 @@ const seminyakDest = BALI_DESTINATIONS.find((d) => d.id === "seminyak")!;
 
 export const metadata: Metadata = {
   title: routeTitle(seminyakDest),
-  description:
-    "Private Bali airport transfer from DPS Ngurah Rai to Seminyak & Petitenget. Fixed fare from IDR 250,000 ($16 USD). Chauffeur greeting with name board, toll included, no taxi queues.",
+  description: routeDescription(seminyakDest),
   keywords: [
     "bali airport transfer to seminyak",
     "dps airport to seminyak taxi",

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { RouteLandingPage } from "@/components/RouteLandingPage";
-import { routeTitle } from "@/components/RoutePageFactory";
+import { routeDescription, routeTitle } from "@/components/RoutePageFactory";
 import { BALI_DESTINATIONS } from "@/data/destinations";
 
 /** Hoisted so the metadata export builds its title from the same record. */
@@ -8,8 +8,7 @@ const ubudDest = BALI_DESTINATIONS.find((d) => d.id === "ubud")!;
 
 export const metadata: Metadata = {
   title: routeTitle(ubudDest),
-  description:
-    "Pre-book your private Bali airport transfer from DPS Ngurah Rai to Ubud. Fixed transparent rates from IDR 400,000 ($25 USD). Meet & greet with name board, toll included, pristine AC cars.",
+  description: routeDescription(ubudDest),
   keywords: [
     "bali airport transfer to ubud",
     "bali airport to ubud taxi cost",

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { RouteLandingPage } from "@/components/RouteLandingPage";
-import type { Destination } from "@/data/destinations";
+import { fillPrice, type Destination } from "@/data/destinations";
 
 const BASE = "https://www.greatbaliairporttransfer.com";
 
@@ -35,11 +35,27 @@ export function routeTitle(dest: Destination): Metadata["title"] {
   };
 }
 
+/**
+ * Meta description for a route page.
+ *
+ * Each destination carries its own hand-written `metaDescription`; this only
+ * expands the `{price}` token with its live Standard-car fare. All 13 generated
+ * route pages used to share one built sentence ("Fast private transfer from Bali
+ * Airport to X. Fixed fare from IDR Y. Meet & greet at DPS arrivals, pristine AC
+ * cars.") with only the name and number swapped. Google treats near-duplicate
+ * descriptions much like duplicate content and will often discard them in favour
+ * of a snippet it pulls from the page body, so the templated text was doing no
+ * work.
+ */
+export function routeDescription(dest: Destination): string {
+  return fillPrice(dest.metaDescription, dest.rates.standard);
+}
+
 /** Shared metadata for all hardcoded route landing pages. */
 export function routeMetadata(dest: Destination): Metadata {
   return {
     title: routeTitle(dest),
-    description: `Fast private transfer from Bali Airport to ${dest.name}. Fixed fare from IDR ${dest.rates.standard.toLocaleString("id-ID")}. Meet & greet at DPS arrivals, pristine AC cars.`,
+    description: routeDescription(dest),
     keywords: [
       `bali airport transfer to ${dest.name.toLowerCase()}`,
       `bali airport to ${dest.name.toLowerCase()} taxi cost`,

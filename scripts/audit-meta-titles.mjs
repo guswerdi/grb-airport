@@ -11,6 +11,11 @@
  *
  * Budgets: ~60 chars for <title> and ~155 for the description, which is roughly
  * where Google truncates a desktop snippet.
+ *
+ * Exits non-zero if any page is over either budget so the check can gate a
+ * release. Descriptions are measured from the built HTML rather than from source
+ * because they come from three places: the root layout, a route record's
+ * `metaDescription`, and Sanity.
  */
 import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
@@ -71,7 +76,9 @@ console.log(`Budgets: title <= ${TITLE_MAX}, description <= ${DESCRIPTION_MAX}\n
 console.log("TLEN  DLEN  ROUTE / TITLE");
 console.log("-".repeat(100));
 for (const r of rows) {
-  const flag = r.title.length > TITLE_MAX ? "  <== TITLE TOO LONG" : "";
+  const flag =
+    (r.title.length > TITLE_MAX ? "  <== TITLE TOO LONG" : "") +
+    (r.description.length > DESCRIPTION_MAX ? "  <== DESC TOO LONG" : "");
   console.log(
     String(r.title.length).padStart(4) +
       String(r.description.length).padStart(6) +
@@ -85,8 +92,11 @@ console.log(`Titles over ${TITLE_MAX}:       ${titleFails.length}`);
 console.log(`Descriptions over ${DESCRIPTION_MAX}: ${descFails.length}`);
 
 if (descFails.length) {
-  console.log("\nDescriptions needing a trim:");
-  for (const r of descFails) console.log(`  ${r.description.length}  ${r.route}`);
+  console.log(`\nDescriptions Google will truncate ("|" marks the cut):`);
+  for (const r of descFails) {
+    console.log(`\n  ${r.description.length} chars  ${r.route}`);
+    console.log(`        ${r.description.slice(0, DESCRIPTION_MAX)}|${r.description.slice(DESCRIPTION_MAX)}`);
+  }
 }
 
-process.exitCode = titleFails.length ? 1 : 0;
+process.exitCode = titleFails.length || descFails.length ? 1 : 0;
