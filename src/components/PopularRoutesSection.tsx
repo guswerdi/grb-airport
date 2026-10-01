@@ -33,7 +33,7 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
       slug: "bali-airport-transfer-to-canggu",
       title: "DPS Airport to Canggu",
       tag: "Surfing & Cafes",
-      image: "/images/dest-seminyak.jpg",
+      image: "/images/dest-canggu.jpg",
       highlight: "Berawa Beach, Batu Bolong, Echo Beach, Atlas Beach Fest, Finns",
       description: "Fast transit avoiding notorious shortcut bottlenecks with our experienced local drivers and optimized routing.",
     },

@@ -10,6 +10,7 @@ import { FleetSection } from "@/components/FleetSection";
 import { ArrivalGuide } from "@/components/ArrivalGuide";
 import { FindYourDriverSection } from "@/components/FindYourDriverSection";
 import { ReviewsSection } from "@/components/ReviewsSection";
+import { TransportComparisonSection } from "@/components/TransportComparisonSection";
 import { FaqSection } from "@/components/FaqSection";
 import { Footer } from "@/components/Footer";
 import { BookingModal } from "@/components/BookingModal";
@@ -150,6 +151,9 @@ export default function HomePage() {
 
       {/* How to Find Your Driver at DPS */}
       <FindYourDriverSection />
+
+      {/* Transport Comparison (GEO) */}
+      <TransportComparisonSection />
 
       {/* Traveler Reviews & Ratings */}
       <ReviewsSection />

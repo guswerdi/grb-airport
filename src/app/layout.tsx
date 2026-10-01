@@ -103,6 +103,12 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  other: {
+    "geo.region": "ID-BA",
+    "geo.placename": "Bali",
+    "geo.position": "-8.7482;115.1672",
+    "ICBM": "-8.7482, 115.1672"
+  },
 };
 
 export default function RootLayout({
