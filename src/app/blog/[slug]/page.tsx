@@ -210,7 +210,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Free 90-Min Flight Tracking:</strong> Your chauffeur tracks your flight in real time with zero extra delay fees.</span>
+                  <span><strong>Free 60-Min Flight Tracking:</strong> Your chauffeur tracks your flight in real time with zero extra delay fees.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />

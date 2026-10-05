@@ -55,15 +55,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </h1>
 
           <p className="mt-3 text-xs sm:text-sm lg:text-base text-slate-300 leading-relaxed font-normal max-w-2xl">
-            Skip hectic airport taxi queues at Denpasar Ngurah Rai Airport (DPS).
+            Skip hectic taxi queues with our reliable <strong>Bali airport pickup</strong>.
             Your personal English-speaking driver greets you at the arrival hall with a personalized name sign.
-            100% fixed fares, flight tracking, and toll included.
+            Top-rated <strong>Bali airport transfers</strong> with 100% fixed fares, flight tracking, and toll included.
           </p>
 
           {/* 4 Clean Value Pills */}
           <div className="flex flex-wrap items-center gap-2 mt-4 text-xs text-slate-300">
             <span className="inline-flex items-center gap-1.5 bg-white/10 px-2.5 py-1 rounded-md">
-              <Clock className="w-3.5 h-3.5 text-emerald-400" /> 90-Min Free Flight Waiting
+              <Clock className="w-3.5 h-3.5 text-emerald-400" /> 60-Min Free Flight Waiting
             </span>
             <span className="inline-flex items-center gap-1.5 bg-white/10 px-2.5 py-1 rounded-md">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Tollways & Parking Included

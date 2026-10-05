@@ -273,7 +273,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     durationMinutes: "50 - 75 mins",
     slug: "bali-airport-transfer-to-tanah-lot",
     description: "Home to Bali's iconic sea temple at Tanah Lot, royal Mengwi Taman Ayun temple, and peaceful western rice plains.",
-    metaDescription: "Tanah Lot sea temple and Tabanan resort transfers, 75 min from DPS. {price} all-in, flight tracking and free 90-min waiting.",
+    metaDescription: "Tanah Lot sea temple and Tabanan resort transfers, 75 min from DPS. {price} all-in, flight tracking and free 60-min waiting.",
     popularHotels: ["Pan Pacific Bali / Nirwana", "Natya Hotel Tanah Lot", "De Moksha Eco Friendly Boutique Resort"],
     trafficTip: "Sunset visitors flock to Tanah Lot temple between 4:30 PM and 6:30 PM.",
     rates: {

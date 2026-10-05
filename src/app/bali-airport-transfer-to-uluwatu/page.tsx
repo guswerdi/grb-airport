@@ -9,13 +9,6 @@ const uluwatuDest = BALI_DESTINATIONS.find((d) => d.id === "uluwatu")!;
 export const metadata: Metadata = {
   title: routeTitle(uluwatuDest),
   description: routeDescription(uluwatuDest),
-  keywords: [
-    "bali airport transfer to uluwatu",
-    "bali airport to uluwatu taxi cost",
-    "dps airport to bulgari bali transfer",
-    "denpasar to uluwatu private driver",
-    "how to get to uluwatu from bali airport",
-  ],
   alternates: {
     canonical: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-uluwatu",
   },

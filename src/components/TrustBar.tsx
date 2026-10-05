@@ -23,7 +23,7 @@ export const TrustBar: React.FC = () => {
                 Flight Tracking & Free Waiting
               </p>
               <p className="text-slate-500 text-xs mt-0.5">
-                Chauffeur tracks your flight live. 90 mins complimentary wait.
+                Chauffeur tracks your flight live. 60 mins complimentary wait.
               </p>
             </div>
           </div>
@@ -84,8 +84,6 @@ export const TrustBar: React.FC = () => {
             <span>DPS International Terminal Gate Access</span>
             <span className="text-slate-300">•</span>
             <span>Domestic Terminal Gate Access</span>
-            <span className="text-slate-300">•</span>
-            <span>PT Bali Transport Wisata #49120</span>
           </div>
         </div>
       </div>

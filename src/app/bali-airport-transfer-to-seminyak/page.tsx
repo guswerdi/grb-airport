@@ -9,13 +9,6 @@ const seminyakDest = BALI_DESTINATIONS.find((d) => d.id === "seminyak")!;
 export const metadata: Metadata = {
   title: routeTitle(seminyakDest),
   description: routeDescription(seminyakDest),
-  keywords: [
-    "bali airport transfer to seminyak",
-    "dps airport to seminyak taxi",
-    "bali airport taxi cost to seminyak",
-    "denpasar to seminyak transfer price",
-    "best way to get from bali airport to seminyak",
-  ],
   alternates: {
     canonical: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-seminyak",
   },

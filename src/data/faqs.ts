@@ -7,13 +7,13 @@ export interface FAQItem {
 export const BALI_FAQS: FAQItem[] = [
   {
     category: "Arrival & Pickup",
-    question: "Where do I meet my driver at Bali Ngurah Rai Airport (DPS)?",
+    question: "Where do I meet my driver for the Bali airport pickup?",
     answer: "After clearing immigration, customs, and the duty-free walkway, exit the terminal and head straight to the Circle K minimart right at the exit gate — that is our meeting point. Your personal chauffeur will be waiting in front of Circle K holding a prominent name sign clearly displaying your name. We also send you a photo and live WhatsApp contact of your driver 2 hours before your flight lands.",
   },
   {
     category: "Flight Delays",
     question: "What happens if my flight to Bali is delayed or arrives early?",
-    answer: "You do not need to worry. We track all inbound commercial flights in real-time using your flight number. Even if your flight is delayed by 2, 4, or 6 hours, your driver's schedule automatically adjusts to your actual touchdown time. We also provide a complimentary 90-minute grace waiting period after your aircraft lands to allow ample time for visa on arrival (e-VoA) and baggage claim.",
+    answer: "You do not need to worry. We track all inbound commercial flights in real-time using your flight number. Even if your flight is delayed by 2, 4, or 6 hours, your driver's schedule automatically adjusts to your actual touchdown time. We also provide a complimentary 60-minute grace waiting period after your aircraft lands to allow ample time for visa on arrival (e-VoA) and baggage claim.",
   },
   {
     category: "Pricing & Payment",
@@ -73,7 +73,7 @@ export const BALI_FAQS: FAQItem[] = [
   {
     category: "Flight Delays",
     question: "How long will my driver wait if immigration or VoA takes very long?",
-    answer: "Your chauffeur waits with a complimentary 90-minute grace period after your aircraft lands, which comfortably covers visa on arrival (e-VoA) and baggage claim. Because we track your flight live, we know exactly when you touch down — and if queues are exceptionally long, just message your driver on WhatsApp and we will keep coordinating until you exit.",
+    answer: "Your chauffeur waits with a complimentary 60-minute grace period after your aircraft lands, which comfortably covers visa on arrival (e-VoA) and baggage claim. Because we track your flight live, we know exactly when you touch down — and if queues are exceptionally long, just message your driver on WhatsApp and we will keep coordinating until you exit.",
   },
   {
     category: "Flight Delays",

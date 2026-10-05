@@ -43,7 +43,7 @@ export async function GET() {
 
 - Pre-booked private airport transfers (arrival & departure) at DPS with 100% fixed, all-inclusive fares (toll, parking, flight tracking, meet & greet with name sign included).
 - Fleet: Standard Car (Toyota Avanza, 1-4 pax), Comfort Car (Toyota Innova Zenix, 1-5 pax), Big Van (Toyota HiAce Premio, 1-12 pax, surfboard friendly).
-- Free 90-minute flight delay tracking, English-speaking drivers, baby seats available (IDR 50,000/seat).
+- Free 60-minute flight delay tracking, English-speaking drivers, baby seats available (IDR 50,000/seat).
 - Payments: Cash (IDR), Visa/Mastercard, USD, AUD, EUR, Wise.
 
 ## Fixed fares from DPS (IDR, all-inclusive, per vehicle)

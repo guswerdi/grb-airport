@@ -40,26 +40,12 @@ export const metadata: Metadata = {
   // brand on the blog article and pushed all 18 route titles to 93-152 chars,
   // so Google truncated the keyword/price out of every snippet. Route pages now
   // opt out with `title.absolute`; a plain string here keeps the homepage short.
-  title: "Bali Airport Transfer DPS | Fixed Price from IDR 250K",
+  title: "Bali Airport Transfers & Pickup (DPS) | VIP Private Driver",
   description:
-    "Pre-book a private Bali airport transfer from Denpasar Ngurah Rai (DPS). Fixed fares from IDR 250,000 ($16 USD), name-sign meet & greet, flight tracking.",
-  keywords: [
-    "bali airport transfer",
-    "bali airport taxi",
-    "denpasar airport transfer",
-    "dps airport transfer",
-    "bali airport transfer to ubud",
-    "bali airport transfer to seminyak",
-    "bali airport transfer to canggu",
-    "bali airport transfer to uluwatu",
-    "bali airport transfer cost",
-    "bali private driver airport pickup",
-    "bali vip airport chauffeur",
-    "ngurah rai airport taxi rates",
-  ],
+    "Pre-book your private Bali airport pickup for a stress-free arrival. Top-rated Bali airport transfers with VIP meet & greet, 60-min free waiting, and fixed prices.",
   authors: [{ name: "Great Bali Airport Transfer Chauffeurs" }],
   creator: "Great Bali Airport Transfer",
-  publisher: "PT Bali Transport Wisata",
+  publisher: "Great Bali Airport Transfer",
   formatDetection: {
     telephone: true,
     email: true,
@@ -69,9 +55,9 @@ export const metadata: Metadata = {
     canonical: "https://www.greatbaliairporttransfer.com",
   },
   openGraph: {
-    title: "Bali Airport Transfer (DPS) | Private VIP Chauffeur & Fixed Rates",
+    title: "Bali Airport Transfers & Pickup (DPS) | VIP Private Driver",
     description:
-      "Arrive stress-free in Bali. Personalized arrival hall greeting, flight delay tracking, and fixed transparent fares to Ubud, Seminyak, Canggu, Uluwatu, and Nusa Dua.",
+      "Pre-book your private Bali airport pickup for a stress-free arrival. Top-rated Bali airport transfers with VIP meet & greet, 60-min free waiting, and fixed prices.",
     url: "https://www.greatbaliairporttransfer.com",
     siteName: "Great Bali Airport Transfer",
     locale: "en_US",
@@ -87,9 +73,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bali Airport Transfer (DPS) | VIP Chauffeur & Fixed Rates",
+    title: "Bali Airport Transfers & Pickup (DPS) | VIP Private Driver",
     description:
-      "Pre-book your Bali airport pickup. English-speaking driver with name board, free flight tracking, toll & parking included.",
+      "Pre-book your private Bali airport pickup for a stress-free arrival. Top-rated Bali airport transfers with VIP meet & greet, 60-min free waiting, and fixed prices.",
     images: ["/images/innova-zenix.jpg"],
   },
   robots: {

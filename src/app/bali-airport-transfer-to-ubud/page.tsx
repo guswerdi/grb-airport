@@ -9,13 +9,6 @@ const ubudDest = BALI_DESTINATIONS.find((d) => d.id === "ubud")!;
 export const metadata: Metadata = {
   title: routeTitle(ubudDest),
   description: routeDescription(ubudDest),
-  keywords: [
-    "bali airport transfer to ubud",
-    "bali airport to ubud taxi cost",
-    "denpasar airport to ubud private driver",
-    "dps to ubud transfer price",
-    "how to get from bali airport to ubud",
-  ],
   alternates: {
     canonical: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-ubud",
   },

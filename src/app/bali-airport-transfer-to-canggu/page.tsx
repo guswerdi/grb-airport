@@ -9,13 +9,6 @@ const cangguDest = BALI_DESTINATIONS.find((d) => d.id === "canggu")!;
 export const metadata: Metadata = {
   title: routeTitle(cangguDest),
   description: routeDescription(cangguDest),
-  keywords: [
-    "bali airport transfer to canggu",
-    "bali airport to canggu taxi cost",
-    "how to get from bali airport to canggu",
-    "dps airport to berawa beach transfer",
-    "bali airport transfer surfboard",
-  ],
   alternates: {
     canonical: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-canggu",
   },

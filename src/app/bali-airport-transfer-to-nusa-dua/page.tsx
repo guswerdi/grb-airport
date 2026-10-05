@@ -9,13 +9,6 @@ const nusaDuaDest = BALI_DESTINATIONS.find((d) => d.id === "nusa-dua")!;
 export const metadata: Metadata = {
   title: routeTitle(nusaDuaDest),
   description: routeDescription(nusaDuaDest),
-  keywords: [
-    "bali airport transfer to nusa dua",
-    "bali airport to nusa dua taxi cost",
-    "denpasar airport to apurva kempinski transfer",
-    "dps airport to mulia bali transfer",
-    "bali mandara tollway airport taxi",
-  ],
   alternates: {
     canonical: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-nusa-dua",
   },

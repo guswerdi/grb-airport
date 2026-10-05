@@ -136,7 +136,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-1.5 text-slate-300">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Free 90-Min Delay Waiting</span>
+                <span>Free 60-Min Delay Waiting</span>
               </li>
               <li className="flex items-center gap-1.5 text-slate-300">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
