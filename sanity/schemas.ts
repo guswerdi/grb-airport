@@ -29,6 +29,53 @@ export const authorType = defineType({
   },
 });
 
+/** Simple table for blog bodies. The first row is rendered as the header row. */
+export const tableType = defineType({
+  name: "table",
+  title: "Table",
+  type: "object",
+  fields: [
+    defineField({
+      name: "caption",
+      title: "Caption",
+      type: "string",
+    }),
+    defineField({
+      name: "rows",
+      title: "Rows (first row = header)",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "object",
+          name: "tableRow",
+          title: "Row",
+          fields: [
+            defineField({
+              name: "cells",
+              title: "Cells",
+              type: "array",
+              of: [defineArrayMember({ type: "string" })],
+            }),
+          ],
+          preview: {
+            select: { cells: "cells" },
+            prepare: ({ cells }: { cells?: string[] }) => ({
+              title: (cells ?? []).join(" | "),
+            }),
+          },
+        }),
+      ],
+    }),
+  ],
+  preview: {
+    select: { title: "caption", rows: "rows" },
+    prepare: ({ title, rows }: { title?: string; rows?: unknown[] }) => ({
+      title: title || "Table",
+      subtitle: `${rows?.length ?? 0} rows`,
+    }),
+  },
+});
+
 export const postType = defineType({
   name: "post",
   title: "Blog Post",
@@ -124,6 +171,7 @@ export const postType = defineType({
             defineField({ name: "alt", title: "Alternative text (SEO)", type: "string" }),
           ],
         }),
+        defineArrayMember({ type: "table" }),
       ],
     }),
   ],
@@ -132,4 +180,4 @@ export const postType = defineType({
   },
 });
 
-export const schemaTypes = [postType, authorType];
+export const schemaTypes = [postType, authorType, tableType];
