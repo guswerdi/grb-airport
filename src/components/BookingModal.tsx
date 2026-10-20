@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import {
   X,
   CheckCircle2,
@@ -14,6 +14,7 @@ import {
   Check,
 } from "lucide-react";
 import confetti from "canvas-confetti";
+import { FLEET_DETAILS, formatPrice } from "@/data/destinations";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -34,6 +35,82 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [bookingRef, setBookingRef] = useState("");
   const [copiedRef, setCopiedRef] = useState(false);
+  const [countdown, setCountdown] = useState<number | null>(null);
+
+  const [selectedVehicleId, setSelectedVehicleId] = useState<string>(
+    bookingData?.vehicle?.id || "standard"
+  );
+
+  const resetForm = () => {
+    setGuestName("");
+    setGuestEmail("");
+    setGuestPhone("");
+    setSpecialNotes("");
+    setPaymentMethod("cash");
+    setIsConfirmed(false);
+    setBookingRef("");
+    setCopiedRef(false);
+    setCountdown(null);
+  };
+
+  const handleModalClose = () => {
+    resetForm();
+    onClose();
+  };
+
+  // Auto-reset form whenever modal is closed
+  useEffect(() => {
+    if (!isOpen) {
+      resetForm();
+    }
+  }, [isOpen]);
+
+  // Handle auto-close timer after WhatsApp submission
+  useEffect(() => {
+    if (countdown === null) return;
+    if (countdown <= 0) {
+      handleModalClose();
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setCountdown((prev) => (prev !== null ? prev - 1 : null));
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [countdown]);
+
+  useEffect(() => {
+    if (bookingData?.vehicle?.id) {
+      setSelectedVehicleId(bookingData.vehicle.id);
+    }
+  }, [bookingData?.vehicle?.id, bookingData?.destination?.id]);
+
+  const activeVehicle = useMemo(() => {
+    return (
+      FLEET_DETAILS.find((v) => v.id === selectedVehicleId) ||
+      bookingData?.vehicle ||
+      FLEET_DETAILS[0]
+    );
+  }, [selectedVehicleId, bookingData?.vehicle]);
+
+  const activePriceIdr = useMemo(() => {
+    if (!bookingData) return 0;
+    if (bookingData.transferType === "daytour") return 0;
+    if (!bookingData.destination?.rates) return bookingData.priceIdr || 0;
+    const rates = bookingData.destination.rates;
+    if (selectedVehicleId === "standard") return rates.standard;
+    if (selectedVehicleId === "comfort") return rates.comfort;
+    if (selectedVehicleId === "luxury") return rates.luxury;
+    if (selectedVehicleId === "van") return rates.van;
+    return rates[selectedVehicleId as keyof typeof rates] || bookingData.priceIdr || 0;
+  }, [selectedVehicleId, bookingData]);
+
+  const activeFormattedPrice = useMemo(() => {
+    if (!bookingData) return "";
+    if (bookingData.transferType === "daytour") return "Quote by Admin";
+    return formatPrice(activePriceIdr, bookingData.currency || "USD");
+  }, [activePriceIdr, bookingData]);
 
   if (!isOpen || !bookingData) return null;
 
@@ -49,13 +126,17 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     const isDeparture = bookingData.transferType === "departure";
     const isDaytour = bookingData.transferType === "daytour";
 
+    const carName = activeVehicle?.name || bookingData.vehicle?.name;
+    const priceFormatted = activeFormattedPrice || bookingData.formattedPrice;
+    const priceRaw = activePriceIdr || bookingData.priceIdr;
+
     if (isDaytour) {
       const text =
         `Hello, I would like to request a quote for a 10-hour private car charter:\n\n` +
         `Name: ${guestName || "Guest"}\n` +
         `WhatsApp: ${guestPhone}\n` +
         `Starting Area: ${bookingData.destination?.name?.split("(")[0].trim()}\n` +
-        `Car: ${bookingData.vehicle?.name}\n` +
+        `Car: ${carName}\n` +
         `Date & Time: ${bookingData.pickupDate || "Flexible"} at ${bookingData.pickupTime}\n` +
         (bookingData.hotelName ? `Pickup Location: ${bookingData.hotelName}\n` : "") +
         (bookingData.flightNumber ? `Planned Route / Stops: ${bookingData.flightNumber}\n` : "") +
@@ -76,8 +157,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       `WhatsApp: ${guestPhone}\n` +
       `Service: ${isDeparture ? "Hotel to Airport Drop-off" : "Airport Arrival Pickup"}\n` +
       `Route: ${routeText}\n` +
-      `Car: ${bookingData.vehicle?.name}\n` +
-      `Price: ${bookingData.formattedPrice} (${bookingData.priceIdr?.toLocaleString()} IDR)\n` +
+      `Car: ${carName}\n` +
+      `Price: ${priceFormatted} (${priceRaw?.toLocaleString()} IDR)\n` +
       `Date & Time: ${bookingData.pickupDate || "Today/Soon"} at ${bookingData.pickupTime}\n` +
       (bookingData.flightNumber ? `Flight: ${bookingData.flightNumber}\n` : "") +
       (bookingData.hotelName ? `${isDeparture ? "Pickup Hotel" : "Drop-off Hotel"}: ${bookingData.hotelName}\n` : "") +
@@ -111,10 +192,18 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     } catch (err) {
       // non-fatal
     }
+
+    // Auto-close and auto-reset after 5 seconds
+    setCountdown(5);
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs overflow-y-auto">
+    <div
+      onClick={(e) => {
+        if (e.target === e.currentTarget) handleModalClose();
+      }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs overflow-y-auto"
+    >
       <div className="relative w-full max-w-lg bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden my-auto text-slate-900">
         {/* Modal Header - Compact */}
         <div className="flex items-center justify-between px-4 sm:px-5 py-2.5 sm:py-3 border-b border-slate-100 bg-slate-50/80">
@@ -131,8 +220,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             </span>
           </div>
           <button
-            onClick={onClose}
-            className="p-1 rounded-md text-slate-400 hover:text-slate-700 hover:bg-slate-200 transition-colors"
+            type="button"
+            onClick={handleModalClose}
+            className="p-1 rounded-md text-slate-400 hover:text-slate-700 hover:bg-slate-200 transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
@@ -171,7 +261,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     {bookingData.transferType === "daytour" ? "Rate" : "Fixed Fare"}
                   </span>
                   <span className="text-base sm:text-lg font-black text-slate-900 leading-none">
-                    {bookingData.transferType === "daytour" ? "Quote by Admin" : bookingData.formattedPrice}
+                    {bookingData.transferType === "daytour" ? "Quote by Admin" : activeFormattedPrice}
                   </span>
                   {bookingData.transferType === "daytour" && (
                     <span className="text-[10px] text-amber-700 block font-semibold mt-0.5">
@@ -181,11 +271,46 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 </div>
               </div>
 
+              {/* Vehicle Options Switcher in Modal */}
+              {bookingData.destination?.rates && bookingData.transferType !== "daytour" && (
+                <div className="pt-2 border-t border-slate-200/70">
+                  <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider block mb-1.5">
+                    Vehicle Option
+                  </span>
+                  <div className="grid grid-cols-3 gap-1.5">
+                    {[
+                      { id: "standard", label: "Standard", price: bookingData.destination.rates.standard },
+                      { id: "comfort", label: "Comfort", price: bookingData.destination.rates.comfort },
+                      { id: "van", label: "Big Van", price: bookingData.destination.rates.van },
+                    ].map((tier) => {
+                      const isSelected = selectedVehicleId === tier.id;
+                      return (
+                        <button
+                          key={tier.id}
+                          type="button"
+                          onClick={() => setSelectedVehicleId(tier.id)}
+                          className={`px-2 py-1.5 rounded-lg border text-center transition-all cursor-pointer ${
+                            isSelected
+                              ? "bg-emerald-50 border-emerald-600 text-emerald-950 font-bold shadow-2xs"
+                              : "bg-white border-slate-200 text-slate-600 hover:border-slate-300 font-medium"
+                          }`}
+                        >
+                          <div className="text-xs leading-tight">{tier.label}</div>
+                          <div className={`text-[10px] leading-tight ${isSelected ? "text-emerald-800 font-black" : "text-slate-500 font-semibold"}`}>
+                            {formatPrice(tier.price, bookingData.currency || "USD")}
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
               {/* Trip details grid - 1 Compact Row */}
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] text-slate-600">
                 <div className="flex items-center gap-1 font-medium">
                   <Car className="w-3 h-3 text-slate-400 shrink-0" />
-                  <span>{bookingData.vehicle?.name}</span>
+                  <span>{activeVehicle?.name || bookingData.vehicle?.name}</span>
                 </div>
                 <div className="flex items-center gap-1 font-medium">
                   <Calendar className="w-3 h-3 text-slate-400 shrink-0" />
@@ -346,7 +471,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
               <button
                 type="button"
-                onClick={onClose}
+                onClick={handleModalClose}
                 className="px-3.5 py-2 rounded-lg text-slate-500 hover:text-slate-800 font-medium text-xs transition-colors cursor-pointer"
               >
                 Cancel
@@ -384,8 +509,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               </p>
             </div>
 
-
-
             {/* Next Steps Card - Compact & Honest */}
             <div className="bg-slate-50 p-3 rounded-lg border border-slate-200 text-left text-xs text-slate-600 space-y-1.5">
               <div className="font-bold text-slate-900 text-xs mb-1">
@@ -400,6 +523,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <span>Press <strong>Send</strong> in WhatsApp to connect directly with our 24/7 Bali dispatch admin.</span>
               </div>
             </div>
+
+            {/* Auto-closing notification */}
+            {countdown !== null && (
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[11px] text-slate-600">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+                <span>Auto-closing in <strong className="text-slate-900 font-bold">{countdown}s</strong> • Form will automatically reset</span>
+              </div>
+            )}
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 pt-1">
@@ -416,7 +547,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               </a>
 
               <button
-                onClick={onClose}
+                type="button"
+                onClick={handleModalClose}
                 className="w-full sm:w-auto px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs transition-colors cursor-pointer"
               >
                 Close

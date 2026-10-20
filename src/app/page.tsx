@@ -22,13 +22,13 @@ export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalBookingData, setModalBookingData] = useState<any>(null);
   // Single shared vehicle choice: booking widget <-> popular route cards
-  const [sharedVehicleId, setSharedVehicleId] = useState<string>("comfort");
+  const [sharedVehicleId, setSharedVehicleId] = useState<string>("standard");
 
   // Handle route selection from table or popular route cards
-  const handleSelectRoute = (dest: Destination, vehicleType: string = "comfort") => {
-    const selectedVeh = FLEET_DETAILS.find((v) => v.id === vehicleType) || FLEET_DETAILS[1];
-    let priceIdr = dest.rates.comfort;
-    if (vehicleType === "standard") priceIdr = dest.rates.standard;
+  const handleSelectRoute = (dest: Destination, vehicleType: string = "standard") => {
+    const selectedVeh = FLEET_DETAILS.find((v) => v.id === vehicleType) || FLEET_DETAILS[0];
+    let priceIdr = dest.rates.standard;
+    if (vehicleType === "comfort") priceIdr = dest.rates.comfort;
     if (vehicleType === "luxury") priceIdr = dest.rates.luxury;
     if (vehicleType === "van") priceIdr = dest.rates.van;
 
@@ -43,16 +43,16 @@ export default function HomePage() {
       pickupTime: "14:00",
       flightNumber: "",
       hotelName: "",
-      passengers: 2,
-      luggage: 2,
+      passengers: selectedVeh.passengers >= 2 ? 2 : selectedVeh.passengers,
+      luggage: selectedVeh.luggage >= 2 ? 2 : selectedVeh.luggage,
       babySeatNeeded: false,
     });
     setIsModalOpen(true);
   };
 
-  const handleSelectRouteQuick = (destId: string) => {
+  const handleSelectRouteQuick = (destId: string, vehicleType: string = sharedVehicleId) => {
     const dest = BALI_DESTINATIONS.find((d) => d.id === destId) || BALI_DESTINATIONS[0];
-    handleSelectRoute(dest, "comfort");
+    handleSelectRoute(dest, vehicleType);
   };
 
   const handleSelectVehicle = (vehicleId: string) => {
@@ -86,14 +86,16 @@ export default function HomePage() {
       setModalBookingData(bookingData);
     } else {
       const defaultDest = BALI_DESTINATIONS[0];
-      const defaultVeh = FLEET_DETAILS[1];
+      const defaultVeh = FLEET_DETAILS.find((v) => v.id === sharedVehicleId) || FLEET_DETAILS[0];
+      const rateKey = (sharedVehicleId as "standard" | "comfort" | "luxury" | "van") || "standard";
+      const priceIdr = defaultDest.rates[rateKey] || defaultDest.rates.standard;
       setModalBookingData({
         transferType: "arrival",
         destination: defaultDest,
         vehicle: defaultVeh,
-        priceIdr: defaultDest.rates.comfort,
+        priceIdr: priceIdr,
         currency: currency,
-        formattedPrice: formatPrice(defaultDest.rates.comfort, currency),
+        formattedPrice: formatPrice(priceIdr, currency),
         pickupDate: new Date().toISOString().split("T")[0],
         pickupTime: "12:00",
         flightNumber: "",
@@ -137,6 +139,7 @@ export default function HomePage() {
       {/* Fixed Rates Matrix Table */}
       <FareCalculatorTable
         currentCurrency={currency}
+        selectedVehicleId={sharedVehicleId}
         onSelectRoute={(dest, vehType) => handleSelectRoute(dest, vehType)}
       />
 

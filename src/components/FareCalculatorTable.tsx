@@ -12,11 +12,13 @@ import {
 interface FareCalculatorTableProps {
   currentCurrency: string;
   onSelectRoute: (destination: Destination, vehicleType: string) => void;
+  selectedVehicleId?: string;
 }
 
 export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
   currentCurrency,
   onSelectRoute,
+  selectedVehicleId = "standard",
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRegion, setSelectedRegion] = useState<string>("All");
@@ -167,33 +169,54 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                         </span>
                       </td>
                       <td className="py-3.5 px-3 text-right whitespace-nowrap">
-                        <div className="font-bold text-slate-800">
-                          {formatPrice(dest.rates.standard, currentCurrency)}
-                        </div>
-                        <div className="text-[10px] text-slate-400">
-                          {formatPrice(dest.rates.standard, "IDR")}
-                        </div>
+                        <button
+                          type="button"
+                          onClick={() => onSelectRoute(dest, "standard")}
+                          className="w-full text-right hover:text-emerald-700 transition-colors cursor-pointer group/cell"
+                          title={`Select Standard Car to ${dest.name}`}
+                        >
+                          <div className="font-bold text-slate-800 group-hover/cell:text-emerald-700">
+                            {formatPrice(dest.rates.standard, currentCurrency)}
+                          </div>
+                          <div className="text-[10px] text-slate-400">
+                            {formatPrice(dest.rates.standard, "IDR")}
+                          </div>
+                        </button>
                       </td>
                       <td className="py-3.5 px-3 text-right whitespace-nowrap bg-emerald-50/40">
-                        <div className="font-bold text-emerald-800">
-                          {formatPrice(dest.rates.comfort, currentCurrency)}
-                        </div>
-                        <div className="text-[10px] text-slate-500">
-                          {formatPrice(dest.rates.comfort, "IDR")}
-                        </div>
+                        <button
+                          type="button"
+                          onClick={() => onSelectRoute(dest, "comfort")}
+                          className="w-full text-right hover:text-emerald-800 transition-colors cursor-pointer group/cell"
+                          title={`Select Comfort Car to ${dest.name}`}
+                        >
+                          <div className="font-bold text-emerald-800">
+                            {formatPrice(dest.rates.comfort, currentCurrency)}
+                          </div>
+                          <div className="text-[10px] text-slate-500">
+                            {formatPrice(dest.rates.comfort, "IDR")}
+                          </div>
+                        </button>
                       </td>
 
                       <td className="py-3.5 px-3 text-right whitespace-nowrap">
-                        <div className="font-bold text-slate-800">
-                          {formatPrice(dest.rates.van, currentCurrency)}
-                        </div>
-                        <div className="text-[10px] text-slate-400">
-                          {formatPrice(dest.rates.van, "IDR")}
-                        </div>
+                        <button
+                          type="button"
+                          onClick={() => onSelectRoute(dest, "van")}
+                          className="w-full text-right hover:text-emerald-700 transition-colors cursor-pointer group/cell"
+                          title={`Select Big Van to ${dest.name}`}
+                        >
+                          <div className="font-bold text-slate-800 group-hover/cell:text-emerald-700">
+                            {formatPrice(dest.rates.van, currentCurrency)}
+                          </div>
+                          <div className="text-[10px] text-slate-400">
+                            {formatPrice(dest.rates.van, "IDR")}
+                          </div>
+                        </button>
                       </td>
                       <td className="py-3.5 px-4 sm:px-6 text-center whitespace-nowrap">
                         <button
-                          onClick={() => onSelectRoute(dest, "comfort")}
+                          onClick={() => onSelectRoute(dest, selectedVehicleId)}
                           className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors cursor-pointer"
                         >
                           <span>Select</span>

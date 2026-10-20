@@ -35,7 +35,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
   faqs,
 }) => {
   const [currency, setCurrency] = useState("USD");
-  const [selectedVehicleId, setSelectedVehicleId] = useState("comfort");
+  const [selectedVehicleId, setSelectedVehicleId] = useState("standard");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalBookingData, setModalBookingData] = useState<any>(null);
 
@@ -259,6 +259,8 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
             currentCurrency={currency}
             onOpenBookingModal={handleOpenBookingModal}
             preSelectedDestinationId={destination.id}
+            selectedVehicleId={selectedVehicleId}
+            onVehicleChange={setSelectedVehicleId}
           />
         </div>
       </header>

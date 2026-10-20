@@ -41,14 +41,14 @@ export function BlogListing({ posts }: BlogListingProps) {
 
   const handleOpenBookingModal = () => {
     const defaultDest = BALI_DESTINATIONS[0];
-    const defaultVeh = FLEET_DETAILS[1];
+    const defaultVeh = FLEET_DETAILS[0];
     setModalBookingData({
       transferType: "arrival",
       destination: defaultDest,
       vehicle: defaultVeh,
-      priceIdr: defaultDest.rates.comfort,
+      priceIdr: defaultDest.rates.standard,
       currency: currency,
-      formattedPrice: formatPrice(defaultDest.rates.comfort, currency),
+      formattedPrice: formatPrice(defaultDest.rates.standard, currency),
       pickupDate: new Date().toISOString().split("T")[0],
       pickupTime: "12:00",
       flightNumber: "",

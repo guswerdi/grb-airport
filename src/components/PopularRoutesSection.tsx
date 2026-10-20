@@ -7,7 +7,7 @@ import { BALI_DESTINATIONS, formatPrice } from "@/data/destinations";
 
 interface PopularRoutesSectionProps {
   currentCurrency: string;
-  onSelectRouteQuick: (destId: string) => void;
+  onSelectRouteQuick: (destId: string, vehicleId?: string) => void;
   selectedVehicleId?: string;
   onVehicleChange?: (vehicleId: string) => void;
 }
@@ -18,6 +18,8 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
   selectedVehicleId = "standard",
   onVehicleChange,
 }) => {
+  const [selectedPerRoute, setSelectedPerRoute] = React.useState<Record<string, string>>({});
+
   const topRoutes = [
     {
       id: "seminyak",
@@ -148,12 +150,16 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
                   </span>
                   <div className="space-y-1.5 mb-3">
                     {route.tiers.map((tier) => {
-                      const isActive = tier.id === selectedVehicleId;
+                      const activeVehicleId = selectedPerRoute[route.id] || selectedVehicleId;
+                      const isActive = tier.id === activeVehicleId;
                       return (
                         <button
                           key={tier.id}
                           type="button"
-                          onClick={() => onVehicleChange?.(tier.id)}
+                          onClick={() => {
+                            setSelectedPerRoute((prev) => ({ ...prev, [route.id]: tier.id }));
+                            onVehicleChange?.(tier.id);
+                          }}
                           className={`w-full flex items-center justify-between text-xs px-2.5 py-1.5 rounded-lg border transition-colors cursor-pointer ${
                             isActive
                               ? "bg-emerald-50 border-emerald-300"
@@ -180,8 +186,8 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
 
                   <button
                     onClick={() => {
-                      onSelectRouteQuick(route.id);
-                      document.getElementById("booking-widget")?.scrollIntoView({ behavior: "smooth" });
+                      const activeVehicleId = selectedPerRoute[route.id] || selectedVehicleId;
+                      onSelectRouteQuick(route.id, activeVehicleId);
                     }}
                     className="w-full px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors cursor-pointer"
                   >
