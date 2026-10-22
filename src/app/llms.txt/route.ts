@@ -35,6 +35,7 @@ export async function GET() {
 
 - URL: ${BASE_URL}
 - [Live fare calculator and booking form](${BASE_URL}/#booking-widget)
+- [Complete service, policy and route reference](${BASE_URL}/llms-full.txt)
 - WhatsApp (24h): +62 851-9092-0033
 - Email: booking.grb@gmail.com
 - Address: Ngurah Rai International Airport (DPS) Arrival Terminal Pick-Up Area, Tuban, Kuta, Badung, Bali 80361, Indonesia

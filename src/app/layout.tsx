@@ -53,6 +53,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.greatbaliairporttransfer.com",
+    types: {
+      "application/rss+xml": "https://www.greatbaliairporttransfer.com/feed.xml",
+    },
   },
   openGraph: {
     title: "Bali Airport Transfers & Pickup (DPS) | VIP Private Driver",

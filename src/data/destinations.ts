@@ -405,6 +405,13 @@ export const BALI_DESTINATIONS: Destination[] = [
   },
 ];
 
+/**
+ * ISO date (YYYY-MM-DD) the published route rates were last reviewed.
+ * Shown as a visible "Rates reviewed" badge on every route page. Bump this
+ * whenever any `rates` value above changes or is re-confirmed.
+ */
+export const RATES_LAST_REVIEWED = "2026-10-22";
+
 export const FLEET_DETAILS = [
   {
     id: "standard",

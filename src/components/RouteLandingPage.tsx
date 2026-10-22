@@ -11,13 +11,25 @@ import {
   Star,
   ChevronRight,
   AlertCircle,
+  CalendarCheck,
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FindYourDriverSection } from "@/components/FindYourDriverSection";
 import { BookingWidget } from "@/components/BookingWidget";
 import { BookingModal } from "@/components/BookingModal";
-import { Destination, FLEET_DETAILS, formatPrice } from "@/data/destinations";
+import {
+  Destination,
+  FLEET_DETAILS,
+  formatPrice,
+  RATES_LAST_REVIEWED,
+} from "@/data/destinations";
+
+/** "October 2026": UTC so server and client render the same string. */
+const RATES_REVIEWED_LABEL = new Date(RATES_LAST_REVIEWED).toLocaleDateString(
+  "en-US",
+  { month: "long", year: "numeric", timeZone: "UTC" }
+);
 
 interface RouteLandingPageProps {
   destination: Destination;
@@ -250,6 +262,13 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
               <div className="bg-white/10 px-3 py-1.5 rounded-lg border border-white/10 flex items-center gap-2">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                 <span>Toll & Parking Included</span>
+              </div>
+              <div className="bg-white/10 px-3 py-1.5 rounded-lg border border-white/10 flex items-center gap-2">
+                <CalendarCheck className="w-3.5 h-3.5 text-emerald-400" />
+                <span>
+                  Rates reviewed:{" "}
+                  <time dateTime={RATES_LAST_REVIEWED}>{RATES_REVIEWED_LABEL}</time>
+                </span>
               </div>
             </div>
           </div>
