@@ -22,13 +22,13 @@ export const ArrivalGuide: React.FC = () => {
       title: "Spot Your Name on Chauffeur's Sign",
       description:
         "As you exit the terminal, head straight to the Circle K minimart right at the exit gate — that is our meeting point. Your driver will hold a clear sign or tablet displaying your name.",
-      tip: "We send you your driver's WhatsApp contact, photo, and vehicle plate 2 hours before landing.",
+      tip: "We send you your driver's WhatsApp contact and vehicle plate 2 hours before landing.",
     },
     {
       num: "04",
       title: "Relax in Air-Conditioned Comfort",
       description:
-        "Your driver assists with your luggage and escorts you directly to the vehicle in the pick-up bay. Enjoy complimentary cold bottled water as you head to your resort.",
+        "Your driver assists with your luggage and escorts you directly to the vehicle in the pick-up bay. Enjoy crisp air conditioning as you head to your resort.",
       tip: "Bali Mandara Ocean Tollway is included so you bypass southern Denpasar traffic jams.",
     },
   ];

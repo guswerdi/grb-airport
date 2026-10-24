@@ -37,7 +37,7 @@ export default function SeminyakRoutePage() {
     {
       question: "Is it easy to find my driver at the airport?",
       answer:
-        "Yes, our driver will stand in the primary arrival hall holding a clear digital sign with your name. We also send a WhatsApp message with their photo before you land.",
+        "Yes, our driver will stand in the primary arrival hall holding a clear digital sign with your name. We also send a WhatsApp message with their contact and vehicle plate before you land.",
     },
     {
       question: "Can we drop bags at our hotel and go straight to the beach?",

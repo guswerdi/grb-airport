@@ -461,7 +461,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   </div>
                   <div className="flex items-center gap-1.5 text-[11px] text-slate-500 pt-0.5">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Free cancellation up to 12h before pickup. No prepayment for cash bookings.</span>
+                    <span>Free cancellation up to 24h before pickup. No prepayment for cash bookings.</span>
                   </div>
                 </div>
               )}

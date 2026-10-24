@@ -172,11 +172,11 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} Great Bali Airport Transfer. All rights reserved.
           </div>
           <div className="flex items-center gap-4">
-            <a href="#faqs" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
+            <Link href="/#good-to-know" className="hover:text-slate-300 transition-colors">Good to Know &amp; Tips</Link>
             <span>•</span>
-            <a href="#faqs" className="hover:text-slate-300 transition-colors">Terms of Service</a>
+            <Link href="/terms-and-policies" className="hover:text-slate-300 transition-colors">Terms &amp; Policies</Link>
             <span>•</span>
-            <a href="#arrival-guide" className="hover:text-slate-300 transition-colors">DPS Airport Guide</a>
+            <Link href="/#arrival-guide" className="hover:text-slate-300 transition-colors">DPS Airport Guide</Link>
           </div>
         </div>
       </div>

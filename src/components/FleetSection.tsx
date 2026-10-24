@@ -27,7 +27,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600">
             Every vehicle in our fleet is 100% non-smoking, deeply cleaned before every journey,
-            and equipped with air conditioning, USB chargers, and complimentary bottled water.
+            and equipped with dual-zone air conditioning, USB chargers, and comfortable seating.
           </p>
         </div>
 

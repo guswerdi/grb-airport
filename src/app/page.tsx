@@ -8,10 +8,9 @@ import { PopularRoutesSection } from "@/components/PopularRoutesSection";
 import { FareCalculatorTable } from "@/components/FareCalculatorTable";
 import { FleetSection } from "@/components/FleetSection";
 import { ArrivalGuide } from "@/components/ArrivalGuide";
-import { FindYourDriverSection } from "@/components/FindYourDriverSection";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { TransportComparisonSection } from "@/components/TransportComparisonSection";
-import { FaqSection } from "@/components/FaqSection";
+import { GoodToKnowSection } from "@/components/GoodToKnowSection";
 import { Footer } from "@/components/Footer";
 import { BookingModal } from "@/components/BookingModal";
 import { BALI_DESTINATIONS, FLEET_DETAILS, Destination, formatPrice } from "@/data/destinations";
@@ -152,8 +151,6 @@ export default function HomePage() {
       {/* Denpasar Airport Arrival Guide */}
       <ArrivalGuide />
 
-      {/* How to Find Your Driver at DPS */}
-      <FindYourDriverSection />
 
       {/* Transport Comparison (GEO) */}
       <TransportComparisonSection />
@@ -161,8 +158,8 @@ export default function HomePage() {
       {/* Traveler Reviews & Ratings */}
       <ReviewsSection />
 
-      {/* Frequently Asked Questions */}
-      <FaqSection />
+      {/* Good to Know: Traveler Essentials & Tips */}
+      <GoodToKnowSection />
 
       {/* Footer */}
       <Footer />

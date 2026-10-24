@@ -31,7 +31,7 @@ export async function GET() {
 
   const body = `# Great Bali Airport Transfer
 
-> Fixed-price private airport transfers and VIP chauffeur service from I Gusti Ngurah Rai International Airport (DPS), Bali, Indonesia. Operated by PT Bali Transport Wisata.
+> Fixed-price private airport transfers and VIP chauffeur service from I Gusti Ngurah Rai International Airport (DPS), Bali, Indonesia. Operated by Great Rides Bali.
 
 - URL: ${BASE_URL}
 - [Live fare calculator and booking form](${BASE_URL}/#booking-widget)

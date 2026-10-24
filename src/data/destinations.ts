@@ -424,7 +424,7 @@ export const FLEET_DETAILS = [
     image: "/images/veloz-mpv.jpg",
     features: [
       "Air Conditioning",
-      "Free Bottled Water",
+      "USB Phone Charging Ports",
       "Luggage Assistance",
       "Bali Mandara Toll Included",
       "Free Flight Delay Tracking",
@@ -445,7 +445,7 @@ export const FLEET_DETAILS = [
       "Spacious Captain Seats",
       "Onboard Wi-Fi",
       "Phone Charging Ports",
-      "Free Chilled Bottled Water",
+      "Dual-Zone Air Conditioning",
       "Child / Baby Seat on Request (IDR 50k/seat)",
       "Friendly Experienced Driver",
     ],

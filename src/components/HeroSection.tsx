@@ -72,7 +72,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <MapPin className="w-3.5 h-3.5 text-emerald-400" /> Door-to-Door Villa Drop
             </span>
             <span className="inline-flex items-center gap-1.5 bg-white/10 px-2.5 py-1 rounded-md">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400" /> Free 12h Cancellation
+              <Sparkles className="w-3.5 h-3.5 text-emerald-400" /> Free 24h Cancellation
             </span>
           </div>
         </div>

@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { FindYourDriverSection } from "@/components/FindYourDriverSection";
 import { BookingWidget } from "@/components/BookingWidget";
 import { BookingModal } from "@/components/BookingModal";
 import {
@@ -342,16 +341,27 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
               </div>
             </section>
 
-            {/* Route Specific FAQs */}
+            {/* Good to Know: Route Essentials & Tips */}
             <section className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs">
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-5">
-                FAQs: Bali Airport Transfer to {destination.name.split("(")[0]}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold mb-3">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Essential Route Tips &amp; Good to Know
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">
+                Good to Know: Bali Airport Transfer to {destination.name.split("(")[0]}
               </h2>
-              <div className="space-y-3">
+              <p className="text-xs sm:text-sm text-slate-600 mb-6">
+                Direct route facts, realistic travel times, and arrival advice for {destination.name.split("(")[0]}.
+              </p>
+              <div className="space-y-3.5">
                 {faqs.map((faq, idx) => (
-                  <div key={idx} className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                    <h3 className="font-bold text-slate-900 text-sm mb-1.5">{faq.question}</h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{faq.answer}</p>
+                  <div key={idx} className="bg-slate-50/70 p-4 sm:p-5 rounded-xl border border-slate-200 hover:border-emerald-200 transition-colors">
+                    <h3 className="font-bold text-slate-950 text-sm sm:text-base mb-1.5 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" />
+                      {faq.question}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed pl-3.5 border-l-2 border-emerald-500/40">
+                      {faq.answer}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -457,9 +467,6 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
           </aside>
         </div>
       </main>
-
-      {/* How to Find Your Driver at DPS */}
-      <FindYourDriverSection />
 
       <Footer />
 
