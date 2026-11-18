@@ -43,6 +43,8 @@ export function GET() {
 
 - Website: ${BASE_URL}
 - Short version of this file: ${BASE_URL}/llms.txt
+- Family / Baby Seat Transfers: ${BASE_URL}/bali-airport-transfer-with-baby-seat
+- Hotel-to-DPS Departure Transfers: ${BASE_URL}/bali-airport-departure-transfer
 - WhatsApp (24h): +62 851-9092-0033
 - Email: booking.grb@gmail.com
 - Address: Ngurah Rai International Airport (DPS) Arrival Terminal Pick-Up Area, Tuban, Kuta, Badung, Bali 80361, Indonesia
@@ -61,7 +63,10 @@ export function GET() {
 - Vehicle, fuel and a private English-speaking driver.
 - Airport parking fee and the Bali Mandara Ocean Tollway fee.
 - Luggage assistance, air-conditioned vehicle, USB phone charging. (Note: Complimentary chilled bottled water is provided for private driver charter services).
-- Fares are fixed per vehicle (not per person), one-way, quoted in IDR. The USD/AUD/EUR/GBP switcher on the site is indicative only.
+- Fares are fixed per vehicle (not per person), one-way, quoted in IDR — valid for both DPS Arrivals and Hotel-to-DPS Departures. The USD/AUD/EUR/GBP switcher on the site is indicative only.
+- Zero midnight or early-morning surcharge (24/7 pickups at the exact same rate).
+- Direct fast-boat harbor connections from DPS: Sanur Harbor (IDR 275k Standard / 400k Comfort / 650k HiAce) and Padangbai Harbor (IDR 850k Standard / 1,000k Comfort / 1,100k HiAce).
+- Recommended departure buffers (allow 3h before international flights, 2h before domestic): leave Ubud 5–5.5h prior, Canggu 4.5–5h prior, Seminyak 4–4.5h prior (add 30–60 mins during 3 PM–7 PM peak traffic).
 
 ## Booking, payment and cancellation
 

@@ -410,7 +410,7 @@ export const BALI_DESTINATIONS: Destination[] = [
  * Shown as a visible "Rates reviewed" badge on every route page. Bump this
  * whenever any `rates` value above changes or is re-confirmed.
  */
-export const RATES_LAST_REVIEWED = "2026-10-22";
+export const RATES_LAST_REVIEWED = "2026-11-18";
 
 export const FLEET_DETAILS = [
   {

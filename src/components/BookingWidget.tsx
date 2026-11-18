@@ -29,6 +29,8 @@ interface BookingWidgetProps {
   preSelectedDestinationId?: string;
   selectedVehicleId?: string;
   onVehicleChange?: (vehicleId: string) => void;
+  initialTransferType?: "arrival" | "departure" | "daytour";
+  initialBabySeatNeeded?: boolean;
 }
 
 export const BookingWidget: React.FC<BookingWidgetProps> = ({
@@ -37,8 +39,12 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
   preSelectedDestinationId,
   selectedVehicleId: controlledVehicleId,
   onVehicleChange,
+  initialTransferType = "arrival",
+  initialBabySeatNeeded = false,
 }) => {
-  const [transferType, setTransferType] = useState<"arrival" | "departure" | "daytour">("arrival");
+  const [transferType, setTransferType] = useState<"arrival" | "departure" | "daytour">(
+    initialTransferType
+  );
   const [selectedDestinationId, setSelectedDestinationId] = useState<string>(
     preSelectedDestinationId || "ubud"
   );
@@ -54,7 +60,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
   const [hotelName, setHotelName] = useState<string>("");
   const [passengers, setPassengers] = useState<number>(2);
   const [luggage, setLuggage] = useState<number>(2);
-  const [babySeatNeeded, setBabySeatNeeded] = useState<boolean>(false);
+  const [babySeatNeeded, setBabySeatNeeded] = useState<boolean>(initialBabySeatNeeded);
 
   // Auto-clamp passengers and luggage if user selects a smaller vehicle
   useEffect(() => {

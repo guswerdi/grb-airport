@@ -39,6 +39,7 @@ export interface SanityImageRef {
 
 export interface SanityPost {
   _id: string;
+  _updatedAt?: string;
   title: string;
   /** Optional <title> override so meta titles stay under ~60 chars. */
   metaTitle?: string;
@@ -69,6 +70,7 @@ export interface SanityPostStub {
 
 const POST_PROJECTION = `{
   _id,
+  _updatedAt,
   title,
   metaTitle,
   "slug": slug.current,
@@ -90,7 +92,7 @@ export const relatedPostsQuery = `*[_type == "post" && defined(slug.current) && 
   _id, title, "slug": slug.current, excerpt, category, publishedAt, readTime
 }`;
 
-export const postSlugsQuery = `*[_type == "post" && defined(slug.current)]{ "slug": slug.current, "publishedAt": coalesce(publishedAt, _createdAt) }`;
+export const postSlugsQuery = `*[_type == "post" && defined(slug.current)]{ "slug": slug.current, "publishedAt": coalesce(publishedAt, _createdAt), "updatedAt": coalesce(_updatedAt, publishedAt, _createdAt) }`;
 
 /* ------------------------------------------------------------------ */
 /* Safe fetch helpers (never throw — return empty on missing config)   */
@@ -132,17 +134,17 @@ export async function fetchSanityRelatedPosts(
 
 export async function fetchSanityPostSlugs(options?: {
   fresh?: boolean;
-}): Promise<{ slug: string; publishedAt?: string }[]> {
+}): Promise<{ slug: string; publishedAt?: string; updatedAt?: string }[]> {
   if (!sanityClient) return [];
   try {
     if (options?.fresh) {
       return await sanityClient.fetch<
-        { slug: string; publishedAt?: string }[]
+        { slug: string; publishedAt?: string; updatedAt?: string }[]
       >(postSlugsQuery, {}, { useCdn: false, cache: "no-store" });
     }
-    return await sanityClient.fetch<{ slug: string; publishedAt?: string }[]>(
-      postSlugsQuery
-    );
+    return await sanityClient.fetch<
+      { slug: string; publishedAt?: string; updatedAt?: string }[]
+    >(postSlugsQuery);
   } catch (error) {
     console.error("[sanity] fetchSanityPostSlugs failed:", error);
     return [];

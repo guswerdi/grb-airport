@@ -97,30 +97,35 @@ export const Footer: React.FC = () => {
             </p>
             <ul className="space-y-2">
               <li>
-                <a href="/#fleet" className="hover:text-white transition-colors">
+                <Link href="/#fleet" className="hover:text-white transition-colors">
                   Toyota Veloz (Standard MPV)
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#fleet" className="hover:text-white transition-colors">
+                <Link href="/#fleet" className="hover:text-white transition-colors">
                   Toyota Innova Zenix (Comfort SUV)
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a href="/#fleet" className="hover:text-white transition-colors">
+                <Link href="/#fleet" className="hover:text-white transition-colors">
                   Toyota HiAce (12-Seater Van)
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#booking-widget" className="hover:text-white transition-colors">
-                  10-Hour Private Chauffeur Charter
-                </a>
+                <Link href="/bali-airport-departure-transfer" className="hover:text-white transition-colors">
+                  Hotel to DPS Departure Transfer
+                </Link>
               </li>
               <li>
-                <a href="/#fleet" className="hover:text-white transition-colors">
+                <Link href="/bali-airport-transfer-with-baby-seat" className="hover:text-white transition-colors">
                   Baby Car Seats (IDR 50k/seat)
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#booking-widget" className="hover:text-white transition-colors">
+                  10-Hour Private Chauffeur Charter
+                </Link>
               </li>
             </ul>
           </div>

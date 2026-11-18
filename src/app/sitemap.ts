@@ -18,12 +18,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const sanityPosts = await fetchSanityPostSlugs({ fresh: true });
 
-  const blogRoutes = sanityPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: post.publishedAt ? new Date(post.publishedAt) : new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
+  const blogRoutes = sanityPosts.map((post) => {
+    const lastMod = post.updatedAt ?? post.publishedAt;
+    return {
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: lastMod ? new Date(lastMod) : new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    };
+  });
 
   return [
     {
@@ -31,6 +34,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/bali-airport-transfer-with-baby-seat`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/bali-airport-departure-transfer`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/blog`,

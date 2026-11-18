@@ -7,7 +7,13 @@ import {
   BALI_DESTINATIONS,
   Destination,
   formatPrice,
+  RATES_LAST_REVIEWED,
 } from "@/data/destinations";
+
+const RATES_REVIEWED_LABEL = new Date(RATES_LAST_REVIEWED).toLocaleDateString(
+  "en-US",
+  { month: "long", year: "numeric", timeZone: "UTC" }
+);
 
 interface FareCalculatorTableProps {
   currentCurrency: string;
@@ -45,14 +51,14 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-semibold mb-2">
-            Guaranteed Fixed Rates Matrix
+            Guaranteed Fixed Rates • Verified{" "}
+            <time dateTime={RATES_LAST_REVIEWED}>{RATES_REVIEWED_LABEL}</time>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Bali Airport Transfer Rates & Tariffs
+            Bali Airport Transfer Rates &amp; Tariffs
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600">
-            Fixed pricing per vehicle (not per person). All rates include Bali Mandara tollway,
-            DPS airport parking fee, fuel, and greeting chauffeur with your name sign.
+            Fixed one-way pricing per vehicle (not per person) for both DPS Arrivals and Hotel-to-DPS Departures. Zero midnight surcharge (24/7); Bali Mandara tollway, parking, and fuel included.
           </p>
         </div>
 
@@ -236,8 +242,20 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
               <Check className="w-4 h-4 text-emerald-600" />
               <span>All prices include driver, fuel, Bali Mandara tollway, and airport parking fees.</span>
             </div>
-            <div className="text-emerald-700 font-medium">
-              Need a custom multi-destination drop or private Bali island tour? Chat with us on WhatsApp 24/7.
+            <div className="flex flex-wrap items-center gap-3">
+              <Link
+                href="/bali-airport-departure-transfer"
+                className="text-emerald-700 font-semibold hover:underline"
+              >
+                Hotel to DPS Departure Guide →
+              </Link>
+              <span className="text-slate-300">•</span>
+              <Link
+                href="/bali-airport-transfer-with-baby-seat"
+                className="text-emerald-700 font-semibold hover:underline"
+              >
+                Baby &amp; Booster Seats (IDR 50k) →
+              </Link>
             </div>
           </div>
         </div>

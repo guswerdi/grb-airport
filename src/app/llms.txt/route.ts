@@ -35,6 +35,8 @@ export async function GET() {
 
 - URL: ${BASE_URL}
 - [Live fare calculator and booking form](${BASE_URL}/#booking-widget)
+- [Bali airport transfer with baby & booster seats](${BASE_URL}/bali-airport-transfer-with-baby-seat)
+- [Bali airport departure transfer (hotel/villa to DPS)](${BASE_URL}/bali-airport-departure-transfer)
 - [Complete service, policy and route reference](${BASE_URL}/llms-full.txt)
 - WhatsApp (24h): +62 851-9092-0033
 - Email: booking.grb@gmail.com
@@ -42,10 +44,12 @@ export async function GET() {
 
 ## What we offer
 
-- Pre-booked private airport transfers (arrival & departure) at DPS with 100% fixed, all-inclusive fares (toll, parking, flight tracking, meet & greet with name sign included).
-- Fleet: Standard Car (Toyota Avanza, 1-4 pax), Comfort Car (Toyota Innova Zenix, 1-5 pax), Big Van (Toyota HiAce Premio, 1-12 pax, surfboard friendly).
-- Free 60-minute flight delay tracking, English-speaking drivers, baby seats available (IDR 50,000/seat).
-- Payments: Cash (IDR), Visa/Mastercard, USD, AUD, EUR, Wise.
+- Pre-booked private airport transfers (both DPS arrivals and hotel-to-DPS departures) with 100% fixed, all-inclusive per-vehicle fares (toll, parking, fuel, flight tracking, Circle K exit gate meet & greet included).
+- Zero midnight or early-morning surcharge: 24/7 pickups at the exact same published rate.
+- Fleet: Standard Car (Toyota Avanza/Veloz, 1-4 pax, 3 large bags), Comfort Car (Toyota Innova Zenix, 1-5 pax, 4 large bags), Big Van (Toyota HiAce Premio, 1-12 pax, 10 suitcases, surfboard friendly up to 7'6").
+- Free 60-minute grace wait after landing, English-speaking drivers, sanitized European-standard baby seats (0-2 yrs) and booster seats (3-7 yrs) at IDR 50,000 per seat per trip.
+- Direct fast-boat harbor transfers from DPS: Sanur Harbor (from IDR 275,000) and Padangbai Harbor (from IDR 850,000).
+- Payments: Zero advance deposit required; cash on arrival (IDR, USD, AUD, EUR) or online (Visa/Mastercard, PayPal, Wise). Free cancellation up to 24h prior.
 
 ## Fixed fares from DPS (IDR, all-inclusive, per vehicle)
 

@@ -148,6 +148,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const publishedIso = post.publishedAt
     ? new Date(post.publishedAt).toISOString().split("T")[0]
     : new Date().toISOString().split("T")[0];
+  const updatedIso = post._updatedAt
+    ? new Date(post._updatedAt).toISOString().split("T")[0]
+    : publishedIso;
   const heroImage = post.mainImage?.url ?? null;
   const postUrl = `https://www.greatbaliairporttransfer.com/blog/${post.slug}`;
 
@@ -180,7 +183,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       },
     },
     datePublished: publishedIso,
-    dateModified: publishedIso,
+    dateModified: updatedIso,
   };
 
   const faqSchema =
@@ -259,7 +262,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
               <div className="flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                <span>{formatSanityDate(post.publishedAt)}</span>
+                <span>
+                  {formatSanityDate(post.publishedAt)}
+                  {post._updatedAt && updatedIso !== publishedIso
+                    ? ` • Updated ${formatSanityDate(post._updatedAt)}`
+                    : ""}
+                </span>
               </div>
 
               <span>•</span>
