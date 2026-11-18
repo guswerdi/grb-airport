@@ -63,10 +63,10 @@ export const GOOD_TO_KNOW_ITEMS: GoodToKnowItem[] = [
   {
     id: "taxi-vs-prebook",
     category: "Arrival & Meeting",
-    title: "Avoid Airport Taxi Touts & 45-Min Rideshare Parking Queues",
-    keyFact: "Skip aggressive terminal haggling (often 2x-3x normal fares) and long queues in the multi-story parking garage.",
+    title: "Avoid Airport Taxi Touts & Rideshare Lounge Queues",
+    keyFact: "Skip aggressive terminal haggling (often 2x-3x normal fares) and peak-hour waits at the Grab/Gojek pickup lounge.",
     summary:
-      "DPS arrival halls have unofficial freelance touts notorious for aggressive haggling (often demanding IDR 500,000+ for short trips to Kuta). Ride-hailing apps (Grab/Gojek) require dragging bags to the multi-level parking lot with peak surge pricing and 45+ minute wait times. Pre-booking ensures a private air-conditioned car waiting curbside.",
+      "DPS arrival halls have unofficial freelance touts notorious for aggressive haggling (often demanding IDR 500,000+ for short trips to Kuta). Ride-hailing apps (Grab/Gojek) cannot pick up at the immediate exit curb and require walking with your bags to the designated pickup lounge, where peak flight banks bring queues and surge pricing. Pre-booking ensures a fixed-rate private air-conditioned car waiting right at the Circle K exit gate.",
     iconName: "Car",
     badge: "Traveler Advice",
     faqQuestion: "Why should I pre-book instead of taking an airport taxi or Grab/Gojek on arrival?",

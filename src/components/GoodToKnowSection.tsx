@@ -72,8 +72,7 @@ export const GoodToKnowSection: React.FC = () => {
             Good to Know: Bali Airport Arrival &amp; Transfer Tips
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
-            Direct, verified facts and local arrival advice for DPS Ngurah Rai Airport.
-            Structured clearly for travelers, itinerary planners, and AI search engines — zero guesswork, zero hidden rules.
+            Direct, verified facts and local arrival advice for DPS Ngurah Rai Airport — zero guesswork, zero hidden rules.
           </p>
         </div>
 

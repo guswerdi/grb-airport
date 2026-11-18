@@ -46,7 +46,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2 text-emerald-400 font-medium">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-              24/7 Real-Time Flight Tracking & Meet at DPS Arrival Hall
+              24/7 Flight Tracking &amp; Meet at DPS Circle K Exit Gate
             </span>
             <span className="text-slate-600">|</span>
             <span className="text-slate-400">

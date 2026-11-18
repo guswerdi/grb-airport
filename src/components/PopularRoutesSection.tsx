@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Clock, MapPin, ArrowRight } from "lucide-react";
 import { BALI_DESTINATIONS, formatPrice } from "@/data/destinations";
 
@@ -103,7 +104,11 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
               key={route.id}
               className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden flex flex-col hover:shadow-md hover:border-slate-300 transition-all group"
             >
-              <div className="relative h-44 w-full bg-slate-100">
+              <Link
+                href={`/${route.slug}`}
+                className="relative h-44 w-full bg-slate-100 block"
+                aria-label={`${route.title} route guide and rates`}
+              >
                 <Image
                   src={route.image}
                   alt={route.title}
@@ -114,12 +119,14 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
                 <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-xs text-slate-800 text-[11px] font-semibold px-2.5 py-1 rounded-full shadow-xs border border-slate-200">
                   {route.tag}
                 </div>
-              </div>
+              </Link>
 
               <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
                 <div>
                   <h3 className="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
-                    {route.title}
+                    <Link href={`/${route.slug}`} className="hover:underline">
+                      {route.title}
+                    </Link>
                   </h3>
 
                   <div className="flex items-center gap-3 text-xs text-slate-500 my-2">
@@ -193,6 +200,14 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
                   >
                     Select
                   </button>
+
+                  <Link
+                    href={`/${route.slug}`}
+                    className="mt-2 inline-flex w-full items-center justify-center gap-1 text-[11px] font-semibold text-emerald-700 hover:text-emerald-800 hover:underline py-1"
+                  >
+                    <span>View route guide &amp; tips</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Star, CheckCircle, ThumbsUp } from "lucide-react";
+import { Star, ThumbsUp } from "lucide-react";
 import { BALI_REVIEWS } from "@/data/reviews";
 
 export const ReviewsSection: React.FC = () => {
@@ -9,23 +9,14 @@ export const ReviewsSection: React.FC = () => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold mb-2">
-            <ThumbsUp className="w-3.5 h-3.5 text-emerald-600" /> 4,850+ Verified Traveler Reviews
+            <ThumbsUp className="w-3.5 h-3.5 text-emerald-600" /> Guest Experiences &amp; Feedback
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
             Trusted by Travelers Worldwide
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600">
-            Real experiences from families, couples, and solo travelers arriving at Bali Ngurah Rai Airport.
+            Real feedback from families, couples, and groups arriving at Bali Ngurah Rai Airport.
           </p>
-
-          <div className="flex items-center justify-center gap-1.5 mt-3 text-amber-500">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-            ))}
-            <span className="text-slate-900 font-bold text-sm ml-2">
-              4.9 / 5.0 Average Rating
-            </span>
-          </div>
         </div>
 
         {/* Reviews Grid */}
@@ -65,11 +56,8 @@ export const ReviewsSection: React.FC = () => {
               {/* Author info */}
               <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                 <div>
-                  <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                  <div className="text-xs font-bold text-slate-900">
                     <span>{review.author}</span>
-                    {review.verified && (
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-600 inline" />
-                    )}
                   </div>
                   <div className="text-[11px] text-slate-500 flex items-center gap-1 mt-0.5">
                     <span>{review.countryFlag}</span>
@@ -78,7 +66,7 @@ export const ReviewsSection: React.FC = () => {
                 </div>
 
                 <div className="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-medium">
-                  Verified Trip
+                  Guest Review
                 </div>
               </div>
             </div>

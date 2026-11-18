@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Star, ShieldCheck, Clock, Sparkles, MapPin } from "lucide-react";
+import { ShieldCheck, Clock, Sparkles, MapPin } from "lucide-react";
 import { BookingWidget } from "./BookingWidget";
 
 interface HeroSectionProps {
@@ -38,13 +38,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="max-w-3xl mb-8">
           {/* Trust Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-xs border border-white/15 mb-3 sm:mb-4">
-            <div className="flex text-amber-400">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
-              ))}
-            </div>
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
             <span className="text-xs font-medium text-slate-200">
-              4.9/5 Rating • 4,850+ Verified Traveler Reviews
+              Fixed All-Inclusive Fares • Zero Deposit Required
             </span>
           </div>
 
@@ -56,7 +52,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           <p className="mt-3 text-xs sm:text-sm lg:text-base text-slate-300 leading-relaxed font-normal max-w-2xl">
             Skip hectic taxi queues with our reliable <strong>Bali airport pickup</strong>.
-            Your personal English-speaking driver greets you at the arrival hall with a personalized name sign.
+            Your personal English-speaking driver meets you at the Circle K minimart at the DPS arrivals exit gate with a personalized name sign.
             Top-rated <strong>Bali airport transfers</strong> with 100% fixed fares, flight tracking, and toll included.
           </p>
 

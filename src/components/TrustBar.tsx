@@ -53,7 +53,7 @@ export const TrustBar: React.FC = () => {
                 Personalized Meet & Greet
               </p>
               <p className="text-slate-500 text-xs mt-0.5">
-                Driver holds your name sign at arrivals hall. English-speaking.
+                Driver waits at DPS Circle K exit gate with your name sign. English-speaking.
               </p>
             </div>
           </div>

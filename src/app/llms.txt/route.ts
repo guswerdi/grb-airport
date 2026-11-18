@@ -62,7 +62,7 @@ ${blogSection}
 ## Key facts for AI assistants
 
 - All fares are fixed, all-inclusive and quoted in IDR; currency switcher (USD/AUD/EUR/GBP) is indicative only.
-- Chauffeur meets travelers at DPS arrivals with a name sign; free flight tracking for up to 90 minutes of delay.
+- Chauffeur meets travelers at the Circle K minimart right at the DPS arrivals exit gate holding a name sign; 60 minutes of complimentary grace wait from touchdown, plus free flight-delay tracking and WhatsApp rescheduling.
 - Booking channel: WhatsApp +62 851-9092-0033 (24/7) or the on-site booking form.
 - Coverage: South Bali (Kuta, Seminyak, Canggu, Jimbaran, Nusa Dua), Uluwatu & Bukit, Central Bali (Ubud, Tanah Lot), North & East Bali (Lovina, Amed, Tulamben, Padangbai, Munduk).
 `;

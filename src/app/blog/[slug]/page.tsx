@@ -65,6 +65,73 @@ export async function generateMetadata({
   };
 }
 
+interface PortableTextSpan {
+  _type?: string;
+  text?: string;
+}
+
+interface PortableTextBlock {
+  _type?: string;
+  style?: string;
+  children?: PortableTextSpan[];
+}
+
+function blockPlainText(block: PortableTextBlock): string {
+  return (block.children ?? []).map((c) => c.text ?? "").join("").trim();
+}
+
+/** Extracts Q&A pairs under an H2 "Frequently Asked Questions" section for FAQPage schema. */
+function extractFaqsFromBody(
+  body?: unknown[]
+): { question: string; answer: string }[] {
+  if (!Array.isArray(body)) return [];
+  const faqs: { question: string; answer: string }[] = [];
+  let inFaqSection = false;
+  let currentQuestion = "";
+  let currentAnswerParts: string[] = [];
+
+  const flush = () => {
+    if (currentQuestion && currentAnswerParts.length > 0) {
+      faqs.push({
+        question: currentQuestion,
+        answer: currentAnswerParts.join(" "),
+      });
+    }
+    currentQuestion = "";
+    currentAnswerParts = [];
+  };
+
+  for (const raw of body) {
+    const block = raw as PortableTextBlock;
+    if (block?._type !== "block") continue;
+    const text = blockPlainText(block);
+    if (!text) continue;
+
+    if (block.style === "h2") {
+      if (inFaqSection) {
+        flush();
+        inFaqSection = false;
+      }
+      if (/frequently asked questions|\bfaq\b/i.test(text)) {
+        inFaqSection = true;
+      }
+      continue;
+    }
+
+    if (!inFaqSection) continue;
+
+    if (block.style === "h3") {
+      flush();
+      currentQuestion = text;
+    } else if (currentQuestion && block.style === "normal") {
+      currentAnswerParts.push(text);
+    }
+  }
+
+  flush();
+  return faqs;
+}
+
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = await fetchSanityPostBySlug(slug);
@@ -82,10 +149,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     ? new Date(post.publishedAt).toISOString().split("T")[0]
     : new Date().toISOString().split("T")[0];
   const heroImage = post.mainImage?.url ?? null;
+  const postUrl = `https://www.greatbaliairporttransfer.com/blog/${post.slug}`;
+
+  const faqs = extractFaqsFromBody(post.body);
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": postUrl,
+    },
+    url: postUrl,
     headline: post.title,
     description: post.excerpt,
     image: heroImage ?? "https://www.greatbaliairporttransfer.com/images/innova-zenix.jpg",
@@ -99,12 +174,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       name: "Great Bali Airport Transfer",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.greatbaliairporttransfer.com/images/innova-zenix.jpg",
+        url: "https://www.greatbaliairporttransfer.com/icon1.png",
+        width: 512,
+        height: 512,
       },
     },
     datePublished: publishedIso,
     dateModified: publishedIso,
   };
+
+  const faqSchema =
+    faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.answer,
+            },
+          })),
+        }
+      : null;
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900">
@@ -112,6 +205,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
+      {faqSchema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      ) : null}
 
       <Navbar />
 
@@ -214,7 +313,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Meet & Greet with Name Sign:</strong> Driver awaits you directly at the DPS arrivals greeting gate.</span>
+                  <span><strong>Meet &amp; Greet with Name Sign:</strong> Driver awaits you at the Circle K minimart right at the DPS arrivals exit gate.</span>
                 </li>
               </ul>
 

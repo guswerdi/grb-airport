@@ -13,6 +13,7 @@ import { TransportComparisonSection } from "@/components/TransportComparisonSect
 import { GoodToKnowSection } from "@/components/GoodToKnowSection";
 import { Footer } from "@/components/Footer";
 import { BookingModal } from "@/components/BookingModal";
+import { HomePageStructuredData } from "@/components/StructuredData";
 import { BALI_DESTINATIONS, FLEET_DETAILS, Destination, formatPrice } from "@/data/destinations";
 import { Phone, MessageCircle } from "lucide-react";
 
@@ -109,6 +110,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+      <HomePageStructuredData />
       {/* Navigation */}
       <Navbar
         currentCurrency={currency}

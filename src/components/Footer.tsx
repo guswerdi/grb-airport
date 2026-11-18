@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import { Plane, Phone, Mail, MapPin, ShieldCheck } from "lucide-react";
+import { Phone, Mail, MapPin, ShieldCheck } from "lucide-react";
 import { Logo } from "@/components/Logo";
+import { BALI_DESTINATIONS } from "@/data/destinations";
 
 export const Footer: React.FC = () => {
   return (
@@ -77,7 +78,7 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/#rates-table" className="hover:text-white transition-colors">
+                <Link href="/bali-airport-transfer-to-sanur" className="hover:text-white transition-colors">
                   Bali Airport to Sanur Port
                 </Link>
               </li>
@@ -161,6 +162,23 @@ export const Footer: React.FC = () => {
                 <span className="bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded">Wise</span>
               </div>
             </div>
+          </div>
+        </div>
+        {/* All Bali Route Guides */}
+        <div className="mt-10 pt-8 border-t border-slate-800/80">
+          <p className="text-slate-400 font-semibold uppercase tracking-wider text-[10px] mb-3">
+            All Bali Airport Transfer Routes
+          </p>
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-[11px] text-slate-400">
+            {BALI_DESTINATIONS.map((dest) => (
+              <Link
+                key={dest.id}
+                href={`/${dest.slug}`}
+                className="hover:text-white transition-colors"
+              >
+                DPS to {dest.metaName}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

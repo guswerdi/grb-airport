@@ -130,11 +130,16 @@ export async function fetchSanityRelatedPosts(
   }
 }
 
-export async function fetchSanityPostSlugs(): Promise<
-  { slug: string; publishedAt?: string }[]
-> {
+export async function fetchSanityPostSlugs(options?: {
+  fresh?: boolean;
+}): Promise<{ slug: string; publishedAt?: string }[]> {
   if (!sanityClient) return [];
   try {
+    if (options?.fresh) {
+      return await sanityClient.fetch<
+        { slug: string; publishedAt?: string }[]
+      >(postSlugsQuery, {}, { useCdn: false, cache: "no-store" });
+    }
     return await sanityClient.fetch<{ slug: string; publishedAt?: string }[]>(
       postSlugsQuery
     );

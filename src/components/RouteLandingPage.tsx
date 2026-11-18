@@ -8,7 +8,6 @@ import {
   Clock,
   ShieldCheck,
   CheckCircle2,
-  Star,
   ChevronRight,
   AlertCircle,
   CalendarCheck,
@@ -229,13 +228,9 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
           <div className="max-w-3xl mb-8 sm:mb-10">
             {/* Trust Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-xs border border-white/15 mb-3 sm:mb-4">
-              <div className="flex text-amber-400">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
-                ))}
-              </div>
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
               <span className="text-xs font-medium text-slate-200">
-                4.9/5 Rating • 4,850+ Verified Traveler Reviews
+                Fixed All-Inclusive Fares • Zero Deposit Required
               </span>
             </div>
 

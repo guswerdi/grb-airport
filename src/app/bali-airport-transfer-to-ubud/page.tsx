@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bali Airport Transfer to Ubud (DPS) | Private Chauffeur & Fixed Rates",
     description:
-      "Arrive stress-free in Ubud. Personal chauffeur greeting at DPS arrival hall, free flight tracking, toll & parking included.",
+      "Arrive stress-free in Ubud. Personal chauffeur meet & greet at the DPS Circle K exit gate, free flight tracking, toll & parking included.",
     url: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-ubud",
     images: ["/images/dest-ubud.jpg"],
   },

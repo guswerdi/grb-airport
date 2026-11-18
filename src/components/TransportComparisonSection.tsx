@@ -13,9 +13,9 @@ export const TransportComparisonSection: React.FC = () => {
     },
     {
       feature: "Meeting Point",
-      private: { text: "Arrival Hall with Name Sign", icon: "check" },
-      ridehailing: { text: "Walk 15 mins outside airport terminal", icon: "cross" },
-      taxi: { text: "Wait in long queues at taxi counter", icon: "cross" },
+      private: { text: "Circle K at DPS Exit Gate (Name Sign)", icon: "check" },
+      ridehailing: { text: "Walk to Grab/Gojek Lounge in pickup zone", icon: "warning" },
+      taxi: { text: "Wait in queues at airport taxi counter", icon: "cross" },
     },
     {
       feature: "Luggage & Comfort",
@@ -100,7 +100,7 @@ export const TransportComparisonSection: React.FC = () => {
         </div>
         
         <div className="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-5 sm:p-6 text-sm text-blue-900">
-          <strong>Expert Tip for Bali Arrivals:</strong> Ride-hailing apps like Grab and Gojek are heavily restricted inside the Ngurah Rai Airport terminals. If you choose a ride-hailing app, you will have to carry your luggage and walk about 15-20 minutes outside the airport gates to a designated pickup zone. Pre-booking a private transfer is the only way to have a driver wait for you directly inside the Arrival Hall holding a name sign.
+          <strong>Expert Tip for Bali Arrivals:</strong> Ride-hailing apps like Grab and Gojek are not permitted to pick up directly at the immediate arrivals exit curb; passengers must carry their luggage to the designated Grab/Gojek Lounge in the airport pickup zone, where queues and peak-hour surge pricing can occur. Pre-booking a private transfer guarantees your chauffeur is already waiting for you at the Circle K minimart at the DPS arrivals exit gate holding your name sign, with fixed pricing and live flight tracking.
         </div>
       </div>
     </section>
