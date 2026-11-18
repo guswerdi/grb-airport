@@ -4,13 +4,18 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Clock, MapPin, ArrowRight } from "lucide-react";
-import { BALI_DESTINATIONS, formatPrice } from "@/data/destinations";
+import {
+  BALI_DESTINATIONS,
+  CurrencyRateMap,
+  formatPrice,
+} from "@/data/destinations";
 
 interface PopularRoutesSectionProps {
   currentCurrency: string;
   onSelectRouteQuick: (destId: string, vehicleId?: string) => void;
   selectedVehicleId?: string;
   onVehicleChange?: (vehicleId: string) => void;
+  exchangeRates?: CurrencyRateMap;
 }
 
 export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
@@ -18,6 +23,7 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
   onSelectRouteQuick,
   selectedVehicleId = "standard",
   onVehicleChange,
+  exchangeRates,
 }) => {
   const [selectedPerRoute, setSelectedPerRoute] = React.useState<Record<string, string>>({});
 
@@ -184,7 +190,7 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
                             {tier.label}
                           </span>
                           <span className={`font-extrabold ${isActive ? "text-emerald-900" : "text-slate-900"}`}>
-                            {formatPrice(tier.priceIdr, currentCurrency)}
+                            {formatPrice(tier.priceIdr, currentCurrency, exchangeRates)}
                           </span>
                         </button>
                       );

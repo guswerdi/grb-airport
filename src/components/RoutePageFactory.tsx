@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import { RouteLandingPage } from "@/components/RouteLandingPage";
-import { fillPrice, type Destination } from "@/data/destinations";
+import {
+  DEPARTURE_LEAVE_GUIDE,
+  fillPrice,
+  formatPrice,
+  type Destination,
+} from "@/data/destinations";
+import { PAYMENT_POLICY } from "@/data/policies";
+import { fetchLiveExchangeRates } from "@/lib/exchangeRates";
 
-const BASE = "https://www.greatbaliairporttransfer.com";
+const BASE = "https://greatbaliairporttransfer.com";
 
 /** Region-based scenic photo for OG image & page hero. */
 const REGION_IMAGES: Record<Destination["region"], string> = {
@@ -73,28 +80,55 @@ export function routeMetadata(dest: Destination): Metadata {
   };
 }
 
-/** Shared page body for all hardcoded route landing pages. */
-export function GenericRouteContent({ destination }: { destination: Destination }) {
+/** Shared page body for all generated route landing pages. */
+export async function GenericRouteContent({ destination }: { destination: Destination }) {
+  const fx = await fetchLiveExchangeRates();
+  const shortName = destination.metaName || destination.name.split("(")[0].trim();
+  const leaveGuide = DEPARTURE_LEAVE_GUIDE[destination.id] || {
+    internationalBefore: "3.5 – 4.5 hrs",
+    domesticBefore: "2.5 – 3.5 hrs",
+  };
+  const hotelSample = destination.popularHotels.slice(0, 3).join(", ");
+
+  const regionTip =
+    destination.region === "North & East Bali"
+      ? `For this ${destination.durationMinutes} cross-island drive to ${shortName}, our Toyota Innova Zenix (Comfort Car) gives extra legroom for winding mountain and coastal roads, with complimentary coffee/ATM rest stops on request.`
+      : destination.region === "Central Bali"
+      ? `Village and hillside lanes around ${shortName} can be narrow; share your exact villa pin via WhatsApp before landing so your chauffeur chooses the cleanest access road (HiAce vans may drop at lane mouths where villas forbid wide vans).`
+      : `Your chauffeur uses the Bali Mandara Ocean Tollway or bypass arterial roads when beneficial—all electronic toll charges, DPS parking fees, and fuel are 100% included.`;
+
   const tips = [
-    `${destination.name} is approximately ${destination.distanceKm} km from DPS Airport. The drive typically takes ${destination.durationMinutes}.`,
+    `${destination.name} is roughly ${destination.distanceKm} km from Ngurah Rai Airport (DPS), taking ${destination.durationMinutes} in typical traffic.`,
     destination.trafficTip,
-    "Our professional chauffeurs track your flight in real-time, so we will be waiting for you even if your flight is delayed.",
-    "The electronic toll fee (if applicable) and airport parking are 100% included in our fixed rate.",
+    regionTip,
+    `Meet directly outside the DPS arrivals exit at the Circle K minimart holding your name sign—60 minutes free wait included, with zero 12 AM–5 AM midnight surcharge.`,
+    `Returning from ${shortName} to Bali Airport later? Schedule pickup ${leaveGuide.internationalBefore} before International flights or ${leaveGuide.domesticBefore} before Domestic flights.`,
   ];
 
   const faqs = [
     {
-      question: `How much does a taxi from Bali Airport to ${destination.name} cost?`,
-      answer: `Our fixed all-inclusive rate to ${destination.name} starts from IDR ${destination.rates.standard.toLocaleString("id-ID")} for a Standard Car (Avanza), IDR ${destination.rates.comfort.toLocaleString("id-ID")} for a Comfort Car (Innova), and IDR ${destination.rates.van.toLocaleString("id-ID")} for a Big Van (HiAce).`,
+      question: `How much is a private transfer from Bali Airport (DPS) to ${shortName}?`,
+      answer: `Flat one-way rates per vehicle are ${formatPrice(destination.rates.standard, "IDR")} (~${formatPrice(destination.rates.standard, "USD", fx.rates)}) for a Standard Car (Avanza/Veloz, 1–4 pax), ${formatPrice(destination.rates.comfort, "IDR")} for a Comfort Car (Innova Zenix, 1–5 pax), and ${formatPrice(destination.rates.van, "IDR")} for a 12-seat HiAce van. Same flat rate 24/7 with zero midnight surcharge.`,
     },
     {
-      question: `How long is the drive from Denpasar Airport to ${destination.name}?`,
-      answer: `Depending on the time of day, the drive is about ${destination.distanceKm} km and takes approximately ${destination.durationMinutes}. ${destination.trafficTip}`,
+      question: `How long does the drive take from DPS Airport to ${shortName}?`,
+      answer: `The ${destination.distanceKm} km transfer takes around ${destination.durationMinutes} depending on traffic along the route to ${hotelSample}. ${destination.trafficTip}`,
     },
     {
-      question: `Can we book a return transfer from ${destination.name} back to Bali Airport?`,
-      answer:
-        "Yes! You can book round-trip transfers or arrange your departure pickup at any time directly with your chauffeur or on WhatsApp.",
+      question: `Where do I meet my driver at Bali Airport for ${shortName}?`,
+      answer: `Clear immigration, baggage claim, and customs, then walk straight outside to the Circle K minimart right at the DPS exit gate. Your driver waits there with your name sign (WhatsApp number and car plate sent 2 hours before arrival), with 60 minutes complimentary waiting time from landing.`,
+    },
+    {
+      question: `How do I pay and is a deposit needed for a ${shortName} transfer?`,
+      answer: `Zero deposit is required. ${PAYMENT_POLICY.shortSummary}`,
+    },
+    {
+      question: `Can I stop at an ATM, SIM kiosk, or add a baby seat on the way to ${shortName}?`,
+      answer: `Yes. Quick en-route stops at trusted bank ATMs (BCA/Mandiri), official Telkomsel SIM kiosks, or licensed money changers are completely free. Pre-installed baby seats (0–2 yrs) or child boosters (3–7 yrs) can be added for IDR 50,000 per seat per trip.`,
+    },
+    {
+      question: `Can I book a ${shortName} hotel-to-airport departure ride back to DPS?`,
+      answer: `Yes—hotel-to-DPS departure transfers cost the exact same fixed rate with free 24-hour cancellation. We recommend leaving ${shortName} ${leaveGuide.internationalBefore} prior to International flights (${leaveGuide.domesticBefore} for Domestic).`,
     },
   ];
 
@@ -105,6 +139,7 @@ export function GenericRouteContent({ destination }: { destination: Destination 
       routeOverview={destination.description}
       travelTips={tips}
       faqs={faqs}
+      exchangeRates={fx.rates}
     />
   );
 }

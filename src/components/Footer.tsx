@@ -108,8 +108,8 @@ export const Footer: React.FC = () => {
               </li>
 
               <li>
-                <Link href="/#fleet" className="hover:text-white transition-colors">
-                  Toyota HiAce (12-Seater Van)
+                <Link href="/bali-airport-van-transfer-hiace" className="hover:text-white transition-colors">
+                  Toyota HiAce (12-Seat &amp; Surfboards)
                 </Link>
               </li>
               <li>
@@ -120,6 +120,11 @@ export const Footer: React.FC = () => {
               <li>
                 <Link href="/bali-airport-transfer-with-baby-seat" className="hover:text-white transition-colors">
                   Baby Car Seats (IDR 50k/seat)
+                </Link>
+              </li>
+              <li>
+                <Link href="/bali-airport-to-fast-boat-harbor" className="hover:text-white transition-colors">
+                  Sanur &amp; Padangbai Harbor Transfers
                 </Link>
               </li>
               <li>
@@ -146,25 +151,35 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-1.5 text-slate-300">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Toll & Parking Included</span>
+                <span>Zero Midnight Surcharge (24/7)</span>
               </li>
               <li className="flex items-center gap-1.5 text-slate-300">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Pay Cash upon Arrival</span>
+                <span>Zero Deposit • Cash or Link</span>
               </li>
             </ul>
 
-            <div className="mt-4 pt-3 border-t border-slate-800">
-              <span className="text-[10px] uppercase font-bold text-slate-500 block mb-1.5">
-                Accepted Payments
-              </span>
-              <div className="flex flex-wrap gap-1 text-[10px] text-slate-300 font-mono">
-                <span className="bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded">Cash IDR</span>
-                <span className="bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded">AUD</span>
-                <span className="bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded">USD</span>
-                <span className="bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded">EUR</span>
-                <span className="bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded">Visa/MC</span>
-                <span className="bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded">Wise</span>
+            <div className="mt-4 pt-3 border-t border-slate-800 space-y-2">
+              <div>
+                <span className="text-[10px] uppercase font-bold text-slate-500 block mb-1">
+                  Cash on Drop-Off
+                </span>
+                <div className="flex flex-wrap gap-1 text-[10px] text-slate-300 font-mono">
+                  <span className="bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded">IDR</span>
+                  <span className="bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded">AUD</span>
+                  <span className="bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded">USD</span>
+                  <span className="bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded">EUR</span>
+                </div>
+              </div>
+              <div>
+                <span className="text-[10px] uppercase font-bold text-slate-500 block mb-1">
+                  Prepay Online Link (No In-Car Cards)
+                </span>
+                <div className="flex flex-wrap gap-1 text-[10px] text-slate-300 font-mono">
+                  <span className="bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded">Visa/MC</span>
+                  <span className="bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded">Wise</span>
+                  <span className="bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded">PayPal</span>
+                </div>
               </div>
             </div>
           </div>
@@ -194,7 +209,9 @@ export const Footer: React.FC = () => {
           <div>
             © {new Date().getFullYear()} Great Bali Airport Transfer. All rights reserved.
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link href="/about" className="hover:text-slate-300 transition-colors">About Us</Link>
+            <span>•</span>
             <Link href="/#good-to-know" className="hover:text-slate-300 transition-colors">Good to Know &amp; Tips</Link>
             <span>•</span>
             <Link href="/terms-and-policies" className="hover:text-slate-300 transition-colors">Terms &amp; Policies</Link>

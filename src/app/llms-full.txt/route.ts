@@ -1,10 +1,19 @@
-import { BALI_DESTINATIONS, FLEET_DETAILS } from "@/data/destinations";
+import {
+  BALI_DESTINATIONS,
+  FLEET_DETAILS,
+  RATES_LAST_REVIEWED,
+} from "@/data/destinations";
+import {
+  CORE_USPS,
+  HOME_DIRECT_ANSWERS,
+  PAYMENT_POLICY,
+} from "@/data/policies";
 
 // Built entirely from the same data the site renders (destinations.ts), so the
 // fares an AI agent reads here can never drift from the fares on the pages.
 // Only static data is used, so there is no Sanity fetch and no revalidation.
 
-const BASE_URL = "https://www.greatbaliairporttransfer.com";
+const BASE_URL = "https://greatbaliairporttransfer.com";
 
 function idr(n: number): string {
   return `IDR ${n.toLocaleString("en-US")}`;
@@ -37,17 +46,32 @@ export function GET() {
 - Driver tip: ${d.trafficTip}`;
   }).join("\n\n");
 
+  const uspList = CORE_USPS.map((u) => `- **${u.title}:** ${u.summary}`).join("\n");
+  const directQa = HOME_DIRECT_ANSWERS.map((q) => `- **${q.question}** ${q.answer}`).join("\n");
+
   const body = `# Great Bali Airport Transfer: Complete Service & Route Guide
 
-> Fixed-price private airport transfers and VIP chauffeur service from I Gusti Ngurah Rai International Airport (DPS), Bali, Indonesia. Operated by Great Rides Bali.
+> Fixed-price private airport transfers and VIP chauffeur service from I Gusti Ngurah Rai International Airport (DPS), Bali, Indonesia. Operated by Great Rides Bali. Rates verified: ${RATES_LAST_REVIEWED}.
 
 - Website: ${BASE_URL}
+- About Us & Chauffeur Standards: ${BASE_URL}/about
 - Short version of this file: ${BASE_URL}/llms.txt
 - Family / Baby Seat Transfers: ${BASE_URL}/bali-airport-transfer-with-baby-seat
 - Hotel-to-DPS Departure Transfers: ${BASE_URL}/bali-airport-departure-transfer
+- 12-Seat HiAce Van & Surfboard Transfers: ${BASE_URL}/bali-airport-van-transfer-hiace
+- Fast-Boat Harbor Transfers (Sanur / Kusamba / Padangbai): ${BASE_URL}/bali-airport-to-fast-boat-harbor
+- Terms, payment methods & cancellation policy: ${BASE_URL}/terms-and-policies
 - WhatsApp (24h): +62 851-9092-0033
 - Email: booking.grb@gmail.com
 - Address: Ngurah Rai International Airport (DPS) Arrival Terminal Pick-Up Area, Tuban, Kuta, Badung, Bali 80361, Indonesia
+
+## Why choose Great Bali Airport Transfer (USPs)
+
+${uspList}
+
+## Direct answers at a glance
+
+${directQa}
 
 ## Arrival and meeting point at DPS
 
@@ -63,16 +87,19 @@ export function GET() {
 - Vehicle, fuel and a private English-speaking driver.
 - Airport parking fee and the Bali Mandara Ocean Tollway fee.
 - Luggage assistance, air-conditioned vehicle, USB phone charging. (Note: Complimentary chilled bottled water is provided for private driver charter services).
-- Fares are fixed per vehicle (not per person), one-way, quoted in IDR — valid for both DPS Arrivals and Hotel-to-DPS Departures. The USD/AUD/EUR/GBP switcher on the site is indicative only.
+- Fares are fixed per vehicle (not per person), one-way, quoted in IDR — valid for both DPS Arrivals and Hotel-to-DPS Departures. The USD/AUD/EUR/GBP switcher converts using live FX rates (6h cache) for indicative foreign-currency pricing.
 - Zero midnight or early-morning surcharge (24/7 pickups at the exact same rate).
 - Direct fast-boat harbor connections from DPS: Sanur Harbor (IDR 275k Standard / 400k Comfort / 650k HiAce) and Padangbai Harbor (IDR 850k Standard / 1,000k Comfort / 1,100k HiAce).
 - Recommended departure buffers (allow 3h before international flights, 2h before domestic): leave Ubud 5–5.5h prior, Canggu 4.5–5h prior, Seminyak 4–4.5h prior (add 30–60 mins during 3 PM–7 PM peak traffic).
 
 ## Booking, payment and cancellation
 
-- Book via WhatsApp or the on-site booking form (${BASE_URL}/#booking-widget). No deposit is required.
-- Pay cash to the driver on arrival in IDR, USD, AUD or EUR, or pay online in advance by Visa, Mastercard, PayPal or Wise.
-- Free cancellation and unlimited date/time amendments up to 24 hours before the scheduled pickup.
+- ${PAYMENT_POLICY.headline}
+- Book via WhatsApp or the on-site booking form (${BASE_URL}/#booking-widget). Zero deposit or credit card hold is required.
+- Option A — Cash on Drop-Off: Pay cash directly to your driver on arrival at your hotel/villa in ${PAYMENT_POLICY.cashOnArrival.currencies.join(", ")}.
+- Option B — Prepay Online Link: Request an invoice link via WhatsApp ahead of pickup supporting ${PAYMENT_POLICY.onlinePrepay.methods.join(", ")}.
+- Important note: Chauffeurs do NOT carry mobile card machines inside cars; card, Wise, and PayPal payments must use the online invoice link prior to pickup.
+- ${PAYMENT_POLICY.cancellationRule}
 - If an airline reschedules or cancels a flight, message on WhatsApp and the transfer is rescheduled without penalty, subject to vehicle availability.
 - Baby car seats (0-2 yrs) and booster seats (3-7 yrs): IDR 50,000 per seat per trip, on request when booking.
 - The driver will stop at an ATM, Telkomsel SIM outlet or money changer on the way at no extra charge.

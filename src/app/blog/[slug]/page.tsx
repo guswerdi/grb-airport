@@ -53,12 +53,12 @@ export async function generateMetadata({
     title: post.metaTitle || post.title,
     description: post.excerpt,
     alternates: {
-      canonical: `https://www.greatbaliairporttransfer.com/blog/${post.slug}`,
+      canonical: `https://greatbaliairporttransfer.com/blog/${post.slug}`,
     },
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://www.greatbaliairporttransfer.com/blog/${post.slug}`,
+      url: `https://greatbaliairporttransfer.com/blog/${post.slug}`,
       type: "article",
       ...(post.mainImage?.url ? { images: [{ url: post.mainImage.url }] } : {}),
     },
@@ -152,7 +152,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     ? new Date(post._updatedAt).toISOString().split("T")[0]
     : publishedIso;
   const heroImage = post.mainImage?.url ?? null;
-  const postUrl = `https://www.greatbaliairporttransfer.com/blog/${post.slug}`;
+  const postUrl = `https://greatbaliairporttransfer.com/blog/${post.slug}`;
 
   const faqs = extractFaqsFromBody(post.body);
 
@@ -166,7 +166,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     url: postUrl,
     headline: post.title,
     description: post.excerpt,
-    image: heroImage ?? "https://www.greatbaliairporttransfer.com/images/innova-zenix.jpg",
+    image: heroImage ?? "https://greatbaliairporttransfer.com/images/innova-zenix.jpg",
     author: {
       "@type": "Person",
       name: authorName,
@@ -177,7 +177,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       name: "Great Bali Airport Transfer",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.greatbaliairporttransfer.com/icon1.png",
+        url: "https://greatbaliairporttransfer.com/icon1.png",
         width: 512,
         height: 512,
       },

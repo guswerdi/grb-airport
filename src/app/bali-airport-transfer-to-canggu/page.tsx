@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   title: routeTitle(cangguDest),
   description: routeDescription(cangguDest),
   alternates: {
-    canonical: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-canggu",
+    canonical: "https://greatbaliairporttransfer.com/bali-airport-transfer-to-canggu",
   },
   openGraph: {
     title: "Bali Airport Transfer to Canggu (DPS) | Private Driver & Fixed Rates",
     description:
       "Direct private transfer to Canggu, Berawa, and Echo Beach. Surfboard friendly vans and bypass routing.",
-    url: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-canggu",
+    url: "https://greatbaliairporttransfer.com/bali-airport-transfer-to-canggu",
     images: ["/images/dest-seminyak.jpg"],
   },
 };

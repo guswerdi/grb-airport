@@ -35,10 +35,10 @@ export const TrustBar: React.FC = () => {
             </div>
             <div>
               <p className="text-slate-900 font-bold text-sm">
-                100% Fixed Fares
+                Flat Fares • Zero Midnight Fee
               </p>
               <p className="text-slate-500 text-xs mt-0.5">
-                No meter surprises. Mandara toll, airport parking & fuel included.
+                Same rate 24/7. Mandara toll, DPS parking &amp; fuel included.
               </p>
             </div>
           </div>
@@ -50,10 +50,10 @@ export const TrustBar: React.FC = () => {
             </div>
             <div>
               <p className="text-slate-900 font-bold text-sm">
-                Personalized Meet & Greet
+                Circle K Exit-Gate Meet
               </p>
               <p className="text-slate-500 text-xs mt-0.5">
-                Driver waits at DPS Circle K exit gate with your name sign. English-speaking.
+                English-speaking driver waits with your name sign—plus free ATM/SIM stop.
               </p>
             </div>
           </div>
@@ -65,10 +65,10 @@ export const TrustBar: React.FC = () => {
             </div>
             <div>
               <p className="text-slate-900 font-bold text-sm">
-                Pay on Arrival or Online
+                Zero Deposit • Cash or Link
               </p>
               <p className="text-slate-500 text-xs mt-0.5">
-                Pay driver cash (IDR/AUD/USD) or pay online with card or Wise.
+                Pay cash on drop-off (IDR/AUD/USD/EUR) or prepay online (Card/Wise/PayPal).
               </p>
             </div>
           </div>

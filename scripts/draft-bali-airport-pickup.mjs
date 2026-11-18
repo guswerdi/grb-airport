@@ -164,7 +164,7 @@ const body = [
       { text: "Great Bali Airport Transfer", marks: ["link-home"] },
       ", passengers arriving at DPS are directed to the Circle K minimart at the exit gate, where their private chauffeur waits with a personalized name sign. Driver details, including the driver's name, photo, WhatsApp number, vehicle model, and license plate, are sent approximately two hours before landing.",
     ],
-    [{ _key: "link-home", _type: "link", href: "https://www.greatbaliairporttransfer.com/" }]
+    [{ _key: "link-home", _type: "link", href: "https://greatbaliairporttransfer.com/" }]
   ),
   p("This guide explains exactly how the Bali airport pickup process works, where to meet your driver, what happens if your flight is delayed, and how to avoid common airport transportation problems."),
 

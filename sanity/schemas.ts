@@ -180,4 +180,118 @@ export const postType = defineType({
   },
 });
 
-export const schemaTypes = [postType, authorType, tableType];
+export const siteSettingsType = defineType({
+  name: "siteSettings",
+  title: "Site Settings & USPs",
+  type: "document",
+  fields: [
+    defineField({
+      name: "heroBadge",
+      title: "Hero Top Badge",
+      type: "string",
+    }),
+    defineField({
+      name: "heroSubtext",
+      title: "Hero Subtext",
+      type: "text",
+      rows: 2,
+    }),
+    defineField({
+      name: "liveNotice",
+      title: "Live Airport / Seasonal Notice Banner",
+      type: "string",
+      description: "Optional banner shown above USPs on the homepage (leave empty to hide).",
+    }),
+    defineField({
+      name: "usps",
+      title: "Core USPs (4 Cards)",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({ name: "id", title: "ID Slug", type: "string" }),
+            defineField({ name: "badge", title: "Badge", type: "string" }),
+            defineField({ name: "title", title: "Title", type: "string" }),
+            defineField({ name: "summary", title: "Summary", type: "text", rows: 2 }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
+      name: "directAnswers",
+      title: "Direct Answers at a Glance",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({ name: "question", title: "Question", type: "string" }),
+            defineField({ name: "answer", title: "Concise Direct Answer", type: "text", rows: 2 }),
+          ],
+        }),
+      ],
+    }),
+  ],
+});
+
+export const faqItemType = defineType({
+  name: "faqItem",
+  title: "Dynamic FAQ / Good to Know",
+  type: "document",
+  fields: [
+    defineField({
+      name: "category",
+      title: "Category",
+      type: "string",
+      options: {
+        list: [
+          "Arrival & Meeting",
+          "Pricing & Tolls",
+          "Flight Tracking",
+          "Vehicles & Luggage",
+          "Payment & Booking",
+          "Traveler Perks",
+        ],
+      },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "faqQuestion",
+      title: "Direct Question",
+      type: "string",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "title",
+      title: "Short Heading",
+      type: "string",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "keyFact",
+      title: "Direct Answer (1 Sentence)",
+      type: "text",
+      rows: 2,
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "summary",
+      title: "Detailed Summary",
+      type: "text",
+      rows: 3,
+      validation: (rule) => rule.required(),
+    }),
+    defineField({ name: "badge", title: "Badge", type: "string" }),
+    defineField({ name: "iconName", title: "Icon Name (Lucide)", type: "string" }),
+    defineField({ name: "order", title: "Sort Order", type: "number" }),
+  ],
+});
+
+export const schemaTypes = [
+  postType,
+  authorType,
+  tableType,
+  siteSettingsType,
+  faqItemType,
+];

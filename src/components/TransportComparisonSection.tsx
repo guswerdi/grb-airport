@@ -31,9 +31,21 @@ export const TransportComparisonSection: React.FC = () => {
     },
     {
       feature: "Flight Delay Tracking",
-      private: { text: "Yes, driver waits automatically", icon: "check" },
+      private: { text: "Yes, 60-min free wait after landing", icon: "check" },
       ridehailing: { text: "No", icon: "cross" },
       taxi: { text: "No", icon: "cross" },
+    },
+    {
+      feature: "Midnight / 4 AM Rates",
+      private: { text: "Same flat rate 24/7 (Zero night fee)", icon: "check" },
+      ridehailing: { text: "Night surge & fewer drivers", icon: "warning" },
+      taxi: { text: "Higher late-night quoted fares", icon: "cross" },
+    },
+    {
+      feature: "Deposit & Payment",
+      private: { text: "Zero deposit • Cash or online link", icon: "check" },
+      ridehailing: { text: "App card / wallet / cash IDR", icon: "check" },
+      taxi: { text: "Cash IDR (most airport booths)", icon: "warning" },
     },
   ];
 
@@ -51,7 +63,7 @@ export const TransportComparisonSection: React.FC = () => {
             Our Bali Airport Transfers vs. Grab / Taxi
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-600">
-            Wondering what's the best way to get from Bali Airport (DPS) to your hotel? 
+            Wondering what&apos;s the best way to get from Bali Airport (DPS) to your hotel?
             Here is an honest comparison of your transport options upon arrival in Bali.
           </p>
         </div>
@@ -62,8 +74,8 @@ export const TransportComparisonSection: React.FC = () => {
               <tr>
                 <th scope="col" className="px-6 py-4 rounded-tl-2xl w-1/4">Feature / Benefit</th>
                 <th scope="col" className="px-6 py-4 bg-emerald-50 text-emerald-900 w-1/4">
-                  Great Bali Transfer
-                  <span className="block text-[10px] font-normal text-emerald-700 mt-1">Recommended</span>
+                  Great Bali Airport Transfer
+                  <span className="block text-[10px] font-normal text-emerald-700 mt-1">All-Inclusive Private</span>
                 </th>
                 <th scope="col" className="px-6 py-4 w-1/4">Grab / Gojek</th>
                 <th scope="col" className="px-6 py-4 rounded-tr-2xl w-1/4">Regular Airport Taxi</th>

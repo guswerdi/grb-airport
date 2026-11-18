@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   title: routeTitle(nusaDuaDest),
   description: routeDescription(nusaDuaDest),
   alternates: {
-    canonical: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-nusa-dua",
+    canonical: "https://greatbaliairporttransfer.com/bali-airport-transfer-to-nusa-dua",
   },
   openGraph: {
     title: "Bali Airport Transfer to Nusa Dua (DPS) | Chauffeur & Fixed Rates",
     description:
       "Arrive at Nusa Dua 5-star beachfront resorts via Bali Mandara ocean tollway. Mulia, Kempinski, St. Regis, Sofitel.",
-    url: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-nusa-dua",
+    url: "https://greatbaliairporttransfer.com/bali-airport-transfer-to-nusa-dua",
     images: ["/images/dest-uluwatu.jpg"],
   },
 };

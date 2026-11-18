@@ -5,6 +5,7 @@ import { Search, Clock, ArrowRight, Check } from "lucide-react";
 import Link from "next/link";
 import {
   BALI_DESTINATIONS,
+  CurrencyRateMap,
   Destination,
   formatPrice,
   RATES_LAST_REVIEWED,
@@ -19,12 +20,16 @@ interface FareCalculatorTableProps {
   currentCurrency: string;
   onSelectRoute: (destination: Destination, vehicleType: string) => void;
   selectedVehicleId?: string;
+  exchangeRates?: CurrencyRateMap;
+  ratesAreLive?: boolean;
 }
 
 export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
   currentCurrency,
   onSelectRoute,
   selectedVehicleId = "standard",
+  exchangeRates,
+  ratesAreLive = false,
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRegion, setSelectedRegion] = useState<string>("All");
@@ -50,9 +55,17 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-semibold mb-2">
-            Guaranteed Fixed Rates • Verified{" "}
-            <time dateTime={RATES_LAST_REVIEWED}>{RATES_REVIEWED_LABEL}</time>
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-semibold mb-2">
+            <span>
+              Guaranteed Fixed Rates • Verified{" "}
+              <time dateTime={RATES_LAST_REVIEWED}>{RATES_REVIEWED_LABEL}</time>
+            </span>
+            {ratesAreLive && (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                Live FX
+              </span>
+            )}
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
             Bali Airport Transfer Rates &amp; Tariffs
@@ -148,7 +161,7 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                 {filteredDestinations.length === 0 ? (
                   <tr>
                     <td colSpan={6} className="py-8 text-center text-slate-500">
-                      No routes found matching "{searchTerm}". Please try another Bali area.
+                      No routes found matching &ldquo;{searchTerm}&rdquo;. Please try another Bali area.
                     </td>
                   </tr>
                 ) : (
@@ -182,10 +195,10 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                           title={`Select Standard Car to ${dest.name}`}
                         >
                           <div className="font-bold text-slate-800 group-hover/cell:text-emerald-700">
-                            {formatPrice(dest.rates.standard, currentCurrency)}
+                            {formatPrice(dest.rates.standard, currentCurrency, exchangeRates)}
                           </div>
                           <div className="text-[10px] text-slate-400">
-                            {formatPrice(dest.rates.standard, "IDR")}
+                            {formatPrice(dest.rates.standard, "IDR", exchangeRates)}
                           </div>
                         </button>
                       </td>
@@ -197,10 +210,10 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                           title={`Select Comfort Car to ${dest.name}`}
                         >
                           <div className="font-bold text-emerald-800">
-                            {formatPrice(dest.rates.comfort, currentCurrency)}
+                            {formatPrice(dest.rates.comfort, currentCurrency, exchangeRates)}
                           </div>
                           <div className="text-[10px] text-slate-500">
-                            {formatPrice(dest.rates.comfort, "IDR")}
+                            {formatPrice(dest.rates.comfort, "IDR", exchangeRates)}
                           </div>
                         </button>
                       </td>
@@ -213,10 +226,10 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                           title={`Select Big Van to ${dest.name}`}
                         >
                           <div className="font-bold text-slate-800 group-hover/cell:text-emerald-700">
-                            {formatPrice(dest.rates.van, currentCurrency)}
+                            {formatPrice(dest.rates.van, currentCurrency, exchangeRates)}
                           </div>
                           <div className="text-[10px] text-slate-400">
-                            {formatPrice(dest.rates.van, "IDR")}
+                            {formatPrice(dest.rates.van, "IDR", exchangeRates)}
                           </div>
                         </button>
                       </td>

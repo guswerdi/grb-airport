@@ -1,6 +1,8 @@
 import React from "react";
 import { BALI_FAQS } from "@/data/faqs";
 import { BALI_DESTINATIONS, FLEET_DETAILS } from "@/data/destinations";
+import type { GoodToKnowItem } from "@/data/goodToKnow";
+import { PAYMENT_POLICY } from "@/data/policies";
 
 export const StructuredData: React.FC = () => {
   const allRates = BALI_DESTINATIONS.flatMap((d) => [
@@ -16,10 +18,10 @@ export const StructuredData: React.FC = () => {
     "@type": ["LocalBusiness", "TaxiService"],
     name: "Great Bali Airport Transfer",
     alternateName: "Great Rides Bali",
-    image: "https://www.greatbaliairporttransfer.com/images/innova-zenix.jpg",
-    logo: "https://www.greatbaliairporttransfer.com/icon1.png",
-    "@id": "https://www.greatbaliairporttransfer.com/#organization",
-    url: "https://www.greatbaliairporttransfer.com",
+    image: "https://greatbaliairporttransfer.com/images/innova-zenix.jpg",
+    logo: "https://greatbaliairporttransfer.com/icon1.png",
+    "@id": "https://greatbaliairporttransfer.com/#organization",
+    url: "https://greatbaliairporttransfer.com",
     sameAs: [
       "https://wa.me/6285190920033",
       "mailto:booking.grb@gmail.com",
@@ -28,7 +30,7 @@ export const StructuredData: React.FC = () => {
     email: "booking.grb@gmail.com",
     priceRange: `IDR ${lowPrice.toLocaleString("en-US")} - ${highPrice.toLocaleString("en-US")}`,
     currenciesAccepted: "IDR, USD, AUD, EUR, GBP",
-    paymentAccepted: "Cash, Credit Card, Wise, PayPal",
+    paymentAccepted: PAYMENT_POLICY.shortSummary,
     address: {
       "@type": "PostalAddress",
       streetAddress: "Ngurah Rai International Airport (DPS) Arrival Pick-Up Area",
@@ -73,18 +75,18 @@ export const StructuredData: React.FC = () => {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://www.greatbaliairporttransfer.com/#website",
+    "@id": "https://greatbaliairporttransfer.com/#website",
     name: "Great Bali Airport Transfer",
     // NOTE: no `alternateName` carrying the bare domain. Google's site-name docs
     // sanction the lowercase domain in `alternateName` as a *fallback* that it
     // will "strongly consider using if your preferred name isn't selected" -
     // and for a while the SERP showed exactly that (the raw domain) instead of
     // this brand name. Hand Google the brand only.
-    url: "https://www.greatbaliairporttransfer.com",
+    url: "https://greatbaliairporttransfer.com",
     inLanguage: "en",
     publisher: {
       "@type": ["Organization", "LocalBusiness", "TaxiService"],
-      "@id": "https://www.greatbaliairporttransfer.com/#organization",
+      "@id": "https://greatbaliairporttransfer.com/#organization",
     },
   };
 
@@ -107,7 +109,13 @@ export const StructuredData: React.FC = () => {
  * Kept separate from RootLayout so route pages and blog articles do not emit
  * duplicate FAQPage / Service schemas alongside their own page-specific ones.
  */
-export const HomePageStructuredData: React.FC = () => {
+interface HomePageStructuredDataProps {
+  faqItems?: GoodToKnowItem[];
+}
+
+export const HomePageStructuredData: React.FC<HomePageStructuredDataProps> = ({
+  faqItems,
+}) => {
   const allRates = BALI_DESTINATIONS.flatMap((d) => [
     d.rates.standard,
     d.rates.comfort,
@@ -116,17 +124,25 @@ export const HomePageStructuredData: React.FC = () => {
   const lowPrice = Math.min(...allRates);
   const highPrice = Math.max(...allRates);
 
+  const resolvedFaqs =
+    faqItems && faqItems.length > 0
+      ? faqItems.map((item) => ({
+          question: item.faqQuestion,
+          answer: `${item.keyFact} ${item.summary}`.trim(),
+        }))
+      : BALI_FAQS;
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://www.greatbaliairporttransfer.com/#service",
+    "@id": "https://greatbaliairporttransfer.com/#service",
     serviceType: "Private Airport Transfer",
     name: "Bali Airport Transfer & Private DPS Pickup",
     description:
       "Fixed-price private airport transfers from I Gusti Ngurah Rai International Airport (DPS) across Bali. Includes Circle K exit gate meet-and-greet with name sign, 60-minute complimentary grace wait, flight tracking, Bali Mandara tollway, and airport parking.",
     provider: {
       "@type": ["LocalBusiness", "TaxiService"],
-      "@id": "https://www.greatbaliairporttransfer.com/#organization",
+      "@id": "https://greatbaliairporttransfer.com/#organization",
     },
     areaServed: {
       "@type": "AdministrativeArea",
@@ -139,7 +155,7 @@ export const HomePageStructuredData: React.FC = () => {
       highPrice: String(highPrice),
       offerCount: String(BALI_DESTINATIONS.length * FLEET_DETAILS.length),
       availability: "https://schema.org/InStock",
-      url: "https://www.greatbaliairporttransfer.com/#rates-table",
+      url: "https://greatbaliairporttransfer.com/#rates-table",
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -153,7 +169,7 @@ export const HomePageStructuredData: React.FC = () => {
           price: String(minFare),
           priceCurrency: "IDR",
           availability: "https://schema.org/InStock",
-          url: "https://www.greatbaliairporttransfer.com/#fleet",
+          url: "https://greatbaliairporttransfer.com/#fleet",
         };
       }),
     },
@@ -162,7 +178,7 @@ export const HomePageStructuredData: React.FC = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: BALI_FAQS.map((faq) => ({
+    mainEntity: resolvedFaqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
       acceptedAnswer: {

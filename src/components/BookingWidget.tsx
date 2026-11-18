@@ -15,12 +15,16 @@ import {
   Car,
   Building2,
   Plane,
+  Baby,
 } from "lucide-react";
 import {
   BALI_DESTINATIONS,
   FLEET_DETAILS,
   formatPrice,
   Destination,
+  BABY_SEAT_PRICE_IDR,
+  DEPARTURE_LEAVE_GUIDE,
+  CurrencyRateMap,
 } from "@/data/destinations";
 
 interface BookingWidgetProps {
@@ -31,6 +35,7 @@ interface BookingWidgetProps {
   onVehicleChange?: (vehicleId: string) => void;
   initialTransferType?: "arrival" | "departure" | "daytour";
   initialBabySeatNeeded?: boolean;
+  exchangeRates?: CurrencyRateMap;
 }
 
 export const BookingWidget: React.FC<BookingWidgetProps> = ({
@@ -41,6 +46,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
   onVehicleChange,
   initialTransferType = "arrival",
   initialBabySeatNeeded = false,
+  exchangeRates,
 }) => {
   const [transferType, setTransferType] = useState<"arrival" | "departure" | "daytour">(
     initialTransferType
@@ -94,6 +100,15 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
     return rates.van;
   }, [transferType, activeDestination, selectedVehicleId]);
 
+  const babySeatCostIdr =
+    transferType !== "daytour" && babySeatNeeded ? BABY_SEAT_PRICE_IDR : 0;
+  const totalPriceIdr = calculatedPriceIdr + babySeatCostIdr;
+
+  const leaveGuide = DEPARTURE_LEAVE_GUIDE[activeDestination.id] || {
+    internationalBefore: "3.5 – 4.5 hrs",
+    domesticBefore: "2.5 – 3.5 hrs",
+  };
+
   const activeVehicle = useMemo(() => {
     return (
       FLEET_DETAILS.find((v) => v.id === selectedVehicleId) || FLEET_DETAILS[1]
@@ -111,7 +126,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
         (hotelName ? `Pickup Location: ${hotelName}\n` : "") +
         (flightNumber ? `Planned Route / Stops: ${flightNumber}\n` : "") +
         `Passengers: ${passengers} pax, ${luggage} bags\n` +
-        (babySeatNeeded ? `Baby Seat: Yes, needed (IDR 50k/seat)\n` : "") +
+        (babySeatNeeded ? `Baby/Booster Seat: Yes, requested (+IDR 50,000)\n` : "") +
         `\nCould you please share the rate quote and availability? Thank you!`;
 
       return `https://wa.me/6285190920033?text=${encodeURIComponent(text)}`;
@@ -127,12 +142,13 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
       `Service: ${isArrival ? "Airport Arrival Pickup" : "Hotel to Airport Drop-off"}\n` +
       `Route: ${route}\n` +
       `Car: ${activeVehicle.shortLabel || activeVehicle.name}\n` +
-      `Price: ${formatPrice(calculatedPriceIdr, currentCurrency)} (${formatPrice(calculatedPriceIdr, "IDR")})\n` +
+      `Price: ${formatPrice(totalPriceIdr, currentCurrency, exchangeRates)} (${formatPrice(totalPriceIdr, "IDR", exchangeRates)})\n` +
       `Date & Time: ${pickupDate || "Today/Soon"} at ${pickupTime}\n` +
       (flightNumber ? `Flight: ${flightNumber}\n` : "") +
       (hotelName ? `${isArrival ? "Drop-off Hotel" : "Pickup Hotel"}: ${hotelName}\n` : "") +
       `Passengers: ${passengers} pax, ${luggage} bags\n` +
-      (babySeatNeeded ? `Baby Seat: Yes, needed (IDR 50k/seat)\n` : "") +
+      (babySeatNeeded ? `Baby/Booster Seat: Yes, pre-installed (+IDR 50,000)\n` : "") +
+      `Payment Preference: Cash on Drop-Off or Online Prepay Link (Zero Deposit)\n` +
       `\nPlease confirm availability. Thank you!`;
 
     return `https://wa.me/6285190920033?text=${encodeURIComponent(text)}`;
@@ -219,7 +235,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
               </span>
             </div>
             <span className="text-[11px] text-emerald-800 bg-white px-2 py-0.5 rounded border border-emerald-200 font-semibold self-start sm:self-auto shrink-0 shadow-2xs">
-              Driver awaits with Name Sign at Gate
+              Driver meets outside Circle K Exit Gate
             </span>
           </div>
         )}
@@ -345,7 +361,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
 
                   return (
                     <option key={veh.id} value={veh.id} className="text-slate-900">
-                      {veh.shortLabel || veh.name} — {formatPrice(p, currentCurrency)}
+                      {veh.shortLabel || veh.name} — {formatPrice(p, currentCurrency, exchangeRates)}
                     </option>
                   );
                 })}
@@ -508,7 +524,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                 <div className="flex items-center gap-2 text-xs text-slate-600 bg-emerald-50/50 border border-emerald-100 rounded-lg px-3 py-2 self-end">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>
-                    Your driver tracks flight delays in real time and waits holding your name sign at DPS arrival greeting gate.
+                    Real-time flight tracking included. Meet outside Circle K minimart at the DPS exit gate with 60 min free wait.
                   </span>
                 </div>
               </>
@@ -520,7 +536,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                     className="text-[11px] font-semibold text-slate-700 flex items-center justify-between"
                   >
                     <span className="flex items-center gap-1">
-                      <Plane className="w-3 h-3 text-sky-600" /> Departure Flight No. & Terminal
+                      <Plane className="w-3 h-3 text-sky-600" /> Departure Flight No. &amp; Terminal
                     </span>
                     <span className="text-[10px] text-sky-700 font-normal">International or Domestic</span>
                   </label>
@@ -536,7 +552,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                 <div className="flex items-center gap-2 text-xs text-slate-600 bg-sky-50/50 border border-sky-100 rounded-lg px-3 py-2 self-end">
                   <Clock className="w-4 h-4 text-sky-600 shrink-0" />
                   <span>
-                    Recommended pickup: 3–4 hours before International flights; 2 hours before Domestic flights.
+                    Leave {activeDestination.metaName} <strong>{leaveGuide.internationalBefore}</strong> before International or <strong>{leaveGuide.domesticBefore}</strong> before Domestic flights.
                   </span>
                 </div>
               </>
@@ -593,22 +609,22 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                 ) : (
                   <div>
                     <span className="text-[10px] uppercase font-bold text-slate-400 block leading-tight">
-                      Guaranteed Fixed Fare
+                      {babySeatNeeded ? "All-Inclusive + Baby Seat" : "Guaranteed Flat Fare"}
                     </span>
                     <div className="flex items-baseline gap-1.5">
                       <span className="text-xl sm:text-2xl font-black text-slate-900 leading-none">
-                        {formatPrice(calculatedPriceIdr, currentCurrency)}
+                        {formatPrice(totalPriceIdr, currentCurrency, exchangeRates)}
                       </span>
                       <span className="text-xs text-slate-500 font-medium">
-                        ({formatPrice(calculatedPriceIdr, "IDR")})
+                        ({formatPrice(totalPriceIdr, "IDR", exchangeRates)})
                       </span>
                     </div>
                   </div>
                 )}
               </div>
 
-              {/* Interactive Pax & Luggage Adjusters */}
-              <div className="grid grid-cols-2 sm:flex items-center gap-2 w-full sm:w-auto">
+              {/* Interactive Pax, Luggage & Baby Seat Controls */}
+              <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
                 {/* Person / Passengers Counter */}
                 <div 
                   className="flex items-center justify-between sm:justify-start bg-slate-100/90 border border-slate-200 rounded-lg p-1 text-xs shadow-2xs"
@@ -696,6 +712,35 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                     </button>
                   </div>
                 </div>
+
+                {/* Interactive Baby / Booster Seat Toggle */}
+                <button
+                  type="button"
+                  onClick={() => setBabySeatNeeded((prev) => !prev)}
+                  aria-pressed={babySeatNeeded}
+                  className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition-all cursor-pointer select-none ${
+                    babySeatNeeded
+                      ? "bg-emerald-50 border-emerald-600 text-emerald-900 shadow-2xs"
+                      : "bg-slate-100/90 border-slate-200 text-slate-700 hover:bg-slate-200/70"
+                  }`}
+                  title="Add sanitized baby car seat (0–2 yrs) or booster seat (3–7 yrs) for IDR 50,000"
+                >
+                  <Baby
+                    className={`w-3.5 h-3.5 shrink-0 ${
+                      babySeatNeeded ? "text-emerald-600" : "text-slate-500"
+                    }`}
+                  />
+                  <span>Baby Seat</span>
+                  <span
+                    className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${
+                      babySeatNeeded
+                        ? "bg-emerald-600 text-white"
+                        : "bg-white text-slate-600 border border-slate-200"
+                    }`}
+                  >
+                    {babySeatNeeded ? "Added +50k" : "+IDR 50k"}
+                  </span>
+                </button>
               </div>
             </div>
 

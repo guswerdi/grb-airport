@@ -46,10 +46,16 @@ const CATEGORIES = [
   "Traveler Perks",
 ] as const;
 
-export const GoodToKnowSection: React.FC = () => {
+interface GoodToKnowSectionProps {
+  items?: GoodToKnowItem[];
+}
+
+export const GoodToKnowSection: React.FC<GoodToKnowSectionProps> = ({
+  items = GOOD_TO_KNOW_ITEMS,
+}) => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
-  const filteredItems = GOOD_TO_KNOW_ITEMS.filter((item) => {
+  const filteredItems = items.filter((item) => {
     if (activeCategory === "All") return true;
     return item.category === activeCategory;
   });
@@ -136,18 +142,21 @@ export const GoodToKnowSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Title */}
+                {/* Visible Question + Title */}
+                <p className="text-xs font-bold text-emerald-700 mb-1">
+                  {`Q: ${item.faqQuestion}`}
+                </p>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug mb-3">
                   {item.title}
                 </h3>
 
-                {/* Key Fact Highlight Box (Direct AI-extractable statement) */}
+                {/* Direct Answer Box */}
                 <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-xl p-3 mb-3.5">
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                     <p className="text-xs font-semibold text-emerald-950 leading-relaxed">
                       <span className="font-extrabold text-emerald-900 uppercase tracking-wide text-[10px] mr-1">
-                        Key Fact:
+                        Direct Answer:
                       </span>
                       {item.keyFact}
                     </p>

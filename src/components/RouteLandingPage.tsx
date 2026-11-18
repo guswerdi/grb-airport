@@ -17,13 +17,15 @@ import { Footer } from "@/components/Footer";
 import { BookingWidget } from "@/components/BookingWidget";
 import { BookingModal } from "@/components/BookingModal";
 import {
+  CurrencyRateMap,
+  DEPARTURE_LEAVE_GUIDE,
   Destination,
   FLEET_DETAILS,
   formatPrice,
   RATES_LAST_REVIEWED,
 } from "@/data/destinations";
 
-/** "October 2026": UTC so server and client render the same string. */
+/** Current fare-review month rendered in UTC so server and client match. */
 const RATES_REVIEWED_LABEL = new Date(RATES_LAST_REVIEWED).toLocaleDateString(
   "en-US",
   { month: "long", year: "numeric", timeZone: "UTC" }
@@ -35,6 +37,7 @@ interface RouteLandingPageProps {
   routeOverview: string;
   travelTips: string[];
   faqs: { question: string; answer: string }[];
+  exchangeRates?: CurrencyRateMap;
 }
 
 export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
@@ -43,6 +46,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
   routeOverview,
   travelTips,
   faqs,
+  exchangeRates,
 }) => {
   const [currency, setCurrency] = useState("USD");
   const [selectedVehicleId, setSelectedVehicleId] = useState("standard");
@@ -87,7 +91,8 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
         vehicle: selectedTier.fleet,
         priceIdr: selectedPriceIdr,
         currency: currency,
-        formattedPrice: formatPrice(selectedPriceIdr, currency),
+        exchangeRates,
+        formattedPrice: formatPrice(selectedPriceIdr, currency, exchangeRates),
         pickupDate: new Date().toISOString().split("T")[0],
         pickupTime: "12:00",
         flightNumber: "",
@@ -121,13 +126,13 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.greatbaliairporttransfer.com/",
+        "item": "https://greatbaliairporttransfer.com/",
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": `DPS to ${destination.name.split("(")[0].trim()}`,
-        "item": `https://www.greatbaliairporttransfer.com/${destination.slug}`,
+        "item": `https://greatbaliairporttransfer.com/${destination.slug}`,
       },
     ],
   };
@@ -140,7 +145,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
     description: `Fixed-price private airport transfer from I Gusti Ngurah Rai International Airport (DPS) to ${destination.name}. Meet & greet with name sign, free flight tracking, toll and parking included.`,
     provider: {
       "@type": "TaxiService",
-      "@id": "https://www.greatbaliairporttransfer.com/#organization",
+      "@id": "https://greatbaliairporttransfer.com/#organization",
       name: "Great Bali Airport Transfer",
     },
     areaServed: {
@@ -154,7 +159,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
         price: destination.rates.standard,
         priceCurrency: "IDR",
         availability: "https://schema.org/InStock",
-        url: `https://www.greatbaliairporttransfer.com/${destination.slug}`,
+        url: `https://greatbaliairporttransfer.com/${destination.slug}`,
       },
       {
         "@type": "Offer",
@@ -162,7 +167,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
         price: destination.rates.comfort,
         priceCurrency: "IDR",
         availability: "https://schema.org/InStock",
-        url: `https://www.greatbaliairporttransfer.com/${destination.slug}`,
+        url: `https://greatbaliairporttransfer.com/${destination.slug}`,
       },
       {
         "@type": "Offer",
@@ -170,7 +175,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
         price: destination.rates.van,
         priceCurrency: "IDR",
         availability: "https://schema.org/InStock",
-        url: `https://www.greatbaliairporttransfer.com/${destination.slug}`,
+        url: `https://greatbaliairporttransfer.com/${destination.slug}`,
       },
     ],
   };
@@ -274,6 +279,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
             preSelectedDestinationId={destination.id}
             selectedVehicleId={selectedVehicleId}
             onVehicleChange={setSelectedVehicleId}
+            exchangeRates={exchangeRates}
           />
         </div>
       </header>
@@ -283,10 +289,59 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Main 2 Cols */}
           <div className="lg:col-span-2 space-y-10">
+            {/* Direct Route Answers at a Glance */}
+            <section className="bg-white p-6 sm:p-8 rounded-2xl border border-emerald-200 shadow-xs">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                <h2 className="text-lg sm:text-xl font-extrabold text-slate-900">
+                  Direct Route Answers: DPS ⇄ {destination.metaName}
+                </h2>
+                <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
+                  Zero Deposit • 24/7 Flat Fares
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
+                  <p className="font-bold text-slate-900 mb-1">
+                    Q: How much is DPS Airport to {destination.metaName}?
+                  </p>
+                  <p className="text-slate-600 leading-relaxed">
+                    <strong>{formatPrice(destination.rates.standard, currency, exchangeRates)}</strong> ({formatPrice(destination.rates.standard, "IDR", exchangeRates)}) Standard (1–4 pax),{" "}
+                    <strong>{formatPrice(destination.rates.comfort, currency, exchangeRates)}</strong> Innova (1–5 pax), or{" "}
+                    <strong>{formatPrice(destination.rates.van, currency, exchangeRates)}</strong> HiAce (1–12 pax). Zero midnight fee.
+                  </p>
+                </div>
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
+                  <p className="font-bold text-slate-900 mb-1">
+                    Q: How long is the drive ({destination.metaName} ↔ DPS)?
+                  </p>
+                  <p className="text-slate-600 leading-relaxed">
+                    Approx. <strong>{destination.distanceKm} km</strong> (<strong>{destination.durationMinutes}</strong>). For hotel-to-airport departures, leave{" "}
+                    <strong>{DEPARTURE_LEAVE_GUIDE[destination.id]?.internationalBefore || "3.5–4.5 hrs"}</strong> before International flights.
+                  </p>
+                </div>
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
+                  <p className="font-bold text-slate-900 mb-1">
+                    Q: Where do I meet my driver at Bali Airport?
+                  </p>
+                  <p className="text-slate-600 leading-relaxed">
+                    Walk outside the arrivals exit straight to the <strong>Circle K minimart</strong> holding your name sign—with <strong>60 minutes free wait</strong> and a free ATM/SIM stop.
+                  </p>
+                </div>
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
+                  <p className="font-bold text-slate-900 mb-1">
+                    Q: How do I pay &amp; is a deposit required?
+                  </p>
+                  <p className="text-slate-600 leading-relaxed">
+                    <strong>Zero deposit.</strong> Pay cash on drop-off (IDR, AUD, USD, EUR) or prepay before pickup via Visa/MC, Wise, or PayPal WhatsApp link (no in-car card machines).
+                  </p>
+                </div>
+              </div>
+            </section>
+
             {/* Route Overview */}
             <section className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs">
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3">
-                Route Overview & What to Expect
+                Route Overview &amp; What to Expect
               </h2>
               <p className="text-slate-600 text-sm leading-relaxed mb-5">
                 {routeOverview}
@@ -424,14 +479,14 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
                             isSelected ? "text-emerald-900" : "text-slate-900"
                           }`}
                         >
-                          {formatPrice(priceIdr, currency)}
+                          {formatPrice(priceIdr, currency, exchangeRates)}
                         </span>
                         <span
                           className={`text-[10px] ${
                             isSelected ? "text-emerald-700" : "text-slate-400"
                           }`}
                         >
-                          {formatPrice(priceIdr, "IDR")}
+                          {formatPrice(priceIdr, "IDR", exchangeRates)}
                         </span>
                       </div>
                     </button>

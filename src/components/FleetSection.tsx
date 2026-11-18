@@ -3,16 +3,23 @@
 import React from "react";
 import Image from "next/image";
 import { Users, Briefcase, Check, Award } from "lucide-react";
-import { FLEET_DETAILS, formatPrice, BALI_DESTINATIONS } from "@/data/destinations";
+import {
+  FLEET_DETAILS,
+  formatPrice,
+  BALI_DESTINATIONS,
+  CurrencyRateMap,
+} from "@/data/destinations";
 
 interface FleetSectionProps {
   currentCurrency: string;
   onSelectVehicle: (vehicleId: string) => void;
+  exchangeRates?: CurrencyRateMap;
 }
 
 export const FleetSection: React.FC<FleetSectionProps> = ({
   currentCurrency,
   onSelectVehicle,
+  exchangeRates,
 }) => {
   return (
     <section id="fleet" className="py-16 sm:py-24 bg-slate-50 px-4 sm:px-6 lg:px-8 border-t border-slate-200">
@@ -104,10 +111,10 @@ export const FleetSection: React.FC<FleetSectionProps> = ({
                       </span>
                       <div className="text-right">
                         <span className="text-lg font-bold text-slate-900">
-                          {formatPrice(basePriceIdr, currentCurrency)}
+                          {formatPrice(basePriceIdr, currentCurrency, exchangeRates)}
                         </span>
                         <span className="text-[10px] text-slate-400 block">
-                          {formatPrice(basePriceIdr, "IDR")}
+                          {formatPrice(basePriceIdr, "IDR", exchangeRates)}
                         </span>
                       </div>
                     </div>

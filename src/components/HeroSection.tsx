@@ -4,12 +4,16 @@ import React from "react";
 import Image from "next/image";
 import { ShieldCheck, Clock, Sparkles, MapPin } from "lucide-react";
 import { BookingWidget } from "./BookingWidget";
+import type { CurrencyRateMap } from "@/data/destinations";
 
 interface HeroSectionProps {
   currentCurrency: string;
   onOpenBookingModal: (bookingData: any) => void;
   selectedVehicleId?: string;
   onVehicleChange?: (vehicleId: string) => void;
+  exchangeRates?: CurrencyRateMap;
+  heroBadge?: string;
+  heroSubtext?: string;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
@@ -17,6 +21,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onOpenBookingModal,
   selectedVehicleId,
   onVehicleChange,
+  exchangeRates,
+  heroBadge,
+  heroSubtext,
 }) => {
   return (
     <section className="relative w-full bg-slate-900 text-white overflow-hidden">
@@ -40,35 +47,41 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-xs border border-white/15 mb-3 sm:mb-4">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
             <span className="text-xs font-medium text-slate-200">
-              Fixed All-Inclusive Fares • Zero Deposit Required
+              {heroBadge || "Fixed Flat Fares • Zero Deposit • Zero Midnight Fee"}
             </span>
           </div>
 
           {/* Clean H1 */}
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-white">
             Bali Airport Transfer <br />
-            <span className="text-emerald-400">Private Chauffeur</span> & Fixed Rates
+            <span className="text-emerald-400">Private Chauffeur</span> &amp; Fixed Rates
           </h1>
 
           <p className="mt-3 text-xs sm:text-sm lg:text-base text-slate-300 leading-relaxed font-normal max-w-2xl">
-            Skip hectic taxi queues with our reliable <strong>Bali airport pickup</strong>.
-            Your personal English-speaking driver meets you at the Circle K minimart at the DPS arrivals exit gate with a personalized name sign.
-            Top-rated <strong>Bali airport transfers</strong> with 100% fixed fares, flight tracking, and toll included.
+            {heroSubtext ? (
+              heroSubtext
+            ) : (
+              <>
+                Skip terminal taxi haggling with our direct <strong>Bali airport pickup</strong> from{" "}
+                <strong>IDR 250,000</strong>. Your English-speaking driver waits outside Circle K at the DPS exit gate
+                with your name sign—zero deposit required, cash on drop-off or online link, 24/7 with no midnight surcharge.
+              </>
+            )}
           </p>
 
-          {/* 4 Clean Value Pills */}
+          {/* 4 Clean USP Pills */}
           <div className="flex flex-wrap items-center gap-2 mt-4 text-xs text-slate-300">
             <span className="inline-flex items-center gap-1.5 bg-white/10 px-2.5 py-1 rounded-md">
-              <Clock className="w-3.5 h-3.5 text-emerald-400" /> 60-Min Free Flight Waiting
+              <Clock className="w-3.5 h-3.5 text-emerald-400" /> 60-Min Free Flight Wait
             </span>
             <span className="inline-flex items-center gap-1.5 bg-white/10 px-2.5 py-1 rounded-md">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Tollways & Parking Included
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Zero Deposit (Cash or Link)
             </span>
             <span className="inline-flex items-center gap-1.5 bg-white/10 px-2.5 py-1 rounded-md">
-              <MapPin className="w-3.5 h-3.5 text-emerald-400" /> Door-to-Door Villa Drop
+              <MapPin className="w-3.5 h-3.5 text-emerald-400" /> Circle K Gate Meet &amp; Toll Incl.
             </span>
             <span className="inline-flex items-center gap-1.5 bg-white/10 px-2.5 py-1 rounded-md">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400" /> Free 24h Cancellation
+              <Sparkles className="w-3.5 h-3.5 text-emerald-400" /> Free ATM/SIM Stop &amp; 24h Cancel
             </span>
           </div>
         </div>
@@ -79,6 +92,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           onOpenBookingModal={onOpenBookingModal}
           selectedVehicleId={selectedVehicleId}
           onVehicleChange={onVehicleChange}
+          exchangeRates={exchangeRates}
         />
       </div>
     </section>

@@ -2,7 +2,7 @@ import { fetchSanityPosts } from "@/lib/sanity/client";
 
 export const revalidate = 3600;
 
-const BASE_URL = "https://www.greatbaliairporttransfer.com";
+const BASE_URL = "https://greatbaliairporttransfer.com";
 
 function escapeXml(value: string): string {
   return value

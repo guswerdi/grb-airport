@@ -1,4 +1,6 @@
 import { createClient } from "next-sanity";
+import type { GoodToKnowItem } from "@/data/goodToKnow";
+import type { DirectAnswerItem, UspItem } from "@/data/policies";
 
 /* ------------------------------------------------------------------ */
 /* Sanity configuration (env-driven, graceful when not configured yet) */
@@ -108,6 +110,33 @@ export async function fetchSanityPosts(): Promise<SanityPost[]> {
   }
 }
 
+export async function fetchSanityLatestGuides(limit = 3): Promise<SanityPost[]> {
+  if (!sanityClient) return [];
+  const query = `*[_type == "post" && defined(slug.current)] | order(coalesce(publishedAt, _createdAt) desc) [0...$limit] {
+    _id,
+    _updatedAt,
+    title,
+    metaTitle,
+    "slug": slug.current,
+    excerpt,
+    category,
+    publishedAt,
+    readTime,
+    featured,
+    "mainImage": { "url": mainImage.asset->url, "alt": mainImage.alt }
+  }`;
+  try {
+    return await sanityClient.fetch<SanityPost[]>(
+      query,
+      { limit },
+      { next: { revalidate: 300 } }
+    );
+  } catch (error) {
+    console.error("[sanity] fetchSanityLatestGuides failed:", error);
+    return [];
+  }
+}
+
 export async function fetchSanityPostBySlug(
   slug: string
 ): Promise<SanityPost | null> {
@@ -164,4 +193,63 @@ export function formatSanityDate(iso?: string): string {
     month: "long",
     day: "numeric",
   });
+}
+
+/* ------------------------------------------------------------------ */
+/* Dynamic Homepage CMS Content (Site Settings & FAQs)                */
+/* ------------------------------------------------------------------ */
+
+export interface SanitySiteSettings {
+  heroBadge?: string;
+  heroSubtext?: string;
+  liveNotice?: string;
+  usps?: UspItem[];
+  directAnswers?: DirectAnswerItem[];
+}
+
+export interface DynamicSiteContent {
+  siteSettings: SanitySiteSettings | null;
+  faqItems: GoodToKnowItem[];
+}
+
+const dynamicSiteQuery = `{
+  "siteSettings": *[_type == "siteSettings"][0]{
+    heroBadge,
+    heroSubtext,
+    liveNotice,
+    usps[]{ id, badge, title, summary },
+    directAnswers[]{ question, answer }
+  },
+  "faqItems": *[_type == "faqItem"] | order(coalesce(order, 999) asc) {
+    "id": coalesce(_id, title),
+    category,
+    faqQuestion,
+    title,
+    keyFact,
+    summary,
+    badge,
+    "iconName": coalesce(iconName, "Info")
+  }
+}`;
+
+export async function fetchDynamicSiteContent(): Promise<DynamicSiteContent> {
+  const empty: DynamicSiteContent = {
+    siteSettings: null,
+    faqItems: [],
+  };
+  if (!sanityClient) return empty;
+  try {
+    const res = await sanityClient.fetch<Partial<DynamicSiteContent> | null>(
+      dynamicSiteQuery,
+      {},
+      { next: { revalidate: 300 } }
+    );
+    return {
+      siteSettings: res?.siteSettings ?? null,
+      faqItems: Array.isArray(res?.faqItems) ? res.faqItems.filter((f) => Boolean(f?.faqQuestion && f?.keyFact)) : [],
+    };
+  } catch (error) {
+    console.error("[sanity] fetchDynamicSiteContent failed:", error);
+    return empty;
+  }
 }

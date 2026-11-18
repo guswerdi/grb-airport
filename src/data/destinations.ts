@@ -472,7 +472,38 @@ export const FLEET_DETAILS = [
   },
 ];
 
-export const EXCHANGE_RATES: Record<string, { symbol: string; rate: number; label: string }> = {
+export type CurrencyRateMap = Record<
+  string,
+  { symbol: string; rate: number; label: string }
+>;
+
+export const BABY_SEAT_PRICE_IDR = 50000;
+
+export const DEPARTURE_LEAVE_GUIDE: Record<
+  string,
+  { internationalBefore: string; domesticBefore: string }
+> = {
+  "kuta-legian": { internationalBefore: "3.5 – 4 hrs", domesticBefore: "2.5 – 3 hrs" },
+  jimbaran: { internationalBefore: "3.5 – 4 hrs", domesticBefore: "2.5 – 3 hrs" },
+  seminyak: { internationalBefore: "4 – 4.5 hrs", domesticBefore: "3 – 3.5 hrs" },
+  "nusa-dua": { internationalBefore: "3.5 – 4 hrs", domesticBefore: "2.5 – 3 hrs" },
+  kerobokan: { internationalBefore: "4 – 4.5 hrs", domesticBefore: "3 – 3.5 hrs" },
+  sanur: { internationalBefore: "4 hrs", domesticBefore: "3 hrs" },
+  "nusa-dua-atas": { internationalBefore: "4 hrs", domesticBefore: "3 hrs" },
+  benoa: { internationalBefore: "3.5 – 4 hrs", domesticBefore: "2.5 – 3 hrs" },
+  canggu: { internationalBefore: "4.5 – 5 hrs", domesticBefore: "3.5 – 4 hrs" },
+  uluwatu: { internationalBefore: "4.5 hrs", domesticBefore: "3.5 hrs" },
+  ubud: { internationalBefore: "5 – 5.5 hrs", domesticBefore: "4 – 4.5 hrs" },
+  "tanah-lot-tabanan": { internationalBefore: "4.5 – 5 hrs", domesticBefore: "3.5 – 4 hrs" },
+  klungkung: { internationalBefore: "4.5 – 5 hrs", domesticBefore: "3.5 – 4 hrs" },
+  "tegallalang-payangan": { internationalBefore: "5.5 – 6 hrs", domesticBefore: "4.5 – 5 hrs" },
+  "sidemen-candidasa": { internationalBefore: "5.5 – 6 hrs", domesticBefore: "4.5 – 5 hrs" },
+  munduk: { internationalBefore: "6 – 6.5 hrs", domesticBefore: "5 – 5.5 hrs" },
+  "lovina-munduk": { internationalBefore: "6.5 – 7 hrs", domesticBefore: "5.5 – 6 hrs" },
+  "amed-tulamben": { internationalBefore: "6.5 – 7 hrs", domesticBefore: "5.5 – 6 hrs" },
+};
+
+export const EXCHANGE_RATES: CurrencyRateMap = {
   IDR: { symbol: "Rp", rate: 1, label: "IDR (Indonesian Rupiah)" },
   USD: { symbol: "$", rate: 0.000062, label: "USD (US Dollar)" },
   AUD: { symbol: "A$", rate: 0.000096, label: "AUD (Australian Dollar)" },
@@ -480,8 +511,12 @@ export const EXCHANGE_RATES: Record<string, { symbol: string; rate: number; labe
   GBP: { symbol: "£", rate: 0.000049, label: "GBP (British Pound)" },
 };
 
-export function formatPrice(amountIdr: number, currency: string = "IDR"): string {
-  const info = EXCHANGE_RATES[currency] || EXCHANGE_RATES.IDR;
+export function formatPrice(
+  amountIdr: number,
+  currency: string = "IDR",
+  ratesMap: CurrencyRateMap = EXCHANGE_RATES
+): string {
+  const info = ratesMap[currency] || EXCHANGE_RATES[currency] || ratesMap.IDR || EXCHANGE_RATES.IDR;
   if (currency === "IDR") {
     return `IDR ${amountIdr.toLocaleString("id-ID")}`;
   }
@@ -498,7 +533,11 @@ export function formatPrice(amountIdr: number, currency: string = "IDR"): string
  * same table the on-page currency switcher uses - so the snippet Google shows
  * and the price on the page can never disagree.
  */
-export function fillPrice(template: string, standardIdr: number): string {
+export function fillPrice(
+  template: string,
+  standardIdr: number,
+  ratesMap: CurrencyRateMap = EXCHANGE_RATES
+): string {
   const idr = `IDR ${standardIdr.toLocaleString("en-US")}`;
-  return template.replace("{price}", `${idr} (${formatPrice(standardIdr, "USD")} USD)`);
+  return template.replace("{price}", `${idr} (${formatPrice(standardIdr, "USD", ratesMap)} USD)`);
 }

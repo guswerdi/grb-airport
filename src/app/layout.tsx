@@ -22,7 +22,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.greatbaliairporttransfer.com"),
+  metadataBase: new URL("https://greatbaliairporttransfer.com"),
   // Google Search Console ownership token is injected via env so the token
   // itself never lives in the repo. To verify the property:
   //   1. In Search Console choose "Meta tag", copy the content value from
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
   // brand on the blog article and pushed all 18 route titles to 93-152 chars,
   // so Google truncated the keyword/price out of every snippet. Route pages now
   // opt out with `title.absolute`; a plain string here keeps the homepage short.
-  title: "Bali Airport Transfers & Pickup (DPS) | VIP Private Driver",
+  title: "Bali Airport Transfers (DPS) | Fixed Fares From IDR 250K",
   description:
-    "Pre-book your private Bali airport pickup for a stress-free arrival. Top-rated Bali airport transfers with VIP meet & greet, 60-min free waiting, and fixed prices.",
+    "Private Bali airport pickup from IDR 250,000. Zero deposit, 24/7 flat fares, Circle K DPS meet & greet, 60-min free wait. Cash or online link.",
   authors: [{ name: "Great Bali Airport Transfer Chauffeurs" }],
   creator: "Great Bali Airport Transfer",
   publisher: "Great Bali Airport Transfer",
@@ -52,16 +52,16 @@ export const metadata: Metadata = {
     address: true,
   },
   alternates: {
-    canonical: "https://www.greatbaliairporttransfer.com",
+    canonical: "https://greatbaliairporttransfer.com",
     types: {
-      "application/rss+xml": "https://www.greatbaliairporttransfer.com/feed.xml",
+      "application/rss+xml": "https://greatbaliairporttransfer.com/feed.xml",
     },
   },
   openGraph: {
-    title: "Bali Airport Transfers & Pickup (DPS) | VIP Private Driver",
+    title: "Bali Airport Transfers (DPS) | Fixed Fares From IDR 250K",
     description:
-      "Pre-book your private Bali airport pickup for a stress-free arrival. Top-rated Bali airport transfers with VIP meet & greet, 60-min free waiting, and fixed prices.",
-    url: "https://www.greatbaliairporttransfer.com",
+      "Private Bali airport pickup from IDR 250,000. Zero deposit, 24/7 flat fares, Circle K DPS meet & greet, 60-min free wait. Cash or online link.",
+    url: "https://greatbaliairporttransfer.com",
     siteName: "Great Bali Airport Transfer",
     locale: "en_US",
     type: "website",
@@ -76,9 +76,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bali Airport Transfers & Pickup (DPS) | VIP Private Driver",
+    title: "Bali Airport Transfers (DPS) | Fixed Fares From IDR 250K",
     description:
-      "Pre-book your private Bali airport pickup for a stress-free arrival. Top-rated Bali airport transfers with VIP meet & greet, 60-min free waiting, and fixed prices.",
+      "Private Bali airport pickup from IDR 250,000. Zero deposit, 24/7 flat fares, Circle K DPS meet & greet, 60-min free wait. Cash or online link.",
     images: ["/images/innova-zenix.jpg"],
   },
   robots: {

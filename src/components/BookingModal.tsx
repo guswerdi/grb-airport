@@ -14,7 +14,12 @@ import {
   Check,
 } from "lucide-react";
 import confetti from "canvas-confetti";
-import { FLEET_DETAILS, formatPrice } from "@/data/destinations";
+import {
+  BABY_SEAT_PRICE_IDR,
+  CurrencyRateMap,
+  FLEET_DETAILS,
+  formatPrice,
+} from "@/data/destinations";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -106,11 +111,19 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     return rates[selectedVehicleId as keyof typeof rates] || bookingData.priceIdr || 0;
   }, [selectedVehicleId, bookingData]);
 
+  const activeTotalPriceIdr = useMemo(() => {
+    if (!bookingData || bookingData.transferType === "daytour") return 0;
+    const seatExtra = bookingData.babySeatNeeded ? BABY_SEAT_PRICE_IDR : 0;
+    return activePriceIdr + seatExtra;
+  }, [activePriceIdr, bookingData]);
+
+  const exchangeRates = bookingData?.exchangeRates as CurrencyRateMap | undefined;
+
   const activeFormattedPrice = useMemo(() => {
     if (!bookingData) return "";
     if (bookingData.transferType === "daytour") return "Quote by Admin";
-    return formatPrice(activePriceIdr, bookingData.currency || "USD");
-  }, [activePriceIdr, bookingData]);
+    return formatPrice(activeTotalPriceIdr, bookingData.currency || "USD", exchangeRates);
+  }, [activeTotalPriceIdr, bookingData, exchangeRates]);
 
   if (!isOpen || !bookingData) return null;
 
@@ -128,7 +141,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
     const carName = activeVehicle?.name || bookingData.vehicle?.name;
     const priceFormatted = activeFormattedPrice || bookingData.formattedPrice;
-    const priceRaw = activePriceIdr || bookingData.priceIdr;
+    const priceRaw = activeTotalPriceIdr || activePriceIdr || bookingData.priceIdr;
 
     if (isDaytour) {
       const text =
@@ -162,7 +175,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       `Date & Time: ${bookingData.pickupDate || "Today/Soon"} at ${bookingData.pickupTime}\n` +
       (bookingData.flightNumber ? `Flight: ${bookingData.flightNumber}\n` : "") +
       (bookingData.hotelName ? `${isDeparture ? "Pickup Hotel" : "Drop-off Hotel"}: ${bookingData.hotelName}\n` : "") +
-      `Payment: ${paymentMethod === "cash" ? "Cash on Arrival" : "Online Link"}\n` +
+      `Payment: ${
+        paymentMethod === "cash"
+          ? "Cash to Driver on Drop-Off (IDR/AUD/USD/EUR)"
+          : "Prepay Online Link Before Pickup (Visa/MC/Wise/PayPal)"
+      }\n` +
       (specialNotes ? `Notes: ${specialNotes}\n` : "") +
       (bookingData.babySeatNeeded ? `Baby Seat: Yes, needed (IDR 50k/seat)\n` : "") +
       `\nPlease confirm availability. Thank you!`;
@@ -297,7 +314,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         >
                           <div className="text-xs leading-tight">{tier.label}</div>
                           <div className={`text-[10px] leading-tight ${isSelected ? "text-emerald-800 font-black" : "text-slate-500 font-semibold"}`}>
-                            {formatPrice(tier.price, bookingData.currency || "USD")}
+                            {formatPrice(tier.price, bookingData.currency || "USD", exchangeRates)}
                           </div>
                         </button>
                       );
@@ -424,7 +441,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               ) : (
                 <div className="space-y-1.5">
                   <label className="text-[11px] font-semibold text-slate-700 block">
-                    Payment Method
+                    Payment Method (Zero Advance Deposit)
                   </label>
                   <div className="grid grid-cols-2 gap-2 text-xs">
                     <button
@@ -438,9 +455,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     >
                       <span className="flex items-center gap-1.5 text-xs">
                         <CheckCircle2 className={`w-3.5 h-3.5 ${paymentMethod === "cash" ? "text-emerald-600" : "text-slate-400"}`} />
-                        <span>Pay Cash to Driver</span>
+                        <span>Cash on Drop-Off</span>
                       </span>
-                      <span className="text-[10px] text-slate-400 font-normal">On Arrival</span>
+                      <span className="text-[10px] text-slate-500 font-normal">IDR/AUD/USD/EUR</span>
                     </button>
 
                     <button
@@ -454,14 +471,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     >
                       <span className="flex items-center gap-1.5 text-xs">
                         <CheckCircle2 className={`w-3.5 h-3.5 ${paymentMethod === "online" ? "text-emerald-600" : "text-slate-400"}`} />
-                        <span>Online Card / Wise</span>
+                        <span>Prepay Online Link</span>
                       </span>
-                      <span className="text-[10px] text-slate-400 font-normal">Via Link</span>
+                      <span className="text-[10px] text-slate-500 font-normal">Card/Wise/PayPal</span>
                     </button>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[11px] text-slate-500 pt-0.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Free cancellation up to 24h before pickup. No prepayment for cash bookings.</span>
+                  <div className="flex items-start gap-1.5 text-[11px] text-slate-500 pt-0.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span>
+                      No in-car card machines: pay cash to driver at drop-off or prepay online via WhatsApp link before pickup. Free 24h cancellation.
+                    </span>
                   </div>
                 </div>
               )}

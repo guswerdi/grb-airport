@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   title: routeTitle(ubudDest),
   description: routeDescription(ubudDest),
   alternates: {
-    canonical: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-ubud",
+    canonical: "https://greatbaliairporttransfer.com/bali-airport-transfer-to-ubud",
   },
   openGraph: {
     title: "Bali Airport Transfer to Ubud (DPS) | Private Chauffeur & Fixed Rates",
     description:
       "Arrive stress-free in Ubud. Personal chauffeur meet & greet at the DPS Circle K exit gate, free flight tracking, toll & parking included.",
-    url: "https://www.greatbaliairporttransfer.com/bali-airport-transfer-to-ubud",
+    url: "https://greatbaliairporttransfer.com/bali-airport-transfer-to-ubud",
     images: ["/images/dest-ubud.jpg"],
   },
 };

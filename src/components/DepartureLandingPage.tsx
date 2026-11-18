@@ -19,6 +19,7 @@ import { BookingWidget } from "@/components/BookingWidget";
 import { BookingModal } from "@/components/BookingModal";
 import {
   BALI_DESTINATIONS,
+  CurrencyRateMap,
   FLEET_DETAILS,
   formatPrice,
   RATES_LAST_REVIEWED,
@@ -150,7 +151,13 @@ const FAQS = [
   },
 ];
 
-export const DepartureLandingPage: React.FC = () => {
+interface DepartureLandingPageProps {
+  exchangeRates?: CurrencyRateMap;
+}
+
+export const DepartureLandingPage: React.FC<DepartureLandingPageProps> = ({
+  exchangeRates,
+}) => {
   const [currency, setCurrency] = useState("USD");
   const [selectedVehicleId, setSelectedVehicleId] = useState("standard");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -165,7 +172,7 @@ export const DepartureLandingPage: React.FC = () => {
 
   const handleOpenBookingModal = (bookingData?: Record<string, unknown>) => {
     if (bookingData) {
-      setModalBookingData(bookingData);
+      setModalBookingData({ ...bookingData, exchangeRates });
     } else {
       const defaultDest =
         BALI_DESTINATIONS.find((d) => d.id === "ubud") || BALI_DESTINATIONS[0];
@@ -181,7 +188,8 @@ export const DepartureLandingPage: React.FC = () => {
         vehicle: defaultVeh,
         priceIdr,
         currency,
-        formattedPrice: formatPrice(priceIdr, currency),
+        exchangeRates,
+        formattedPrice: formatPrice(priceIdr, currency, exchangeRates),
         pickupDate: new Date().toISOString().split("T")[0],
         pickupTime: "10:00",
         flightNumber: "",
@@ -203,7 +211,7 @@ export const DepartureLandingPage: React.FC = () => {
       "Pre-booked private hotel and villa transfers to Ngurah Rai International Airport (DPS) in Bali. Same fixed per-vehicle rates from IDR 250,000, zero early-morning surcharge, Bali Mandara toll included, 24/7 WhatsApp dispatch.",
     provider: {
       "@type": ["LocalBusiness", "TaxiService"],
-      "@id": "https://www.greatbaliairporttransfer.com/#organization",
+      "@id": "https://greatbaliairporttransfer.com/#organization",
     },
     areaServed: {
       "@type": "AdministrativeArea",
@@ -216,7 +224,7 @@ export const DepartureLandingPage: React.FC = () => {
       highPrice: "1600000",
       offerCount: String(BALI_DESTINATIONS.length * FLEET_DETAILS.length),
       availability: "https://schema.org/InStock",
-      url: "https://www.greatbaliairporttransfer.com/bali-airport-departure-transfer",
+      url: "https://greatbaliairporttransfer.com/bali-airport-departure-transfer",
     },
   };
 
@@ -241,13 +249,13 @@ export const DepartureLandingPage: React.FC = () => {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.greatbaliairporttransfer.com/",
+        item: "https://greatbaliairporttransfer.com/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Bali Airport Departure Transfer",
-        item: "https://www.greatbaliairporttransfer.com/bali-airport-departure-transfer",
+        item: "https://greatbaliairporttransfer.com/bali-airport-departure-transfer",
       },
     ],
   };
@@ -345,6 +353,7 @@ export const DepartureLandingPage: React.FC = () => {
             selectedVehicleId={selectedVehicleId}
             onVehicleChange={setSelectedVehicleId}
             initialTransferType="departure"
+            exchangeRates={exchangeRates}
           />
         </div>
       </header>
@@ -435,21 +444,21 @@ export const DepartureLandingPage: React.FC = () => {
                         </span>
                       </td>
                       <td className="py-3 px-3 text-right font-semibold">
-                        {formatPrice(row.dest.rates.standard, currency)}
+                        {formatPrice(row.dest.rates.standard, currency, exchangeRates)}
                         <span className="text-[10px] font-normal text-slate-400 block">
-                          {formatPrice(row.dest.rates.standard, "IDR")}
+                          {formatPrice(row.dest.rates.standard, "IDR", exchangeRates)}
                         </span>
                       </td>
                       <td className="py-3 px-3 text-right font-semibold bg-emerald-50/30 text-emerald-900">
-                        {formatPrice(row.dest.rates.comfort, currency)}
+                        {formatPrice(row.dest.rates.comfort, currency, exchangeRates)}
                         <span className="text-[10px] font-normal text-emerald-700 block">
-                          {formatPrice(row.dest.rates.comfort, "IDR")}
+                          {formatPrice(row.dest.rates.comfort, "IDR", exchangeRates)}
                         </span>
                       </td>
                       <td className="py-3 px-3 text-right font-semibold">
-                        {formatPrice(row.dest.rates.van, currency)}
+                        {formatPrice(row.dest.rates.van, currency, exchangeRates)}
                         <span className="text-[10px] font-normal text-slate-400 block">
-                          {formatPrice(row.dest.rates.van, "IDR")}
+                          {formatPrice(row.dest.rates.van, "IDR", exchangeRates)}
                         </span>
                       </td>
                     </tr>

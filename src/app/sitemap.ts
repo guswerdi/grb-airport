@@ -5,7 +5,7 @@ import { fetchSanityPostSlugs } from "@/lib/sanity/client";
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://www.greatbaliairporttransfer.com";
+  const baseUrl = "https://greatbaliairporttransfer.com";
 
   // Derived from BALI_DESTINATIONS (every route page is a physical file in
   // src/app, so every destination route stays in sync with the canonical list).
@@ -36,6 +36,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1.0,
     },
     {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/bali-airport-transfer-with-baby-seat`,
       lastModified: new Date(),
       changeFrequency: "weekly",
@@ -43,6 +49,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/bali-airport-departure-transfer`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/bali-airport-van-transfer-hiace`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/bali-airport-to-fast-boat-harbor`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Plane, Phone, ShieldCheck, Menu, X, DollarSign, ChevronDown } from "lucide-react";
+import { Phone, ShieldCheck, Menu, X, DollarSign, ChevronDown } from "lucide-react";
 import { EXCHANGE_RATES } from "@/data/destinations";
 import { Logo } from "@/components/Logo";
 
@@ -34,8 +34,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     { label: "Fleet", href: "/#fleet" },
     { label: "Arrival Guide", href: "/#arrival-guide" },
     { label: "Blog", href: "/blog" },
-    { label: "Reviews", href: "/#reviews" },
     { label: "Good to Know", href: "/#good-to-know" },
+    { label: "About", href: "/about" },
   ];
 
   return (

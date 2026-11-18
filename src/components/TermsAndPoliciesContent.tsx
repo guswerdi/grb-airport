@@ -74,7 +74,7 @@ export function TermsAndPoliciesContent() {
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4 text-xs text-slate-500 pt-4 border-t border-slate-100">
                 <span>
-                  <strong>Last Updated:</strong> October 2026
+                  <strong>Last Updated:</strong> November 2026
                 </span>
                 <span>•</span>
                 <span>
@@ -284,15 +284,18 @@ export function TermsAndPoliciesContent() {
                 </div>
                 <div className="text-xs sm:text-sm text-slate-600 leading-relaxed space-y-3">
                   <p>
-                    We provide complete flexibility so travelers can choose whichever payment method is most convenient:
+                    <strong>Zero deposit is required to reserve.</strong> Choose whichever settlement option suits your arrival:
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  <div className="bg-amber-50 border border-amber-200 rounded-xl p-3.5 text-xs text-amber-950 font-medium">
+                    <strong>Important Vehicle Rule:</strong> Chauffeurs do <strong>not</strong> carry mobile credit-card terminals (EDC machines) inside cars. If you prefer to pay by Visa, Mastercard, Wise, or PayPal instead of cash, select <strong>Prepay Online</strong> and request your invoice link via WhatsApp prior to pickup.
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                     <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
                       <h4 className="font-bold text-slate-900 text-xs sm:text-sm mb-1.5 flex items-center gap-1.5">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Option A: Cash on Arrival
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Option A: Cash to Driver (On Drop-Off)
                       </h4>
                       <p className="text-xs text-slate-600">
-                        Pay cash directly to your chauffeur upon arrival at your villa or hotel. Accepted currencies include:
+                        Pay cash directly to your chauffeur when arriving at your hotel or villa. Zero advance deposit or card hold needed. Accepted cash currencies:
                       </p>
                       <div className="flex flex-wrap gap-1 mt-2 text-[11px] font-mono font-semibold text-slate-700">
                         <span className="bg-white border border-slate-200 px-2 py-0.5 rounded">IDR (Indonesian Rupiah)</span>
@@ -304,10 +307,10 @@ export function TermsAndPoliciesContent() {
 
                     <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
                       <h4 className="font-bold text-slate-900 text-xs sm:text-sm mb-1.5 flex items-center gap-1.5">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Option B: Secure Online Prepay
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Option B: Prepay Online (Before Pickup)
                       </h4>
                       <p className="text-xs text-slate-600">
-                        Prefer to have everything paid prior to your trip? Request an encrypted payment invoice via WhatsApp supporting:
+                        Prefer everything paid before you fly? Request a secure WhatsApp invoice link ahead of pickup supporting:
                       </p>
                       <div className="flex flex-wrap gap-1 mt-2 text-[11px] font-mono font-semibold text-slate-700">
                         <span className="bg-white border border-slate-200 px-2 py-0.5 rounded">Visa / Mastercard</span>

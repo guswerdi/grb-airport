@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const SITE = "https://www.greatbaliairporttransfer.com";
+const SITE = "https://greatbaliairporttransfer.com";
 
 // Raw robots.txt so we can include a comment pointing AI crawlers to llms.txt
 // (Next.js MetadataRoute.Robots does not support custom comment lines).
