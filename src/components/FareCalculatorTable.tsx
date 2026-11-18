@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { Search, Clock, ArrowRight, Check } from "lucide-react";
+import { Search, Clock, ArrowRight, Check, Info } from "lucide-react";
 import Link from "next/link";
 import {
   BALI_DESTINATIONS,
@@ -10,6 +10,7 @@ import {
   formatPrice,
   RATES_LAST_REVIEWED,
 } from "@/data/destinations";
+import { TRANSFER_EXCLUSIONS, TRANSFER_INCLUSIONS } from "@/data/policies";
 
 const RATES_REVIEWED_LABEL = new Date(RATES_LAST_REVIEWED).toLocaleDateString(
   "en-US",
@@ -270,6 +271,42 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                 Baby &amp; Booster Seats (IDR 50k) →
               </Link>
             </div>
+          </div>
+        </div>
+
+        {/* Side-by-Side Inclusions vs. Exclusions / Optional Add-Ons */}
+        <div
+          id="inclusions-exclusions"
+          className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6"
+        >
+          <div className="bg-emerald-50/60 rounded-2xl border border-emerald-200 p-5 sm:p-6">
+            <h3 className="text-sm sm:text-base font-extrabold text-emerald-950 flex items-center gap-2 mb-3">
+              <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+              <span>Included Free in Every Transfer Fare</span>
+            </h3>
+            <ul className="space-y-2 text-xs text-slate-700">
+              {TRANSFER_INCLUSIONS.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="bg-slate-50 rounded-2xl border border-slate-200 p-5 sm:p-6">
+            <h3 className="text-sm sm:text-base font-extrabold text-slate-900 flex items-center gap-2 mb-3">
+              <Info className="w-4 h-4 text-slate-600 shrink-0" />
+              <span>Not Included / Optional Add-Ons (Zero Hidden Fees)</span>
+            </h3>
+            <ul className="space-y-2 text-xs text-slate-600">
+              {TRANSFER_EXCLUSIONS.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0 mt-1.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

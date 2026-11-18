@@ -92,3 +92,21 @@ export const HOME_DIRECT_ANSWERS: DirectAnswerItem[] = [
       "Yes: baby/booster seats are IDR 50,000 per seat, HiAce vans carry up to 12 passengers and 7'6\" surfboards, and hotel-to-DPS departure rides cost the exact same fixed rate with zero early-morning fee.",
   },
 ];
+
+export const TRANSFER_INCLUSIONS: string[] = [
+  "100% private air-conditioned vehicle & fuel (flat price per car, never per person)",
+  "Licensed English-speaking Balinese chauffeur & full luggage handling",
+  "Circle K exit-gate meet & greet at DPS Airport with your personalized name sign",
+  "60-minute complimentary grace wait from touchdown + real-time flight delay tracking",
+  "Bali Mandara Ocean Tollway electronic fees & official DPS airport parking fees",
+  "24/7 operation with zero midnight or 4 AM early-morning surcharge",
+  "Complimentary quick en-route stop at a bank ATM (BCA/Mandiri), Telkomsel SIM kiosk, or money changer",
+];
+
+export const TRANSFER_EXCLUSIONS: string[] = [
+  "Pre-installed baby car seat (0–2 yrs) or child booster (3–7 yrs): optional add-on at IDR 50,000 per seat",
+  "Extended sightseeing detours or multi-hour stops off the direct route (book a 10-Hour Private Charter instead)",
+  "Unannounced waiting beyond 60 mins after landing (waived when you message your driver via free airport Wi-Fi during long customs queues)",
+  "Chilled bottled mineral water (included on 10-Hour Private Driver Charters; not standard point-to-point airport transfers)",
+  "Fast-boat tickets, temple/attraction entrance fees, and optional driver gratuity",
+];

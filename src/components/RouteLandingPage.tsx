@@ -16,6 +16,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BookingWidget } from "@/components/BookingWidget";
 import { BookingModal } from "@/components/BookingModal";
+import { RouteInteractiveMap } from "@/components/RouteInteractiveMap";
 import {
   CurrencyRateMap,
   DEPARTURE_LEAVE_GUIDE,
@@ -24,6 +25,8 @@ import {
   formatPrice,
   RATES_LAST_REVIEWED,
 } from "@/data/destinations";
+import { ROUTE_GEOMETRY } from "@/data/routeCoordinates";
+import { TRANSFER_EXCLUSIONS, TRANSFER_INCLUSIONS } from "@/data/policies";
 
 /** Current fare-review month rendered in UTC so server and client match. */
 const RATES_REVIEWED_LABEL = new Date(RATES_LAST_REVIEWED).toLocaleDateString(
@@ -51,7 +54,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
   const [currency, setCurrency] = useState("USD");
   const [selectedVehicleId, setSelectedVehicleId] = useState("standard");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalBookingData, setModalBookingData] = useState<any>(null);
+  const [modalBookingData, setModalBookingData] = useState<Record<string, unknown> | null>(null);
 
   const vehicleTiers = [
     {
@@ -81,7 +84,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
     vehicleTiers.find((t) => t.id === selectedVehicleId) ?? vehicleTiers[1];
   const selectedPriceIdr = destination.rates[selectedTier.rateKey];
 
-  const handleOpenBookingModal = (bookingData?: any) => {
+  const handleOpenBookingModal = (bookingData?: Record<string, unknown>) => {
     if (bookingData) {
       setModalBookingData(bookingData);
     } else {
@@ -151,6 +154,15 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
     areaServed: {
       "@type": "Place",
       name: `${destination.name}, Bali, Indonesia`,
+      ...(ROUTE_GEOMETRY[destination.id]
+        ? {
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: ROUTE_GEOMETRY[destination.id].coordinates[0],
+              longitude: ROUTE_GEOMETRY[destination.id].coordinates[1],
+            },
+          }
+        : {}),
     },
     offers: [
       {
@@ -338,6 +350,9 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
               </div>
             </section>
 
+            {/* Interactive Route Map with Animated Chauffeur Car */}
+            <RouteInteractiveMap destination={destination} />
+
             {/* Route Overview */}
             <section className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs">
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3">
@@ -352,6 +367,39 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
                 <div>
                   <strong className="block mb-0.5 font-bold">Local Traffic Tip:</strong>
                   {destination.trafficTip}
+                </div>
+              </div>
+
+              {/* Route Inclusions & Exclusions Breakdown */}
+              <div className="mt-6 pt-6 border-t border-slate-100 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-emerald-50/60 border border-emerald-200 rounded-xl p-4">
+                  <h3 className="text-xs sm:text-sm font-extrabold text-emerald-950 flex items-center gap-1.5 mb-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Included in Your Fixed Rate</span>
+                  </h3>
+                  <ul className="space-y-1.5 text-xs text-slate-700">
+                    {TRANSFER_INCLUSIONS.map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                  <h3 className="text-xs sm:text-sm font-extrabold text-slate-900 flex items-center gap-1.5 mb-2.5">
+                    <AlertCircle className="w-4 h-4 text-slate-500 shrink-0" />
+                    <span>Excluded / Optional Add-Ons</span>
+                  </h3>
+                  <ul className="space-y-1.5 text-xs text-slate-600">
+                    {TRANSFER_EXCLUSIONS.map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0 mt-1.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </section>

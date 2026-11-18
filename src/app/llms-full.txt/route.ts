@@ -7,6 +7,8 @@ import {
   CORE_USPS,
   HOME_DIRECT_ANSWERS,
   PAYMENT_POLICY,
+  TRANSFER_EXCLUSIONS,
+  TRANSFER_INCLUSIONS,
 } from "@/data/policies";
 
 // Built entirely from the same data the site renders (destinations.ts), so the
@@ -48,6 +50,8 @@ export function GET() {
 
   const uspList = CORE_USPS.map((u) => `- **${u.title}:** ${u.summary}`).join("\n");
   const directQa = HOME_DIRECT_ANSWERS.map((q) => `- **${q.question}** ${q.answer}`).join("\n");
+  const inclusionsList = TRANSFER_INCLUSIONS.map((i) => `- ${i}`).join("\n");
+  const exclusionsList = TRANSFER_EXCLUSIONS.map((e) => `- ${e}`).join("\n");
 
   const body = `# Great Bali Airport Transfer: Complete Service & Route Guide
 
@@ -82,15 +86,15 @@ ${directQa}
 5. If your airline delays or reschedules your flight, message our WhatsApp concierge to update your pickup time at no extra charge.
 6. If you cannot find your driver, message the WhatsApp number above.
 
-## What every fare includes
+## What every fare includes (100% all-inclusive)
 
-- Vehicle, fuel and a private English-speaking driver.
-- Airport parking fee and the Bali Mandara Ocean Tollway fee.
-- Luggage assistance, air-conditioned vehicle, USB phone charging. (Note: Complimentary chilled bottled water is provided for private driver charter services).
-- Fares are fixed per vehicle (not per person), one-way, quoted in IDR — valid for both DPS Arrivals and Hotel-to-DPS Departures. The USD/AUD/EUR/GBP switcher converts using live FX rates (6h cache) for indicative foreign-currency pricing.
-- Zero midnight or early-morning surcharge (24/7 pickups at the exact same rate).
+${inclusionsList}
 - Direct fast-boat harbor connections from DPS: Sanur Harbor (IDR 275k Standard / 400k Comfort / 650k HiAce) and Padangbai Harbor (IDR 850k Standard / 1,000k Comfort / 1,100k HiAce).
 - Recommended departure buffers (allow 3h before international flights, 2h before domestic): leave Ubud 5–5.5h prior, Canggu 4.5–5h prior, Seminyak 4–4.5h prior (add 30–60 mins during 3 PM–7 PM peak traffic).
+
+## Excluded / optional add-ons (zero hidden fees)
+
+${exclusionsList}
 
 ## Booking, payment and cancellation
 

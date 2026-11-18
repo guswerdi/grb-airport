@@ -242,22 +242,35 @@ export function TermsAndPoliciesContent() {
                   <p>
                     All rates published on our website are <strong>fixed, flat prices per vehicle (not per passenger)</strong> for one-way private transfers.
                   </p>
-                  <div className="bg-emerald-50/70 border border-emerald-200 rounded-xl p-4 space-y-2 text-xs">
-                    <p className="font-bold text-emerald-950 flex items-center gap-1.5">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" /> What Every Transfer Rate Includes:
-                    </p>
-                    <ul className="space-y-1.5 text-emerald-900 list-disc pl-5">
-                      <li>Private air-conditioned vehicle with dedicated Balinese chauffeur</li>
-                      <li>Bali Mandara Ocean Tollway electronic fee (for destinations utilizing the ocean toll)</li>
-                      <li>Official DPS Airport parking &amp; terminal entrance fees</li>
-                      <li>Vehicle fuel/petrol and applicable Indonesian local taxes</li>
-                      <li>Luggage handling and greeting at the designated meeting point</li>
-                      <li>Complimentary quick en-route stop for trusted bank ATM, SIM card kiosk, or money exchange</li>
-                    </ul>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-emerald-50/70 border border-emerald-200 rounded-xl p-4 space-y-2 text-xs">
+                      <p className="font-bold text-emerald-950 flex items-center gap-1.5">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600" /> What Every Transfer Rate Includes:
+                      </p>
+                      <ul className="space-y-1.5 text-emerald-900 list-disc pl-5">
+                        <li>Private air-conditioned vehicle with dedicated Balinese chauffeur</li>
+                        <li>Bali Mandara Ocean Tollway electronic fee (for destinations utilizing the ocean toll)</li>
+                        <li>Official DPS Airport parking &amp; terminal entrance fees</li>
+                        <li>Vehicle fuel/petrol and applicable Indonesian local taxes</li>
+                        <li>Luggage handling and greeting at the Circle K exit-gate meeting point</li>
+                        <li>Complimentary quick en-route stop for trusted bank ATM, SIM card kiosk, or money exchange</li>
+                        <li>24/7 operation with zero midnight or early-morning surcharge</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2 text-xs">
+                      <p className="font-bold text-slate-900 flex items-center gap-1.5">
+                        <AlertCircle className="w-4 h-4 text-slate-600" /> Excluded / Optional Add-Ons:
+                      </p>
+                      <ul className="space-y-1.5 text-slate-700 list-disc pl-5">
+                        <li>Pre-installed baby seat (0–2 yrs) or booster (3–7 yrs): +IDR 50,000 per seat</li>
+                        <li>Multi-hour sightseeing detours off the direct route (book a 10-Hour Charter instead)</li>
+                        <li>Unannounced wait beyond 60 mins after landing (waived when you message your driver on free DPS Wi-Fi)</li>
+                        <li>Chilled bottled mineral water (included on 10-Hour Private Driver Charters)</li>
+                        <li>Fast-boat tickets, attraction entrance fees, and optional driver gratuity</li>
+                      </ul>
+                    </div>
                   </div>
-                  <p className="text-[11px] text-slate-500 italic">
-                    *Note: Complimentary chilled bottled mineral water is an exclusive inclusion provided with our full-day Private Driver &amp; Chauffeur Charter service.
-                  </p>
                   <p>
                     You will never be asked to pay midnight surcharges, luggage surcharges, or peak-season additions on confirmed bookings.
                   </p>
