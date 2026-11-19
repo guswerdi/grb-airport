@@ -1,20 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
+import { submitIndexNow } from "@/lib/indexnow";
+import { verifyWebhookSecret } from "@/lib/webhookAuth";
 
 export async function POST(req: NextRequest) {
-  const configuredSecret = process.env.SANITY_REVALIDATE_SECRET;
-  if (!configuredSecret) {
-    return NextResponse.json(
-      { ok: false, error: "SANITY_REVALIDATE_SECRET is not configured on the server." },
-      { status: 503 }
-    );
-  }
-
-  const headerSecret = req.headers.get("x-sanity-secret");
-  const querySecret = req.nextUrl.searchParams.get("secret");
-  if (headerSecret !== configuredSecret && querySecret !== configuredSecret) {
-    return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
-  }
+  const authError = verifyWebhookSecret(req);
+  if (authError) return authError;
 
   let slug: string | undefined;
   try {
@@ -35,13 +26,18 @@ export async function POST(req: NextRequest) {
   revalidatePath("/llms.txt");
   revalidatePath("/llms-full.txt");
 
+  const indexNowPaths = ["/", "/blog", "/llms.txt", "/llms-full.txt"];
   if (slug) {
     revalidatePath(`/blog/${slug}`);
+    indexNowPaths.push(`/blog/${slug}`);
   }
+
+  const indexNow = await submitIndexNow(indexNowPaths);
 
   return NextResponse.json({
     ok: true,
     revalidatedAt: new Date().toISOString(),
     slug: slug || null,
+    indexNow,
   });
 }

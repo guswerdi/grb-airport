@@ -9,7 +9,8 @@
     "lint": "eslint",
     "favicons": "node scripts/generate-favicons.mjs",
     "draft:airport-guide": "node scripts/draft-bali-airport-transfer-guide.mjs",
-    "audit:meta": "node scripts/audit-meta-titles.mjs"
+    "audit:meta": "node scripts/audit-meta-titles.mjs",
+    "indexnow": "node scripts/submit-indexnow.mjs"
   },
   "dependencies": {
     "@sanity/image-url": "^2.1.1",

@@ -23,15 +23,16 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://greatbaliairporttransfer.com"),
-  // Google Search Console ownership token is injected via env so the token
-  // itself never lives in the repo. To verify the property:
-  //   1. In Search Console choose "Meta tag", copy the content value from
-  //      <meta name="google-site-verification" content="...">.
-  //   2. In Vercel: Project Settings -> Environment Variables, add
-  //      NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION = <that value> (all environments).
-  //   3. Redeploy. If the variable is empty, no tag is emitted at all.
+  // Search Console / Bing Webmaster ownership tokens are injected via env so
+  // tokens never live in the repo. To verify:
+  //   - Google: NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION (<meta name="google-site-verification">)
+  //   - Bing:   NEXT_PUBLIC_BING_SITE_VERIFICATION   (<meta name="msvalidate.01">)
+  // Add in Vercel Project Settings -> Environment Variables and redeploy.
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : undefined,
   },
   // Plain string title (no `template`).
   //

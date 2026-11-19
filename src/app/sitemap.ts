@@ -1,16 +1,22 @@
 import { MetadataRoute } from "next";
 import { BALI_DESTINATIONS } from "@/data/destinations";
 import { fetchSanityPostSlugs } from "@/lib/sanity/client";
+import { CORE_STATIC_ROUTES, SITE_URL } from "@/lib/siteUrls";
 
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://greatbaliairporttransfer.com";
+  const staticRoutes: MetadataRoute.Sitemap = CORE_STATIC_ROUTES.map((route) => ({
+    url: route.path === "/" ? SITE_URL : `${SITE_URL}${route.path}`,
+    lastModified: new Date(),
+    changeFrequency: route.changeFrequency,
+    priority: route.priority,
+  }));
 
   // Derived from BALI_DESTINATIONS (every route page is a physical file in
   // src/app, so every destination route stays in sync with the canonical list).
-  const destinationRoutes = BALI_DESTINATIONS.map((dest) => ({
-    url: `${baseUrl}/${dest.slug}`,
+  const destinationRoutes: MetadataRoute.Sitemap = BALI_DESTINATIONS.map((dest) => ({
+    url: `${SITE_URL}/${dest.slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.85,
@@ -18,66 +24,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const sanityPosts = await fetchSanityPostSlugs({ fresh: true });
 
-  const blogRoutes = sanityPosts.map((post) => {
+  const blogRoutes: MetadataRoute.Sitemap = sanityPosts.map((post) => {
     const lastMod = post.updatedAt ?? post.publishedAt;
     return {
-      url: `${baseUrl}/blog/${post.slug}`,
+      url: `${SITE_URL}/blog/${post.slug}`,
       lastModified: lastMod ? new Date(lastMod) : new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     };
   });
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/bali-airport-transfer-with-baby-seat`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/bali-airport-departure-transfer`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/bali-airport-van-transfer-hiace`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/bali-airport-to-fast-boat-harbor`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/terms-and-policies`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    ...destinationRoutes,
-    ...blogRoutes,
-  ];
+  return [...staticRoutes, ...destinationRoutes, ...blogRoutes];
 }
