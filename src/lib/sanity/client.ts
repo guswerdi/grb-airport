@@ -129,7 +129,7 @@ export async function fetchSanityLatestGuides(limit = 3): Promise<SanityPost[]> 
     return await sanityClient.fetch<SanityPost[]>(
       query,
       { limit },
-      { next: { revalidate: 300 } }
+      { next: { revalidate: 21600 } }
     );
   } catch (error) {
     console.error("[sanity] fetchSanityLatestGuides failed:", error);
@@ -242,7 +242,7 @@ export async function fetchDynamicSiteContent(): Promise<DynamicSiteContent> {
     const res = await sanityClient.fetch<Partial<DynamicSiteContent> | null>(
       dynamicSiteQuery,
       {},
-      { next: { revalidate: 300 } }
+      { next: { revalidate: 21600 } }
     );
     return {
       siteSettings: res?.siteSettings ?? null,

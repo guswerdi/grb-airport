@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, BookOpen, Calendar, Clock } from "lucide-react";
 import { formatSanityDate, SanityPost } from "@/lib/sanity/client";
+import { isRemoteImageUrl, optimizeSanityImageUrl } from "@/lib/sanity/image";
 
 interface LatestGuidesSectionProps {
   posts: SanityPost[];
@@ -134,9 +135,10 @@ export const LatestGuidesSection: React.FC<LatestGuidesSectionProps> = ({
                     >
                       {post.mainImage?.url ? (
                         <Image
-                          src={post.mainImage.url}
+                          src={optimizeSanityImageUrl(post.mainImage.url, 640)}
                           alt={post.mainImage.alt || post.title}
                           fill
+                          unoptimized={isRemoteImageUrl(post.mainImage.url)}
                           className="object-cover group-hover:scale-103 transition-transform duration-300"
                           sizes="(max-width: 768px) 100vw, 33vw"
                         />

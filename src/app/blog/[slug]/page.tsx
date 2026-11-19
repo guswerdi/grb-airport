@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PortableTextBlocks } from "@/components/PortableTextBlocks";
+import { isRemoteImageUrl, optimizeSanityImageUrl } from "@/lib/sanity/image";
 import {
   fetchSanityPostBySlug,
   fetchSanityPostSlugs,
@@ -23,7 +24,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-export const revalidate = 3600;
+export const revalidate = 21600;
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -283,11 +284,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {heroImage ? (
             <div className="relative h-64 sm:h-96 w-full rounded-2xl overflow-hidden mb-10 bg-slate-100 border border-slate-200 shadow-xs">
               <Image
-                src={heroImage}
+                src={optimizeSanityImageUrl(heroImage, 1200)}
                 alt={post.mainImage?.alt || post.title}
                 fill
                 priority
                 fetchPriority="high"
+                unoptimized={isRemoteImageUrl(heroImage)}
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 896px"
               />

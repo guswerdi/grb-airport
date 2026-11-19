@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer";
 import { BookingModal } from "@/components/BookingModal";
 import { Calendar, Clock, ArrowRight, BookOpen, ChevronRight, PenLine } from "lucide-react";
 import { BALI_DESTINATIONS, FLEET_DETAILS, formatPrice } from "@/data/destinations";
+import { isRemoteImageUrl, optimizeSanityImageUrl } from "@/lib/sanity/image";
 
 export interface BlogCard {
   id: string;
@@ -145,9 +146,10 @@ export function BlogListing({ posts }: BlogListingProps) {
                   <div className="relative h-48 w-full bg-slate-100 overflow-hidden">
                     {post.image ? (
                       <Image
-                        src={post.image}
+                        src={optimizeSanityImageUrl(post.image, 640)}
                         alt={post.title}
                         fill
+                        unoptimized={isRemoteImageUrl(post.image)}
                         className="object-cover group-hover:scale-102 transition-transform duration-300"
                         sizes="(max-width: 768px) 100vw, 33vw"
                       />

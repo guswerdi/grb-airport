@@ -6,7 +6,7 @@ import {
   SanityPost,
 } from "@/lib/sanity/client";
 
-export const revalidate = 3600;
+export const revalidate = 21600;
 
 export const metadata: Metadata = {
   title: "Bali Airport Transfer Guide & Tips 2026 | DPS Arrival",

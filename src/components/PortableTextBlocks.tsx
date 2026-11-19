@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { urlForSanityImage } from "@/lib/sanity/image";
+import { isRemoteImageUrl, urlForSanityImage } from "@/lib/sanity/image";
 
 interface BlockChild {
   _key?: string;
@@ -167,6 +167,7 @@ export function PortableTextBlocks({ blocks }: { blocks: unknown[] }) {
                 src={src}
                 alt={block.alt || "Illustration"}
                 fill
+                unoptimized={isRemoteImageUrl(src)}
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 896px"
               />

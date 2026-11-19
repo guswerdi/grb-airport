@@ -4,7 +4,7 @@ import { HomePageStructuredData } from "@/components/StructuredData";
 import { fetchLiveExchangeRates } from "@/lib/exchangeRates";
 import { fetchDynamicSiteContent, fetchSanityLatestGuides } from "@/lib/sanity/client";
 
-export const revalidate = 300;
+export const revalidate = 21600;
 
 export default async function HomePage() {
   const [fxResult, posts, dynamicContent] = await Promise.all([
