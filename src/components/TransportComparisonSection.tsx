@@ -60,7 +60,7 @@ export const TransportComparisonSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Our Bali Airport Transfers vs. Grab / Taxi
+            Private Bali Airport Transfer vs. Grab &amp; Airport Taxi at DPS
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-600">
             Wondering what&apos;s the best way to get from Bali Airport (DPS) to your hotel?

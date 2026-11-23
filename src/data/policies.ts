@@ -69,7 +69,7 @@ export const HOME_DIRECT_ANSWERS: DirectAnswerItem[] = [
   {
     question: "How much is a private Bali airport transfer?",
     answer:
-      "Fixed rates per vehicle (not per person) start at IDR 250,000 (~$16 USD) to Kuta, Seminyak, Jimbaran, and Nusa Dua; IDR 275,000 to Sanur; IDR 325,000 to Canggu and Uluwatu; and IDR 400,000 to Ubud.",
+      "Fixed rates per vehicle (not per person) start at IDR 250,000 (~$16 USD) to Kuta, Seminyak, Jimbaran, and Nusa Dua; IDR 275,000 to Sanur; IDR 325,000 to Canggu and Uluwatu; and IDR 400,000 to Ubud across 4 vehicle classes (Standard Avanza, Comfort Innova Zenix, VIP Luxury Toyota Alphard, and 12-Seat HiAce Van).",
   },
   {
     question: "Where do I meet my driver at Bali Airport (DPS)?",

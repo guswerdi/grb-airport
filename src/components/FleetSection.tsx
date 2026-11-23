@@ -30,7 +30,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({
             <Award className="w-3.5 h-3.5 text-emerald-600" /> Inspected Modern Fleet
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Our Private Bali Chauffeur Fleet
+            Bali Airport Transfer Cars, 12-Seat HiAce &amp; VIP Alphard Fleet
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600">
             Every vehicle in our fleet is 100% non-smoking, deeply cleaned before every journey,
@@ -39,7 +39,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({
         </div>
 
         {/* Fleet Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {FLEET_DETAILS.map((vehicle) => {
             const vehicleRateKey = vehicle.id as "standard" | "comfort" | "luxury" | "van";
             const basePriceIdr = Math.min(

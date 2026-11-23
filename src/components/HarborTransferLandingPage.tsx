@@ -139,7 +139,7 @@ export const HarborTransferLandingPage: React.FC<HarborTransferLandingPageProps>
     "@context": "https://schema.org",
     "@type": "Service",
     serviceType: "Bali Airport to Fast Boat Harbor Private Transfer",
-    name: "DPS Airport to Sanur, Kusamba & Padangbai Harbor Transfers",
+    name: "Bali Airport Transfer to Nusa Penida, Gili & Fast Boat Harbors",
     description:
       "Fixed-rate private transfers between Bali Airport (DPS) and Sanur (IDR 275k), Kusamba (IDR 400k), and Padangbai fast-boat harbors (IDR 850k) for Nusa Penida, Lembongan, and Gili Islands.",
     provider: {
@@ -228,10 +228,10 @@ export const HarborTransferLandingPage: React.FC<HarborTransferLandingPageProps>
               <span>Nusa Penida • Lembongan • Gili Trawangan • Lombok</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
-              Bali Airport to <span className="text-emerald-400">Fast Boat Harbor</span> Transfers
+              Bali Airport to <span className="text-emerald-400">Nusa Penida &amp; Gili Islands</span> Fast Boat Harbor Transfer
             </h1>
             <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
-              Direct private rides from Ngurah Rai Airport (DPS) to <strong>Sanur Harbor</strong> (from IDR 275,000), <strong>Kusamba Port</strong> (IDR 400,000), and <strong>Padangbai Harbor</strong> (IDR 850,000)—with flight tracking, Circle K exit-gate pickup, and zero deposit.
+              Travelling from <strong>Bali Airport to Nusa Penida, Nusa Lembongan, or the Gili Islands</strong>? Book a direct private car from Ngurah Rai Airport (DPS) to <strong>Sanur Harbor</strong> (16 km, 25–35 mins, from IDR 275,000), <strong>Kusamba Port</strong> (44 km, IDR 400,000), or <strong>Padangbai Harbor for Gili Trawangan</strong> (65 km, 85–100 mins, IDR 850,000)—with flight tracking, Circle K exit-gate pickup, and zero deposit.
             </p>
             <div className="flex flex-wrap gap-3 mt-5 text-xs text-slate-300 font-medium">
               <div className="bg-white/10 px-3 py-1.5 rounded-lg border border-white/10 flex items-center gap-2">
@@ -268,6 +268,16 @@ export const HarborTransferLandingPage: React.FC<HarborTransferLandingPageProps>
 
       <main className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-12">
+          {/* AI Overview Box for Bali Airport to Nusa Penida & Gili Islands */}
+          <section className="bg-white rounded-2xl border border-emerald-200 p-6 sm:p-8 shadow-2xs">
+            <h2 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-3">
+              How to Get from Bali Airport to Nusa Penida &amp; Gili Islands
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-800 leading-relaxed bg-emerald-50/70 border border-emerald-200 rounded-xl p-4">
+              To travel from <strong>Bali Airport (DPS) to Nusa Penida or Nusa Lembongan</strong>, take a private transfer to <strong>Sanur Fast Boat Harbor</strong> (16 km, 25–35 minutes, fixed <strong>IDR 275,000</strong> per Standard Car) or <strong>Kusamba Port</strong> (44 km, <strong>IDR 400,000</strong>). To reach the <strong>Gili Islands (Gili Trawangan, Gili Air, Lombok)</strong>, take a private transfer from Bali Airport to <strong>Padangbai Harbor</strong> (65 km, 85–100 minutes off-peak, fixed <strong>IDR 850,000</strong> per car)—all including fuel, tolls, parking, flight tracking, and 60 minutes&apos; free waiting with zero deposit.
+            </p>
+          </section>
+
           {/* Harbor Pricing & Timing Matrix */}
           <section className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-2xs">
             <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2">
@@ -285,6 +295,7 @@ export const HarborTransferLandingPage: React.FC<HarborTransferLandingPageProps>
                     <th className="py-3 px-3 text-right">Standard (1–4)</th>
                     <th className="py-3 px-3 text-right">Innova (1–5)</th>
                     <th className="py-3 px-3 text-right">HiAce (1–12)</th>
+                    <th className="py-3 px-3 text-right">VIP Alphard</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
@@ -300,7 +311,7 @@ export const HarborTransferLandingPage: React.FC<HarborTransferLandingPageProps>
                       </td>
                       <td className="py-3.5 px-4 text-slate-600 max-w-xs">
                         <span className="font-semibold text-slate-800 block">
-                          ~{row.dest.distanceKm} km ({row.dest.durationMinutes})
+                          {row.dest.distanceKm} km ({row.dest.offPeakMinutes} off-peak / {row.dest.peakMinutes} peak)
                         </span>
                         <span className="text-[11px] text-slate-500">
                           {row.bufferAdvice}
@@ -322,6 +333,12 @@ export const HarborTransferLandingPage: React.FC<HarborTransferLandingPageProps>
                         {formatPrice(row.dest.rates.van, currency, exchangeRates)}
                         <span className="text-[10px] font-normal text-slate-400 block">
                           {formatPrice(row.dest.rates.van, "IDR", exchangeRates)}
+                        </span>
+                      </td>
+                      <td className="py-3.5 px-3 text-right font-semibold">
+                        {formatPrice(row.dest.rates.luxury, currency, exchangeRates)}
+                        <span className="text-[10px] font-normal text-slate-400 block">
+                          {formatPrice(row.dest.rates.luxury, "IDR", exchangeRates)}
                         </span>
                       </td>
                     </tr>

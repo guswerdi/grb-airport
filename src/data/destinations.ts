@@ -27,6 +27,10 @@ export interface Destination {
   region: "South Bali" | "Central Bali" | "Uluwatu & Bukit" | "North & East Bali" | "West Bali";
   distanceKm: number;
   durationMinutes: string;
+  /** Off-peak drive time from DPS Airport (e.g. morning / late night). */
+  offPeakMinutes: string;
+  /** Peak-traffic drive time from DPS Airport (e.g. 3 PM - 7:30 PM rush). */
+  peakMinutes: string;
   slug: string;
   /** Short marketing blurb: on-page route overview + Open Graph. */
   description: string;
@@ -42,7 +46,7 @@ export interface Destination {
   rates: {
     standard: number; // IDR (Veloz/Avanza)
     comfort: number;  // IDR (Innova Zenix)
-    luxury: number;   // IDR (legacy VIP tier, not shown in UI)
+    luxury: number;   // IDR (Toyota Alphard VIP)
     van: number;      // IDR (HiAce Premio 12 Pax)
   };
 }
@@ -56,6 +60,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "South Bali",
     distanceKm: 6,
     durationMinutes: "15 - 25 mins",
+    offPeakMinutes: "15–20 mins",
+    peakMinutes: "25–35 mins",
     slug: "bali-airport-transfer-to-kuta",
     description: "Bali's iconic surf beaches, Beachwalk shopping mall, vibrant street markets, and family resorts.",
     metaDescription: "Kuta & Legian surf beaches are 15 minutes from DPS. Flat {price} for 1-4 pax, name-sign meet & greet, toll included.",
@@ -75,6 +81,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "South Bali",
     distanceKm: 7,
     durationMinutes: "15 - 25 mins",
+    offPeakMinutes: "15–20 mins",
+    peakMinutes: "20–30 mins",
     slug: "bali-airport-transfer-to-jimbaran",
     description: "Renowned beachfront seafood barbecue shacks on the sand, tranquil sunset bays, and secluded clifftop luxury.",
     metaDescription: "The closest luxury beach to DPS: 15 min to Jimbaran seafood BBQ shacks and AYANA. All-in {price}, luggage help included.",
@@ -94,6 +102,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "South Bali",
     distanceKm: 12,
     durationMinutes: "30 - 45 mins",
+    offPeakMinutes: "25–35 mins",
+    peakMinutes: "40–55 mins",
     slug: "bali-airport-transfer-to-seminyak",
     description: "Cosmopolitan hub with world-class beach clubs (Ku De Ta, Potato Head), designer boutiques, and sunset dining.",
     metaDescription: "Skip the taxi queue to Seminyak and Petitenget beach clubs. Private car from {price}, chauffeur waits with your name sign.",
@@ -113,10 +123,12 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "South Bali",
     distanceKm: 14,
     durationMinutes: "20 - 30 mins",
+    offPeakMinutes: "20–25 mins",
+    peakMinutes: "25–35 mins",
     slug: "bali-airport-transfer-to-nusa-dua",
     description: "Gated 5-star beachfront enclave with manicured golf courses, calm swimming beaches, and family water sports.",
     metaDescription: "Nusa Dua ITDC resorts via the Mandara ocean tollway, 25 min from DPS. Book {price} for 1-4 pax, toll and parking included.",
-    popularHotels: ["The Mulia", "Grand Hyatt Bali", "Melia Bali", "St. Regis Bali (Beachfront)", "Sofitel Nusa Dua", "Merusaka Nusa Dua"],
+    popularHotels: ["The Mulia", "Grand Hyatt Bali", "Ayodya Resort Bali", "Melia Bali", "St. Regis Bali (Beachfront)", "Sofitel Nusa Dua", "Merusaka Nusa Dua"],
     trafficTip: "Extremely fast and smooth transfer via the scenic Bali Mandara Ocean Tollway (toll fee included with our service).",
     rates: {
       standard: 250000,
@@ -134,6 +146,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "South Bali",
     distanceKm: 15,
     durationMinutes: "35 - 50 mins",
+    offPeakMinutes: "30–40 mins",
+    peakMinutes: "45–60 mins",
     slug: "bali-airport-transfer-to-kerobokan",
     description: "Charming expat and villa neighborhood nestled between stylish Seminyak and vibrant Canggu.",
     metaDescription: "Kerobokan and Umalas villa stays, 40 min from DPS between Seminyak and Canggu. Door-to-door private transfer from {price}.",
@@ -153,6 +167,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "South Bali",
     distanceKm: 16,
     durationMinutes: "25 - 35 mins",
+    offPeakMinutes: "25–30 mins",
+    peakMinutes: "35–45 mins",
     slug: "bali-airport-transfer-to-sanur",
     description: "Relaxed coastal resort town with serene sunrise beachfront boardwalks and the primary harbor to Nusa Penida.",
     metaDescription: "Catch the Nusa Penida and Gili fast boats from Sanur harbor, 35 min from DPS. From {price}, early morning pickups available.",
@@ -172,6 +188,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "South Bali",
     distanceKm: 16,
     durationMinutes: "25 - 35 mins",
+    offPeakMinutes: "25–30 mins",
+    peakMinutes: "30–40 mins",
     slug: "bali-airport-transfer-to-nusa-dua-atas",
     metaDescription: "Cliff-top Nusa Dua Hills villas in Sawangan, Kampial and Kutuh, 35 min from DPS. {price} all-in, tollway included.",
     description: "Hillside and clifftop Nusa Dua: Kampial, the Sawangan cliff strip (Apurva Kempinski, Ritz-Carlton, Hilton), Taman Mumbul, Bualu and Kutuh (Pandawa Beach).",
@@ -191,6 +209,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "South Bali",
     distanceKm: 15,
     durationMinutes: "20 - 30 mins",
+    offPeakMinutes: "20–25 mins",
+    peakMinutes: "25–35 mins",
     slug: "bali-airport-transfer-to-tanjung-benoa",
     description: "Bali's world-famous water sports peninsula (jet ski, parasailing, diving) and calm ocean beachfront resorts.",
     metaDescription: "Tanjung Benoa water sports and Pratama Beach resorts, 30 min from DPS via the ocean tollway. Private car from {price}.",
@@ -212,6 +232,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "South Bali",
     distanceKm: 19,
     durationMinutes: "45 - 75 mins",
+    offPeakMinutes: "45–55 mins",
+    peakMinutes: "60–80 mins",
     slug: "bali-airport-transfer-to-canggu",
     description: "Trending surfer, digital nomad, and nightlife hotspot with chic cafes, beach clubs (Finns, Atlas), and ocean villas.",
     metaDescription: "Surfboard-friendly transfers to Canggu, Berawa and Batu Bolong, 60 min from DPS. Flat {price}, with free flight delay tracking.",
@@ -231,6 +253,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "Uluwatu & Bukit",
     distanceKm: 22,
     durationMinutes: "45 - 65 mins",
+    offPeakMinutes: "40–50 mins",
+    peakMinutes: "55–70 mins",
     slug: "bali-airport-transfer-to-uluwatu",
     description: "Clifftop majesty overlooking world-class surf breaks, sunset temples, and ultra-luxury clifftop resorts.",
     metaDescription: "Drop-off at Uluwatu, Bingin and Padang Padang clifftop villas, 65 min from DPS. Flat {price}, luggage and board handling.",
@@ -252,6 +276,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "Central Bali",
     distanceKm: 38,
     durationMinutes: "60 - 90 mins",
+    offPeakMinutes: "60–75 mins",
+    peakMinutes: "75–95 mins",
     slug: "bali-airport-transfer-to-ubud",
     description: "Bali's cultural, yoga, and wellness sanctuary surrounded by lush rainforests and artistic heritage.",
     metaDescription: "Door-to-door Ubud villa transfers through Sayan and Monkey Forest, 90 min from DPS. Fixed {price}, toll and parking included.",
@@ -271,6 +297,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "Central Bali",
     distanceKm: 32,
     durationMinutes: "50 - 75 mins",
+    offPeakMinutes: "50–65 mins",
+    peakMinutes: "65–85 mins",
     slug: "bali-airport-transfer-to-tanah-lot",
     description: "Home to Bali's iconic sea temple at Tanah Lot, royal Mengwi Taman Ayun temple, and peaceful western rice plains.",
     metaDescription: "Tanah Lot sea temple and Tabanan resort transfers, 75 min from DPS. {price} all-in, flight tracking and free 60-min waiting.",
@@ -290,6 +318,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "North & East Bali",
     distanceKm: 44,
     durationMinutes: "55 - 75 mins",
+    offPeakMinutes: "55–65 mins",
+    peakMinutes: "65–80 mins",
     slug: "bali-airport-transfer-to-klungkung",
     description: "Historic royal capital of Bali and traditional salt-farming coast, gateway to Nusa Penida fast boats from Kusamba.",
     metaDescription: "Klungkung and Kusamba Port transfers via the east coast bypass, 75 min from DPS. Private car from {price}, live flight tracking.",
@@ -311,6 +341,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "Central Bali",
     distanceKm: 52,
     durationMinutes: "80 - 110 mins",
+    offPeakMinutes: "80–95 mins",
+    peakMinutes: "95–115 mins",
     slug: "bali-airport-transfer-to-tegallalang",
     description: "Spectacular UNESCO Tegallalang rice terraces, Tirta Empul holy water springs, and luxury rainforest retreats in Payangan.",
     metaDescription: "Tegallalang rice terraces and Payangan jungle retreats, 110 min from DPS. {price} for 1-4 pax, luggage assistance included.",
@@ -332,6 +364,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "North & East Bali",
     distanceKm: 65,
     durationMinutes: "90 - 120 mins",
+    offPeakMinutes: "85–100 mins",
+    peakMinutes: "100–125 mins",
     slug: "bali-airport-transfer-to-padangbai",
     description: "Gili Islands ferry port at Padangbai, serene Candidasa beachfront, Alila Manggis, and authentic East Bali royal palaces.",
     metaDescription: "Catch your Gili Islands ferry at Padangbai, or Candidasa beach hotels, 2 hrs from DPS. From {price}, door-to-door drop-off.",
@@ -351,6 +385,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "North & East Bali",
     distanceKm: 78,
     durationMinutes: "2.5 - 3 hrs",
+    offPeakMinutes: "2–2.5 hrs",
+    peakMinutes: "2.5–3 hrs",
     slug: "bali-airport-transfer-to-munduk",
     description: "Cool mountain highlands, misty waterfalls, coffee estates, and iconic Ulun Danu Beratan water temple.",
     metaDescription: "Munduk highlands, Bedugul and Ulun Danu Beratan temple, 3 hrs from DPS. {price} with a mountain-experienced chauffeur.",
@@ -372,6 +408,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "North & East Bali",
     distanceKm: 88,
     durationMinutes: "2.5 - 3.5 hrs",
+    offPeakMinutes: "2.5–3 hrs",
+    peakMinutes: "3–3.5 hrs",
     slug: "bali-airport-transfer-to-lovina",
     description: "Tranquil northern Bali coastline famous for sunrise dolphin watching boat tours, calm seas, and historical Singaraja city.",
     metaDescription: "Lovina dolphin tours and Singaraja hotels, 3.5 hrs from DPS. Fixed {price} for the whole car, comfy AC ride with a rest stop.",
@@ -391,6 +429,8 @@ export const BALI_DESTINATIONS: Destination[] = [
     region: "North & East Bali",
     distanceKm: 98,
     durationMinutes: "2.5 - 3.5 hrs",
+    offPeakMinutes: "2.5–3 hrs",
+    peakMinutes: "3–3.5 hrs",
     slug: "bali-airport-transfer-to-amed",
     description: "World-renowned diving mecca with the USAT Liberty shipwreck in Tulamben and picturesque sunrise fishing bays of Amed.",
     metaDescription: "Dive trips to the USAT Liberty wreck in Tulamben and Amed bays, 3.5 hrs from DPS. Gear-friendly car from {price}.",
@@ -467,6 +507,25 @@ export const FLEET_DETAILS = [
       "Clean & Comfortable Group Travel",
       "Airport Meet & Greet Included",
       "Tollway & Parking Included",
+    ],
+    popular: false,
+  },
+  {
+    id: "luxury",
+    name: "VIP Luxury Alphard",
+    shortLabel: "VIP Alphard (1-5 Pax)",
+    model: "Toyota Alphard Executive",
+    tagline: "First-class captain seats & VIP executive arrival",
+    passengers: 5,
+    luggage: 4,
+    image: "/images/hero-alphard.jpg",
+    features: [
+      "Executive Reclining Leather Captain Seats",
+      "Whisper-Quiet Cabin & Privacy Glass",
+      "Dual-Zone Climate & Ambient Lighting",
+      "Onboard Wi-Fi & Fast USB-C Charging",
+      "VIP Circle K Exit-Gate Chauffeur Escort",
+      "Bali Mandara Toll & Parking Included",
     ],
     popular: false,
   },

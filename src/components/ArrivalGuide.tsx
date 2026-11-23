@@ -42,7 +42,7 @@ export const ArrivalGuide: React.FC = () => {
             <Compass className="w-3.5 h-3.5 text-slate-600" /> First Time in Bali?
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            How Airport Meet & Greet Works at DPS
+            How Bali Airport Pickup &amp; Meet-and-Greet Works at DPS
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600">
             Arriving at Ngurah Rai International Airport can feel busy after a long flight.

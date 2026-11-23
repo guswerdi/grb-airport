@@ -69,7 +69,7 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
             )}
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Bali Airport Transfer Rates &amp; Tariffs
+            Bali Airport to Hotel Transfer Prices (Fixed Fares per Car)
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600">
             Fixed one-way pricing per vehicle (not per person) for both DPS Arrivals and Hotel-to-DPS Departures. Zero midnight surcharge (24/7); Bali Mandara tollway, parking, and fuel included.
@@ -117,12 +117,12 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
           <div className="flex md:hidden items-center justify-between px-3.5 py-2 bg-slate-50 border-b border-slate-200 text-[11px] text-slate-500 font-medium">
             <span>👉 Swipe horizontally for all car options</span>
             <span className="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-              3 Fleet Options
+              4 Fleet Classes
             </span>
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse text-xs sm:text-sm min-w-[780px]">
+            <table className="w-full text-left border-collapse text-xs sm:text-sm min-w-[900px]">
               <thead>
                 <tr className="bg-slate-50/90 text-slate-700 font-semibold text-xs border-b border-slate-200">
                   <th className="py-3.5 px-4 sm:px-6 min-w-[200px] align-bottom">
@@ -131,25 +131,30 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                   </th>
                   <th className="py-3.5 px-3 text-center min-w-[120px] whitespace-nowrap align-bottom">
                     <span className="text-slate-900 font-bold block">Distance & Time</span>
-                    <span className="font-normal text-[11px] text-slate-500">From DPS Airport</span>
+                    <span className="font-normal text-[11px] text-slate-500">Off-Peak / Peak</span>
                   </th>
-                  <th className="py-3.5 px-3.5 text-right min-w-[130px] whitespace-nowrap align-bottom">
+                  <th className="py-3.5 px-3.5 text-right min-w-[125px] whitespace-nowrap align-bottom">
                     <span className="text-slate-900 font-bold block">Standard Car</span>
                     <span className="font-normal text-[11px] text-slate-500 block">
                       Avanza (1–4 Pax)
                     </span>
                   </th>
-                  <th className="py-3.5 px-3.5 text-right min-w-[130px] whitespace-nowrap align-bottom bg-emerald-50/50">
+                  <th className="py-3.5 px-3.5 text-right min-w-[125px] whitespace-nowrap align-bottom bg-emerald-50/50">
                     <span className="text-emerald-900 font-bold block">Comfort Car</span>
                     <span className="font-normal text-[11px] text-emerald-700 block">
                       Innova (1–5 Pax)
                     </span>
                   </th>
-
-                  <th className="py-3.5 px-3.5 text-right min-w-[130px] whitespace-nowrap align-bottom">
+                  <th className="py-3.5 px-3.5 text-right min-w-[125px] whitespace-nowrap align-bottom">
                     <span className="text-slate-900 font-bold block">Big Van</span>
                     <span className="font-normal text-[11px] text-slate-500 block">
                       HiAce (12 Pax)
+                    </span>
+                  </th>
+                  <th className="py-3.5 px-3.5 text-right min-w-[125px] whitespace-nowrap align-bottom">
+                    <span className="text-slate-900 font-bold block">VIP Alphard</span>
+                    <span className="font-normal text-[11px] text-slate-500 block">
+                      Executive (1–5 Pax)
                     </span>
                   </th>
                   <th className="py-3.5 px-4 sm:px-6 text-center min-w-[90px] whitespace-nowrap align-bottom">
@@ -161,7 +166,7 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
               <tbody className="divide-y divide-slate-100 text-slate-700">
                 {filteredDestinations.length === 0 ? (
                   <tr>
-                    <td colSpan={6} className="py-8 text-center text-slate-500">
+                    <td colSpan={7} className="py-8 text-center text-slate-500">
                       No routes found matching &ldquo;{searchTerm}&rdquo;. Please try another Bali area.
                     </td>
                   </tr>
@@ -181,11 +186,11 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                       </td>
                       <td className="py-3.5 px-3 text-center whitespace-nowrap">
                         <span className="font-medium text-slate-800 block">
-                          ~{dest.distanceKm} km
+                          {dest.distanceKm} km
                         </span>
                         <span className="text-[11px] text-slate-500 flex items-center justify-center gap-1">
                           <Clock className="w-3 h-3 text-slate-400" />
-                          {dest.durationMinutes}
+                          {dest.offPeakMinutes} ({dest.peakMinutes} peak)
                         </span>
                       </td>
                       <td className="py-3.5 px-3 text-right whitespace-nowrap">
@@ -231,6 +236,22 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                           </div>
                           <div className="text-[10px] text-slate-400">
                             {formatPrice(dest.rates.van, "IDR", exchangeRates)}
+                          </div>
+                        </button>
+                      </td>
+
+                      <td className="py-3.5 px-3 text-right whitespace-nowrap">
+                        <button
+                          type="button"
+                          onClick={() => onSelectRoute(dest, "luxury")}
+                          className="w-full text-right hover:text-emerald-700 transition-colors cursor-pointer group/cell"
+                          title={`Select VIP Luxury Alphard to ${dest.name}`}
+                        >
+                          <div className="font-bold text-slate-800 group-hover/cell:text-emerald-700">
+                            {formatPrice(dest.rates.luxury, currentCurrency, exchangeRates)}
+                          </div>
+                          <div className="text-[10px] text-slate-400">
+                            {formatPrice(dest.rates.luxury, "IDR", exchangeRates)}
                           </div>
                         </button>
                       </td>

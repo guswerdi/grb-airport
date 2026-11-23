@@ -11,7 +11,6 @@ import {
   fetchSanityPostSlugs,
   fetchSanityRelatedPosts,
   formatSanityDate,
-  SanityPost,
   SanityPostStub,
 } from "@/lib/sanity/client";
 import {
@@ -35,6 +34,17 @@ export async function generateStaticParams() {
   return slugs.map((entry) => ({ slug: entry.slug }));
 }
 
+/** Ensures CMS excerpts stay within Google's ~155-character meta description budget. */
+function clampMetaDescription(text?: string): string | undefined {
+  if (!text) return undefined;
+  const trimmed = text.trim();
+  if (trimmed.length <= 155) return trimmed;
+  const slice = trimmed.slice(0, 154);
+  const lastSpace = slice.lastIndexOf(" ");
+  const cut = lastSpace > 100 ? slice.slice(0, lastSpace) : slice;
+  return `${cut.replace(/[.,;:!?-]+$/, "")}.`;
+}
+
 export async function generateMetadata({
   params,
 }: BlogPostPageProps): Promise<Metadata> {
@@ -52,7 +62,7 @@ export async function generateMetadata({
     // which rendered the brand twice. `metaTitle` lets the CMS keep a long,
     // descriptive H1 while <title> stays inside Google's ~60 char limit.
     title: post.metaTitle || post.title,
-    description: post.excerpt,
+    description: clampMetaDescription(post.excerpt),
     alternates: {
       canonical: `https://greatbaliairporttransfer.com/blog/${post.slug}`,
     },

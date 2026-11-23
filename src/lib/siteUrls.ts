@@ -17,6 +17,7 @@ export const CORE_STATIC_ROUTES: readonly StaticRouteConfig[] = [
   { path: "/bali-airport-transfer-with-baby-seat", changeFrequency: "weekly", priority: 0.9 },
   { path: "/bali-airport-departure-transfer", changeFrequency: "weekly", priority: 0.9 },
   { path: "/bali-airport-van-transfer-hiace", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/bali-airport-transfer-vip-alphard", changeFrequency: "weekly", priority: 0.9 },
   { path: "/bali-airport-to-fast-boat-harbor", changeFrequency: "weekly", priority: 0.9 },
   { path: "/blog", changeFrequency: "weekly", priority: 0.85 },
   { path: "/terms-and-policies", changeFrequency: "monthly", priority: 0.6 },

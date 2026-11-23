@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   // brand on the blog article and pushed all 18 route titles to 93-152 chars,
   // so Google truncated the keyword/price out of every snippet. Route pages now
   // opt out with `title.absolute`; a plain string here keeps the homepage short.
-  title: "Bali Airport Transfers (DPS) | Fixed Fares From IDR 250K",
+  title: "Private Bali Airport Transfer & Pickup | From IDR 250K/Car",
   description:
-    "Private Bali airport pickup from IDR 250,000. Zero deposit, 24/7 flat fares, Circle K DPS meet & greet, 60-min free wait. Cash or online link.",
+    "Private Bali airport transfer service & Bali airport to hotel pickup from IDR 250K/car. Zero deposit, 60-min free wait, Circle K meet & IDR 50K baby seat.",
   authors: [{ name: "Great Bali Airport Transfer Chauffeurs" }],
   creator: "Great Bali Airport Transfer",
   publisher: "Great Bali Airport Transfer",
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Bali Airport Transfers (DPS) | Fixed Fares From IDR 250K",
+    title: "Private Bali Airport Transfer & Pickup | From IDR 250K/Car",
     description:
-      "Private Bali airport pickup from IDR 250,000. Zero deposit, 24/7 flat fares, Circle K DPS meet & greet, 60-min free wait. Cash or online link.",
+      "Private Bali airport transfer service & Bali airport to hotel pickup from IDR 250K/car. Zero deposit, 60-min free wait, Circle K meet & IDR 50K baby seat.",
     url: "https://greatbaliairporttransfer.com",
     siteName: "Great Bali Airport Transfer",
     locale: "en_US",
@@ -77,9 +77,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bali Airport Transfers (DPS) | Fixed Fares From IDR 250K",
+    title: "Private Bali Airport Transfer & Pickup | From IDR 250K/Car",
     description:
-      "Private Bali airport pickup from IDR 250,000. Zero deposit, 24/7 flat fares, Circle K DPS meet & greet, 60-min free wait. Cash or online link.",
+      "Private Bali airport transfer service & Bali airport to hotel pickup from IDR 250K/car. Zero deposit, 60-min free wait, Circle K meet & IDR 50K baby seat.",
     images: ["/images/innova-zenix.jpg"],
   },
   robots: {

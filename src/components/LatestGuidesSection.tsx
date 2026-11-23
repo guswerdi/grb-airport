@@ -106,7 +106,7 @@ export const LatestGuidesSection: React.FC<LatestGuidesSectionProps> = ({
                 Nusa Penida &amp; Gili Ports • From IDR 275,000
               </span>
               <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-amber-900">
-                DPS Airport to Sanur, Kusamba &amp; Padangbai Fast Boat Harbors
+                Bali Airport Transfer to Nusa Penida &amp; Gili Fast Boat Harbors
               </h3>
               <p className="text-xs text-slate-600 mt-1">
                 Flat-rate port transfers with realistic flight-to-boat buffer timing guidance.

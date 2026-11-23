@@ -67,6 +67,27 @@ export const QuickAnswersSection: React.FC<QuickAnswersSectionProps> = ({
           </div>
         )}
 
+        {/* Part 0: 45-60 Word Plain-Sentence AI Overview Box for Homepage */}
+        <div
+          id="ai-overview-summary"
+          className="bg-white rounded-2xl border border-emerald-200 p-5 sm:p-6 shadow-2xs"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700">
+              Bali Airport Transfer Summary (DPS)
+            </span>
+            <span className="text-[11px] text-slate-500 font-medium">
+              4 Vehicle Classes • 18 Fixed-Price Zones • 10+ Yrs Local Chauffeurs
+            </span>
+          </div>
+          <p className="text-xs sm:text-sm text-slate-800 leading-relaxed">
+            A <strong>private Bali airport transfer</strong> from I Gusti Ngurah Rai International Airport (DPS) to your hotel costs a fixed{" "}
+            <strong>IDR 250,000 (~$16 USD)</strong> to Kuta, Seminyak, Jimbaran, or Nusa Dua;{" "}
+            <strong>IDR 275,000</strong> to Sanur; <strong>IDR 325,000</strong> to Canggu or Uluwatu; and{" "}
+            <strong>IDR 400,000</strong> to Ubud per Standard Car (with Comfort Innova, 12-seat HiAce, VIP Toyota Alphard, and <strong>Bali airport transfer with baby seat</strong> at IDR 50,000 available)—including fuel, tolls, parking, flight tracking, and 60 minutes&apos; free waiting at the DPS Circle K arrivals gate with zero deposit.
+          </p>
+        </div>
+
         {/* Part 1: Clear USP Strip */}
         <div>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
@@ -75,7 +96,7 @@ export const QuickAnswersSection: React.FC<QuickAnswersSectionProps> = ({
                 <Sparkles className="w-3.5 h-3.5" /> Why Book With Us
               </span>
               <h2 className="text-xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                What Makes Great Bali Airport Transfer Different
+                Why Book a Private Bali Airport Transfer With Us
               </h2>
             </div>
             <div className="inline-flex items-center gap-2 text-xs text-slate-500 font-medium">

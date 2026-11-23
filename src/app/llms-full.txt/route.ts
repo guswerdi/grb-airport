@@ -29,7 +29,7 @@ function shortName(name: string): string {
 export function GET() {
   const fareRows = BALI_DESTINATIONS.map(
     (d) =>
-      `| ${shortName(d.name)} | ${idr(d.rates.standard)} | ${idr(d.rates.comfort)} | ${idr(d.rates.van)} | ${d.distanceKm} km | ${d.durationMinutes} |`
+      `| ${shortName(d.name)} | ${idr(d.rates.standard)} | ${idr(d.rates.comfort)} | ${idr(d.rates.van)} | ${idr(d.rates.luxury)} | ${d.distanceKm} km | ${d.offPeakMinutes} (${d.peakMinutes} peak) |`
   ).join("\n");
 
   const fleet = FLEET_DETAILS.map(
@@ -43,7 +43,7 @@ export function GET() {
       : "";
     return `### ${shortName(d.name)} (${d.region})
 - Page: ${BASE_URL}/${d.slug}
-- ${d.distanceKm} km from DPS, ${d.durationMinutes}. Standard ${idr(d.rates.standard)} / Comfort ${idr(d.rates.comfort)} / Big Van ${idr(d.rates.van)}.
+- ${d.distanceKm} km from DPS, ${d.offPeakMinutes} off-peak (${d.peakMinutes} peak). Standard ${idr(d.rates.standard)} / Comfort ${idr(d.rates.comfort)} / Big Van ${idr(d.rates.van)} / VIP Alphard ${idr(d.rates.luxury)}.
 - ${d.description}${hotels}
 - Driver tip: ${d.trafficTip}`;
   }).join("\n\n");
@@ -63,7 +63,8 @@ export function GET() {
 - Family / Baby Seat Transfers: ${BASE_URL}/bali-airport-transfer-with-baby-seat
 - Hotel-to-DPS Departure Transfers: ${BASE_URL}/bali-airport-departure-transfer
 - 12-Seat HiAce Van & Surfboard Transfers: ${BASE_URL}/bali-airport-van-transfer-hiace
-- Fast-Boat Harbor Transfers (Sanur / Kusamba / Padangbai): ${BASE_URL}/bali-airport-to-fast-boat-harbor
+- VIP Luxury Toyota Alphard Transfers: ${BASE_URL}/bali-airport-transfer-vip-alphard
+- Fast-Boat Harbor Transfers (Nusa Penida, Gili Islands, Sanur, Kusamba, Padangbai): ${BASE_URL}/bali-airport-to-fast-boat-harbor
 - Terms, payment methods & cancellation policy: ${BASE_URL}/terms-and-policies
 - WhatsApp (24h): +62 851-9092-0033
 - Email: booking.grb@gmail.com
@@ -116,8 +117,8 @@ ${fleet}
 
 All fares are in IDR per vehicle, one-way.
 
-| Destination | Standard (Avanza) | Comfort (Innova) | Big Van (HiAce) | Distance | Typical duration |
-|---|---|---|---|---|---|
+| Destination | Standard (Avanza) | Comfort (Innova) | Big Van (HiAce) | VIP Alphard | Distance | Duration (Off-Peak / Peak) |
+|---|---|---|---|---|---|---|
 ${fareRows}
 
 ## Route details

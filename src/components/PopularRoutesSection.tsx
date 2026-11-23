@@ -31,7 +31,7 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
     {
       id: "seminyak",
       slug: "bali-airport-transfer-to-seminyak",
-      title: "DPS Airport to Seminyak",
+      title: "Bali Airport Transfer to Seminyak",
       tag: "Beach Clubs & Villas",
       image: "/images/dest-seminyak.jpg",
       highlight: "Ku De Ta, Potato Head, W Bali, Petitenget, Oberoi",
@@ -40,7 +40,7 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
     {
       id: "canggu",
       slug: "bali-airport-transfer-to-canggu",
-      title: "DPS Airport to Canggu",
+      title: "Bali Airport Transfer to Canggu",
       tag: "Surfing & Cafes",
       image: "/images/dest-canggu.jpg",
       highlight: "Berawa Beach, Batu Bolong, Echo Beach, Atlas Beach Fest, Finns",
@@ -49,7 +49,7 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
     {
       id: "uluwatu",
       slug: "bali-airport-transfer-to-uluwatu",
-      title: "DPS Airport to Uluwatu",
+      title: "Bali Airport Transfer to Uluwatu",
       tag: "Clifftop Resorts & Surf",
       image: "/images/dest-uluwatu.jpg",
       highlight: "Bulgari Resort, Alila Uluwatu, Six Senses, Bingin, Padang Padang",
@@ -58,7 +58,7 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
     {
       id: "ubud",
       slug: "bali-airport-transfer-to-ubud",
-      title: "DPS Airport to Ubud",
+      title: "Bali Airport Transfer to Ubud",
       tag: "Cultural & Wellness",
       image: "/images/dest-ubud.jpg",
       highlight: "Four Seasons Sayan, Mandapa Ritz-Carlton, Viceroy, Monkey Forest",
@@ -74,6 +74,7 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
         { id: "standard", label: "Standard", priceIdr: dest.rates.standard },
         { id: "comfort", label: "Comfort", priceIdr: dest.rates.comfort },
         { id: "van", label: "Big Van", priceIdr: dest.rates.van },
+        { id: "luxury", label: "VIP Alphard", priceIdr: dest.rates.luxury },
       ],
     };
   });
@@ -90,7 +91,7 @@ export const PopularRoutesSection: React.FC<PopularRoutesSectionProps> = ({
               Popular Bali Airport Transfer Routes
             </h2>
             <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-xl">
-              Fixed private rates from Denpasar Ngurah Rai Airport (DPS) to Bali's most coveted destinations.
+              Fixed private rates from Denpasar Ngurah Rai Airport (DPS) to Bali&apos;s most coveted destinations.
             </p>
           </div>
 

@@ -8,7 +8,7 @@ import type { CurrencyRateMap } from "@/data/destinations";
 
 interface HeroSectionProps {
   currentCurrency: string;
-  onOpenBookingModal: (bookingData: any) => void;
+  onOpenBookingModal: (bookingData?: Record<string, unknown>) => void;
   selectedVehicleId?: string;
   onVehicleChange?: (vehicleId: string) => void;
   exchangeRates?: CurrencyRateMap;
@@ -51,20 +51,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </span>
           </div>
 
-          {/* Clean H1 */}
+          {/* Clean H1 + separate styled sub-headline */}
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-white">
-            Bali Airport Transfer <br />
-            <span className="text-emerald-400">Private Chauffeur</span> &amp; Fixed Rates
+            Private Bali Airport Transfer &amp; Pickup
           </h1>
+          <p className="mt-1 text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-white">
+            <span className="text-emerald-400">Bali Airport to Hotel</span> From IDR 250K / Car
+          </p>
 
           <p className="mt-3 text-xs sm:text-sm lg:text-base text-slate-300 leading-relaxed font-normal max-w-2xl">
             {heroSubtext ? (
               heroSubtext
             ) : (
               <>
-                Skip terminal taxi haggling with our direct <strong>Bali airport pickup</strong> from{" "}
-                <strong>IDR 250,000</strong>. Your English-speaking driver waits outside Circle K at the DPS exit gate
-                with your name sign—zero deposit required, cash on drop-off or online link, 24/7 with no midnight surcharge.
+                Book our 24/7 <strong>Bali airport transfer service</strong> and <strong>Bali airport pick up</strong> from{" "}
+                <strong>IDR 250,000 per car</strong> across 4 vehicle classes (Standard Avanza, Comfort Innova Zenix, 12-Seat HiAce Van, and VIP Luxury Toyota Alphard). Enjoy a reliable, <strong>cheap Bali airport transfer</strong> with Circle K exit-gate meet &amp; greet, 60-min free flight wait, optional <strong>Bali airport transfer with baby seat</strong> (IDR 50K), and zero deposit.
               </>
             )}
           </p>

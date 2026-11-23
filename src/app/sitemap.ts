@@ -1,14 +1,16 @@
 import { MetadataRoute } from "next";
-import { BALI_DESTINATIONS } from "@/data/destinations";
+import { BALI_DESTINATIONS, RATES_LAST_REVIEWED } from "@/data/destinations";
 import { fetchSanityPostSlugs } from "@/lib/sanity/client";
 import { CORE_STATIC_ROUTES, SITE_URL } from "@/lib/siteUrls";
 
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const stableReviewDate = new Date(`${RATES_LAST_REVIEWED}T00:00:00.000Z`);
+
   const staticRoutes: MetadataRoute.Sitemap = CORE_STATIC_ROUTES.map((route) => ({
     url: route.path === "/" ? SITE_URL : `${SITE_URL}${route.path}`,
-    lastModified: new Date(),
+    lastModified: stableReviewDate,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
@@ -17,7 +19,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // src/app, so every destination route stays in sync with the canonical list).
   const destinationRoutes: MetadataRoute.Sitemap = BALI_DESTINATIONS.map((dest) => ({
     url: `${SITE_URL}/${dest.slug}`,
-    lastModified: new Date(),
+    lastModified: stableReviewDate,
     changeFrequency: "weekly" as const,
     priority: 0.85,
   }));

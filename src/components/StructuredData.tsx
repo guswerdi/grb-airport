@@ -9,6 +9,7 @@ export const StructuredData: React.FC = () => {
     d.rates.standard,
     d.rates.comfort,
     d.rates.van,
+    d.rates.luxury,
   ]);
   const lowPrice = Math.min(...allRates);
   const highPrice = Math.max(...allRates);
@@ -120,6 +121,7 @@ export const HomePageStructuredData: React.FC<HomePageStructuredDataProps> = ({
     d.rates.standard,
     d.rates.comfort,
     d.rates.van,
+    d.rates.luxury,
   ]);
   const lowPrice = Math.min(...allRates);
   const highPrice = Math.max(...allRates);
@@ -161,7 +163,7 @@ export const HomePageStructuredData: React.FC<HomePageStructuredDataProps> = ({
       "@type": "OfferCatalog",
       name: "Bali Airport Transfer Fleet Categories",
       itemListElement: FLEET_DETAILS.map((vehicle) => {
-        const key = vehicle.id as "standard" | "comfort" | "van";
+        const key = vehicle.id as "standard" | "comfort" | "van" | "luxury";
         const minFare = Math.min(...BALI_DESTINATIONS.map((d) => d.rates[key]));
         return {
           "@type": "Offer",

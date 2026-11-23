@@ -17,8 +17,8 @@ export const Footer: React.FC = () => {
             </Link>
 
             <p className="text-slate-400 leading-relaxed text-xs max-w-sm">
-              Bali's premier 5-star private airport transfer and chauffeur service at I Gusti Ngurah Rai International Airport (DPS).
-              Guaranteed transparent fixed fares, flight tracking, personalized meet & greet, and modern air-conditioned vehicles.
+              Bali&apos;s premier 5-star private airport transfer and chauffeur service at I Gusti Ngurah Rai International Airport (DPS).
+              Guaranteed transparent fixed fares, flight tracking, personalized meet &amp; greet, and modern air-conditioned vehicles.
             </p>
 
             <div className="space-y-2 text-slate-300 text-xs">
@@ -128,8 +128,8 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/#booking-widget" className="hover:text-white transition-colors">
-                  10-Hour Private Chauffeur Charter
+                <Link href="/bali-airport-transfer-vip-alphard" className="hover:text-white transition-colors">
+                  VIP Toyota Alphard Luxury Transfer
                 </Link>
               </li>
             </ul>
@@ -196,7 +196,7 @@ export const Footer: React.FC = () => {
                 href={`/${dest.slug}`}
                 className="hover:text-white transition-colors"
               >
-                DPS to {dest.metaName}
+                Bali Airport Transfer to {dest.metaName}
               </Link>
             ))}
           </div>
@@ -216,7 +216,7 @@ export const Footer: React.FC = () => {
             <span>•</span>
             <Link href="/terms-and-policies" className="hover:text-slate-300 transition-colors">Terms &amp; Policies</Link>
             <span>•</span>
-            <Link href="/#arrival-guide" className="hover:text-slate-300 transition-colors">DPS Airport Guide</Link>
+            <Link href="/#arrival-guide" className="hover:text-slate-300 transition-colors">Bali Airport Arrival Guide</Link>
           </div>
         </div>
       </div>

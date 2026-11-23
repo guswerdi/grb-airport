@@ -108,11 +108,15 @@ export async function GenericRouteContent({ destination }: { destination: Destin
   const faqs = [
     {
       question: `How much is a private transfer from Bali Airport (DPS) to ${shortName}?`,
-      answer: `Flat one-way rates per vehicle are ${formatPrice(destination.rates.standard, "IDR")} (~${formatPrice(destination.rates.standard, "USD", fx.rates)}) for a Standard Car (Avanza/Veloz, 1–4 pax), ${formatPrice(destination.rates.comfort, "IDR")} for a Comfort Car (Innova Zenix, 1–5 pax), and ${formatPrice(destination.rates.van, "IDR")} for a 12-seat HiAce van. Same flat rate 24/7 with zero midnight surcharge.`,
+      answer: `Flat one-way rates per vehicle are ${formatPrice(destination.rates.standard, "IDR")} (~${formatPrice(destination.rates.standard, "USD", fx.rates)}) for a Standard Car (Avanza/Veloz, 1–4 pax), ${formatPrice(destination.rates.comfort, "IDR")} for a Comfort Car (Innova Zenix, 1–5 pax), ${formatPrice(destination.rates.van, "IDR")} for a 12-seat HiAce van, and ${formatPrice(destination.rates.luxury, "IDR")} for a VIP Luxury Toyota Alphard (1–5 pax). Same flat rate 24/7 with zero midnight surcharge.`,
     },
     {
-      question: `How long does the drive take from DPS Airport to ${shortName}?`,
-      answer: `The ${destination.distanceKm} km transfer takes around ${destination.durationMinutes} depending on traffic along the route to ${hotelSample}. ${destination.trafficTip}`,
+      question: `How far is Bali Airport to ${shortName} and how long does the drive take?`,
+      answer: `The distance from Bali Airport (DPS) to ${shortName} is approximately ${destination.distanceKm} km. The drive takes ${destination.offPeakMinutes} in off-peak hours and ${destination.peakMinutes} during peak afternoon traffic along the route to ${hotelSample}. ${destination.trafficTip}`,
+    },
+    {
+      question: `Is a pre-booked transfer better than Grab or an airport taxi to ${shortName}?`,
+      answer: `Yes. Ride-hailing apps (Grab/Gojek) cannot pick up at the immediate DPS arrivals exit curb—passengers must walk with bags to the ride-hail lounge and pay airport pickup surcharges, peak surge, and tolls extra. Our chauffeur meets you right at the Circle K exit gate with a 100% fixed all-inclusive fare.`,
     },
     {
       question: `Where do I meet my driver at Bali Airport for ${shortName}?`,
@@ -127,8 +131,8 @@ export async function GenericRouteContent({ destination }: { destination: Destin
       answer: `Yes. Quick en-route stops at trusted bank ATMs (BCA/Mandiri), official Telkomsel SIM kiosks, or licensed money changers are completely free. Pre-installed baby seats (0–2 yrs) or child boosters (3–7 yrs) can be added for IDR 50,000 per seat per trip.`,
     },
     {
-      question: `Can I book a ${shortName} hotel-to-airport departure ride back to DPS?`,
-      answer: `Yes—hotel-to-DPS departure transfers cost the exact same fixed rate with free 24-hour cancellation. We recommend leaving ${shortName} ${leaveGuide.internationalBefore} prior to International flights (${leaveGuide.domesticBefore} for Domestic).`,
+      question: `Can I book a ${shortName} to Bali Airport return transfer back to DPS?`,
+      answer: `Yes—${shortName} to Bali Airport (DPS) departure transfers cost the exact same fixed rate (${formatPrice(destination.rates.standard, "IDR")} Standard Car) with free 24-hour cancellation. We recommend leaving ${shortName} ${leaveGuide.internationalBefore} prior to International flights (${leaveGuide.domesticBefore} for Domestic).`,
     },
   ];
 
