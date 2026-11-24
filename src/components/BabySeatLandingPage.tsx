@@ -162,7 +162,7 @@ export const BabySeatLandingPage: React.FC<BabySeatLandingPageProps> = ({
       "@type": "AggregateOffer",
       priceCurrency: "IDR",
       lowPrice: "250000",
-      highPrice: "2400000",
+      highPrice: "3500000",
       offerCount: String(BALI_DESTINATIONS.length * FLEET_DETAILS.length),
       availability: "https://schema.org/InStock",
       url: "https://greatbaliairporttransfer.com/bali-airport-transfer-with-baby-seat",
@@ -390,7 +390,7 @@ export const BabySeatLandingPage: React.FC<BabySeatLandingPageProps> = ({
                       setSelectedVehicleId(vehicle.id);
                       handleOpenBookingModal();
                     }}
-                    className="mt-4 w-full py-2 rounded-lg bg-slate-900 hover:bg-emerald-600 text-white text-xs font-semibold transition-colors cursor-pointer"
+                    className="mt-4 w-full py-2 rounded-lg bg-slate-900 hover:bg-emerald-700 text-white text-xs font-semibold transition-colors cursor-pointer"
                   >
                     Book {vehicle.name} + Baby Seat
                   </button>
@@ -445,7 +445,7 @@ export const BabySeatLandingPage: React.FC<BabySeatLandingPageProps> = ({
                       </td>
                       <td className="py-3 px-4 text-right font-semibold">
                         {formatPrice(dest.rates.standard, currency, exchangeRates)}{" "}
-                        <span className="text-[11px] font-normal text-slate-400 block">
+                        <span className="text-[11px] font-normal text-slate-600 block">
                           {formatPrice(dest.rates.standard, "IDR", exchangeRates)}
                         </span>
                       </td>
@@ -457,13 +457,13 @@ export const BabySeatLandingPage: React.FC<BabySeatLandingPageProps> = ({
                       </td>
                       <td className="py-3 px-4 text-right font-semibold">
                         {formatPrice(dest.rates.van, currency, exchangeRates)}{" "}
-                        <span className="text-[11px] font-normal text-slate-400 block">
+                        <span className="text-[11px] font-normal text-slate-600 block">
                           {formatPrice(dest.rates.van, "IDR", exchangeRates)}
                         </span>
                       </td>
                       <td className="py-3 px-4 text-right font-semibold">
                         {formatPrice(dest.rates.luxury, currency, exchangeRates)}{" "}
-                        <span className="text-[11px] font-normal text-slate-400 block">
+                        <span className="text-[11px] font-normal text-slate-600 block">
                           {formatPrice(dest.rates.luxury, "IDR", exchangeRates)}
                         </span>
                       </td>

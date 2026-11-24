@@ -173,7 +173,7 @@ export function PortableTextBlocks({ blocks }: { blocks: unknown[] }) {
               />
             </div>
             {block.alt ? (
-              <figcaption className="mt-2 text-xs text-slate-400 text-center">{block.alt}</figcaption>
+              <figcaption className="mt-2 text-xs text-slate-600 text-center">{block.alt}</figcaption>
             ) : null}
           </figure>
         );

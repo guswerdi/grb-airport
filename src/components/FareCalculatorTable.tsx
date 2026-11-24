@@ -86,7 +86,7 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                 onClick={() => setSelectedRegion(reg)}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors ${
                   selectedRegion === reg
-                    ? "bg-emerald-600 text-white shadow-xs"
+                    ? "bg-emerald-700 text-white shadow-xs"
                     : "bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200"
                 }`}
               >
@@ -203,7 +203,7 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                           <div className="font-bold text-slate-800 group-hover/cell:text-emerald-700">
                             {formatPrice(dest.rates.standard, currentCurrency, exchangeRates)}
                           </div>
-                          <div className="text-[10px] text-slate-400">
+                          <div className="text-[10px] text-slate-600">
                             {formatPrice(dest.rates.standard, "IDR", exchangeRates)}
                           </div>
                         </button>
@@ -218,7 +218,7 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                           <div className="font-bold text-emerald-800">
                             {formatPrice(dest.rates.comfort, currentCurrency, exchangeRates)}
                           </div>
-                          <div className="text-[10px] text-slate-500">
+                          <div className="text-[10px] text-slate-600">
                             {formatPrice(dest.rates.comfort, "IDR", exchangeRates)}
                           </div>
                         </button>
@@ -234,7 +234,7 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                           <div className="font-bold text-slate-800 group-hover/cell:text-emerald-700">
                             {formatPrice(dest.rates.van, currentCurrency, exchangeRates)}
                           </div>
-                          <div className="text-[10px] text-slate-400">
+                          <div className="text-[10px] text-slate-600">
                             {formatPrice(dest.rates.van, "IDR", exchangeRates)}
                           </div>
                         </button>
@@ -250,7 +250,7 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                           <div className="font-bold text-slate-800 group-hover/cell:text-emerald-700">
                             {formatPrice(dest.rates.luxury, currentCurrency, exchangeRates)}
                           </div>
-                          <div className="text-[10px] text-slate-400">
+                          <div className="text-[10px] text-slate-600">
                             {formatPrice(dest.rates.luxury, "IDR", exchangeRates)}
                           </div>
                         </button>
@@ -258,7 +258,7 @@ export const FareCalculatorTable: React.FC<FareCalculatorTableProps> = ({
                       <td className="py-3.5 px-4 sm:px-6 text-center whitespace-nowrap">
                         <button
                           onClick={() => onSelectRoute(dest, selectedVehicleId)}
-                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors cursor-pointer"
+                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs transition-colors cursor-pointer"
                         >
                           <span>Select</span>
                           <ArrowRight className="w-3 h-3" />

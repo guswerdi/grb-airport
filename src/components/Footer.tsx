@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
                   href="https://wa.me/6285190920033"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-7 py-1 hover:text-white transition-colors"
                 >
                   WhatsApp: +62 851-9092-0033 (24 Hours)
                 </a>
@@ -48,42 +48,42 @@ export const Footer: React.FC = () => {
 
           {/* Popular Airport Routes */}
           <div>
-            <p className="text-white font-bold uppercase tracking-wider text-xs mb-3.5">
+            <p className="text-white font-bold uppercase tracking-wider text-xs mb-2.5">
               Top Airport Routes
             </p>
-            <ul className="space-y-2">
+            <ul className="space-y-0.5">
               <li>
-                <Link href="/bali-airport-transfer-to-ubud" className="hover:text-white transition-colors">
+                <Link href="/bali-airport-transfer-to-ubud" className="inline-flex items-center min-h-7 py-1 hover:text-white transition-colors">
                   Ubud Private Transfer
                 </Link>
               </li>
               <li>
-                <Link href="/bali-airport-transfer-to-seminyak" className="hover:text-white transition-colors">
+                <Link href="/bali-airport-transfer-to-seminyak" className="inline-flex items-center min-h-7 py-1 hover:text-white transition-colors">
                   Seminyak &amp; Petitenget
                 </Link>
               </li>
               <li>
-                <Link href="/bali-airport-transfer-to-canggu" className="hover:text-white transition-colors">
+                <Link href="/bali-airport-transfer-to-canggu" className="inline-flex items-center min-h-7 py-1 hover:text-white transition-colors">
                   Canggu &amp; Berawa
                 </Link>
               </li>
               <li>
-                <Link href="/bali-airport-transfer-to-uluwatu" className="hover:text-white transition-colors">
+                <Link href="/bali-airport-transfer-to-uluwatu" className="inline-flex items-center min-h-7 py-1 hover:text-white transition-colors">
                   Uluwatu &amp; Bingin
                 </Link>
               </li>
               <li>
-                <Link href="/bali-airport-transfer-to-nusa-dua" className="hover:text-white transition-colors">
+                <Link href="/bali-airport-transfer-to-nusa-dua" className="inline-flex items-center min-h-7 py-1 hover:text-white transition-colors">
                   Nusa Dua Resorts
                 </Link>
               </li>
               <li>
-                <Link href="/bali-airport-transfer-to-sanur" className="hover:text-white transition-colors">
+                <Link href="/bali-airport-transfer-to-sanur" className="inline-flex items-center min-h-7 py-1 hover:text-white transition-colors">
                   Sanur Fast-Boat Harbor
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-white transition-colors text-emerald-400 font-medium">
+                <Link href="/blog" className="inline-flex items-center min-h-7 py-1 hover:text-white transition-colors text-emerald-400 font-medium">
                   Travel Blog &amp; Airport Guides →
                 </Link>
               </li>
@@ -92,43 +92,43 @@ export const Footer: React.FC = () => {
 
           {/* Fleet Categories */}
           <div>
-            <p className="text-white font-bold uppercase tracking-wider text-xs mb-3.5">
+            <p className="text-white font-bold uppercase tracking-wider text-xs mb-2.5">
               Our Vehicle Fleet
             </p>
-            <ul className="space-y-2">
+            <ul className="space-y-0.5">
               <li>
-                <Link href="/#fleet" className="hover:text-white transition-colors">
+                <Link href="/#fleet" className="inline-flex items-center min-h-7 py-1 hover:text-white transition-colors">
                   Toyota Veloz (Standard MPV)
                 </Link>
               </li>
               <li>
-                <Link href="/#fleet" className="hover:text-white transition-colors">
+                <Link href="/#fleet" className="inline-flex items-center min-h-7 py-1 hover:text-white transition-colors">
                   Toyota Innova Zenix (Comfort SUV)
                 </Link>
               </li>
 
               <li>
-                <Link href="/bali-airport-van-transfer-hiace" className="hover:text-white transition-colors">
+                <Link href="/bali-airport-van-transfer-hiace" className="inline-flex items-center min-h-7 py-1 hover:text-white transition-colors">
                   Toyota HiAce (12-Seat &amp; Surfboards)
                 </Link>
               </li>
               <li>
-                <Link href="/bali-airport-departure-transfer" className="hover:text-white transition-colors">
+                <Link href="/bali-airport-departure-transfer" className="inline-flex items-center min-h-7 py-1 hover:text-white transition-colors">
                   Hotel to DPS Departure Transfer
                 </Link>
               </li>
               <li>
-                <Link href="/bali-airport-transfer-with-baby-seat" className="hover:text-white transition-colors">
+                <Link href="/bali-airport-transfer-with-baby-seat" className="inline-flex items-center min-h-7 py-1 hover:text-white transition-colors">
                   Baby Car Seats (IDR 50k/seat)
                 </Link>
               </li>
               <li>
-                <Link href="/bali-airport-to-fast-boat-harbor" className="hover:text-white transition-colors">
+                <Link href="/bali-airport-to-fast-boat-harbor" className="inline-flex items-center min-h-7 py-1 hover:text-white transition-colors">
                   Sanur &amp; Padangbai Harbor Transfers
                 </Link>
               </li>
               <li>
-                <Link href="/bali-airport-transfer-vip-alphard" className="hover:text-white transition-colors">
+                <Link href="/bali-airport-transfer-vip-alphard" className="inline-flex items-center min-h-7 py-1 hover:text-white transition-colors">
                   VIP Toyota Alphard Luxury Transfer
                 </Link>
               </li>
@@ -161,7 +161,7 @@ export const Footer: React.FC = () => {
 
             <div className="mt-4 pt-3 border-t border-slate-800 space-y-2">
               <div>
-                <span className="text-[10px] uppercase font-bold text-slate-500 block mb-1">
+                <span className="text-[10px] uppercase font-bold text-slate-400 block mb-1">
                   Cash on Drop-Off
                 </span>
                 <div className="flex flex-wrap gap-1 text-[10px] text-slate-300 font-mono">
@@ -172,7 +172,7 @@ export const Footer: React.FC = () => {
                 </div>
               </div>
               <div>
-                <span className="text-[10px] uppercase font-bold text-slate-500 block mb-1">
+                <span className="text-[10px] uppercase font-bold text-slate-400 block mb-1">
                   Prepay Online Link (No In-Car Cards)
                 </span>
                 <div className="flex flex-wrap gap-1 text-[10px] text-slate-300 font-mono">
@@ -186,15 +186,15 @@ export const Footer: React.FC = () => {
         </div>
         {/* All Bali Route Guides */}
         <div className="mt-10 pt-8 border-t border-slate-800/80">
-          <p className="text-slate-400 font-semibold uppercase tracking-wider text-[10px] mb-3">
+          <p className="text-slate-400 font-semibold uppercase tracking-wider text-[10px] mb-2">
             All Bali Airport Transfer Routes
           </p>
-          <div className="flex flex-wrap gap-x-4 gap-y-2 text-[11px] text-slate-400">
+          <div className="flex flex-wrap gap-x-2 gap-y-1 text-xs text-slate-400">
             {BALI_DESTINATIONS.map((dest) => (
               <Link
                 key={dest.id}
                 href={`/${dest.slug}`}
-                className="hover:text-white transition-colors"
+                className="inline-flex items-center min-h-8 min-w-8 px-1.5 py-1 hover:text-white transition-colors"
               >
                 {dest.metaName}
               </Link>
@@ -205,18 +205,18 @@ export const Footer: React.FC = () => {
 
       {/* Bottom Legal bar */}
       <div className="bg-slate-950 border-t border-slate-800/80 py-4 px-4 text-center">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-500 text-[11px]">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-400 text-[11px]">
           <div>
             © {new Date().getFullYear()} Great Bali Airport Transfer. All rights reserved.
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link href="/about" className="hover:text-slate-300 transition-colors">About Us</Link>
-            <span>•</span>
-            <Link href="/#good-to-know" className="hover:text-slate-300 transition-colors">Good to Know &amp; Tips</Link>
-            <span>•</span>
-            <Link href="/terms-and-policies" className="hover:text-slate-300 transition-colors">Terms &amp; Policies</Link>
-            <span>•</span>
-            <Link href="/#arrival-guide" className="hover:text-slate-300 transition-colors">Bali Airport Arrival Guide</Link>
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+            <Link href="/about" className="inline-flex items-center min-h-7 py-1 hover:text-slate-200 transition-colors">About Us</Link>
+            <span aria-hidden="true">•</span>
+            <Link href="/#good-to-know" className="inline-flex items-center min-h-7 py-1 hover:text-slate-200 transition-colors">Good to Know &amp; Tips</Link>
+            <span aria-hidden="true">•</span>
+            <Link href="/terms-and-policies" className="inline-flex items-center min-h-7 py-1 hover:text-slate-200 transition-colors">Terms &amp; Policies</Link>
+            <span aria-hidden="true">•</span>
+            <Link href="/#arrival-guide" className="inline-flex items-center min-h-7 py-1 hover:text-slate-200 transition-colors">Bali Airport Arrival Guide</Link>
           </div>
         </div>
       </div>

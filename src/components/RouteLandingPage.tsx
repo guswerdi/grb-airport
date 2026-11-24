@@ -511,7 +511,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
                                   babySeatNeeded: false,
                                 });
                               }}
-                              className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors cursor-pointer"
+                              className="px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs transition-colors cursor-pointer"
                             >
                               Select
                             </button>
@@ -772,7 +772,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
                           </span>
                           <span
                             className={`text-[11px] ${
-                              isSelected ? "text-emerald-700" : "text-slate-500"
+                              isSelected ? "text-emerald-700" : "text-slate-600"
                             }`}
                           >
                             {tier.sub}
@@ -789,7 +789,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
                         </span>
                         <span
                           className={`text-[10px] ${
-                            isSelected ? "text-emerald-700" : "text-slate-400"
+                            isSelected ? "text-emerald-700" : "text-slate-600"
                           }`}
                         >
                           {formatPrice(priceIdr, "IDR", exchangeRates)}
@@ -814,7 +814,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
 
                 <button
                   onClick={() => handleOpenBookingModal()}
-                  className="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wide transition-colors cursor-pointer"
+                  className="w-full py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs uppercase tracking-wide transition-colors cursor-pointer"
                 >
                   Reserve Online
                 </button>

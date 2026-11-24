@@ -176,7 +176,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
               onClick={() => setTransferType("arrival")}
               className={`flex items-center justify-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-2 sm:py-1.5 rounded-lg font-semibold sm:font-medium text-xs transition-colors cursor-pointer text-center ${
                 transferType === "arrival"
-                  ? "bg-emerald-600 text-white shadow-xs"
+                  ? "bg-emerald-700 text-white shadow-xs"
                   : "bg-slate-100 text-slate-600 hover:bg-slate-200"
               }`}
             >
@@ -190,7 +190,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
               onClick={() => setTransferType("departure")}
               className={`flex items-center justify-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-2 sm:py-1.5 rounded-lg font-semibold sm:font-medium text-xs transition-colors cursor-pointer text-center ${
                 transferType === "departure"
-                  ? "bg-emerald-600 text-white shadow-xs"
+                  ? "bg-emerald-700 text-white shadow-xs"
                   : "bg-slate-100 text-slate-600 hover:bg-slate-200"
               }`}
             >
@@ -204,7 +204,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
               onClick={() => setTransferType("daytour")}
               className={`flex items-center justify-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-2 sm:py-1.5 rounded-lg font-semibold sm:font-medium text-xs transition-colors cursor-pointer text-center ${
                 transferType === "daytour"
-                  ? "bg-amber-600 text-white shadow-xs"
+                  ? "bg-amber-700 text-white shadow-xs"
                   : "bg-slate-100 text-slate-600 hover:bg-slate-200"
               }`}
             >
@@ -226,11 +226,11 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
             <div className="flex items-center gap-2 flex-wrap">
               <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse shrink-0"></span>
               <span className="font-semibold text-emerald-900">Pickup: Bali Airport (DPS) Arrivals</span>
-              <span className="text-slate-400">➔</span>
+              <span className="text-slate-600" aria-hidden="true">➔</span>
               <span className="text-slate-800">
                 Drop-off: <strong>{activeDestination.name.split("(")[0]}</strong>
               </span>
-              <span className="text-[10px] text-emerald-700 bg-emerald-100/80 px-1.5 py-0.5 rounded font-mono">
+              <span className="text-[10px] text-emerald-800 bg-emerald-100/80 px-1.5 py-0.5 rounded font-mono">
                 ~{activeDestination.distanceKm} km ({activeDestination.durationMinutes})
               </span>
             </div>
@@ -247,11 +247,11 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
               <span className="font-semibold text-sky-900">
                 Pickup: Hotel / Villa in {activeDestination.name.split("(")[0]}
               </span>
-              <span className="text-slate-400">➔</span>
+              <span className="text-slate-600" aria-hidden="true">➔</span>
               <span className="text-slate-800">
                 Drop-off: <strong>Bali Airport (DPS) Departures</strong>
               </span>
-              <span className="text-[10px] text-sky-700 bg-sky-100/80 px-1.5 py-0.5 rounded font-mono">
+              <span className="text-[10px] text-sky-800 bg-sky-100/80 px-1.5 py-0.5 rounded font-mono">
                 ~{activeDestination.distanceKm} km ({activeDestination.durationMinutes})
               </span>
             </div>
@@ -266,7 +266,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
             <div className="flex items-center gap-2 flex-wrap">
               <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
               <span className="font-semibold text-amber-950">10-Hour Private Chauffeur Charter</span>
-              <span className="text-slate-400">•</span>
+              <span className="text-slate-600" aria-hidden="true">•</span>
               <span className="text-slate-800">
                 Starting from: <strong>{activeDestination.name.split("(")[0]}</strong>
               </span>
@@ -512,7 +512,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                     <span className="flex items-center gap-1">
                       <Building2 className="w-3 h-3 text-emerald-600" /> Drop-off Hotel / Resort / Villa Name
                     </span>
-                    <span className="text-[10px] text-slate-400 font-normal">Optional</span>
+                    <span className="text-[10px] text-slate-600 font-normal">Optional</span>
                   </label>
                   <input
                     id="dropoff-hotel"
@@ -610,14 +610,14 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                   </div>
                 ) : (
                   <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-400 block leading-tight">
+                    <span className="text-[10px] uppercase font-bold text-slate-600 block leading-tight">
                       {babySeatNeeded ? "All-Inclusive + Baby Seat" : "Guaranteed Flat Fare"}
                     </span>
                     <div className="flex items-baseline gap-1.5">
                       <span className="text-xl sm:text-2xl font-black text-slate-900 leading-none">
                         {formatPrice(totalPriceIdr, currentCurrency, exchangeRates)}
                       </span>
-                      <span className="text-xs text-slate-500 font-medium">
+                      <span className="text-xs text-slate-600 font-medium">
                         ({formatPrice(totalPriceIdr, "IDR", exchangeRates)})
                       </span>
                     </div>
@@ -633,9 +633,9 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                   title="Number of passengers"
                 >
                   <div className="flex items-center gap-1.5 px-2 py-0.5 min-w-0">
-                    <Users className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+                    <Users className="w-3.5 h-3.5 text-slate-600 shrink-0" />
                     <span className="font-bold text-slate-800 text-xs tabular-nums truncate">
-                      {passengers} <span className="text-[10px] sm:text-[11px] font-medium text-slate-500">pax</span>
+                      {passengers} <span className="text-[10px] sm:text-[11px] font-medium text-slate-600">pax</span>
                     </span>
                   </div>
                   <div className="flex items-center gap-1 border-l border-slate-200/80 pl-1.5 shrink-0">
@@ -677,9 +677,9 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                   title="Number of suitcases/bags"
                 >
                   <div className="flex items-center gap-1.5 px-2 py-0.5 min-w-0">
-                    <Briefcase className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+                    <Briefcase className="w-3.5 h-3.5 text-slate-600 shrink-0" />
                     <span className="font-bold text-slate-800 text-xs tabular-nums truncate">
-                      {luggage} <span className="text-[10px] sm:text-[11px] font-medium text-slate-500">{luggage === 1 ? "bag" : "bags"}</span>
+                      {luggage} <span className="text-[10px] sm:text-[11px] font-medium text-slate-600">{luggage === 1 ? "bag" : "bags"}</span>
                     </span>
                   </div>
                   <div className="flex items-center gap-1 border-l border-slate-200/80 pl-1.5 shrink-0">
@@ -729,15 +729,15 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                 >
                   <Baby
                     className={`w-3.5 h-3.5 shrink-0 ${
-                      babySeatNeeded ? "text-emerald-600" : "text-slate-500"
+                      babySeatNeeded ? "text-emerald-700" : "text-slate-600"
                     }`}
                   />
                   <span>Baby Seat</span>
                   <span
                     className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${
                       babySeatNeeded
-                        ? "bg-emerald-600 text-white"
-                        : "bg-white text-slate-600 border border-slate-200"
+                        ? "bg-emerald-700 text-white"
+                        : "bg-white text-slate-700 border border-slate-200"
                     }`}
                   >
                     {babySeatNeeded ? "Added +50k" : "+IDR 50k"}
@@ -753,8 +753,8 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                 id="btn-reserve-instant"
                 className={`w-full lg:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-bold text-sm tracking-wide shadow-sm hover:shadow-md transition-all cursor-pointer ${
                   transferType === "daytour"
-                    ? "bg-amber-600 hover:bg-amber-700"
-                    : "bg-emerald-600 hover:bg-emerald-700"
+                    ? "bg-amber-700 hover:bg-amber-800"
+                    : "bg-emerald-700 hover:bg-emerald-800"
                 }`}
               >
                 <Send className="w-4 h-4" />

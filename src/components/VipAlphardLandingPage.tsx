@@ -35,7 +35,7 @@ const FAQS = [
   {
     question: "How much does a VIP Toyota Alphard airport transfer cost in Bali?",
     answer:
-      "Fixed one-way Toyota Alphard Executive rates from Bali Airport (DPS) are IDR 750,000 (~$47 USD) to Kuta, Seminyak, Jimbaran, and Nusa Dua; IDR 850,000 to Sanur, Tanjung Benoa, and Nusa Dua Hills (Apurva Kempinski / Ritz-Carlton); IDR 1,000,000 to Canggu and Uluwatu (Bulgari / Alila / Six Senses); and IDR 1,200,000 to Ubud (Four Seasons Sayan / Mandapa).",
+      "Fixed one-way Toyota Alphard Executive rates from Bali Airport (DPS) are IDR 1,800,000 (~$112 USD) to South Bali (Kuta, Seminyak, Jimbaran, Nusa Dua, Nusa Dua Hills, Tanjung Benoa, Kerobokan, and Sanur); IDR 2,400,000 (~$149 USD) to Canggu, Uluwatu (Bulgari / Alila / Six Senses), Ubud (Four Seasons Sayan / Mandapa), Tanah Lot, Klungkung, and Tegallalang; and IDR 3,500,000 (~$217 USD) to Padangbai, Munduk, Lovina, and Amed.",
   },
   {
     question: "How many passengers and suitcases fit inside the Toyota Alphard?",
@@ -108,14 +108,14 @@ export const VipAlphardLandingPage: React.FC<VipAlphardLandingPageProps> = ({
     serviceType: "VIP Luxury Toyota Alphard Bali Airport Transfer",
     name: "Bali VIP Airport Transfer — Toyota Alphard Executive Chauffeur",
     description:
-      "First-class private Toyota Alphard Executive airport transfer from I Gusti Ngurah Rai Airport (DPS) to Nusa Dua, Uluwatu, Seminyak, Canggu, and Ubud. Fixed fares from IDR 750,000 per vehicle with zero deposit.",
+      "First-class private Toyota Alphard Executive airport transfer from I Gusti Ngurah Rai Airport (DPS) to Nusa Dua, Uluwatu, Seminyak, Canggu, and Ubud. Fixed fares from IDR 1,800,000 per vehicle with zero deposit.",
     provider: {
       "@type": ["LocalBusiness", "TaxiService"],
       "@id": "https://greatbaliairporttransfer.com/#organization",
     },
     offers: {
       "@type": "Offer",
-      price: "750000",
+      price: "1800000",
       priceCurrency: "IDR",
       availability: "https://schema.org/InStock",
       url: "https://greatbaliairporttransfer.com/bali-airport-transfer-vip-alphard",
@@ -206,10 +206,10 @@ export const VipAlphardLandingPage: React.FC<VipAlphardLandingPageProps> = ({
               <span>Executive Captain Chairs • First-Class DPS Arrival</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
-              Bali VIP Airport Transfer: <span className="text-emerald-400">Toyota Alphard</span> From IDR 750K
+              Bali VIP Airport Transfer: <span className="text-emerald-400">Toyota Alphard</span> From IDR 1.8M
             </h1>
             <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
-              Arrive at your 5-star Bali resort or private villa in whisper-quiet luxury. Fixed per-vehicle <strong>Toyota Alphard airport transfer</strong> fares from <strong>IDR 750,000</strong>—with Circle K exit-gate chauffeur meet &amp; greet, 60-min free flight wait, toll included, and zero deposit.
+              Arrive at your 5-star Bali resort or private villa in whisper-quiet luxury. Fixed per-vehicle <strong>Toyota Alphard airport transfer</strong> fares from <strong>IDR 1,800,000</strong>—with Circle K exit-gate chauffeur meet &amp; greet, 60-min free flight wait, toll included, and zero deposit.
             </p>
             <div className="flex flex-wrap gap-3 mt-5 text-xs text-slate-300 font-medium">
               <div className="bg-white/10 px-3 py-1.5 rounded-lg border border-white/10 flex items-center gap-2">
@@ -253,10 +253,9 @@ export const VipAlphardLandingPage: React.FC<VipAlphardLandingPageProps> = ({
             </h2>
             <p className="text-xs sm:text-sm text-slate-800 leading-relaxed bg-emerald-50/70 border border-emerald-200 rounded-xl p-4">
               A private <strong>VIP Toyota Alphard airport transfer</strong> from Bali Airport (DPS) costs a fixed{" "}
-              <strong>IDR 750,000 (~$47 USD)</strong> to Nusa Dua, Seminyak, Jimbaran, or Kuta;{" "}
-              <strong>IDR 850,000</strong> to Sanur, Tanjung Benoa, or Nusa Dua Hills (Apurva Kempinski / Ritz-Carlton);{" "}
-              <strong>IDR 1,000,000</strong> to Canggu or Uluwatu (Bulgari / Alila / Six Senses); and{" "}
-              <strong>IDR 1,200,000</strong> to Ubud (Four Seasons Sayan / Mandapa)—seating up to 5 passengers with 4 suitcases, fuel, tolls, parking, flight tracking, and 60 minutes&apos; free waiting included with zero deposit.
+              <strong>IDR 1,800,000 (~$112 USD)</strong> to Nusa Dua, Nusa Dua Hills (Apurva Kempinski / Ritz-Carlton), Seminyak, Jimbaran, Kuta, Sanur, Tanjung Benoa, or Kerobokan;{" "}
+              <strong>IDR 2,400,000 (~$149 USD)</strong> to Canggu, Uluwatu (Bulgari / Alila / Six Senses), Ubud (Four Seasons Sayan / Mandapa), Tanah Lot, Klungkung, or Tegallalang; and{" "}
+              <strong>IDR 3,500,000 (~$217 USD)</strong> to Padangbai, Munduk, Lovina, or Amed—seating up to 5 passengers with 4 suitcases, fuel, tolls, parking, flight tracking, and 60 minutes&apos; free waiting included with zero deposit.
             </p>
           </section>
 
@@ -325,7 +324,7 @@ export const VipAlphardLandingPage: React.FC<VipAlphardLandingPageProps> = ({
                               babySeatNeeded: false,
                             })
                           }
-                          className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors cursor-pointer"
+                          className="px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs transition-colors cursor-pointer"
                         >
                           Select
                         </button>

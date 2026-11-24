@@ -52,7 +52,7 @@ export interface Destination {
 }
 
 export const BALI_DESTINATIONS: Destination[] = [
-  // --- TIER 1 (+100k): 250k (Avanza) | 300k (Innova) | 750k (Alphard) | 600k (HiAce) ---
+  // --- TIER 1: 250k (Avanza) | 300k (Innova) | 1.800k (Alphard) | 600k (HiAce) ---
   {
     id: "kuta-legian",
     name: "Kuta & Legian Beach",
@@ -70,7 +70,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 250000,
       comfort: 300000,
-      luxury: 750000,
+      luxury: 1800000,
       van: 600000,
     },
   },
@@ -91,7 +91,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 250000,
       comfort: 300000,
-      luxury: 750000,
+      luxury: 1800000,
       van: 600000,
     },
   },
@@ -112,7 +112,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 250000,
       comfort: 300000,
-      luxury: 750000,
+      luxury: 1800000,
       van: 600000,
     },
   },
@@ -133,12 +133,12 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 250000,
       comfort: 300000,
-      luxury: 750000,
+      luxury: 1800000,
       van: 600000,
     },
   },
 
-  // --- TIER 2 (+100k): 275k (Avanza) | 400k (Innova) | 850k (Alphard) | 650k (HiAce) ---
+  // --- TIER 2: 275k (Avanza) | 400k (Innova) | 1.800k (Alphard) | 650k (HiAce) ---
   {
     id: "kerobokan",
     name: "Kerobokan & Umalas",
@@ -156,7 +156,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 275000,
       comfort: 400000,
-      luxury: 850000,
+      luxury: 1800000,
       van: 650000,
     },
   },
@@ -177,7 +177,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 275000,
       comfort: 400000,
-      luxury: 850000,
+      luxury: 1800000,
       van: 650000,
     },
   },
@@ -198,7 +198,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 275000,
       comfort: 400000,
-      luxury: 850000,
+      luxury: 1800000,
       van: 650000,
     },
   },
@@ -219,12 +219,12 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 275000,
       comfort: 400000,
-      luxury: 850000,
+      luxury: 1800000,
       van: 650000,
     },
   },
 
-  // --- TIER 3 (+100k): 325k (Avanza) | 450k (Innova) | 1.000k (Alphard) | 700k (HiAce) ---
+  // --- TIER 3: 325k (Avanza) | 450k (Innova) | 2.400k (Alphard) | 700k (HiAce) ---
   {
     id: "canggu",
     name: "Canggu (Berawa, Batu Bolong, Echo Beach & Pererenan)",
@@ -242,7 +242,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 325000,
       comfort: 450000,
-      luxury: 1000000,
+      luxury: 2400000,
       van: 700000,
     },
   },
@@ -263,12 +263,12 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 325000,
       comfort: 450000,
-      luxury: 1000000,
+      luxury: 2400000,
       van: 700000,
     },
   },
 
-  // --- TIER 4 (+100k): 400k (Avanza) | 500k (Innova) | 1.200k (Alphard) | 800k (HiAce) ---
+  // --- TIER 4: 400k (Avanza) | 500k (Innova) | 2.400k (Alphard) | 800k (HiAce) ---
   {
     id: "ubud",
     name: "Ubud Center (Monkey Forest, Sayan, Pengosekan)",
@@ -286,7 +286,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 400000,
       comfort: 500000,
-      luxury: 1200000,
+      luxury: 2400000,
       van: 800000,
     },
   },
@@ -307,7 +307,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 400000,
       comfort: 500000,
-      luxury: 1200000,
+      luxury: 2400000,
       van: 800000,
     },
   },
@@ -328,12 +328,12 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 400000,
       comfort: 500000,
-      luxury: 1200000,
+      luxury: 2400000,
       van: 800000,
     },
   },
 
-  // --- TIER 5 (+100k): 450k (Avanza) | 500k (Innova) | 1.400k (Alphard) | 900k (HiAce) ---
+  // --- TIER 5: 450k (Avanza) | 500k (Innova) | 2.400k (Alphard) | 900k (HiAce) ---
   {
     id: "tegallalang-payangan",
     name: "Tegallalang, Payangan & Tampaksiring",
@@ -351,12 +351,12 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 450000,
       comfort: 500000,
-      luxury: 1400000,
+      luxury: 2400000,
       van: 900000,
     },
   },
 
-  // --- TIER 6 (+100k): 850k (Avanza) | 1.000k (Innova) | 1.900k (Alphard) | 1.100k (HiAce) ---
+  // --- TIER 6: 850k (Avanza) | 1.000k (Innova) | 3.500k (Alphard) | 1.100k (HiAce) ---
   {
     id: "sidemen-candidasa",
     name: "Padangbai Harbor, Candidasa, Manggis & Karangasem",
@@ -374,7 +374,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 850000,
       comfort: 1000000,
-      luxury: 1900000,
+      luxury: 3500000,
       van: 1100000,
     },
   },
@@ -395,12 +395,12 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 850000,
       comfort: 1000000,
-      luxury: 1900000,
+      luxury: 3500000,
       van: 1100000,
     },
   },
 
-  // --- TIER 7 (+100k): 850k (Avanza) | 1.000k (Innova) | 2.400k (Alphard) | 1.600k (HiAce) ---
+  // --- TIER 7: 850k (Avanza) | 1.000k (Innova) | 3.500k (Alphard) | 1.600k (HiAce) ---
   {
     id: "lovina-munduk",
     name: "Lovina Beach & Singaraja (North Bali Coast)",
@@ -418,7 +418,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 850000,
       comfort: 1000000,
-      luxury: 2400000,
+      luxury: 3500000,
       van: 1600000,
     },
   },
@@ -439,7 +439,7 @@ export const BALI_DESTINATIONS: Destination[] = [
     rates: {
       standard: 850000,
       comfort: 1000000,
-      luxury: 2400000,
+      luxury: 3500000,
       van: 1600000,
     },
   },
@@ -450,7 +450,7 @@ export const BALI_DESTINATIONS: Destination[] = [
  * Shown as a visible "Rates reviewed" badge on every route page. Bump this
  * whenever any `rates` value above changes or is re-confirmed.
  */
-export const RATES_LAST_REVIEWED = "2026-11-18";
+export const RATES_LAST_REVIEWED = "2026-11-24";
 
 export const FLEET_DETAILS = [
   {

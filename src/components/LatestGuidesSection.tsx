@@ -34,7 +34,7 @@ export const LatestGuidesSection: React.FC<LatestGuidesSectionProps> = ({
           </div>
           <Link
             href="/blog"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white font-semibold text-xs transition-colors shrink-0 self-start sm:self-auto"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors shrink-0 self-start sm:self-auto"
           >
             <span>All Travel Guides</span>
             <ArrowRight className="w-3.5 h-3.5" />

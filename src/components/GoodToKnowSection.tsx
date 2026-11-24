@@ -97,7 +97,7 @@ export const GoodToKnowSection: React.FC<GoodToKnowSectionProps> = ({
                 onClick={() => setActiveCategory(cat)}
                 className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
                   isSelected
-                    ? "bg-emerald-600 text-white shadow-sm ring-2 ring-emerald-600 ring-offset-1"
+                    ? "bg-emerald-700 text-white shadow-sm ring-2 ring-emerald-700 ring-offset-1"
                     : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 shadow-2xs"
                 }`}
               >
@@ -105,8 +105,8 @@ export const GoodToKnowSection: React.FC<GoodToKnowSectionProps> = ({
                 <span
                   className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
                     isSelected
-                      ? "bg-emerald-700 text-emerald-100"
-                      : "bg-slate-100 text-slate-500"
+                      ? "bg-emerald-800 text-white"
+                      : "bg-slate-100 text-slate-600"
                   }`}
                 >
                   {count}
@@ -127,7 +127,7 @@ export const GoodToKnowSection: React.FC<GoodToKnowSectionProps> = ({
               >
                 {/* Top Bar with Icon, Category, Badge */}
                 <div className="flex items-center justify-between gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-700 group-hover:scale-105 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-200 shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-700 group-hover:scale-105 group-hover:bg-emerald-700 group-hover:text-white transition-all duration-200 shrink-0">
                     <IconComponent className="w-5 h-5" />
                   </div>
                   <div className="flex items-center gap-1.5">
@@ -187,7 +187,7 @@ export const GoodToKnowSection: React.FC<GoodToKnowSectionProps> = ({
               href="https://wa.me/6285190920033?text=Hi%20Great%20Bali%20Airport%20Transfer%2C%20I%20would%20like%20to%20ask%20about%20an%20airport%20transfer."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wide transition-colors cursor-pointer shadow-xs"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs uppercase tracking-wide transition-colors cursor-pointer shadow-xs"
             >
               <MessageCircle className="w-4 h-4" />
               Chat on WhatsApp

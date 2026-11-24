@@ -205,7 +205,7 @@ export const HomeClient: React.FC<HomeClientProps> = ({
           href="https://wa.me/6285190920033?text=Hi%20Great%20Bali%20Airport%20Transfer,%20I%20would%20like%20to%20inquire%20about%20a%20private%20airport%20transfer"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2.5 p-3 sm:px-4 sm:py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-2xl shadow-emerald-950/80 transition-all hover:scale-105 border border-emerald-400/30 group"
+          className="flex items-center gap-2.5 p-3 sm:px-4 sm:py-3 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow-2xl shadow-emerald-950/80 transition-all hover:scale-105 border border-emerald-400/30 group"
           aria-label="Direct 24/7 WhatsApp Chat"
         >
           <div className="relative">

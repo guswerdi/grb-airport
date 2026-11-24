@@ -239,7 +239,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           <button
             type="button"
             onClick={handleModalClose}
-            className="p-1 rounded-md text-slate-400 hover:text-slate-700 hover:bg-slate-200 transition-colors cursor-pointer"
+            aria-label="Close booking dialog"
+            className="p-1 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-200 transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
@@ -274,7 +275,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   )}
                 </div>
                 <div className="text-right shrink-0">
-                  <span className="text-[10px] text-slate-400 uppercase font-semibold block">
+                  <span className="text-[10px] text-slate-600 uppercase font-semibold block">
                     {bookingData.transferType === "daytour" ? "Rate" : "Fixed Fare"}
                   </span>
                   <span className="text-base sm:text-lg font-black text-slate-900 leading-none">
@@ -500,8 +501,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 type="submit"
                 className={`flex items-center gap-1.5 px-5 py-2 rounded-lg text-white font-bold text-xs tracking-wide shadow-xs transition-colors cursor-pointer ${
                   bookingData.transferType === "daytour"
-                    ? "bg-amber-600 hover:bg-amber-700"
-                    : "bg-emerald-600 hover:bg-emerald-700"
+                    ? "bg-amber-700 hover:bg-amber-800"
+                    : "bg-emerald-700 hover:bg-emerald-800"
                 }`}
               >
                 <Send className="w-3.5 h-3.5" />
@@ -535,11 +536,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 Final Step in WhatsApp:
               </div>
               <div className="flex items-start gap-1.5">
-                <span className={`w-3.5 h-3.5 rounded-full text-white flex items-center justify-center text-[9px] font-bold shrink-0 mt-0.5 ${bookingData.transferType === "daytour" ? "bg-amber-600" : "bg-emerald-600"}`}>1</span>
+                <span className={`w-3.5 h-3.5 rounded-full text-white flex items-center justify-center text-[9px] font-bold shrink-0 mt-0.5 ${bookingData.transferType === "daytour" ? "bg-amber-700" : "bg-emerald-700"}`}>1</span>
                 <span>Your WhatsApp chat has opened with all your booking details pre-filled.</span>
               </div>
               <div className="flex items-start gap-1.5">
-                <span className={`w-3.5 h-3.5 rounded-full text-white flex items-center justify-center text-[9px] font-bold shrink-0 mt-0.5 ${bookingData.transferType === "daytour" ? "bg-amber-600" : "bg-emerald-600"}`}>2</span>
+                <span className={`w-3.5 h-3.5 rounded-full text-white flex items-center justify-center text-[9px] font-bold shrink-0 mt-0.5 ${bookingData.transferType === "daytour" ? "bg-amber-700" : "bg-emerald-700"}`}>2</span>
                 <span>Press <strong>Send</strong> in WhatsApp to connect directly with our 24/7 Bali dispatch admin.</span>
               </div>
             </div>
@@ -559,7 +560,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg text-white font-semibold text-xs transition-colors ${
-                  bookingData.transferType === "daytour" ? "bg-amber-600 hover:bg-amber-700" : "bg-emerald-600 hover:bg-emerald-700"
+                  bookingData.transferType === "daytour" ? "bg-amber-700 hover:bg-amber-800" : "bg-emerald-700 hover:bg-emerald-800"
                 }`}
               >
                 <Send className="w-3.5 h-3.5" />

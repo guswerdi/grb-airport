@@ -93,7 +93,7 @@ export function TermsAndPoliciesContent() {
             {/* Table of Contents Sticky Sidebar */}
             <aside className="lg:col-span-4 sticky top-24 space-y-4">
               <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs">
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+                <h3 className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-3">
                   Quick Navigation
                 </h3>
                 <nav className="space-y-1">
@@ -129,7 +129,7 @@ export function TermsAndPoliciesContent() {
                   href="https://wa.me/6285190920033?text=Hi%20Great%20Bali%20Airport%20Transfer%2C%20I%20have%20a%20question%20regarding%20your%20terms%20or%20booking%20policy."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wide transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs uppercase tracking-wide transition-colors"
                 >
                   <MessageCircle className="w-3.5 h-3.5" />
                   Ask via WhatsApp
@@ -149,7 +149,7 @@ export function TermsAndPoliciesContent() {
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                    <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">
                       Section 01
                     </span>
                     <h2 className="text-lg sm:text-xl font-bold text-slate-900">
@@ -190,7 +190,7 @@ export function TermsAndPoliciesContent() {
                     <CalendarCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                    <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">
                       Section 02
                     </span>
                     <h2 className="text-lg sm:text-xl font-bold text-slate-900">
@@ -229,7 +229,7 @@ export function TermsAndPoliciesContent() {
                     <Banknote className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                    <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">
                       Section 03
                     </span>
                     <h2 className="text-lg sm:text-xl font-bold text-slate-900">
@@ -286,7 +286,7 @@ export function TermsAndPoliciesContent() {
                     <Banknote className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                    <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">
                       Section 04
                     </span>
                     <h2 className="text-lg sm:text-xl font-bold text-slate-900">
@@ -344,7 +344,7 @@ export function TermsAndPoliciesContent() {
                     <Plane className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                    <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">
                       Section 05
                     </span>
                     <h2 className="text-lg sm:text-xl font-bold text-slate-900">
@@ -380,7 +380,7 @@ export function TermsAndPoliciesContent() {
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                    <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">
                       Section 06
                     </span>
                     <h2 className="text-lg sm:text-xl font-bold text-slate-900">
@@ -425,7 +425,7 @@ export function TermsAndPoliciesContent() {
                     <Luggage className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                    <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">
                       Section 07
                     </span>
                     <h2 className="text-lg sm:text-xl font-bold text-slate-900">
@@ -478,7 +478,7 @@ export function TermsAndPoliciesContent() {
                     <Car className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                    <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">
                       Section 08
                     </span>
                     <h2 className="text-lg sm:text-xl font-bold text-slate-900">
@@ -514,7 +514,7 @@ export function TermsAndPoliciesContent() {
                     <Lock className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                    <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">
                       Section 09
                     </span>
                     <h2 className="text-lg sm:text-xl font-bold text-slate-900">
@@ -553,7 +553,7 @@ export function TermsAndPoliciesContent() {
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                    <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">
                       Section 10
                     </span>
                     <h2 className="text-lg sm:text-xl font-bold text-slate-900">

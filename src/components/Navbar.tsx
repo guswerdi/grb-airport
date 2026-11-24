@@ -140,7 +140,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     document.getElementById("booking-widget")?.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                className="h-9 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs whitespace-nowrap shadow-xs transition-colors cursor-pointer flex items-center justify-center"
+                className="h-9 px-4 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs whitespace-nowrap shadow-xs transition-colors cursor-pointer flex items-center justify-center"
               >
                 Book Transfer
               </button>
@@ -206,7 +206,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     document.getElementById("booking-widget")?.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                className="w-full text-center py-2.5 rounded-lg bg-emerald-600 text-white font-semibold text-sm"
+                className="w-full text-center py-2.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-sm"
               >
                 Book Transfer
               </button>

@@ -302,7 +302,7 @@ export const AboutPageContent: React.FC<AboutPageContentProps> = ({
                 href="https://wa.me/6285190920033?text=Hello%20Great%20Bali%20Airport%20Transfer%2C%20I%20have%20a%20question%20about%20booking%20an%20airport%20transfer."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs transition-colors"
               >
                 <Phone className="w-4 h-4" />
                 <span>WhatsApp +62 851-9092-0033</span>

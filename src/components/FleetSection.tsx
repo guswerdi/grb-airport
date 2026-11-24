@@ -61,7 +61,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({
                     sizes="(max-width: 768px) 100vw, 25vw"
                   />
                   {vehicle.popular && (
-                    <div className="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full shadow-xs">
+                    <div className="absolute top-3 right-3 bg-emerald-700 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full shadow-xs">
                       Popular Pick
                     </div>
                   )}
@@ -106,14 +106,14 @@ export const FleetSection: React.FC<FleetSectionProps> = ({
                   {/* Pricing and Action */}
                   <div className="pt-3 border-t border-slate-100">
                     <div className="flex items-baseline justify-between mb-3">
-                      <span className="text-[11px] text-slate-400 uppercase tracking-wider">
+                      <span className="text-[11px] text-slate-600 uppercase tracking-wider">
                         Starting from
                       </span>
                       <div className="text-right">
                         <span className="text-lg font-bold text-slate-900">
                           {formatPrice(basePriceIdr, currentCurrency, exchangeRates)}
                         </span>
-                        <span className="text-[10px] text-slate-400 block">
+                        <span className="text-[10px] text-slate-600 block">
                           {formatPrice(basePriceIdr, "IDR", exchangeRates)}
                         </span>
                       </div>
@@ -121,7 +121,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({
 
                     <button
                       onClick={() => onSelectVehicle(vehicle.id)}
-                      className="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white font-semibold text-xs tracking-wide transition-colors cursor-pointer"
+                      className="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-emerald-700 text-white font-semibold text-xs tracking-wide transition-colors cursor-pointer"
                     >
                       Book {vehicle.name}
                     </button>

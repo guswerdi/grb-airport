@@ -151,7 +151,7 @@ export const HarborTransferLandingPage: React.FC<HarborTransferLandingPageProps>
       "@type": "AggregateOffer",
       priceCurrency: "IDR",
       lowPrice: "275000",
-      highPrice: "2400000",
+      highPrice: "3500000",
       offerCount: String(HARBOR_PORTS.length * FLEET_DETAILS.length),
       availability: "https://schema.org/InStock",
       url: "https://greatbaliairporttransfer.com/bali-airport-to-fast-boat-harbor",
@@ -322,7 +322,7 @@ export const HarborTransferLandingPage: React.FC<HarborTransferLandingPageProps>
                       </td>
                       <td className="py-3.5 px-3 text-right font-semibold">
                         {formatPrice(row.dest.rates.standard, currency, exchangeRates)}
-                        <span className="text-[10px] font-normal text-slate-400 block">
+                        <span className="text-[10px] font-normal text-slate-600 block">
                           {formatPrice(row.dest.rates.standard, "IDR", exchangeRates)}
                         </span>
                       </td>
@@ -334,13 +334,13 @@ export const HarborTransferLandingPage: React.FC<HarborTransferLandingPageProps>
                       </td>
                       <td className="py-3.5 px-3 text-right font-semibold">
                         {formatPrice(row.dest.rates.van, currency, exchangeRates)}
-                        <span className="text-[10px] font-normal text-slate-400 block">
+                        <span className="text-[10px] font-normal text-slate-600 block">
                           {formatPrice(row.dest.rates.van, "IDR", exchangeRates)}
                         </span>
                       </td>
                       <td className="py-3.5 px-3 text-right font-semibold">
                         {formatPrice(row.dest.rates.luxury, currency, exchangeRates)}
-                        <span className="text-[10px] font-normal text-slate-400 block">
+                        <span className="text-[10px] font-normal text-slate-600 block">
                           {formatPrice(row.dest.rates.luxury, "IDR", exchangeRates)}
                         </span>
                       </td>

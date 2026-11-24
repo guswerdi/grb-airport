@@ -100,7 +100,7 @@ export function BlogListing({ posts }: BlogListingProps) {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
                   activeCategory === cat
-                    ? "bg-emerald-600 text-white shadow-xs"
+                    ? "bg-emerald-700 text-white shadow-xs"
                     : "bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200"
                 }`}
               >
@@ -130,7 +130,7 @@ export function BlogListing({ posts }: BlogListingProps) {
               </p>
               <Link
                 href="/"
-                className="inline-flex mt-5 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors"
+                className="inline-flex mt-5 px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs transition-colors"
               >
                 Calculate Fare & Book
               </Link>
@@ -166,14 +166,14 @@ export function BlogListing({ posts }: BlogListingProps) {
                   {/* Card Body */}
                   <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                     <div>
-                      <div className="flex items-center gap-3 text-xs text-slate-400 mb-2.5">
+                      <div className="flex items-center gap-3 text-xs text-slate-600 mb-2.5">
                         <span className="flex items-center gap-1">
-                          <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                          <Calendar className="w-3.5 h-3.5 text-slate-500" />
                           {post.date}
                         </span>
                         <span>•</span>
                         <span className="flex items-center gap-1">
-                          <Clock className="w-3.5 h-3.5 text-slate-400" />
+                          <Clock className="w-3.5 h-3.5 text-slate-500" />
                           {post.readTime}
                         </span>
                       </div>
@@ -196,7 +196,7 @@ export function BlogListing({ posts }: BlogListingProps) {
                           <span className="text-xs font-semibold text-slate-800 block leading-tight">
                             {post.author.name}
                           </span>
-                          <span className="text-[10px] text-slate-400 block leading-tight">
+                          <span className="text-[10px] text-slate-600 block leading-tight">
                             {post.author.role}
                           </span>
                         </div>
@@ -229,7 +229,7 @@ export function BlogListing({ posts }: BlogListingProps) {
             <div className="flex items-center gap-3 shrink-0">
               <Link
                 href="/#booking-widget"
-                className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors"
+                className="px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs transition-colors"
               >
                 Calculate Fare & Book
               </Link>
