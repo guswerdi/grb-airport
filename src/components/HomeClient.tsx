@@ -1,19 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
-import { TrustBar } from "@/components/TrustBar";
-import { QuickAnswersSection } from "@/components/QuickAnswersSection";
 import { PopularRoutesSection } from "@/components/PopularRoutesSection";
 import { FareCalculatorTable } from "@/components/FareCalculatorTable";
 import { FleetSection } from "@/components/FleetSection";
-import { ArrivalGuide } from "@/components/ArrivalGuide";
-import { TransportComparisonSection } from "@/components/TransportComparisonSection";
-import { LatestGuidesSection } from "@/components/LatestGuidesSection";
 import { GoodToKnowSection } from "@/components/GoodToKnowSection";
-import { Footer } from "@/components/Footer";
-import { BookingModal } from "@/components/BookingModal";
 import {
   BALI_DESTINATIONS,
   CurrencyRateMap,
@@ -23,23 +17,33 @@ import {
   formatPrice,
 } from "@/data/destinations";
 import type { GoodToKnowItem } from "@/data/goodToKnow";
-import type { SanityPost, SanitySiteSettings } from "@/lib/sanity/client";
 import { MessageCircle } from "lucide-react";
+
+const BookingModal = dynamic(
+  () => import("@/components/BookingModal").then((m) => m.BookingModal),
+  { ssr: false }
+);
 
 interface HomeClientProps {
   exchangeRates?: CurrencyRateMap;
   ratesAreLive?: boolean;
-  latestPosts?: SanityPost[];
-  siteSettings?: SanitySiteSettings | null;
+  heroBadge?: string;
+  heroSubtext?: string;
   dynamicFaqItems?: GoodToKnowItem[];
+  aboveRoutesSlot: React.ReactNode;
+  belowFleetSlot: React.ReactNode;
+  footerSlot: React.ReactNode;
 }
 
 export const HomeClient: React.FC<HomeClientProps> = ({
   exchangeRates = EXCHANGE_RATES,
   ratesAreLive = false,
-  latestPosts = [],
-  siteSettings = null,
+  heroBadge,
+  heroSubtext,
   dynamicFaqItems,
+  aboveRoutesSlot,
+  belowFleetSlot,
+  footerSlot,
 }) => {
   const [currency, setCurrency] = useState<string>("USD");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -146,59 +150,57 @@ export const HomeClient: React.FC<HomeClientProps> = ({
         selectedVehicleId={sharedVehicleId}
         onVehicleChange={setSharedVehicleId}
         exchangeRates={exchangeRates}
-        heroBadge={siteSettings?.heroBadge}
-        heroSubtext={siteSettings?.heroSubtext}
+        heroBadge={heroBadge}
+        heroSubtext={heroSubtext}
       />
 
-      <TrustBar />
+      {aboveRoutesSlot}
 
-      {/* Direct Answers & Clear USP Strip */}
-      <QuickAnswersSection
-        usps={siteSettings?.usps}
-        directAnswers={siteSettings?.directAnswers}
-        liveNotice={siteSettings?.liveNotice}
-        ratesAreLive={ratesAreLive}
-      />
+      <div className="cv-auto">
+        <PopularRoutesSection
+          currentCurrency={currency}
+          onSelectRouteQuick={handleSelectRouteQuick}
+          selectedVehicleId={sharedVehicleId}
+          onVehicleChange={setSharedVehicleId}
+          exchangeRates={exchangeRates}
+        />
+      </div>
 
-      <PopularRoutesSection
-        currentCurrency={currency}
-        onSelectRouteQuick={handleSelectRouteQuick}
-        selectedVehicleId={sharedVehicleId}
-        onVehicleChange={setSharedVehicleId}
-        exchangeRates={exchangeRates}
-      />
+      <div className="cv-auto">
+        <FareCalculatorTable
+          currentCurrency={currency}
+          selectedVehicleId={sharedVehicleId}
+          onSelectRoute={(dest, vehType) => handleSelectRoute(dest, vehType)}
+          exchangeRates={exchangeRates}
+          ratesAreLive={ratesAreLive}
+        />
+      </div>
 
-      <FareCalculatorTable
-        currentCurrency={currency}
-        selectedVehicleId={sharedVehicleId}
-        onSelectRoute={(dest, vehType) => handleSelectRoute(dest, vehType)}
-        exchangeRates={exchangeRates}
-        ratesAreLive={ratesAreLive}
-      />
+      <div className="cv-auto">
+        <FleetSection
+          currentCurrency={currency}
+          onSelectVehicle={handleSelectVehicle}
+          exchangeRates={exchangeRates}
+        />
+      </div>
 
-      <FleetSection
-        currentCurrency={currency}
-        onSelectVehicle={handleSelectVehicle}
-        exchangeRates={exchangeRates}
-      />
+      {belowFleetSlot}
 
-      <ArrivalGuide />
+      <div className="cv-auto">
+        <GoodToKnowSection
+          items={dynamicFaqItems && dynamicFaqItems.length > 0 ? dynamicFaqItems : undefined}
+        />
+      </div>
 
-      <TransportComparisonSection />
+      {footerSlot}
 
-      <LatestGuidesSection posts={latestPosts} />
-
-      <GoodToKnowSection
-        items={dynamicFaqItems && dynamicFaqItems.length > 0 ? dynamicFaqItems : undefined}
-      />
-
-      <Footer />
-
-      <BookingModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        bookingData={modalBookingData}
-      />
+      {isModalOpen && (
+        <BookingModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          bookingData={modalBookingData}
+        />
+      )}
 
       <aside aria-label="WhatsApp Chauffeur Concierge" className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40">
         <a
@@ -210,7 +212,6 @@ export const HomeClient: React.FC<HomeClientProps> = ({
         >
           <div className="relative">
             <MessageCircle className="w-5 h-5 fill-white" />
-            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 rounded-full animate-ping" />
             <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 rounded-full" />
           </div>
           <span className="hidden sm:inline">24/7 WhatsApp Chauffeur</span>

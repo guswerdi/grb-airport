@@ -207,7 +207,7 @@ export const Footer: React.FC = () => {
       <div className="bg-slate-950 border-t border-slate-800/80 py-4 px-4 text-center">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-400 text-[11px]">
           <div>
-            © {new Date().getFullYear()} Great Bali Airport Transfer. All rights reserved.
+            © {new Date().getUTCFullYear()} Great Bali Airport Transfer. All rights reserved.
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
             <Link href="/about" className="inline-flex items-center min-h-7 py-1 hover:text-slate-200 transition-colors">About Us</Link>

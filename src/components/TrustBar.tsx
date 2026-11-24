@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  ShieldCheck,
   Plane,
   HeartHandshake,
   Award,

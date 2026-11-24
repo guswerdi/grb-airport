@@ -580,7 +580,7 @@ export function formatPrice(
     return `IDR ${amountIdr.toLocaleString("id-ID")}`;
   }
   const converted = Math.round(amountIdr * info.rate);
-  return `${info.symbol}${converted.toLocaleString()}`;
+  return `${info.symbol}${converted.toLocaleString("en-US")}`;
 }
 
 /**
