@@ -77,7 +77,7 @@ export const QuickAnswersSection: React.FC<QuickAnswersSectionProps> = ({
               Bali Airport Transfer Summary (DPS)
             </span>
             <span className="text-[11px] text-slate-500 font-medium">
-              4 Vehicle Classes • 18 Fixed-Price Zones • 10+ Yrs Local Chauffeurs
+              4 Vehicle Classes • 18 Fixed-Price Zones • Local Balinese Chauffeurs
             </span>
           </div>
           <p className="text-xs sm:text-sm text-slate-800 leading-relaxed">

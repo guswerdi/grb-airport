@@ -94,14 +94,14 @@ export async function GenericRouteContent({ destination }: { destination: Destin
     destination.region === "North & East Bali"
       ? `For this ${destination.durationMinutes} cross-island drive to ${shortName}, our Toyota Innova Zenix (Comfort Car) gives extra legroom for winding mountain and coastal roads, with complimentary coffee/ATM rest stops on request.`
       : destination.region === "Central Bali"
-      ? `Village and hillside lanes around ${shortName} can be narrow; share your exact villa pin via WhatsApp before landing so your chauffeur chooses the cleanest access road (HiAce vans may drop at lane mouths where villas forbid wide vans).`
+      ? `Village and hillside lanes around ${shortName} can be narrow; share your exact villa pin via WhatsApp before landing so your chauffeur chooses the cleanest access road (HiAce vans may drop you off at the lane entrance where villas forbid wide vans).`
       : `Your chauffeur uses the Bali Mandara Ocean Tollway or bypass arterial roads when beneficial—all electronic toll charges, DPS parking fees, and fuel are 100% included.`;
 
   const tips = [
     `${destination.name} is roughly ${destination.distanceKm} km from Ngurah Rai Airport (DPS), taking ${destination.durationMinutes} in typical traffic.`,
     destination.trafficTip,
     regionTip,
-    `Meet directly outside the DPS arrivals exit at the Circle K minimart holding your name sign—60 minutes free wait included, with zero 12 AM–5 AM midnight surcharge.`,
+    `Meet your driver directly outside the DPS arrivals exit at the Circle K minimart, where they wait with your name sign—60 minutes free wait included, with zero 12 AM–5 AM midnight surcharge.`,
     `Returning from ${shortName} to Bali Airport later? Schedule pickup ${leaveGuide.internationalBefore} before International flights or ${leaveGuide.domesticBefore} before Domestic flights.`,
   ];
 

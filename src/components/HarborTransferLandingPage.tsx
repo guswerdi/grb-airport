@@ -113,7 +113,8 @@ export const HarborTransferLandingPage: React.FC<HarborTransferLandingPageProps>
       const veh =
         FLEET_DETAILS.find((v) => v.id === selectedVehicleId) || FLEET_DETAILS[0];
       const key =
-        (selectedVehicleId as "standard" | "comfort" | "van") || "standard";
+        (selectedVehicleId as "standard" | "comfort" | "van" | "luxury") ||
+        "standard";
       const priceIdr = defaultDest.rates[key] || defaultDest.rates.standard;
       setModalBookingData({
         transferType: "arrival",
@@ -147,9 +148,11 @@ export const HarborTransferLandingPage: React.FC<HarborTransferLandingPageProps>
       "@id": "https://greatbaliairporttransfer.com/#organization",
     },
     offers: {
-      "@type": "Offer",
-      price: "275000",
+      "@type": "AggregateOffer",
       priceCurrency: "IDR",
+      lowPrice: "275000",
+      highPrice: "2400000",
+      offerCount: String(HARBOR_PORTS.length * FLEET_DETAILS.length),
       availability: "https://schema.org/InStock",
       url: "https://greatbaliairporttransfer.com/bali-airport-to-fast-boat-harbor",
     },
@@ -231,7 +234,7 @@ export const HarborTransferLandingPage: React.FC<HarborTransferLandingPageProps>
               Bali Airport to <span className="text-emerald-400">Nusa Penida &amp; Gili Islands</span> Fast Boat Harbor Transfer
             </h1>
             <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
-              Travelling from <strong>Bali Airport to Nusa Penida, Nusa Lembongan, or the Gili Islands</strong>? Book a direct private car from Ngurah Rai Airport (DPS) to <strong>Sanur Harbor</strong> (16 km, 25–35 mins, from IDR 275,000), <strong>Kusamba Port</strong> (44 km, IDR 400,000), or <strong>Padangbai Harbor for Gili Trawangan</strong> (65 km, 85–100 mins, IDR 850,000)—with flight tracking, Circle K exit-gate pickup, and zero deposit.
+              Traveling from <strong>Bali Airport to Nusa Penida, Nusa Lembongan, or the Gili Islands</strong>? Book a direct private car from Ngurah Rai Airport (DPS) to <strong>Sanur Harbor</strong> (16 km, 25–35 mins, from IDR 275,000), <strong>Kusamba Port</strong> (44 km, IDR 400,000), or <strong>Padangbai Harbor for Gili Trawangan</strong> (65 km, 85–100 mins, IDR 850,000)—with flight tracking, Circle K exit-gate pickup, and zero deposit.
             </p>
             <div className="flex flex-wrap gap-3 mt-5 text-xs text-slate-300 font-medium">
               <div className="bg-white/10 px-3 py-1.5 rounded-lg border border-white/10 flex items-center gap-2">

@@ -64,8 +64,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               heroSubtext
             ) : (
               <>
-                Book our 24/7 <strong>Bali airport transfer service</strong> and <strong>Bali airport pick up</strong> from{" "}
-                <strong>IDR 250,000 per car</strong> across 4 vehicle classes (Standard Avanza, Comfort Innova Zenix, 12-Seat HiAce Van, and VIP Luxury Toyota Alphard). Enjoy a reliable, <strong>cheap Bali airport transfer</strong> with Circle K exit-gate meet &amp; greet, 60-min free flight wait, optional <strong>Bali airport transfer with baby seat</strong> (IDR 50K), and zero deposit.
+                Skip terminal taxi haggling with a reliable 24/7 airport pickup service from Denpasar (DPS)—budget-friendly flat rates from{" "}
+                <strong>IDR 250,000 per vehicle</strong> across Standard Avanza, Comfort Innova Zenix, 12-seat HiAce, and VIP Toyota Alphard. Includes Circle K exit-gate meet &amp; greet, 60-minute free wait, optional baby car seats (IDR 50K), and zero deposit.
               </>
             )}
           </p>

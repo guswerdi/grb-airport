@@ -17,8 +17,8 @@ export const Footer: React.FC = () => {
             </Link>
 
             <p className="text-slate-400 leading-relaxed text-xs max-w-sm">
-              Bali&apos;s premier 5-star private airport transfer and chauffeur service at I Gusti Ngurah Rai International Airport (DPS).
-              Guaranteed transparent fixed fares, flight tracking, personalized meet &amp; greet, and modern air-conditioned vehicles.
+              Private fixed-rate Bali airport transfer and chauffeur service from I Gusti Ngurah Rai International Airport (DPS) across Bali.
+              Transparent fixed fares, flight tracking, personalized meet &amp; greet, and clean air-conditioned vehicles.
             </p>
 
             <div className="space-y-2 text-slate-300 text-xs">
@@ -54,37 +54,37 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li>
                 <Link href="/bali-airport-transfer-to-ubud" className="hover:text-white transition-colors">
-                  Bali Airport to Ubud Transfer
+                  Ubud Private Transfer
                 </Link>
               </li>
               <li>
                 <Link href="/bali-airport-transfer-to-seminyak" className="hover:text-white transition-colors">
-                  Bali Airport to Seminyak Taxi
+                  Seminyak &amp; Petitenget
                 </Link>
               </li>
               <li>
                 <Link href="/bali-airport-transfer-to-canggu" className="hover:text-white transition-colors">
-                  Bali Airport to Canggu Chauffeur
+                  Canggu &amp; Berawa
                 </Link>
               </li>
               <li>
                 <Link href="/bali-airport-transfer-to-uluwatu" className="hover:text-white transition-colors">
-                  Bali Airport to Uluwatu Cliffs
+                  Uluwatu &amp; Bingin
                 </Link>
               </li>
               <li>
                 <Link href="/bali-airport-transfer-to-nusa-dua" className="hover:text-white transition-colors">
-                  Bali Airport to Nusa Dua Resorts
+                  Nusa Dua Resorts
                 </Link>
               </li>
               <li>
                 <Link href="/bali-airport-transfer-to-sanur" className="hover:text-white transition-colors">
-                  Bali Airport to Sanur Port
+                  Sanur Fast-Boat Harbor
                 </Link>
               </li>
               <li>
                 <Link href="/blog" className="hover:text-white transition-colors text-emerald-400 font-medium">
-                  Travel Blog & Airport Guides →
+                  Travel Blog &amp; Airport Guides →
                 </Link>
               </li>
             </ul>
@@ -196,7 +196,7 @@ export const Footer: React.FC = () => {
                 href={`/${dest.slug}`}
                 className="hover:text-white transition-colors"
               >
-                Bali Airport Transfer to {dest.metaName}
+                {dest.metaName}
               </Link>
             ))}
           </div>

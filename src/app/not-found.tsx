@@ -15,7 +15,7 @@ export default function NotFound() {
       </h1>
       <p className="text-slate-500 max-w-md mb-8 text-sm leading-relaxed">
         The page you are looking for does not exist. Head back to our Bali
-        Airport (DPS) transfer homepage for fixed fares to 19+ destinations,
+        Airport (DPS) transfer homepage for fixed fares to 18 Bali destinations,
         or chat with us on WhatsApp.
       </p>
       <div className="flex flex-wrap gap-3 justify-center">

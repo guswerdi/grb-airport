@@ -228,7 +228,7 @@ export const RouteInteractiveMap: React.FC<RouteInteractiveMapProps> = ({
       dpsMarker.bindPopup(
         `<div style="font-family:sans-serif;font-size:12px;line-height:1.45;color:#0f172a;max-width:220px;">
           <strong style="color:#065f46;display:block;margin-bottom:2px;">Ngurah Rai Airport (DPS)</strong>
-          <span>Meet your driver outside the <strong>Circle K minimart</strong> at the arrivals exit gate holding your name sign (60-min free wait).</span>
+          <span>Meet your driver outside the <strong>Circle K minimart</strong> at the arrivals exit gate, where they wait with your name sign (60-min free wait).</span>
         </div>`
       );
 

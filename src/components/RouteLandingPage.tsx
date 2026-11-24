@@ -269,7 +269,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-xs border border-white/15 mb-3 sm:mb-4">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
               <span className="text-xs font-medium text-slate-200">
-                Fixed All-Inclusive Fares • Zero Deposit • 10+ Yrs Local Chauffeurs
+                Fixed All-Inclusive Fares • Zero Deposit • Local Balinese Chauffeurs
               </span>
             </div>
 
@@ -378,7 +378,7 @@ export const RouteLandingPage: React.FC<RouteLandingPageProps> = ({
                     Q: Where do I meet my driver at Bali Airport?
                   </p>
                   <p className="text-slate-600 leading-relaxed">
-                    Walk outside the arrivals exit straight to the <strong>Circle K minimart</strong> holding your name sign—with <strong>60 minutes free wait</strong> and a free ATM/SIM stop.
+                    Walk outside the arrivals exit straight to the <strong>Circle K minimart</strong>, where your driver waits with your name sign—with <strong>60 minutes free wait</strong> and a free ATM/SIM stop.
                   </p>
                 </div>
                 <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5">

@@ -104,11 +104,10 @@ export function TermsAndPoliciesContent() {
                         key={sec.id}
                         href={`#${sec.id}`}
                         onClick={() => setActiveSection(sec.id)}
-                        className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold transition-colors ${
-                          activeSection === sec.id
-                            ? "bg-emerald-50 text-emerald-800 border border-emerald-200"
-                            : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-                        }`}
+                        className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold transition-colors ${activeSection === sec.id
+                          ? "bg-emerald-50 text-emerald-800 border border-emerald-200"
+                          : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                          }`}
                       >
                         <Icon className="w-4 h-4 text-emerald-600 shrink-0" />
                         <span>{sec.label}</span>
@@ -438,7 +437,7 @@ export function TermsAndPoliciesContent() {
                   <p>
                     To ensure a safe and comfortable ride without blocking vehicle sightlines or overloading axles:
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-xs">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1 text-xs">
                     <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
                       <p className="font-bold text-slate-900 mb-1">Standard MPV</p>
                       <p className="text-slate-500 mb-1">Toyota Veloz / Avanza</p>
@@ -453,6 +452,11 @@ export function TermsAndPoliciesContent() {
                       <p className="font-bold text-slate-900 mb-1">Big Van (HiAce)</p>
                       <p className="text-slate-500 mb-1">Toyota HiAce Premio</p>
                       <p className="text-emerald-700 font-semibold">Max 12 Pax + 10 Suitcases + Boards</p>
+                    </div>
+                    <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
+                      <p className="font-bold text-slate-900 mb-1">VIP Luxury Alphard</p>
+                      <p className="text-slate-500 mb-1">Toyota Alphard Executive</p>
+                      <p className="text-emerald-700 font-semibold">Max 5 Pax + 4 Large Suitcases</p>
                     </div>
                   </div>
                   <p className="pt-2">

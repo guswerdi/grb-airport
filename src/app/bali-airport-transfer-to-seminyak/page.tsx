@@ -28,7 +28,7 @@ export default async function SeminyakRoutePage() {
   const fx = await fetchLiveExchangeRates();
   const tips = [
     "Bali Airport (DPS) to Seminyak distance is 12 km, taking 25–35 minutes off-peak and 40–55 minutes during sunset peak hours.",
-    "During sunset rush hour (5 PM - 7:30 PM), Sunset Road and Jl. Kayu Aya (Eat Street) experience heavy traffic. Our drivers use quiet backstreets to reach your villa quicker.",
+    "During sunset rush hour (5 PM - 7:30 PM), Sunset Road and Jl. Kayu Aya (Eat Street) experience heavy traffic. Our drivers use quiet backstreets to reach your villa faster.",
     "Heading straight to Ku De Ta, Potato Head, W Bali, or Petitenget? We carry your luggage directly into the hotel lobby or villa entrance.",
     "Returning from Seminyak to Bali Airport later? Schedule hotel pickup 4–4.5 hours before International flights (3–3.5 hours for Domestic).",
   ];

@@ -75,7 +75,7 @@ export const GOOD_TO_KNOW_ITEMS: GoodToKnowItem[] = [
     id: "free-stops",
     category: "Traveler Perks",
     title: "Free ATM, Telkomsel SIM & Money Changer Stop",
-    keyFact: "Ask for a free quick stop on route at bank ATMs (BCA/Mandiri), official SIM kiosks, or licensed money changers.",
+    keyFact: "Ask for a free quick stop en route at bank ATMs (BCA/Mandiri), official SIM kiosks, or licensed money changers.",
     summary:
       "Need IDR cash, a tourist SIM/eSIM, or bottled drinks before villa check-in? Your English-speaking driver will make a brief en-route stop at trusted bank ATMs, official Telkomsel counters, or licensed money changers at zero extra charge.",
     iconName: "Smartphone",
@@ -88,7 +88,7 @@ export const GOOD_TO_KNOW_ITEMS: GoodToKnowItem[] = [
     title: "Luggage, Golf Bag & Surfboard Capacities",
     keyFact: "Standard MPVs hold 3 large suitcases; Innova Zenix fits 4; 12-seat HiAce Premio vans carry 10 bags + surfboards.",
     summary:
-      "Standard MPVs (Avanza/Veloz) seat 4 passengers with 3 large bags; Comfort SUVs (Innova Zenix) carry 5 with 4 large bags. Travelling with family, golf bags, or surfboards up to 7'6\"? Choose our 12-seat Toyota HiAce Premio van (10 large suitcases).",
+      "Standard MPVs (Avanza/Veloz) seat 4 passengers with 3 large bags; Comfort SUVs (Innova Zenix) carry 5 with 4 large bags. Traveling with family, golf bags, or surfboards up to 7'6\"? Choose our 12-seat Toyota HiAce Premio van (10 large suitcases).",
     iconName: "Luggage",
     badge: "Vehicle Guide",
     faqQuestion: "How much luggage and surfboard gear can each vehicle carry?",
@@ -119,9 +119,9 @@ export const GOOD_TO_KNOW_ITEMS: GoodToKnowItem[] = [
     id: "chauffeurs",
     category: "Arrival & Meeting",
     title: "Licensed English-Speaking Balinese Drivers",
-    keyFact: "Direct local Balinese drivers—conversational English, non-smoking, background-vetted, and reliable 24/7.",
+    keyFact: "Local Balinese drivers—conversational English, non-smoking, and reliable 24/7.",
     summary:
-      "Every driver is a licensed local Balinese chauffeur with strong English, clean safety records, and deep shortcuts knowledge around Kuta, Canggu, Seminyak, Uluwatu, and Ubud—happy to recommend dining spots or help with check-in.",
+      "Every driver is a local Balinese chauffeur with strong English and deep shortcut knowledge around Kuta, Canggu, Seminyak, Uluwatu, and Ubud—happy to recommend dining spots or help with check-in.",
     iconName: "UserCheck",
     badge: "Local Team",
     faqQuestion: "Do your drivers speak English and operate 24/7?",

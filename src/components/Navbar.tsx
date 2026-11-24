@@ -50,7 +50,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </span>
             <span className="text-slate-600">|</span>
             <span className="text-slate-400">
-              Ngurah Rai International Airport (DPS) Official Chauffeur Service
+              Ngurah Rai International Airport (DPS) Private Transfer Service
             </span>
           </div>
           <div className="flex items-center gap-5 text-slate-300">

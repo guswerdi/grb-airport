@@ -78,12 +78,12 @@ export const TrustBar: React.FC = () => {
         <div className="mt-8 pt-6 border-t border-slate-100 flex flex-wrap justify-between items-center gap-4 text-xs text-slate-500">
           <div className="flex items-center gap-2">
             <CheckCircle className="w-4 h-4 text-emerald-600" />
-            <span>Authorized Bali Tourism Driver Cooperative Member</span>
+            <span>Dedicated Local Balinese Chauffeur Team</span>
           </div>
           <div className="flex items-center gap-4">
-            <span>DPS International Terminal Gate Access</span>
+            <span>International Arrivals Meet &amp; Greet (Circle K)</span>
             <span className="text-slate-300">•</span>
-            <span>Domestic Terminal Gate Access</span>
+            <span>Domestic Arrivals &amp; Hotel-to-DPS Pickups</span>
           </div>
         </div>
       </div>

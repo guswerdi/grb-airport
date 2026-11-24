@@ -8,7 +8,7 @@ export const ArrivalGuide: React.FC = () => {
       title: "Touchdown & Clear Customs",
       description:
         "After landing at Denpasar (DPS), follow signs to Immigration. Present your passport and Bali Electronic Visa on Arrival (e-VoA). Scan your online Indonesian Customs QR code.",
-      tip: "Fill out your online ECD customs form 2 days before flying for fastest clearance.",
+      tip: "Fill out your online ECD customs form 2 days before flying for the fastest clearance.",
     },
     {
       num: "02",

@@ -387,7 +387,9 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                   )}
                 </span>
                 {transferType === "departure" && (
-                  <span className="text-[10px] text-sky-700 font-normal">3h before flight</span>
+                  <span className="text-[10px] text-sky-700 font-normal">
+                    Intl: {leaveGuide.internationalBefore}
+                  </span>
                 )}
               </div>
               <div className="grid grid-cols-2 gap-1.5">

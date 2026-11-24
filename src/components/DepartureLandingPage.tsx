@@ -180,7 +180,8 @@ export const DepartureLandingPage: React.FC<DepartureLandingPageProps> = ({
         FLEET_DETAILS.find((v) => v.id === selectedVehicleId) ||
         FLEET_DETAILS[0];
       const key =
-        (selectedVehicleId as "standard" | "comfort" | "van") || "standard";
+        (selectedVehicleId as "standard" | "comfort" | "van" | "luxury") ||
+        "standard";
       const priceIdr = defaultDest.rates[key] || defaultDest.rates.standard;
       setModalBookingData({
         transferType: "departure",
@@ -221,7 +222,7 @@ export const DepartureLandingPage: React.FC<DepartureLandingPageProps> = ({
       "@type": "AggregateOffer",
       priceCurrency: "IDR",
       lowPrice: "250000",
-      highPrice: "1600000",
+      highPrice: "2400000",
       offerCount: String(BALI_DESTINATIONS.length * FLEET_DETAILS.length),
       availability: "https://schema.org/InStock",
       url: "https://greatbaliairporttransfer.com/bali-airport-departure-transfer",
@@ -398,7 +399,7 @@ export const DepartureLandingPage: React.FC<DepartureLandingPageProps> = ({
               indicative USD, AUD, EUR, or GBP amounts.
             </p>
             <div className="overflow-x-auto rounded-xl border border-slate-200">
-              <table className="w-full text-left border-collapse text-xs sm:text-sm min-w-[860px]">
+              <table className="w-full text-left border-collapse text-xs sm:text-sm min-w-[980px]">
                 <thead className="bg-slate-50 border-b border-slate-200 text-slate-700 font-semibold">
                   <tr>
                     <th className="py-3 px-4">Pickup Area</th>
@@ -411,6 +412,7 @@ export const DepartureLandingPage: React.FC<DepartureLandingPageProps> = ({
                       Comfort (Innova)
                     </th>
                     <th className="py-3 px-3 text-right">Big Van (HiAce)</th>
+                    <th className="py-3 px-3 text-right">VIP Alphard</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
@@ -459,6 +461,12 @@ export const DepartureLandingPage: React.FC<DepartureLandingPageProps> = ({
                         {formatPrice(row.dest.rates.van, currency, exchangeRates)}
                         <span className="text-[10px] font-normal text-slate-400 block">
                           {formatPrice(row.dest.rates.van, "IDR", exchangeRates)}
+                        </span>
+                      </td>
+                      <td className="py-3 px-3 text-right font-semibold">
+                        {formatPrice(row.dest.rates.luxury, currency, exchangeRates)}
+                        <span className="text-[10px] font-normal text-slate-400 block">
+                          {formatPrice(row.dest.rates.luxury, "IDR", exchangeRates)}
                         </span>
                       </td>
                     </tr>

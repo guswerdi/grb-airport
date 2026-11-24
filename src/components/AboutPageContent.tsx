@@ -160,7 +160,7 @@ export const AboutPageContent: React.FC<AboutPageContentProps> = ({
               </p>
               <div className="flex flex-wrap gap-3 pt-2 text-xs">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-900 font-semibold border border-emerald-200">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" /> Authorized Cooperative Chauffeurs
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" /> Dedicated Local Balinese Chauffeurs
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 text-slate-800 font-semibold border border-slate-200">
                   <Clock className="w-4 h-4 text-emerald-600" /> 24/7 Same Flat Fares

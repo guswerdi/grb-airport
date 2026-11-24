@@ -28,7 +28,7 @@ export default async function UluwatuRoutePage() {
   const fx = await fetchLiveExchangeRates();
   const tips = [
     "Uluwatu is approximately 22 km south of Ngurah Rai Airport (DPS), taking 40–50 minutes off-peak and 55–70 minutes during sunset temple hours.",
-    "Roads in the Bukit peninsula (Pecatu, Bingin, Balangan, Padang Padang) can be steep and winding; our drivers are experienced local chauffeurs with 10+ years of defensive driving standards.",
+    "Roads in the Bukit peninsula (Pecatu, Bingin, Balangan, Padang Padang) can be steep and winding; our local Balinese chauffeurs navigate every cliffside turn and steep villa driveway with care.",
     "Staying at a 5-star clifftop resort like Bulgari, Alila Villas, Six Senses, or Jumeirah? Our Comfort Innova Zenix or VIP Toyota Alphard offers an ultra-smooth arrival.",
     "Need an Uluwatu to airport return transfer? Schedule pickup 4.5 hours before International flights (3.5 hours for Domestic)—online apps like Grab/Gojek are often restricted in Uluwatu cliff zones.",
   ];

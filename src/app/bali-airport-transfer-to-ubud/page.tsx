@@ -29,7 +29,7 @@ export default async function UbudRoutePage() {
   const tips = [
     "Distance from Bali Airport (DPS) to Ubud is 38 km, taking 60–75 minutes off-peak and 75–95 minutes during peak afternoon rush (3 PM–7 PM).",
     "Our drivers take the Ida Bagus Mantra Bypass or Tollway to avoid the congested Batubulan town center.",
-    "If your villa is located down a pedestrian-only lane (common in central Ubud, Sayan, or Penestanan), your chauffeur will coordinate with villa staff and assist carrying your luggage right to your villa door.",
+    "If your villa is located down a pedestrian-only lane (common in central Ubud, Sayan, or Penestanan), your chauffeur will coordinate with villa staff and help carry your luggage right to your villa door.",
     "Need to buy a local Telkomsel tourist SIM card or withdraw Rupiah cash from a bank ATM? Just notify your chauffeur and we will make a quick stop at no extra charge.",
     "Returning from Ubud to Bali Airport (DPS)? Schedule your hotel pickup 5–5.5 hours before International flights (4–4.5 hours for Domestic).",
   ];

@@ -29,7 +29,7 @@ export default async function CangguRoutePage() {
   const tips = [
     "The distance from Bali Airport (DPS) to Canggu is 19 km, taking 45–55 minutes off-peak and 60–80 minutes during peak afternoon rush.",
     "Canggu shortcut and Jl. Pantai Berawa get congested late afternoon; our experienced drivers use alternate routes to reach Berawa, Batu Bolong, Echo Beach, and Pererenan villas smoothly.",
-    "Traveling with surfboards or bulky beach luggage? Our Toyota HiAce Premio van easily accommodates longboards up to 7'6\" and multiple boardbags inside the cabin.",
+    "Traveling with surfboards or bulky beach luggage? Our Toyota HiAce Premio van easily accommodates longboards up to 7'6\" and multiple board bags inside the cabin.",
     "Returning from Canggu to Bali Airport? Schedule your villa pickup 4.5–5 hours before International flights (3.5–4 hours for Domestic).",
   ];
 
@@ -75,7 +75,7 @@ export default async function CangguRoutePage() {
     <RouteLandingPage
       destination={cangguDest}
       heroImage="/images/dest-seminyak.jpg"
-      routeOverview="Canggu (spanning Berawa, Batu Bolong, Echo Beach, and Pererenan) is Bali's epicentre of surfing, digital nomads, beach clubs (Finns, Atlas), and oceanfront villas just 19 km from DPS Airport. Pre-booking your airport pickup ensures a stress-free ride straight from the Circle K exit gate to your villa doorstep."
+      routeOverview="Canggu (spanning Berawa, Batu Bolong, Echo Beach, and Pererenan) is Bali's epicenter of surfing, digital nomads, beach clubs (Finns, Atlas), and oceanfront villas just 19 km from DPS Airport. Pre-booking your airport pickup ensures a stress-free ride straight from the Circle K exit gate to your villa doorstep."
       travelTips={tips}
       faqs={faqs}
       exchangeRates={fx.rates}

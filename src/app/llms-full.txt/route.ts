@@ -90,7 +90,7 @@ ${directQa}
 ## What every fare includes (100% all-inclusive)
 
 ${inclusionsList}
-- Direct fast-boat harbor connections from DPS: Sanur Harbor (IDR 275k Standard / 400k Comfort / 650k HiAce) and Padangbai Harbor (IDR 850k Standard / 1,000k Comfort / 1,100k HiAce).
+- Direct fast-boat harbor connections from DPS: Sanur Harbor (IDR 275k Standard / 400k Comfort / 650k HiAce / 850k VIP Alphard) and Padangbai Harbor (IDR 850k Standard / 1,000k Comfort / 1,100k HiAce / 1,900k VIP Alphard).
 - Recommended departure buffers (allow 3h before international flights, 2h before domestic): leave Ubud 5–5.5h prior, Canggu 4.5–5h prior, Seminyak 4–4.5h prior (add 30–60 mins during 3 PM–7 PM peak traffic).
 
 ## Excluded / optional add-ons (zero hidden fees)

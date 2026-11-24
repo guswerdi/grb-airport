@@ -29,7 +29,7 @@ export default async function NusaDuaRoutePage() {
   const tips = [
     "Nusa Dua is 14 km from Bali Airport (DPS). Via the Bali Mandara Ocean Tollway, the drive takes only 20–25 minutes off-peak and 25–35 minutes during peak hours.",
     "The electronic toll fee for the Bali Mandara ocean highway is 100% included in our fixed rate—you never pay extra for toll cards or airport parking.",
-    "Headed to the gated ITDC resort enclave (Grand Hyatt, Ayodya Resort Bali, Melia, St. Regis, Sofitel, Merusaka, or The Mulia)? Our drivers have full security-checkpoint clearance straight to your lobby.",
+    "Headed to the gated ITDC resort enclave (Grand Hyatt, Ayodya Resort Bali, Melia, St. Regis, Sofitel, Merusaka, or The Mulia)? Our drivers coordinate directly with resort security gates to drop you right at your lobby.",
     "Returning from Nusa Dua to Bali Airport? Schedule hotel pickup 3.5–4 hours before International flights (2.5–3 hours for Domestic).",
   ];
 

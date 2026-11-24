@@ -23,14 +23,15 @@ export const StructuredData: React.FC = () => {
     logo: "https://greatbaliairporttransfer.com/icon1.png",
     "@id": "https://greatbaliairporttransfer.com/#organization",
     url: "https://greatbaliairporttransfer.com",
+    // Add verified public profile URLs here as they are created (Google Business Profile,
+    // TripAdvisor, Trustpilot, Instagram, Facebook). Never put mailto: links in sameAs.
     sameAs: [
       "https://wa.me/6285190920033",
-      "mailto:booking.grb@gmail.com",
     ],
     telephone: "+6285190920033",
     email: "booking.grb@gmail.com",
     priceRange: `IDR ${lowPrice.toLocaleString("en-US")} - ${highPrice.toLocaleString("en-US")}`,
-    currenciesAccepted: "IDR, USD, AUD, EUR, GBP",
+    currenciesAccepted: "IDR, USD, AUD, EUR",
     paymentAccepted: PAYMENT_POLICY.shortSummary,
     address: {
       "@type": "PostalAddress",

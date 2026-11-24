@@ -48,7 +48,7 @@ const FAQS = [
   {
     question: "How much does a 12-seater HiAce van transfer cost from Bali Airport?",
     answer:
-      "Fixed HiAce Premio van rates start at IDR 550,000 (~$34 USD) to Kuta, Seminyak, Jimbaran, and Nusa Dua; IDR 650,000 to Sanur and Ubud; and IDR 700,000 to Canggu and Uluwatu—with zero midnight surcharge.",
+      "Fixed HiAce Premio van rates start at IDR 600,000 (~$37 USD) to Kuta, Seminyak, Jimbaran, and Nusa Dua; IDR 650,000 to Sanur, Kerobokan, Nusa Dua Hills, and Tanjung Benoa; IDR 700,000 to Canggu and Uluwatu; and IDR 800,000 to Ubud—with zero midnight surcharge.",
   },
   {
     question: "Can the Toyota HiAce fit surfboards and golf bags cleanly?",
@@ -58,12 +58,12 @@ const FAQS = [
   {
     question: "Can a large HiAce van access narrow Canggu or Ubud villa alleys?",
     answer:
-      "Most resorts and main villa driveways accommodate HiAce vans. Where private villa lanes in Pererenan, Canggu, or Ubud are strictly single-scooter width, drivers assist luggage the final few steps from the nearest safe drop point.",
+      "Most resorts and main villa driveways accommodate HiAce vans. Where private villa lanes in Pererenan, Canggu, or Ubud are strictly single-scooter width, drivers help carry your luggage the final few steps from the nearest safe drop-off point.",
   },
   {
     question: "Where does a large group meet the HiAce driver at Bali Airport (DPS)?",
     answer:
-      "Walk together out of the arrivals terminal to the Circle K minimart right at the exit gate. Your driver waits there with your name sign and guides your whole group to the van bay with zero parking extra charge.",
+      "Walk together out of the arrivals terminal to the Circle K minimart right at the exit gate. Your driver waits there with your name sign and guides your whole group to the van bay with zero extra parking charge.",
   },
   {
     question: "Do we pay per person or per van—and is a deposit required?",
@@ -123,14 +123,14 @@ export const HiAceVanLandingPage: React.FC<HiAceVanLandingPageProps> = ({
     serviceType: "Private 12-Seater Van & Surfboard Airport Transfer",
     name: "Bali Airport HiAce Van Transfer (Groups, Surfboards & Golf Bags)",
     description:
-      "Private Toyota HiAce Premio 12-seater airport pickup from DPS across Bali. Seats up to 12 passengers with space for 10 suitcases and 7'6\" surfboard bags. Fixed fares from IDR 550,000 per van.",
+      "Private Toyota HiAce Premio 12-seater airport pickup from DPS across Bali. Seats up to 12 passengers with space for 10 suitcases and 7'6\" surfboard bags. Fixed fares from IDR 600,000 per van.",
     provider: {
       "@type": ["LocalBusiness", "TaxiService"],
       "@id": "https://greatbaliairporttransfer.com/#organization",
     },
     offers: {
       "@type": "Offer",
-      price: "550000",
+      price: "600000",
       priceCurrency: "IDR",
       availability: "https://schema.org/InStock",
       url: "https://greatbaliairporttransfer.com/bali-airport-van-transfer-hiace",
@@ -213,7 +213,7 @@ export const HiAceVanLandingPage: React.FC<HiAceVanLandingPageProps> = ({
               Bali Airport <span className="text-emerald-400">HiAce Van</span> &amp; Surfboard Transfer
             </h1>
             <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
-              Keep your family, wedding party, or surf crew in one private air-conditioned van from DPS Airport—starting from <strong>IDR 550,000 per van</strong> (never per person) with Circle K meet &amp; greet and zero advance deposit.
+              Keep your family, wedding party, or surf crew in one private air-conditioned van from DPS Airport—starting from <strong>IDR 600,000 per van</strong> (never per person) with Circle K meet &amp; greet and zero advance deposit.
             </p>
             <div className="flex flex-wrap gap-3 mt-5 text-xs text-slate-300 font-medium">
               <div className="bg-white/10 px-3 py-1.5 rounded-lg border border-white/10 flex items-center gap-2">
@@ -268,7 +268,7 @@ export const HiAceVanLandingPage: React.FC<HiAceVanLandingPageProps> = ({
               <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
                 <p className="font-bold text-slate-900 mb-1">Surf Trips &amp; Golf Groups</p>
                 <p className="text-slate-600 leading-relaxed">
-                  Comfortably carries <strong>6–9 travelers + boardbags up to 7&apos;6&quot;</strong> or bulky golf cases. Tell us board lengths via WhatsApp so we fold rear benches properly.
+                  Comfortably carries <strong>6–9 travelers + board bags up to 7&apos;6&quot;</strong> or bulky golf cases. Tell us board lengths via WhatsApp so we fold rear benches properly.
                 </p>
               </div>
               <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-2">
@@ -276,7 +276,7 @@ export const HiAceVanLandingPage: React.FC<HiAceVanLandingPageProps> = ({
                 <div>
                   <p className="font-bold text-amber-950 mb-1">Narrow Villa Lanes Note</p>
                   <p className="text-amber-900 leading-relaxed">
-                    If your private villa sits down a scooter-only alley in Canggu or Uluwatu, drivers drop at the closest accessible corner and assist with bags.
+                    If your private villa sits down a scooter-only alley in Canggu or Uluwatu, drivers drop you off at the closest accessible corner and help carry your bags.
                   </p>
                 </div>
               </div>

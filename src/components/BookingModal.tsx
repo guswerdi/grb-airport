@@ -294,11 +294,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider block mb-1.5">
                     Vehicle Option
                   </span>
-                  <div className="grid grid-cols-3 gap-1.5">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
                     {[
                       { id: "standard", label: "Standard", price: bookingData.destination.rates.standard },
                       { id: "comfort", label: "Comfort", price: bookingData.destination.rates.comfort },
                       { id: "van", label: "Big Van", price: bookingData.destination.rates.van },
+                      { id: "luxury", label: "VIP Alphard", price: bookingData.destination.rates.luxury },
                     ].map((tier) => {
                       const isSelected = selectedVehicleId === tier.id;
                       return (

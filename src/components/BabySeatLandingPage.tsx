@@ -120,7 +120,8 @@ export const BabySeatLandingPage: React.FC<BabySeatLandingPageProps> = ({
         FLEET_DETAILS.find((v) => v.id === selectedVehicleId) ||
         FLEET_DETAILS[1];
       const key =
-        (selectedVehicleId as "standard" | "comfort" | "van") || "comfort";
+        (selectedVehicleId as "standard" | "comfort" | "van" | "luxury") ||
+        "comfort";
       const priceIdr = defaultDest.rates[key] || defaultDest.rates.comfort;
       setModalBookingData({
         transferType: "arrival",
@@ -161,7 +162,7 @@ export const BabySeatLandingPage: React.FC<BabySeatLandingPageProps> = ({
       "@type": "AggregateOffer",
       priceCurrency: "IDR",
       lowPrice: "250000",
-      highPrice: "1600000",
+      highPrice: "2400000",
       offerCount: String(BALI_DESTINATIONS.length * FLEET_DETAILS.length),
       availability: "https://schema.org/InStock",
       url: "https://greatbaliairporttransfer.com/bali-airport-transfer-with-baby-seat",
@@ -349,7 +350,7 @@ export const BabySeatLandingPage: React.FC<BabySeatLandingPageProps> = ({
               Child seats take up one full passenger seat. Factor in folded prams,
               travel cots, and large family suitcases when picking your vehicle tier.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {FLEET_DETAILS.map((vehicle) => (
                 <div
                   key={vehicle.id}
@@ -379,6 +380,8 @@ export const BabySeatLandingPage: React.FC<BabySeatLandingPageProps> = ({
                         "Recommended for families: spacious captain seating, smooth suspension, and room for 1–2 child seats plus a full-size pram and 4 suitcases."}
                       {vehicle.id === "van" &&
                         "Ideal for multi-family trips or 5+ travelers needing 2–3 child seats, double strollers, and up to 10 suitcases."}
+                      {vehicle.id === "luxury" &&
+                        "Executive reclining leather captain seats for up to 5 passengers and 4 suitcases—fits 1–2 child seats in quiet comfort."}
                     </p>
                   </div>
                   <button
@@ -407,7 +410,7 @@ export const BabySeatLandingPage: React.FC<BabySeatLandingPageProps> = ({
               <strong>IDR 50,000 per child seat</strong>.
             </p>
             <div className="overflow-x-auto rounded-xl border border-slate-200">
-              <table className="w-full text-left border-collapse text-xs sm:text-sm min-w-[680px]">
+              <table className="w-full text-left border-collapse text-xs sm:text-sm min-w-[820px]">
                 <thead className="bg-slate-50 border-b border-slate-200 text-slate-700 font-semibold">
                   <tr>
                     <th className="py-3 px-4">Destination</th>
@@ -420,6 +423,9 @@ export const BabySeatLandingPage: React.FC<BabySeatLandingPageProps> = ({
                     </th>
                     <th className="py-3 px-4 text-right">
                       Big Van (HiAce, 1–12 pax)
+                    </th>
+                    <th className="py-3 px-4 text-right">
+                      VIP Alphard (1–5 pax)
                     </th>
                   </tr>
                 </thead>
@@ -453,6 +459,12 @@ export const BabySeatLandingPage: React.FC<BabySeatLandingPageProps> = ({
                         {formatPrice(dest.rates.van, currency, exchangeRates)}{" "}
                         <span className="text-[11px] font-normal text-slate-400 block">
                           {formatPrice(dest.rates.van, "IDR", exchangeRates)}
+                        </span>
+                      </td>
+                      <td className="py-3 px-4 text-right font-semibold">
+                        {formatPrice(dest.rates.luxury, currency, exchangeRates)}{" "}
+                        <span className="text-[11px] font-normal text-slate-400 block">
+                          {formatPrice(dest.rates.luxury, "IDR", exchangeRates)}
                         </span>
                       </td>
                     </tr>

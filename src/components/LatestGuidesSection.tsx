@@ -85,7 +85,7 @@ export const LatestGuidesSection: React.FC<LatestGuidesSectionProps> = ({
           >
             <div>
               <span className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-0.5">
-                Groups &amp; Surf Trips • From IDR 550,000 / van
+                Groups &amp; Surf Trips • From IDR 600,000 / van
               </span>
               <h3 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-emerald-800">
                 12-Seat Toyota HiAce Van &amp; Surfboard Transfers

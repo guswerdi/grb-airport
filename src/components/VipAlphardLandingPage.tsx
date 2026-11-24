@@ -45,7 +45,7 @@ const FAQS = [
   {
     question: "What is included in the VIP luxury Bali airport transfer?",
     answer:
-      "Every VIP Alphard booking includes Circle K exit-gate meet-and-greet with your personalized name board, full luggage escort, 60 minutes complimentary flight delay waiting, Bali Mandara Ocean Tollway & DPS airport parking fees, dual-zone climate control, onboard Wi-Fi, and 24/7 flat pricing with zero midnight surcharge.",
+      "Every VIP Alphard booking includes Circle K exit-gate meet-and-greet with your personalized name board, full luggage escort, 60 minutes complimentary flight delay waiting, Bali Mandara Ocean Tollway & DPS airport parking fees, dual-zone climate control, fast USB-C charging, and 24/7 flat pricing with zero midnight surcharge.",
   },
   {
     question: "Is a deposit required to reserve a Toyota Alphard at Bali Airport?",
@@ -327,7 +327,7 @@ export const VipAlphardLandingPage: React.FC<VipAlphardLandingPageProps> = ({
                           }
                           className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors cursor-pointer"
                         >
-                          Reserve Alphard
+                          Select
                         </button>
                       </td>
                     </tr>
